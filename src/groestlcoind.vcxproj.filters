@@ -2,19 +2,79 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{934c7f84-8386-43ed-af08-2b2d668fd6c5}</UniqueIdentifier>
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{28e800f4-788d-444f-9795-85d46d55938c}</UniqueIdentifier>
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\script">
+      <UniqueIdentifier>{ffe64478-323e-434a-a8de-8278cb61cbc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\script">
+      <UniqueIdentifier>{47178171-61d1-4a31-88a1-e793e9461e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\primitives">
+      <UniqueIdentifier>{fedb2042-046d-4d30-a0a2-de4cf342df54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\primitives">
+      <UniqueIdentifier>{3d091f34-176f-4d18-acaf-852f4a187241}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="amount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="arith_uint256.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uint256.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script\script.cpp">
+      <Filter>Source Files\script</Filter>
+    </ClCompile>
+    <ClCompile Include="primitives\block.cpp">
+      <Filter>Source Files\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="net.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grs-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyformat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uint256.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="script\script.h">
+      <Filter>Header Files\script</Filter>
+    </ClInclude>
+    <ClInclude Include="primitives\block.h">
+      <Filter>Header Files\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="net.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "groestlcoind", "src\groestlcoind.vcxproj", "{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		D_St|x64 = D_St|x64
+		D_St|x86 = D_St|x86
+		R_St|x64 = R_St|x64
+		R_St|x86 = R_St|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.D_St|x64.ActiveCfg = D_St|x64
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.D_St|x64.Build.0 = D_St|x64
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.D_St|x86.ActiveCfg = D_St|Win32
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.D_St|x86.Build.0 = D_St|Win32
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.R_St|x64.ActiveCfg = R_St|Win32
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.R_St|x86.ActiveCfg = R_St|Win32
+		{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}.R_St|x86.Build.0 = R_St|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
