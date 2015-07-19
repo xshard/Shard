@@ -2,7 +2,7 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
-#include <el/libext.h>
+#include <vc-inc.h>
 
 
 #pragma warning(disable: 4018 4242 4244 4267 4290 4800)
@@ -24,9 +24,9 @@
 #define HAVE_DECL_BE64TOH 1
 #define HAVE_DECL_LE64TOH 1
 
+#define HAVE_WORKING_BOOST_SLEEP_FOR 1
 
 
-
-
+#define BOOST_ASIO_ERROR_CATEGORY_NOEXCEPT noexcept
 
 
