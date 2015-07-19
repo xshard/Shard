@@ -43,6 +43,18 @@
     <Filter Include="Header Files\crypto">
       <UniqueIdentifier>{749022b9-4443-4b86-a8f7-8631f02a8761}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\compat">
+      <UniqueIdentifier>{addcde13-a30b-4eaf-be23-6d2b2b2b9ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\compat">
+      <UniqueIdentifier>{39258e4b-4e1a-44f5-a232-494e59904533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\policy">
+      <UniqueIdentifier>{d95a1ce5-9132-444c-9c28-72fbe051805c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\policy">
+      <UniqueIdentifier>{d053d0c4-d795-44f6-a65c-608fb7ae75e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,6 +141,45 @@
     <ClCompile Include="init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="chainparams.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compat\glibc_sanity.cpp">
+      <Filter>Source Files\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="compat\glibcxx_sanity.cpp">
+      <Filter>Source Files\compat</Filter>
+    </ClCompile>
+    <ClCompile Include="noui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="key.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utilstrencodings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="policy\fees.cpp">
+      <Filter>Source Files\policy</Filter>
+    </ClCompile>
+    <ClCompile Include="merkleblock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\sha1.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="eccryptoverify.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\ripemd160.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="policy\policy.cpp">
+      <Filter>Source Files\policy</Filter>
+    </ClCompile>
+    <ClCompile Include="leveldbwrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -213,6 +264,42 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="init.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chainparams.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compat\sanity.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="noui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="key.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utilstrencodings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="policy\fees.h">
+      <Filter>Header Files\policy</Filter>
+    </ClInclude>
+    <ClInclude Include="merkleblock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="crypto\sha1.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="eccryptoverify.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="crypto\ripemd160.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="policy\policy.h">
+      <Filter>Header Files\policy</Filter>
+    </ClInclude>
+    <ClInclude Include="leveldbwrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

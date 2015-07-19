@@ -29,4 +29,3 @@
 
 #define BOOST_ASIO_ERROR_CATEGORY_NOEXCEPT noexcept
 
-
