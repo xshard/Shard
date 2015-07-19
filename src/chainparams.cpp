@@ -104,7 +104,7 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-		Checkpoints::CCheckpointData cd{
+		checkpointData = Checkpoints::CCheckpointData{
 			boost::assign::map_list_of
 			(11111, uint256S("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"))
 			(33333, uint256S("0x000000002dd5588a74784eaa7ab0507a18ad16a236e7b1ce69f00d7ddfb5d0a6"))
@@ -124,7 +124,6 @@ public:
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			60000.0     // * estimated number of transactions per day after checkpoint
 		};
-		checkpointData = cd;
     }
 };
 static CMainParams mainParams;
@@ -175,16 +174,13 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
 
-		Checkpoints::CCheckpointData cd{
+		checkpointData = Checkpoints::CCheckpointData {
 			boost::assign::map_list_of
 			(546, uint256S("000000002a936ca763904c3c35fce2f3556c559c0214345d31b1bcebf76acb70")),
 			1337966069,
 			1488,
 			300
 		};
-
-		checkpointData = cd;
-
 
     }
 };
@@ -223,15 +219,13 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-		Checkpoints::CCheckpointData cd{
+		checkpointData = Checkpoints::CCheckpointData {
 			boost::assign::map_list_of
 			(0, uint256S("0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206")),
 			0,
 			0,
 			0
 		};
-
-		checkpointData = cd;
     }
 };
 static CRegTestParams regTestParams;

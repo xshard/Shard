@@ -18,5 +18,8 @@
     <ClCompile Include="bitcoind.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="win-libs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

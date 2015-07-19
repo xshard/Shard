@@ -135,7 +135,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <Optimization>MinSpace</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -179,7 +179,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <Optimization>MinSpace</Optimization>
+      <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
@@ -190,9 +190,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\foreign\secp256k1\secp256k1.c">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">libsecp256k1-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">libsecp256k1-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">libsecp256k1-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="addrman.cpp" />
     <ClCompile Include="alert.cpp" />
     <ClCompile Include="amount.cpp" />
     <ClCompile Include="arith_uint256.cpp" />
+    <ClCompile Include="base58.cpp" />
     <ClCompile Include="bloom.cpp" />
     <ClCompile Include="chain.cpp" />
     <ClCompile Include="chainparams.cpp" />
@@ -202,38 +210,81 @@
     <ClCompile Include="coins.cpp" />
     <ClCompile Include="compat\glibcxx_sanity.cpp" />
     <ClCompile Include="compat\glibc_sanity.cpp" />
+    <ClCompile Include="compat\vc_compat.cpp" />
+    <ClCompile Include="compressor.cpp" />
+    <ClCompile Include="core_read.cpp" />
+    <ClCompile Include="core_write.cpp" />
+    <ClCompile Include="crypto\hmac_sha512.cpp" />
     <ClCompile Include="crypto\ripemd160.cpp" />
     <ClCompile Include="crypto\sha1.cpp" />
     <ClCompile Include="crypto\sha256.cpp" />
+    <ClCompile Include="crypto\sha512.cpp" />
     <ClCompile Include="eccryptoverify.cpp" />
+    <ClCompile Include="ecwrapper.cpp" />
     <ClCompile Include="groestlcoin.cpp" />
+    <ClCompile Include="hash.cpp" />
     <ClCompile Include="init.cpp" />
-    <ClCompile Include="key.cpp" />
-    <ClCompile Include="leveldbwrapper.cpp" />
+    <ClCompile Include="key.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="keystore.cpp" />
+    <ClCompile Include="leveldbwrapper.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">..\inc;leveldb\helpers\memenv</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">..\inc;leveldb\helpers\memenv</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">..\inc;leveldb\helpers\memenv</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;leveldb\helpers\memenv</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="merkleblock.cpp" />
+    <ClCompile Include="miner.cpp" />
     <ClCompile Include="net.cpp" />
     <ClCompile Include="netbase.cpp" />
     <ClCompile Include="noui.cpp" />
     <ClCompile Include="policy\fees.cpp" />
     <ClCompile Include="policy\policy.cpp" />
+    <ClCompile Include="pow.cpp" />
     <ClCompile Include="primitives\block.cpp" />
     <ClCompile Include="primitives\transaction.cpp" />
     <ClCompile Include="protocol.cpp" />
+    <ClCompile Include="pubkey.cpp" />
     <ClCompile Include="random.cpp" />
+    <ClCompile Include="rest.cpp" />
+    <ClCompile Include="rpcblockchain.cpp" />
+    <ClCompile Include="rpcmining.cpp" />
+    <ClCompile Include="rpcmisc.cpp" />
+    <ClCompile Include="rpcnet.cpp" />
+    <ClCompile Include="rpcprotocol.cpp" />
+    <ClCompile Include="rpcrawtransaction.cpp" />
+    <ClCompile Include="rpcserver.cpp" />
     <ClCompile Include="scheduler.cpp" />
     <ClCompile Include="script\interpreter.cpp" />
     <ClCompile Include="script\script.cpp" />
+    <ClCompile Include="script\script_error.cpp" />
+    <ClCompile Include="script\sigcache.cpp" />
+    <ClCompile Include="script\sign.cpp" />
+    <ClCompile Include="script\standard.cpp" />
     <ClCompile Include="support\cleanse.cpp" />
+    <ClCompile Include="support\pagelocker.cpp" />
+    <ClCompile Include="timedata.cpp" />
     <ClCompile Include="txdb.cpp" />
     <ClCompile Include="txmempool.cpp" />
     <ClCompile Include="uint256.cpp" />
+    <ClCompile Include="univalue\univalue.cpp" />
+    <ClCompile Include="univalue\univalue_read.cpp" />
+    <ClCompile Include="univalue\univalue_write.cpp" />
     <ClCompile Include="util.cpp" />
+    <ClCompile Include="utilmoneystr.cpp" />
     <ClCompile Include="utilstrencodings.cpp" />
     <ClCompile Include="utiltime.cpp" />
+    <ClCompile Include="validationinterface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="addrman.h" />
     <ClInclude Include="alert.h" />
+    <ClInclude Include="base58.h" />
     <ClInclude Include="bloom.h" />
     <ClInclude Include="chain.h" />
     <ClInclude Include="chainparams.h" />
@@ -242,37 +293,58 @@
     <ClInclude Include="clientversion.h" />
     <ClInclude Include="coins.h" />
     <ClInclude Include="compat\sanity.h" />
+    <ClInclude Include="compressor.h" />
+    <ClInclude Include="core_io.h" />
+    <ClInclude Include="crypto\hmac_sha512.h" />
     <ClInclude Include="crypto\ripemd160.h" />
     <ClInclude Include="crypto\sha1.h" />
     <ClInclude Include="crypto\sha256.h" />
+    <ClInclude Include="crypto\sha512.h" />
     <ClInclude Include="eccryptoverify.h" />
+    <ClInclude Include="ecwrapper.h" />
     <ClInclude Include="groestlcoin.h" />
     <ClInclude Include="grs-config.h" />
+    <ClInclude Include="hash.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="key.h" />
+    <ClInclude Include="keystore.h" />
     <ClInclude Include="leveldbwrapper.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="merkleblock.h" />
+    <ClInclude Include="miner.h" />
     <ClInclude Include="net.h" />
     <ClInclude Include="netbase.h" />
     <ClInclude Include="noui.h" />
     <ClInclude Include="policy\fees.h" />
     <ClInclude Include="policy\policy.h" />
+    <ClInclude Include="pow.h" />
     <ClInclude Include="primitives\block.h" />
     <ClInclude Include="primitives\transaction.h" />
     <ClInclude Include="protocol.h" />
+    <ClInclude Include="pubkey.h" />
     <ClInclude Include="random.h" />
+    <ClInclude Include="rpcprotocol.h" />
+    <ClInclude Include="rpcserver.h" />
     <ClInclude Include="scheduler.h" />
     <ClInclude Include="script\interpreter.h" />
     <ClInclude Include="script\script.h" />
+    <ClInclude Include="script\script_error.h" />
+    <ClInclude Include="script\sigcache.h" />
+    <ClInclude Include="script\sign.h" />
+    <ClInclude Include="script\standard.h" />
     <ClInclude Include="support\cleanse.h" />
+    <ClInclude Include="support\pagelocker.h" />
+    <ClInclude Include="timedata.h" />
     <ClInclude Include="tinyformat.h" />
     <ClInclude Include="txdb.h" />
     <ClInclude Include="txmempool.h" />
     <ClInclude Include="uint256.h" />
+    <ClInclude Include="univalue\univalue.h" />
     <ClInclude Include="util.h" />
+    <ClInclude Include="utilmoneystr.h" />
     <ClInclude Include="utilstrencodings.h" />
     <ClInclude Include="utiltime.h" />
+    <ClInclude Include="validationinterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
