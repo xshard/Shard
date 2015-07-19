@@ -22,34 +22,29 @@
     <ProjectGuid>{1630C0CD-299D-4FB6-A59B-ED164DEC0FB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>grs</RootNamespace>
-    <TargetPlatformVersion>8.1</TargetPlatformVersion>
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
@@ -194,24 +189,59 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="alert.cpp" />
     <ClCompile Include="amount.cpp" />
     <ClCompile Include="arith_uint256.cpp" />
+    <ClCompile Include="bitcoind.cpp" />
+    <ClCompile Include="bloom.cpp" />
+    <ClCompile Include="chain.cpp" />
+    <ClCompile Include="chainparamsbase.cpp" />
+    <ClCompile Include="checkpoints.cpp" />
+    <ClCompile Include="coins.cpp" />
+    <ClCompile Include="crypto\sha256.cpp" />
+    <ClCompile Include="groestlcoin.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="net.cpp" />
+    <ClCompile Include="netbase.cpp" />
     <ClCompile Include="primitives\block.cpp" />
+    <ClCompile Include="primitives\transaction.cpp" />
+    <ClCompile Include="protocol.cpp" />
+    <ClCompile Include="random.cpp" />
+    <ClCompile Include="script\interpreter.cpp" />
     <ClCompile Include="script\script.cpp" />
+    <ClCompile Include="support\cleanse.cpp" />
+    <ClCompile Include="txdb.cpp" />
+    <ClCompile Include="txmempool.cpp" />
     <ClCompile Include="uint256.cpp" />
     <ClCompile Include="util.cpp" />
+    <ClCompile Include="utiltime.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="alert.h" />
+    <ClInclude Include="bloom.h" />
+    <ClInclude Include="chain.h" />
+    <ClInclude Include="chainparamsbase.h" />
+    <ClInclude Include="checkpoints.h" />
+    <ClInclude Include="coins.h" />
+    <ClInclude Include="crypto\sha256.h" />
+    <ClInclude Include="groestlcoin.h" />
     <ClInclude Include="grs-config.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="net.h" />
+    <ClInclude Include="netbase.h" />
     <ClInclude Include="primitives\block.h" />
+    <ClInclude Include="primitives\transaction.h" />
+    <ClInclude Include="protocol.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="script\interpreter.h" />
     <ClInclude Include="script\script.h" />
+    <ClInclude Include="support\cleanse.h" />
     <ClInclude Include="tinyformat.h" />
+    <ClInclude Include="txdb.h" />
+    <ClInclude Include="txmempool.h" />
     <ClInclude Include="uint256.h" />
     <ClInclude Include="util.h" />
+    <ClInclude Include="utiltime.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
