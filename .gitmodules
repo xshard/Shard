@@ -1,0 +1,3 @@
+[submodule "foreign"]
+	path = foreign
+	url = https://github.com/ufasoft/foreign
