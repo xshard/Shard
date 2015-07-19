@@ -1,8 +1,6 @@
 #pragma once
 
 
-#pragma once
-
 #if _MSC_VER < 1400   // removed in VS8
 	#pragma warning(disable: 4270)
 	// nonstandard extension used: 'initializing': a non-const 'type1' must be initialized with an l-value, not a function returning 'type2'
@@ -148,6 +146,17 @@
 #pragma warning(default: 4906) // string literal cast to 'LPWSTR'
 #pragma warning(default: 4931) // we are assuming the type library was built for number-bit pointers
 #pragma warning(default: 4962) // 'function' : Profile-guided optimizations disabled because optimizations caused profile data to become inconsistent"
+
+#ifdef _M_IX86
+#	define _X86_
+#endif
+
+#ifdef _M_AMD64
+#	define _AMD64_
+#endif
+
+
+#define NOMINMAX					// used in windows.h
 
 #define _WIN32_WINNT 0x602
 #define _WIN32_WINNT_WINTHRESHOLD 0x0700		//!!!?
