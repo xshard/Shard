@@ -26,6 +26,8 @@
 
 #define HAVE_WORKING_BOOST_SLEEP_FOR 1
 
-
 #define BOOST_ASIO_ERROR_CATEGORY_NOEXCEPT noexcept
+
+#define QT_STATIC
+
 

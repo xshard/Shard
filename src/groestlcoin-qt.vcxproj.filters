@@ -16,6 +16,9 @@
     <Filter Include="Source Files\qt">
       <UniqueIdentifier>{0e034e57-2344-4da1-a24c-978d1bdb299c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\qt">
+      <UniqueIdentifier>{fb65136d-ba22-4a2f-9017-0d3282b64fe2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win-libs.cpp">
@@ -24,5 +27,49 @@
     <ClCompile Include="qt\bitcoin.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
+    <ClCompile Include="qt\networkstyle.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\optionsmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoingui.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\guiutil.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\splashscreen.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\utilitydialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\scicon.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="qt\networkstyle.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\optionsmodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoingui.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\guiutil.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\splashscreen.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\utilitydialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\scicon.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,14 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="4.0" DefaultTarget="Moc">
+<ItemGroup>
+	<Moc Include="bitcoin.cpp" 				/>
+
+	<Qrc Include="bitcoin.qrc"		/>
+		
+</ItemGroup>
+
+<Target Name="Moc">
+	<Exec Command="moc.exe -o  %(Moc.Filename).moc  %(Moc.FullPath)" /> 
+	<Exec Command="rcc.exe --name %(Qrc.Filename) -o res_%(Qrc.Filename).cpp  %(Qrc.FullPath)" /> 
+</Target>
+</Project>
+
