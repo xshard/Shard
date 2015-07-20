@@ -208,22 +208,28 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">%(RelativeDir)%(Filename).moc</Outputs>
     </ClCompile>
     <ClCompile Include="qt\bitcoingui.cpp" />
+    <ClCompile Include="qt\clientmodel.cpp" />
     <ClCompile Include="qt\guiutil.cpp" />
+    <ClCompile Include="qt\moc_utilitydialog.cpp" />
     <ClCompile Include="qt\networkstyle.cpp" />
     <ClCompile Include="qt\optionsmodel.cpp" />
+    <ClCompile Include="qt\paymentrequest.pb.cc" />
     <ClCompile Include="qt\scicon.cpp" />
     <ClCompile Include="qt\splashscreen.cpp" />
     <ClCompile Include="qt\utilitydialog.cpp" />
+    <ClCompile Include="qt\winshutdownmonitor.cpp" />
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\bitcoingui.h" />
+    <ClInclude Include="qt\clientmodel.h" />
     <ClInclude Include="qt\guiutil.h" />
     <ClInclude Include="qt\networkstyle.h" />
     <ClInclude Include="qt\optionsmodel.h" />
     <ClInclude Include="qt\scicon.h" />
     <ClInclude Include="qt\splashscreen.h" />
     <ClInclude Include="qt\utilitydialog.h" />
+    <ClInclude Include="qt\winshutdownmonitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

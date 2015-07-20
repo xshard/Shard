@@ -19,6 +19,12 @@
     <Filter Include="Header Files\qt">
       <UniqueIdentifier>{fb65136d-ba22-4a2f-9017-0d3282b64fe2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\qt\moc">
+      <UniqueIdentifier>{afcd613f-4a17-47da-bae7-f73e426e2306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qt\protobuf">
+      <UniqueIdentifier>{c512e75b-16bc-4a01-b016-8d4728a660ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win-libs.cpp">
@@ -48,6 +54,18 @@
     <ClCompile Include="qt\scicon.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
+    <ClCompile Include="qt\moc_utilitydialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentrequest.pb.cc">
+      <Filter>Source Files\qt\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\clientmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\winshutdownmonitor.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">
@@ -69,6 +87,12 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\scicon.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\clientmodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\winshutdownmonitor.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
   </ItemGroup>

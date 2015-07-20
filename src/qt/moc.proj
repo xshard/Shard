@@ -1,14 +1,21 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="4.0" DefaultTarget="Moc">
 <ItemGroup>
 	<Moc Include="bitcoin.cpp" 				/>
+	<MocH Include="utilitydialog.h"			/>
+	<MocH Include="splashscreen.h"			/>
+	<Qrc Include="bitcoin.qrc"				/>
+	<Proto Include="paymentrequest.proto"	/>
+	<Ui Include="forms/helpmessagedialog.ui"	/>
 
-	<Qrc Include="bitcoin.qrc"		/>
-		
 </ItemGroup>
+
 
 <Target Name="Moc">
 	<Exec Command="moc.exe -o  %(Moc.Filename).moc  %(Moc.FullPath)" /> 
+	<Exec Command="moc.exe -o  moc_%(MocH.Filename).cpp  %(MocH.FullPath)" /> 
 	<Exec Command="rcc.exe --name %(Qrc.Filename) -o res_%(Qrc.Filename).cpp  %(Qrc.FullPath)" /> 
+	<Exec Command="protoc.exe --cpp_out=. %(Proto.Filename).proto" /> 
+	<Exec Command="uic.exe -o ui_%(Ui.Filename).h %(Ui.FullPath)" /> 
 </Target>
 </Project>
 
