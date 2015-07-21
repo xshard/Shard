@@ -10,9 +10,11 @@
 
 #ifdef USE_QT
 #	pragma comment(lib, "imm32")
-#	pragma comment(lib, "Winmm")
+#	pragma comment(lib, "winmm")
 
-#include <QtPlugin>
+#	pragma comment(lib, "protobuf")
+
+#	include <QtPlugin>
 
 Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 

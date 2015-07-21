@@ -207,9 +207,14 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">%(RelativeDir)%(Filename).moc</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">%(RelativeDir)%(Filename).moc</Outputs>
     </ClCompile>
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp" />
     <ClCompile Include="qt\bitcoingui.cpp" />
+    <ClCompile Include="qt\bitcoinunits.cpp" />
     <ClCompile Include="qt\clientmodel.cpp" />
     <ClCompile Include="qt\guiutil.cpp" />
+    <ClCompile Include="qt\moc_bitcoingui.cpp" />
+    <ClCompile Include="qt\moc_clientmodel.cpp" />
+    <ClCompile Include="qt\moc_splashscreen.cpp" />
     <ClCompile Include="qt\moc_utilitydialog.cpp" />
     <ClCompile Include="qt\networkstyle.cpp" />
     <ClCompile Include="qt\optionsmodel.cpp" />
@@ -221,7 +226,9 @@
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="qt\bitcoinaddressvalidator.h" />
     <ClInclude Include="qt\bitcoingui.h" />
+    <ClInclude Include="qt\bitcoinunits.h" />
     <ClInclude Include="qt\clientmodel.h" />
     <ClInclude Include="qt\guiutil.h" />
     <ClInclude Include="qt\networkstyle.h" />

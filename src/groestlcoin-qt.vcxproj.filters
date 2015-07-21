@@ -66,6 +66,21 @@
     <ClCompile Include="qt\winshutdownmonitor.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
+    <ClCompile Include="qt\moc_bitcoingui.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinunits.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_splashscreen.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_clientmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">
@@ -93,6 +108,12 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\winshutdownmonitor.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoinunits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoinaddressvalidator.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,11 +1,32 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="4.0" DefaultTarget="Moc">
 <ItemGroup>
 	<Moc Include="bitcoin.cpp" 				/>
+
+	<MocH Include="bitcoingui.h"			/>
+	<MocH Include="clientmodel.h"			/>
 	<MocH Include="utilitydialog.h"			/>
 	<MocH Include="splashscreen.h"			/>
+
+
 	<Qrc Include="bitcoin.qrc"				/>
 	<Proto Include="paymentrequest.proto"	/>
+
+	<Ui Include="forms/addressbookpage.ui"	/>
+	<Ui Include="forms/askpassphrasedialog.ui"	/>
+	<Ui Include="forms/coincontroldialog.ui"	/>
+	<Ui Include="forms/editaddressdialog.ui"	/>
 	<Ui Include="forms/helpmessagedialog.ui"	/>
+	<Ui Include="forms/intro.ui"				/>
+	<Ui Include="forms/openuridialog.ui"		/>
+	<Ui Include="forms/optionsdialog.ui"		/>
+	<Ui Include="forms/overviewpage.ui"			/>
+	<Ui Include="forms/receivecoinsdialog.ui"	/>
+	<Ui Include="forms/receiverequestdialog.ui"	/>
+	<Ui Include="forms/rpcconsole.ui"			/>
+	<Ui Include="forms/sendcoinsdialog.ui"		/>
+	<Ui Include="forms/sendcoinsentry.ui"		/>
+	<Ui Include="forms/signverifymessagedialog.ui"	/>
+	<Ui Include="forms/transactiondescdialog.ui"	/>
 
 </ItemGroup>
 
