@@ -1,9 +1,12 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="4.0" DefaultTarget="Moc">
 <ItemGroup>
 	<Moc Include="bitcoin.cpp" 				/>
+	<Moc Include="intro.cpp" 				/>
 
+	<MocH Include="bitcoinaddressvalidator.h" />
 	<MocH Include="bitcoingui.h"			/>
 	<MocH Include="clientmodel.h"			/>
+	<MocH Include="intro.h"					/>
 	<MocH Include="utilitydialog.h"			/>
 	<MocH Include="splashscreen.h"			/>
 
