@@ -5,10 +5,15 @@
 
 	<MocH Include="bitcoinaddressvalidator.h" />
 	<MocH Include="bitcoingui.h"			/>
+	<MocH Include="bitcoinunits.h"			/>
 	<MocH Include="clientmodel.h"			/>
+	<MocH Include="guiutil.h"				/>
 	<MocH Include="intro.h"					/>
-	<MocH Include="utilitydialog.h"			/>
+	<MocH Include="optionsdialog.h"			/>
+	<MocH Include="optionsmodel.h"			/>
+	<MocH Include="qvalidatedlineedit.h"	/>
 	<MocH Include="splashscreen.h"			/>
+	<MocH Include="utilitydialog.h"			/>
 
 
 	<Qrc Include="bitcoin.qrc"				/>

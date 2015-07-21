@@ -93,6 +93,36 @@
     <ClCompile Include="qt\peertablemodel.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
+    <ClCompile Include="qt\moc_guiutil.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\optionsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_optionsmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\notificator.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\qvaluecombobox.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinunits.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_optionsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_qvalidatedlineedit.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\rpcconsole.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">
@@ -132,6 +162,15 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\peertablemodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\notificator.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\qvaluecombobox.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\rpcconsole.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
   </ItemGroup>
