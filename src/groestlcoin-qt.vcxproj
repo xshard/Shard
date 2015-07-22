@@ -219,10 +219,15 @@
     <ClCompile Include="qt\moc_clientmodel.cpp" />
     <ClCompile Include="qt\moc_guiutil.cpp" />
     <ClCompile Include="qt\moc_intro.cpp" />
+    <ClCompile Include="qt\moc_notificator.cpp" />
     <ClCompile Include="qt\moc_optionsdialog.cpp" />
     <ClCompile Include="qt\moc_optionsmodel.cpp" />
+    <ClCompile Include="qt\moc_peertablemodel.cpp" />
     <ClCompile Include="qt\moc_qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp" />
+    <ClCompile Include="qt\moc_rpcconsole.cpp" />
     <ClCompile Include="qt\moc_splashscreen.cpp" />
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp" />
     <ClCompile Include="qt\moc_utilitydialog.cpp" />
     <ClCompile Include="qt\networkstyle.cpp" />
     <ClCompile Include="qt\notificator.cpp" />
@@ -230,11 +235,14 @@
     <ClCompile Include="qt\optionsmodel.cpp" />
     <ClCompile Include="qt\paymentrequest.pb.cc" />
     <ClCompile Include="qt\peertablemodel.cpp" />
+    <ClCompile Include="qt\qvalidatedlineedit.cpp" />
     <ClCompile Include="qt\qvaluecombobox.cpp" />
     <ClCompile Include="qt\res_bitcoin.cpp" />
+    <ClCompile Include="qt\res_bitcoin_locale.cpp" />
     <ClCompile Include="qt\rpcconsole.cpp" />
     <ClCompile Include="qt\scicon.cpp" />
     <ClCompile Include="qt\splashscreen.cpp" />
+    <ClCompile Include="qt\trafficgraphwidget.cpp" />
     <ClCompile Include="qt\utilitydialog.cpp" />
     <ClCompile Include="qt\winshutdownmonitor.cpp" />
     <ClCompile Include="win-libs.cpp" />
@@ -254,6 +262,7 @@
     <ClInclude Include="qt\rpcconsole.h" />
     <ClInclude Include="qt\scicon.h" />
     <ClInclude Include="qt\splashscreen.h" />
+    <ClInclude Include="qt\trafficgraphwidget.h" />
     <ClInclude Include="qt\utilitydialog.h" />
     <ClInclude Include="qt\winshutdownmonitor.h" />
   </ItemGroup>

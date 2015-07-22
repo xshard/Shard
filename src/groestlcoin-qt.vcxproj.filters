@@ -96,9 +96,6 @@
     <ClCompile Include="qt\moc_guiutil.cpp">
       <Filter>Source Files\qt\moc</Filter>
     </ClCompile>
-    <ClCompile Include="qt\res_bitcoin.cpp">
-      <Filter>Source Files\qt</Filter>
-    </ClCompile>
     <ClCompile Include="qt\optionsdialog.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
@@ -122,6 +119,33 @@
     </ClCompile>
     <ClCompile Include="qt\rpcconsole.cpp">
       <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\qvalidatedlineedit.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_peertablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_rpcconsole.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\trafficgraphwidget.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_notificator.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin_locale.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +195,9 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\rpcconsole.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\trafficgraphwidget.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
   </ItemGroup>

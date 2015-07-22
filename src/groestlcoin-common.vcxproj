@@ -253,6 +253,7 @@
     <ClCompile Include="random.cpp" />
     <ClCompile Include="rest.cpp" />
     <ClCompile Include="rpcblockchain.cpp" />
+    <ClCompile Include="rpcclient.cpp" />
     <ClCompile Include="rpcmining.cpp" />
     <ClCompile Include="rpcmisc.cpp" />
     <ClCompile Include="rpcnet.cpp" />
@@ -323,6 +324,7 @@
     <ClInclude Include="protocol.h" />
     <ClInclude Include="pubkey.h" />
     <ClInclude Include="random.h" />
+    <ClInclude Include="rpcclient.h" />
     <ClInclude Include="rpcprotocol.h" />
     <ClInclude Include="rpcserver.h" />
     <ClInclude Include="scheduler.h" />
