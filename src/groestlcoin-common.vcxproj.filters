@@ -60,6 +60,12 @@
     <Filter Include="Source Files\secp256k1">
       <UniqueIdentifier>{5bfb8113-62e9-483f-a3fd-2a70dbea425d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\wallet">
+      <UniqueIdentifier>{1394377f-d9ba-405e-911d-bfbf529df32c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\wallet">
+      <UniqueIdentifier>{02cfc1b4-76c9-41b5-af96-68793bafbeaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -290,6 +296,21 @@
     <ClCompile Include="rpcclient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="wallet\rpcwallet.cpp">
+      <Filter>Source Files\wallet</Filter>
+    </ClCompile>
+    <ClCompile Include="wallet\wallet.cpp">
+      <Filter>Source Files\wallet</Filter>
+    </ClCompile>
+    <ClCompile Include="wallet\walletdb.cpp">
+      <Filter>Source Files\wallet</Filter>
+    </ClCompile>
+    <ClCompile Include="wallet\crypter.cpp">
+      <Filter>Source Files\wallet</Filter>
+    </ClCompile>
+    <ClCompile Include="wallet\db.cpp">
+      <Filter>Source Files\wallet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -483,6 +504,18 @@
     </ClInclude>
     <ClInclude Include="rpcclient.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wallet\wallet.h">
+      <Filter>Header Files\wallet</Filter>
+    </ClInclude>
+    <ClInclude Include="wallet\walletdb.h">
+      <Filter>Header Files\wallet</Filter>
+    </ClInclude>
+    <ClInclude Include="wallet\crypter.h">
+      <Filter>Header Files\wallet</Filter>
+    </ClInclude>
+    <ClInclude Include="wallet\db.h">
+      <Filter>Header Files\wallet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

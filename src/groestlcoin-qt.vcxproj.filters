@@ -147,6 +147,18 @@
     <ClCompile Include="qt\res_bitcoin_locale.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="qt\moc_walletframe.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentserver.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\openuridialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">
@@ -198,6 +210,15 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\trafficgraphwidget.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\paymentserver.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\openuridialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\walletmodel.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
   </ItemGroup>

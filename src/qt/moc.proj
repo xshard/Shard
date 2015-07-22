@@ -20,6 +20,7 @@
 	<MocH Include="splashscreen.h"			/>
 	<MocH Include="trafficgraphwidget.h"	/>
 	<MocH Include="utilitydialog.h"			/>
+	<MocH Include="walletframe.h"			/>
 
 
 	<Proto Include="paymentrequest.proto"	/>

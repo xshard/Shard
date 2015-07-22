@@ -30,4 +30,6 @@
 
 #define QT_STATIC
 
+#define ENABLE_WALLET
+
 
