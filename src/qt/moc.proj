@@ -13,6 +13,7 @@
 	<MocH Include="notificator.h"			/>
 	<MocH Include="optionsdialog.h"			/>
 	<MocH Include="optionsmodel.h"			/>
+	<MocH Include="paymentserver.h"			/>
 	<MocH Include="peertablemodel.h"		/>
 	<MocH Include="qvalidatedlineedit.h"	/>
 	<MocH Include="qvaluecombobox.h"		/>

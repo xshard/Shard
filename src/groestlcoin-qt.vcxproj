@@ -197,6 +197,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="qt\addresstablemodel.cpp" />
     <ClCompile Include="qt\bitcoin.cpp">
       <Command Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
@@ -222,6 +223,7 @@
     <ClCompile Include="qt\moc_notificator.cpp" />
     <ClCompile Include="qt\moc_optionsdialog.cpp" />
     <ClCompile Include="qt\moc_optionsmodel.cpp" />
+    <ClCompile Include="qt\moc_paymentserver.cpp" />
     <ClCompile Include="qt\moc_peertablemodel.cpp" />
     <ClCompile Include="qt\moc_qvalidatedlineedit.cpp" />
     <ClCompile Include="qt\moc_qvaluecombobox.cpp" />
@@ -246,12 +248,15 @@
     <ClCompile Include="qt\scicon.cpp" />
     <ClCompile Include="qt\splashscreen.cpp" />
     <ClCompile Include="qt\trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\transactiontablemodel.cpp" />
     <ClCompile Include="qt\utilitydialog.cpp" />
+    <ClCompile Include="qt\walletframe.cpp" />
     <ClCompile Include="qt\walletmodel.cpp" />
     <ClCompile Include="qt\winshutdownmonitor.cpp" />
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="qt\addresstablemodel.h" />
     <ClInclude Include="qt\bitcoinaddressvalidator.h" />
     <ClInclude Include="qt\bitcoingui.h" />
     <ClInclude Include="qt\bitcoinunits.h" />
@@ -269,7 +274,9 @@
     <ClInclude Include="qt\scicon.h" />
     <ClInclude Include="qt\splashscreen.h" />
     <ClInclude Include="qt\trafficgraphwidget.h" />
+    <ClInclude Include="qt\transactiontablemodel.h" />
     <ClInclude Include="qt\utilitydialog.h" />
+    <ClInclude Include="qt\walletframe.h" />
     <ClInclude Include="qt\walletmodel.h" />
     <ClInclude Include="qt\winshutdownmonitor.h" />
   </ItemGroup>

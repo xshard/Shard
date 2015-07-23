@@ -5,7 +5,7 @@
 #include <vc-inc.h>
 
 
-#pragma warning(disable: 4018 4101 4242 4244 4267 4290 4800)
+#pragma warning(disable: 4018 4101 4242 4244 4267 4290 4717 4800)
 
 #define WIN32
 

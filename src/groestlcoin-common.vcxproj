@@ -286,6 +286,7 @@
     <ClCompile Include="wallet\rpcwallet.cpp" />
     <ClCompile Include="wallet\wallet.cpp" />
     <ClCompile Include="wallet\walletdb.cpp" />
+    <ClCompile Include="wallet\wallet_ismine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addrman.h" />
@@ -356,6 +357,7 @@
     <ClInclude Include="wallet\db.h" />
     <ClInclude Include="wallet\wallet.h" />
     <ClInclude Include="wallet\walletdb.h" />
+    <ClInclude Include="wallet\wallet_ismine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
