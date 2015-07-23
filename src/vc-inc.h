@@ -212,3 +212,9 @@ __END_DECLS
 #else
 	typedef __w64 int   ssize_t;
 #endif
+
+
+#include <stdint.h>
+#include <process.h>
+
+

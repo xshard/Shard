@@ -1,27 +1,57 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"  ToolsVersion="4.0" DefaultTarget="Moc">
 <ItemGroup>
 	<Moc Include="bitcoin.cpp" 				/>
+	<Moc Include="bitcoinamountfield.cpp"	/>
 	<Moc Include="intro.cpp" 				/>
-	<Moc Include="rpcconsole.cpp" 				/>
+	<Moc Include="overviewpage.cpp"			/>
+	<Moc Include="rpcconsole.cpp" 			/>
 
+
+	<MocH Include="addressbookpage.h" 		/>
+	<MocH Include="addresstablemodel.h" 	/>
+	<MocH Include="askpassphrasedialog.h" 	/>
 	<MocH Include="bitcoinaddressvalidator.h" />
+	<MocH Include="bitcoinamountfield.h" 	/>
 	<MocH Include="bitcoingui.h"			/>
 	<MocH Include="bitcoinunits.h"			/>
 	<MocH Include="clientmodel.h"			/>
+	<MocH Include="coincontroldialog.h"		/>
+	<MocH Include="coincontroltreewidget.h"	/>
+	<MocH Include="csvmodelwriter.h"		/>
+	<MocH Include="editaddressdialog.h"		/>
 	<MocH Include="guiutil.h"				/>
 	<MocH Include="intro.h"					/>
 	<MocH Include="notificator.h"			/>
+	<MocH Include="openuridialog.h"			/>
 	<MocH Include="optionsdialog.h"			/>
 	<MocH Include="optionsmodel.h"			/>
+	<MocH Include="overviewpage.h"			/>
 	<MocH Include="paymentserver.h"			/>
 	<MocH Include="peertablemodel.h"		/>
 	<MocH Include="qvalidatedlineedit.h"	/>
 	<MocH Include="qvaluecombobox.h"		/>
+	<MocH Include="receivecoinsdialog.h"	/>
+	<MocH Include="receiverequestdialog.h"	/>
+	<MocH Include="recentrequeststablemodel.h"	/>
 	<MocH Include="rpcconsole.h"			/>
+	<MocH Include="sendcoinsdialog.h"		/>
+	<MocH Include="sendcoinsentry.h"		/>
+	<MocH Include="signverifymessagedialog.h" />
 	<MocH Include="splashscreen.h"			/>
 	<MocH Include="trafficgraphwidget.h"	/>
+	<MocH Include="transactiondesc.h"		/>
+	<MocH Include="transactiondescdialog.h"	/>
+	<MocH Include="transactiontablemodel.h"	/>
+
+	<MocH Include="transactionfilterproxy.h"/>
+	<MocH Include="transactionview.h"		/>
+
+
 	<MocH Include="utilitydialog.h"			/>
 	<MocH Include="walletframe.h"			/>
+	<MocH Include="walletmodel.h"			/>
+	<MocH Include="walletview.h"			/>
+
 
 
 	<Proto Include="paymentrequest.proto"	/>

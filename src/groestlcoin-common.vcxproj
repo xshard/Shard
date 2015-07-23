@@ -283,6 +283,7 @@
     <ClCompile Include="validationinterface.cpp" />
     <ClCompile Include="wallet\crypter.cpp" />
     <ClCompile Include="wallet\db.cpp" />
+    <ClCompile Include="wallet\rpcdump.cpp" />
     <ClCompile Include="wallet\rpcwallet.cpp" />
     <ClCompile Include="wallet\wallet.cpp" />
     <ClCompile Include="wallet\walletdb.cpp" />

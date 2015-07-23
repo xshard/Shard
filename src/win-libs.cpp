@@ -2,9 +2,10 @@
 #pragma comment(lib, "shlwapi")
 #pragma comment(lib, "crypt32")
 
-#pragma comment(lib, "openssl")
-#pragma comment(lib, "mpir")
+#pragma comment(lib, "bdb")
 #pragma comment(lib, "leveldb")
+#pragma comment(lib, "mpir")
+#pragma comment(lib, "openssl")
 
 #pragma comment(lib, "groestlcoin-common")
 
@@ -26,7 +27,6 @@ Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 #	pragma comment(lib, "qtharfbuzzng")
 #	pragma comment(lib, "qtmain.lib")
 #	pragma comment(lib, "qwindows.lib")
-#endif
 
 #include <windows.h>
 #undef WinMain
@@ -52,3 +52,5 @@ extern "C" {
 
 	}
 } // "C"
+
+#endif // USE_QT

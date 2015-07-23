@@ -314,6 +314,9 @@
     <ClCompile Include="wallet\wallet_ismine.cpp">
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
+    <ClCompile Include="wallet\rpcdump.cpp">
+      <Filter>Source Files\wallet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
