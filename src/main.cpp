@@ -4674,7 +4674,7 @@ bool ProcessMessages(CNode* pfrom)
 
         // Checksum
         CDataStream& vRecv = msg.vRecv;
-        uint256 hash = XCoin::HashMessage(Grs:ConstBuf(vRecv.begin(), vRecv.begin() + nMessageSize));
+        uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(vRecv.begin(), vRecv.begin() + nMessageSize));
         unsigned int nChecksum = ReadLE32((unsigned char*)&hash);
         if (nChecksum != hdr.nChecksum)
         {

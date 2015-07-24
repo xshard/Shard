@@ -272,6 +272,16 @@
     <ClCompile Include="script\sigcache.cpp" />
     <ClCompile Include="script\sign.cpp" />
     <ClCompile Include="script\standard.cpp" />
+    <ClCompile Include="sphlib\groestl.c">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
     <ClCompile Include="support\cleanse.cpp" />
     <ClCompile Include="support\pagelocker.cpp" />
     <ClCompile Include="timedata.cpp" />

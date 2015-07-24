@@ -317,6 +317,9 @@
     <ClCompile Include="wallet\rpcdump.cpp">
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
+    <ClCompile Include="sphlib\groestl.c">
+      <Filter>Source Files\grs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

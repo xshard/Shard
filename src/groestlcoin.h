@@ -38,6 +38,7 @@ public:
 uint256 HashGroestl(const ConstBuf& cbuf);
 
 uint256 HashFromTx(const ConstBuf& cbuf);
+uint256 HashForSignature(const ConstBuf& cbuf);
 inline uint256 HashPow(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 inline uint256 HashMessage(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 inline uint256 HashForAddress(const ConstBuf& cbuf) { return HashGroestl(cbuf); }

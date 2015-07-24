@@ -9,7 +9,9 @@
 #include "utilstrencodings.h"
 #include "crypto/sha256.h"
 
+extern "C" {
 #include <sphlib/sph_groestl.h>
+}
 
 using namespace std;
 
@@ -40,6 +42,15 @@ uint256 HashFromTx(const ConstBuf& cbuf) {
 	sha.Finalize((unsigned char*)&r);
 	return r;
 }
+
+uint256 HashForSignature(const ConstBuf& cbuf) {
+	CSHA256 sha;
+	sha.Write(cbuf.P, cbuf.Size);
+	uint256 r;
+	sha.Finalize((unsigned char*)&r);
+	return r;
+}
+
 
 } // XCoin::
 
@@ -281,7 +292,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
 }
 //----------------------
 
-unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
+unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     if (params.fPowAllowMinDifficultyBlocks)
     {//test net, DGWv3 since block 10
@@ -348,7 +359,6 @@ public:
          */
         const char* pszTimestamp = "Pressure must be put on Vladimir Putin over Crimea";
         CMutableTransaction txNew;
-        txNew.nVersion = 112;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -359,12 +369,12 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 112;
         genesis.nTime    = 1395342829;
-        genesis.nBits    = 0x1d00ffff;
+        genesis.nBits    = 0x1e0fffff;
         genesis.nNonce   = 220035;
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023"));
-        assert(genesis.hashMerkleRoot == uint256S("0x3ce968df58f9c8a752306c4b7264afab93149dbc578bd08a42c446caaa6628bb"));
+		assert(consensus.hashGenesisBlock == uint256S("0x00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023"));
+		assert(genesis.hashMerkleRoot == uint256S("0x3ce968df58f9c8a752306c4b7264afab93149dbc578bd08a42c446caaa6628bb"));
 
         vSeeds.push_back(CDNSSeedData("groestlcoin.net", "groestlcoin.net"));
         vSeeds.push_back(CDNSSeedData("groestlcoin.org", "groestlcoin.org"));
@@ -414,8 +424,8 @@ public:
         pchMessageStart[2] = 0xB4;
         pchMessageStart[3] = 0xD4;
         vAlertPubKey = ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878");
-        nDefaultPort = 18333;
-        nPruneAfterHeight = 1000;
+        nDefaultPort = 17777;
+        nPruneAfterHeight = 1000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1436539093;

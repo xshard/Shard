@@ -13,6 +13,7 @@
 #include "pubkey.h"
 #include "script/script.h"
 #include "uint256.h"
+#include "streams.h"
 
 using namespace std;
 
@@ -1095,9 +1096,12 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
     CTransactionSignatureSerializer txTmp(txTo, scriptCode, nIn, nHashType);
 
     // Serialize and hash
-    CHashWriter ss(SER_GETHASH, 0);
-    ss << txTmp << nHashType;
-    return ss.GetHash();
+	CDataStream ss(SER_GETHASH, 0);
+	ss << txTmp << nHashType;
+	return XCoin::HashForSignature(XCoin::ConstBuf(ss.begin(), ss.end()));
+//GRS    CHashWriter ss(SER_GETHASH, 0);
+//GRS    ss << txTmp << nHashType;
+//GRS    return ss.GetHash();
 }
 
 bool TransactionSignatureChecker::VerifySignature(const std::vector<unsigned char>& vchSig, const CPubKey& pubkey, const uint256& sighash) const
