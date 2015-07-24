@@ -1,4 +1,4 @@
-bin_PROGRAMS += qt/bitcoin-qt
+bin_PROGRAMS += qt/groestlcoin-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
 # bitcoin qt core #
@@ -394,10 +394,10 @@ CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda 
 
 CLEANFILES += $(CLEAN_QT)
 
-bitcoin_qt_clean: FORCE
+groestlcoin_qt_clean: FORCE
 	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoin_qt_OBJECTS) qt/bitcoin-qt$(EXEEXT) $(LIBBITCOINQT)
 
-bitcoin_qt : qt/bitcoin-qt$(EXEEXT)
+groestlcoin_qt : qt/bitcoin-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

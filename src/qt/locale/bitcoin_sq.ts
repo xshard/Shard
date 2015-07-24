@@ -145,7 +145,7 @@
     </message>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>GroestlCoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Duke u sinkronizuar me rrjetin...</translation>
@@ -179,8 +179,8 @@
         <translation>Ndrysho frazkalimin e përdorur per enkriptimin e portofolit</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>GroestlCoin</source>
+        <translation>GroestlCoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -215,11 +215,11 @@
         <translation>Shiriti i mjeteve</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Berthama Bitcoin</translation>
+        <source>GroestlCoin Core</source>
+        <translation>Berthama GroestlCoin</translation>
     </message>
     <message>
-        <source>&amp;About Bitcoin Core</source>
+        <source>&amp;About GroestlCoin Core</source>
         <translation>Rreth Berthames Bitkoin</translation>
     </message>
     <message>
@@ -354,15 +354,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Berthama Bitcoin</translation>
+        <source>GroestlCoin Core</source>
+        <translation>Berthama GroestlCoin</translation>
     </message>
     <message>
         <source>version</source>
         <translation>versioni</translation>
     </message>
     <message>
-        <source>About Bitcoin Core</source>
+        <source>About GroestlCoin Core</source>
         <translation>Rreth Berthames Bitkoin</translation>
     </message>
     </context>
@@ -373,12 +373,12 @@
         <translation>Miresevini</translation>
     </message>
     <message>
-        <source>Welcome to Bitcoin Core.</source>
-        <translation>Miresevini ne Berthamen Bitcoin</translation>
+        <source>Welcome to GroestlCoin Core.</source>
+        <translation>Miresevini ne Berthamen GroestlCoin</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Berthama Bitcoin</translation>
+        <source>GroestlCoin Core</source>
+        <translation>Berthama GroestlCoin</translation>
     </message>
     <message>
         <source>Error</source>
@@ -565,8 +565,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Berthama Bitcoin</translation>
+        <source>GroestlCoin Core</source>
+        <translation>Berthama GroestlCoin</translation>
     </message>
     <message>
         <source>[testnet]</source>

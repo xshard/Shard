@@ -62,12 +62,12 @@
         <translation>Adresa za primanje</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ovo su vaše Bitcoin adrese za slanje uplate. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
+        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ovo su vaše GroestlCoin adrese za slanje uplate. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Ovo su vaše Bitcoin adrese za primanje isplate. Preporučamo da koristite novu primateljsku adresu za svaku transakciju.</translation>
+        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Ovo su vaše GroestlCoin adrese za primanje isplate. Preporučamo da koristite novu primateljsku adresu za svaku transakciju.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -209,7 +209,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>GroestlCoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>P&amp;otpišite poruku...</translation>
@@ -283,8 +283,8 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
-        <source>Bitcoin Core client</source>
-        <translation>Bitcoin Core klijent</translation>
+        <source>GroestlCoin Core client</source>
+        <translation>GroestlCoin Core klijent</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -295,7 +295,7 @@
         <translation>Re-indeksiranje blokova na disku...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a GroestlCoin address</source>
         <translation>Slanje novca na bitcoin adresu</translation>
     </message>
     <message>
@@ -319,8 +319,8 @@
         <translation>&amp;Potvrdite poruku...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
+        <source>GroestlCoin</source>
+        <translation>GroestlCoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -335,8 +335,8 @@
         <translation>Pri&amp;miti</translation>
     </message>
     <message>
-        <source>Show information about Bitcoin Core</source>
-        <translation>Prikaži informacije o Bitcoin Coreu</translation>
+        <source>Show information about GroestlCoin Core</source>
+        <translation>Prikaži informacije o GroestlCoin Coreu</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -351,12 +351,12 @@
         <translation>Šifriraj privatne ključeve koji pripadaju tvom novčaniku</translation>
     </message>
     <message>
-        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Potpiši poruke svojim Bitcoin adresama kako bi dokazao da si njihov vlasnik</translation>
+        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
+        <translation>Potpiši poruke svojim GroestlCoin adresama kako bi dokazao da si njihov vlasnik</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Provjerite porkue kako bi se uvjerili da su potpisane navedenim Bitcoin adresama</translation>
+        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
+        <translation>Provjerite porkue kako bi se uvjerili da su potpisane navedenim GroestlCoin adresama</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -375,16 +375,16 @@
         <translation>Traka kartica</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezgra</translation>
+        <source>GroestlCoin Core</source>
+        <translation>GroestlCoin Jezgra</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and bitcoin: URIs)</source>
         <translation>Zatraži uplate (Stvara QR kodove i bitcoin: URIje)</translation>
     </message>
     <message>
-        <source>&amp;About Bitcoin Core</source>
-        <translation>&amp;O Bitcoin Jezgri</translation>
+        <source>&amp;About GroestlCoin Core</source>
+        <translation>&amp;O GroestlCoin Jezgri</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -504,7 +504,7 @@
         <translation>Upisana adresa "%1" je već u adresaru.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Bitcoin address.</source>
+        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
         <translation>Upisana adresa "%1" nije valjana bitcoin adresa.</translation>
     </message>
     <message>
@@ -526,16 +526,16 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezgra</translation>
+        <source>GroestlCoin Core</source>
+        <translation>GroestlCoin Jezgra</translation>
     </message>
     <message>
         <source>version</source>
         <translation>verzija</translation>
     </message>
     <message>
-        <source>About Bitcoin Core</source>
-        <translation>O Bitcoinovoj jezgri</translation>
+        <source>About GroestlCoin Core</source>
+        <translation>O GroestlCoinovoj jezgri</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -549,8 +549,8 @@
         <translation>Dobrodošli</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezgra</translation>
+        <source>GroestlCoin Core</source>
+        <translation>GroestlCoin Jezgra</translation>
     </message>
     <message>
         <source>Error</source>
@@ -575,8 +575,8 @@
         <translation>&amp;Mreža</translation>
     </message>
     <message>
-        <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatski otvori port Bitcoin klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
+        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatski otvori port GroestlCoin klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -642,8 +642,8 @@
         <translation>Oblik</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s Bitcoin mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s GroestlCoin mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
     </message>
     <message>
         <source>Total:</source>
@@ -965,8 +965,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Jezgra</translation>
+        <source>GroestlCoin Core</source>
+        <translation>GroestlCoin Jezgra</translation>
     </message>
     <message>
         <source>[testnet]</source>

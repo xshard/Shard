@@ -133,7 +133,7 @@
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>GroestlCoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Синхронизација са мрежом у току...</translation>
@@ -187,7 +187,7 @@
         <translation>Промени &amp;лозинку...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a GroestlCoin address</source>
         <translation>Пошаљите новац на bitcoin адресу</translation>
     </message>
     <message>
@@ -314,8 +314,8 @@
         <translation>верзија</translation>
     </message>
     <message>
-        <source>About Bitcoin Core</source>
-        <translation>O Bitcoin Coru</translation>
+        <source>About GroestlCoin Core</source>
+        <translation>O GroestlCoin Coru</translation>
     </message>
     <message>
         <source>Usage:</source>
