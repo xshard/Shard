@@ -2172,7 +2172,7 @@ void CNode::EndMessage() UNLOCK_FUNCTION(cs_vSend)
     WriteLE32((uint8_t*)&ssSend[CMessageHeader::MESSAGE_SIZE_OFFSET], nSize);
 
     // Set the checksum
-    uint256 hash = Hash(ssSend.begin() + CMessageHeader::HEADER_SIZE, ssSend.end());
+    uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(ssSend.begin() + CMessageHeader::HEADER_SIZE, ssSend.end()));
     unsigned int nChecksum = 0;
     memcpy(&nChecksum, &hash, sizeof(nChecksum));
     assert(ssSend.size () >= CMessageHeader::CHECKSUM_OFFSET + sizeof(nChecksum));

@@ -1,6 +1,7 @@
 #pragma comment(lib, "user32")
 #pragma comment(lib, "shlwapi")
 #pragma comment(lib, "crypt32")
+#pragma comment(lib, "ws2_32")
 
 #pragma comment(lib, "bdb")
 #pragma comment(lib, "leveldb")

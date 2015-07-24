@@ -1058,6 +1058,7 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
     return true;
 }
 
+/*!!!GRS
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
@@ -1070,6 +1071,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     nSubsidy >>= halvings;
     return nSubsidy;
 }
+*/
 
 bool IsInitialBlockDownload()
 {
@@ -4672,7 +4674,7 @@ bool ProcessMessages(CNode* pfrom)
 
         // Checksum
         CDataStream& vRecv = msg.vRecv;
-        uint256 hash = Hash(vRecv.begin(), vRecv.begin() + nMessageSize);
+        uint256 hash = XCoin::HashMessage(Grs:ConstBuf(vRecv.begin(), vRecv.begin() + nMessageSize));
         unsigned int nChecksum = ReadLE32((unsigned char*)&hash);
         if (nChecksum != hdr.nChecksum)
         {

@@ -11,6 +11,7 @@
 #include "uint256.h"
 #include "util.h"
 
+/*!!!GRS
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
@@ -49,6 +50,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
 }
+*/
 
 unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nFirstBlockTime, const Consensus::Params& params)
 {
