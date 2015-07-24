@@ -1,35 +1,54 @@
 #include "groestlcoin.h"
 
-#inclide <sphlib/sph_groestl.h>
+#include <boost/assign/list_of.hpp>
 
+#include "arith_uint256.h"
+#include "chain.h"
+#include "chainparams.h"
+#include "consensus/params.h"
+#include "utilstrencodings.h"
+#include "crypto/sha256.h"
+
+#include <sphlib/sph_groestl.h>
+
+using namespace std;
+
+typedef arith_uint256 CBigNum;
 
 namespace XCoin {
 
 uint256 HashGroestl(const ConstBuf& cbuf) {
     sph_groestl512_context  ctx_gr[2];
     static unsigned char pblank[1];
-    uint512 hash[2];
+    uint256 hash[4];
 	
     sph_groestl512_init(&ctx_gr[0]);
-    sph_groestl512 (&ctx_gr[0], (vch.empty() ? pblank : cbuf.P), cbuf.Size);
+    sph_groestl512 (&ctx_gr[0], cbuf.P ? cbuf.P : pblank, cbuf.Size);
     sph_groestl512_close(&ctx_gr[0], static_cast<void*>(&hash[0]));
 	
 	sph_groestl512_init(&ctx_gr[1]);
 	sph_groestl512(&ctx_gr[1],static_cast<const void*>(&hash[0]), 64);
-	sph_groestl512_close(&ctx_gr[1],static_cast<void*>(&hash[1]));
+	sph_groestl512_close(&ctx_gr[1],static_cast<void*>(&hash[2]));
 	
-    return hash[1].trim256();
+    return hash[2];
 }
 
+uint256 HashFromTx(const ConstBuf& cbuf) {
+	CSHA256 sha;
+	sha.Write(cbuf.P, cbuf.Size);
+	uint256 r;
+	sha.Finalize((unsigned char*)&r);
+	return r;
+}
 
 } // XCoin::
 
 
-static const int64 nGenesisBlockRewardCoin = 1 * COIN;
-int64 minimumSubsidy = 5.0 * COIN;
-static const int64 nPremine = 240640 * COIN;
+static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
+int64_t minimumSubsidy = 5.0 * COIN;
+static const int64_t nPremine = 240640 * COIN;
 
-int64 static GetBlockSubsidy(int nHeight){
+int64_t static GetBlockSubsidy(int nHeight){
     
 	
 	if (nHeight == 0)
@@ -52,7 +71,7 @@ int64 static GetBlockSubsidy(int nHeight){
 		*/
     }
     
-	int64 nSubsidy = 512 * COIN;
+	int64_t nSubsidy = 512 * COIN;
     
     // Subsidy is reduced by 6% every 10080 blocks, which will occur approximately every 1 week
     int exponent=(nHeight / 10080);
@@ -64,10 +83,10 @@ int64 static GetBlockSubsidy(int nHeight){
     return nSubsidy;
 }
 
-int64 static GetBlockSubsidy120000(int nHeight)
+int64_t static GetBlockSubsidy120000(int nHeight)
 {
 	// Subsidy is reduced by 10% every day (1440 blocks)
-	int64 nSubsidy = 250 * COIN;
+	int64_t nSubsidy = 250 * COIN;
 	int exponent = ((nHeight - 120000) / 1440);
 	for(int i=0; i<exponent; i++)
 		nSubsidy = (nSubsidy * 45) / 50;
@@ -75,10 +94,10 @@ int64 static GetBlockSubsidy120000(int nHeight)
 	return nSubsidy;
 }
 
-int64 static GetBlockSubsidy150000(int nHeight)
+int64_t static GetBlockSubsidy150000(int nHeight)
 {
 	// Subsidy is reduced by 1% every week (10080 blocks)
-	int64 nSubsidy = 25 * COIN;
+	int64_t nSubsidy = 25 * COIN;
 	int exponent = ((nHeight - 150000) / 10080);
 	for(int i=0; i<exponent; i++)
 		nSubsidy = (nSubsidy * 99) / 100;
@@ -89,28 +108,31 @@ int64 static GetBlockSubsidy150000(int nHeight)
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
 	if(nHeight >= 150000)
-		return GetBlockSubsidy150000(nHeight) + nFees;
+		return GetBlockSubsidy150000(nHeight);
 
 	if(nHeight >= 120000)
-		return GetBlockSubsidy120000(nHeight) + nFees;
+		return GetBlockSubsidy120000(nHeight);
 
-	return GetBlockSubsidy(nHeight) + nFees;
+	return GetBlockSubsidy(nHeight);
 }
 
 //
 // minimum amount of work that could possibly be required nTime after
 // minimum work required was nBase
 //
-static const int64 nTargetTimespan = 86400; //1 day
-static const int64 nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
+static const int64_t nTargetTimespan = 86400; //1 day
+static const int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
 
+arith_uint256 bnProofOfWorkLimit = UintToArith256(Params(CBaseChainParams::MAIN).GetConsensus().powLimit);
 
-unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
+unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime, const Consensus::Params& params)
 {
+	unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
+
       // Testnet has min-difficulty blocks
     // after nTargetSpacing*2 time between blocks:
-    if (fTestNet && nTime > nTargetSpacing*2)
-        return bnProofOfWorkLimit.GetCompact();
+    if (params.fPowAllowMinDifficultyBlocks && nTime > nTargetSpacing*2)
+        return nProofOfWorkLimit;
 
     CBigNum bnResult;
     bnResult.SetCompact(nBase);
@@ -132,15 +154,15 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     const CBlockIndex *BlockReading = pindexLast;
     const CBlockHeader *BlockCreating = pblock;
     BlockCreating = BlockCreating;
-    int64 nBlockTimeAverage = 0;
-    int64 nBlockTimeAveragePrev = 0;
-    int64 nBlockTimeCount = 0;
-    int64 nBlockTimeSum2 = 0;
-    int64 nBlockTimeCount2 = 0;
-    int64 LastBlockTime = 0;
-    int64 PastBlocksMin = 12;
-    int64 PastBlocksMax = 120;
-    int64 CountBlocks = 0;
+    int64_t nBlockTimeAverage = 0;
+    int64_t nBlockTimeAveragePrev = 0;
+    int64_t nBlockTimeCount = 0;
+    int64_t nBlockTimeSum2 = 0;
+    int64_t nBlockTimeCount2 = 0;
+    int64_t LastBlockTime = 0;
+    int64_t PastBlocksMin = 12;
+    int64_t PastBlocksMax = 120;
+    int64_t CountBlocks = 0;
     CBigNum PastDifficultyAverage;
     CBigNum PastDifficultyAveragePrev;
 
@@ -157,7 +179,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         }
 
         if(LastBlockTime > 0){
-            int64 Diff = (LastBlockTime - BlockReading->GetBlockTime());
+            int64_t Diff = (LastBlockTime - BlockReading->GetBlockTime());
             if(Diff < 0) Diff = 0;
             if(nBlockTimeCount <= PastBlocksMin) {
                 nBlockTimeCount++;
@@ -181,8 +203,8 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
             if(SmartAverage < 1) SmartAverage = 1;
             double Shift = nTargetSpacing/SmartAverage;
 
-            int64 nActualTimespan = (CountBlocks*nTargetSpacing)/Shift;
-            int64 nTargetTimespan = (CountBlocks*nTargetSpacing);
+            int64_t nActualTimespan = (CountBlocks*nTargetSpacing)/Shift;
+            int64_t nTargetTimespan = (CountBlocks*nTargetSpacing);
             if (nActualTimespan < nTargetTimespan/3)
                 nActualTimespan = nTargetTimespan/3;
             if (nActualTimespan > nTargetTimespan*3)
@@ -206,11 +228,11 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     const CBlockIndex *BlockReading = pindexLast;
     const CBlockHeader *BlockCreating = pblock;
     BlockCreating = BlockCreating;
-    int64 nActualTimespan = 0;
-    int64 LastBlockTime = 0;
-    int64 PastBlocksMin = 24;
-    int64 PastBlocksMax = 24;
-    int64 CountBlocks = 0;
+    int64_t nActualTimespan = 0;
+    int64_t LastBlockTime = 0;
+    int64_t PastBlocksMin = 24;
+    int64_t PastBlocksMax = 24;
+    int64_t CountBlocks = 0;
     CBigNum PastDifficultyAverage;
     CBigNum PastDifficultyAveragePrev;
 
@@ -229,7 +251,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
         }
 
         if(LastBlockTime > 0){
-            int64 Diff = (LastBlockTime - BlockReading->GetBlockTime());
+            int64_t Diff = (LastBlockTime - BlockReading->GetBlockTime());
             nActualTimespan += Diff;
         }
         LastBlockTime = BlockReading->GetBlockTime();      
@@ -240,7 +262,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     
     CBigNum bnNew(PastDifficultyAverage);
 
-    int64 nTargetTimespan = CountBlocks*nTargetSpacing;
+    int64_t nTargetTimespan = CountBlocks*nTargetSpacing;
 
     if (nActualTimespan < nTargetTimespan/3)
         nActualTimespan = nTargetTimespan/3;
@@ -259,9 +281,9 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
 }
 //----------------------
 
-unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
+unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
-    if (fTestNet)
+    if (params.fPowAllowMinDifficultyBlocks)
     {//test net, DGWv3 since block 10
         if (pindexLast->nHeight >= (10 - 1))
             return DarkGravityWave3(pindexLast, pblock);
@@ -309,7 +331,7 @@ public:
         pchMessageStart[1] = 0xbe;
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd4;
-        vAlertPubKey = ParseHex("04fc9702847840aaf195de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284");
+        vAlertPubKey = ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878");
         nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
 
@@ -326,11 +348,11 @@ public:
          */
         const char* pszTimestamp = "Pressure must be put on Vladimir Putin over Crimea";
         CMutableTransaction txNew;
-        txNew.nVersion = 1;
+        txNew.nVersion = 112;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 50 * COIN;
+        txNew.vout[0].nValue = 0;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock.SetNull();
@@ -341,19 +363,19 @@ public:
         genesis.nNonce   = 220035;
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023"));
+        assert(genesis.hashMerkleRoot == uint256S("0x3ce968df58f9c8a752306c4b7264afab93149dbc578bd08a42c446caaa6628bb"));
 
         vSeeds.push_back(CDNSSeedData("groestlcoin.net", "groestlcoin.net"));
         vSeeds.push_back(CDNSSeedData("groestlcoin.org", "groestlcoin.org"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,0);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
+        //GRS vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -387,16 +409,16 @@ public:
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         consensus.fPowAllowMinDifficultyBlocks = true;
-        pchMessageStart[0] = 0x0b;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x09;
-        pchMessageStart[3] = 0x07;
-        vAlertPubKey = ParseHex("04302390343f91cc401d56d68b123028bf52e5fca1939df127f63c6467cdf9c8e2c14b61104cf817d0b780da337893ecc4aaff1309e536162dabbdb45200ca2b0a");
+        pchMessageStart[0] = 0xF9;
+        pchMessageStart[1] = 0xBE;
+        pchMessageStart[2] = 0xB4;
+        pchMessageStart[3] = 0xD4;
+        vAlertPubKey = ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878");
         nDefaultPort = 18333;
         nPruneAfterHeight = 1000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1296688602;
+        genesis.nTime = 1436539093;
         genesis.nNonce = 414098458;
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
@@ -412,7 +434,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
+        //GRS vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
         fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
@@ -420,13 +442,14 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
 
+		/*GRS
 		checkpointData = Checkpoints::CCheckpointData {
 			boost::assign::map_list_of
 			(546, uint256S("000000002a936ca763904c3c35fce2f3556c559c0214345d31b1bcebf76acb70")),
 			1337966069,
 			1488,
 			300
-		};
+		}; */
 
     }
 };

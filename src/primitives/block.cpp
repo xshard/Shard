@@ -9,10 +9,14 @@
 #include "tinyformat.h"
 #include "utilstrencodings.h"
 #include "crypto/common.h"
+#include "streams.h"
 
 uint256 CBlockHeader::GetHash() const
 {
-    return SerializeHash(*this);
+	CDataStream stm(SER_NETWORK, PROTOCOL_VERSION);
+	stm << *this;
+	return XCoin::HashPow(XCoin::ConstBuf(stm.begin(), stm.end()));
+//!!!R    return SerializeHash(*this);
 }
 
 uint256 CBlock::BuildMerkleTree(bool* fMutated) const

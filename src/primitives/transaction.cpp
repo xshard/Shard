@@ -6,6 +6,7 @@
 #include "primitives/transaction.h"
 
 #include "hash.h"
+#include "streams.h"
 #include "tinyformat.h"
 #include "utilstrencodings.h"
 
@@ -64,12 +65,19 @@ CMutableTransaction::CMutableTransaction(const CTransaction& tx) : nVersion(tx.n
 
 uint256 CMutableTransaction::GetHash() const
 {
-    return SerializeHash(*this);
+	CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
+	ss << *this;
+	return XCoin::HashFromTx(XCoin::ConstBuf(ss.begin(), ss.end()));
+//GRS    return SerializeHash(*this);
 }
 
 void CTransaction::UpdateHash() const
 {
-    *const_cast<uint256*>(&hash) = SerializeHash(*this);
+	CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
+	ss << *this;
+	*const_cast<uint256*>(&hash) = XCoin::HashFromTx(XCoin::ConstBuf(ss.begin(), ss.end()));
+
+//    *const_cast<uint256*>(&hash) = SerializeHash(*this);
 }
 
 size_t CTransaction::DynamicMemoryUsage() const

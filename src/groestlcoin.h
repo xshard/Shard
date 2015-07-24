@@ -1,12 +1,14 @@
 #pragma once
 
+#include "amount.h"
 #include "uint256.h"
 
-static const int64 MAX_MONEY = 105000000 * COIN;
+
 
 namespace XCoin {
 
 class ConstBuf {
+public:
 	const unsigned char *P;
 	size_t Size;
 
@@ -16,7 +18,7 @@ class ConstBuf {
 			P = 0;
 			Size = 0;
 		} else {
-			P = &pb[0];
+			P = (unsigned char*)(&pb[0]);
 			Size = (pe-pb) * sizeof(pb[0]);
 		}
 	}
@@ -35,6 +37,8 @@ class ConstBuf {
 
 uint256 HashGroestl(const ConstBuf& cbuf);
 
+uint256 HashFromTx(const ConstBuf& cbuf);
+inline uint256 HashPow(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 inline uint256 HashMessage(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 inline uint256 HashForAddress(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 
