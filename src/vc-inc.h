@@ -217,4 +217,5 @@ __END_DECLS
 #include <stdint.h>
 #include <process.h>
 
+#define UCFG_OPENSSL_ASM 1
 

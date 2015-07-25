@@ -66,6 +66,9 @@
     <Filter Include="Header Files\wallet">
       <UniqueIdentifier>{02cfc1b4-76c9-41b5-af96-68793bafbeaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\bignum">
+      <UniqueIdentifier>{b349a269-b7d6-4d21-83f0-cf7c764cf101}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -529,5 +532,10 @@
     <ClInclude Include="wallet\wallet_ismine.h">
       <Filter>Header Files\wallet</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="el\bignum\x86x64\bignum-x86x64.asm">
+      <Filter>Source Files\bignum</Filter>
+    </MASM>
   </ItemGroup>
 </Project>
