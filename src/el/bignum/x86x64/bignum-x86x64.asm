@@ -1,3 +1,10 @@
+;/*######   Copyright (c) 2001-2015 Ufasoft  http://ufasoft.com  mailto:support@ufasoft.com,  Sergey Pavlov  mailto:dev@ufasoft.com ####
+;#                                                                                                                                     #
+;# 		See LICENSE for licensing information                                                                                         #
+;#####################################################################################################################################*/
+
+
+
 INCLUDE el/x86x64.inc
 
 

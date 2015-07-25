@@ -1,3 +1,5 @@
+// Copyright (c) 2015 The GroestlCoin developers
+
 #pragma once
 
 #include "amount.h"

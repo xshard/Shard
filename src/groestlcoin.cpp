@@ -1,3 +1,5 @@
+// Copyright (c) 2014-2015 The GroestlCoin developers
+
 #include "groestlcoin.h"
 
 #include <boost/assign/list_of.hpp>
