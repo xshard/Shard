@@ -9,13 +9,14 @@
 #include "utilstrencodings.h"
 #include "crypto/sha256.h"
 
+#include "bignum.h"
+
 extern "C" {
 #include <sphlib/sph_groestl.h>
 }
 
 using namespace std;
 
-typedef arith_uint256 CBigNum;
 
 namespace XCoin {
 
@@ -134,7 +135,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 static const int64_t nTargetTimespan = 86400; //1 day
 static const int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
 
-arith_uint256 bnProofOfWorkLimit = UintToArith256(Params(CBaseChainParams::MAIN).GetConsensus().powLimit);
+arith_uint256 bnProofOfWorkLimit = UintToArith256(uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));
 
 unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime, const Consensus::Params& params)
 {
@@ -147,15 +148,16 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime, const Consensus::
 
     CBigNum bnResult;
     bnResult.SetCompact(nBase);
-    while (nTime > 0 && bnResult < bnProofOfWorkLimit)
+	const uint256 abnProofOfWorkLimit = ArithToUint256(bnProofOfWorkLimit);
+    while (nTime > 0 && bnResult.getuint256() < abnProofOfWorkLimit)
     {
         // Maximum 400% adjustment...
         bnResult *= 4;
         // ... in best-case exactly 4-times-normal target time
         nTime -= nTargetTimespan*4;
     }
-    if (bnResult > bnProofOfWorkLimit)
-        bnResult = bnProofOfWorkLimit;
+    if (bnResult > CBigNum(abnProofOfWorkLimit))
+        bnResult = CBigNum(abnProofOfWorkLimit);
     return bnResult.GetCompact();
 }
 //--------------------------
@@ -226,8 +228,9 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
             bnNew /= nTargetTimespan;
     }
 
-    if (bnNew > bnProofOfWorkLimit){
-        bnNew = bnProofOfWorkLimit;
+	const uint256 abnProofOfWorkLimit = ArithToUint256(bnProofOfWorkLimit);
+    if (bnNew > CBigNum(abnProofOfWorkLimit)){
+        bnNew = CBigNum(abnProofOfWorkLimit);
     }
      
     return bnNew.GetCompact();
@@ -284,10 +287,10 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     bnNew *= nActualTimespan;
     bnNew /= nTargetTimespan;
 
-    if (bnNew > bnProofOfWorkLimit){
-        bnNew = bnProofOfWorkLimit;
-    }
-     
+	const uint256 abnProofOfWorkLimit = ArithToUint256(bnProofOfWorkLimit);
+	if (bnNew > CBigNum(abnProofOfWorkLimit)) {
+		bnNew = CBigNum(abnProofOfWorkLimit);
+	}
     return bnNew.GetCompact();
 }
 //----------------------
@@ -329,9 +332,9 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        consensus.nPowTargetSpacing = 10 * 60;
+        consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         /** 
          * The message start string is designed to be unlikely to occur in normal data.
@@ -463,7 +466,7 @@ public:
 
     }
 };
-static CTestNetParams testNetParams;
+//!!!T static CTestNetParams testNetParams;
 
 /**
  * Regression test
@@ -507,7 +510,7 @@ public:
 		};
     }
 };
-static CRegTestParams regTestParams;
+//!!!T static CRegTestParams regTestParams;
 
 static CChainParams *pCurrentParams = 0;
 
@@ -520,10 +523,10 @@ CChainParams &Params(CBaseChainParams::Network network) {
     switch (network) {
         case CBaseChainParams::MAIN:
             return mainParams;
-        case CBaseChainParams::TESTNET:
-            return testNetParams;
-        case CBaseChainParams::REGTEST:
-            return regTestParams;
+//!!!T        case CBaseChainParams::TESTNET:
+//!!!T            return testNetParams;
+//!!!T         case CBaseChainParams::REGTEST:
+//!!!T             return regTestParams;
         default:
             assert(false && "Unimplemented network");
             return mainParams;
