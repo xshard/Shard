@@ -102,12 +102,13 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
         pixPaint.setFont(QFont(font, 10*fontFactor));
         titleVersionVSpace -= 5;
     }
-    pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight+2,paddingTop+titleVersionVSpace,versionText);
+	int xCopyright = 20+pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight;
+	pixPaint.drawText(xCopyright,paddingTop+titleVersionVSpace,versionText);
 
     // draw copyright stuff
     pixPaint.setFont(QFont(font, 10*fontFactor));
-    pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight,paddingTop+titleCopyrightVSpace,copyrightText);
-	pixPaint.drawText(pixmap.width()-titleTextWidth-paddingRight, paddingTop+titleCopyrightVSpace+12, copyrightText2);
+    pixPaint.drawText(xCopyright, paddingTop+titleCopyrightVSpace,copyrightText);
+	pixPaint.drawText(xCopyright, paddingTop+titleCopyrightVSpace+12, copyrightText2);
 
     // draw additional text if special network
     if(!titleAddText.isEmpty()) {

@@ -153,8 +153,8 @@
 
 <Target Name="Moc">
 	<Exec Command="lrelease %(Ts.FullPath)" /> 
-	<Exec Command="moc.exe -o  %(Moc.Filename).moc  %(Moc.FullPath)" /> 
-	<Exec Command="moc.exe -o  moc_%(MocH.Filename).cpp  %(MocH.FullPath)" /> 
+	<Exec Command="moc.exe -D ENABLE_WALLET -o %(Moc.Filename).moc  %(Moc.FullPath)" /> 
+	<Exec Command="moc.exe -D ENABLE_WALLET -o moc_%(MocH.Filename).cpp  %(MocH.FullPath)" /> 
 	<Exec Command="rcc.exe --name %(Qrc.Filename) -o res_%(Qrc.Filename).cpp  %(Qrc.FullPath)" /> 
 	<Exec Command="protoc.exe --cpp_out=. %(Proto.Filename).proto" /> 
 	<Exec Command="uic.exe -o ui_%(Ui.Filename).h %(Ui.FullPath)" /> 

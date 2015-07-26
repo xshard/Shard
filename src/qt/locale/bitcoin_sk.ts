@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Send coins to a GroestlCoin address</source>
-        <translation>Poslať bitcoins na adresu</translation>
+        <translation>Poslať GroestlCoins na adresu</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
