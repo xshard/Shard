@@ -21,14 +21,14 @@
 		<UpgradeVersion OnlyDetect="no" Maximum="99.0.0.0" Property="OLDERVERSIONBEINGUPGRADED" IncludeMaximum="no" />
 	</Upgrade>
 
-    <Icon Id="Groestlcoin.ico" SourceFile="groestlcoin.ico" />
+    <Icon Id="Groestlcoin.ico" SourceFile="src\qt\res\icons\groestlcoin.ico " />
 
 	<Property Id="ARPPRODUCTICON" Value="Groestlcoin.ico" />
-   	<Property Id='DiskPrompt' Value="GroestlCoin-Address-Utility" />
+   	<Property Id='DiskPrompt' Value="GroestlCoin Core" />
 	<Property Id="ARPHELPLINK" Value="http://www.groestlcoin.org/downloads/" />
 	<Property Id="ARPURLINFOABOUT" Value="http://www.groestlcoin.org/downloads/" />
 	<Property Id="ARPURLUPDATEINFO" Value="http://www.groestlcoin.org/downloads/" />
-    <Property Id="LAUNCHPRODUCT">1</Property>
+    <Property Id="LAUNCHPRODUCT">0</Property>
 	<Property Id="ARPNOREPAIR" Value="1" />
 <!--	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />-->
 
@@ -39,7 +39,7 @@
 
    	<Directory Id='TARGETDIR' Name='SourceDir'>
 		<Directory Id='ProgramFilesFolder' Name='PFiles'>
-   			<Directory Id='INSTALLDIR' Name='GroestlCoin-Address-Utility'>
+   			<Directory Id='INSTALLDIR' Name='GroestlCoin'>
 	   			<Directory Id='DAEMON' Name='daemon' />
 			</Directory>
 		</Directory>
@@ -82,7 +82,7 @@
 
 	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" /> 
 
-   	<Feature Id='Complete' Level='1' Title='GroestlCoin-Address-Utility'>
+   	<Feature Id='Complete' Level='1' Title='GroestlCoin Core'>
    		<ComponentRef Id='CMP_GrsQt' />
    		<ComponentRef Id='CMP_GrsDaemon' />
    	</Feature>

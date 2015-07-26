@@ -364,7 +364,7 @@
     </message>
     <message>
         <source>&amp;About GroestlCoin Core</source>
-        <translation>حول bitcoin core</translation>
+        <translation>حول GroestlCoin core</translation>
     </message>
     <message>
         <source>Error</source>

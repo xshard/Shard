@@ -100,6 +100,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -124,6 +125,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -340,6 +342,12 @@
     <ClInclude Include="qt\walletmodeltransaction.h" />
     <ClInclude Include="qt\walletview.h" />
     <ClInclude Include="qt\winshutdownmonitor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="qt\res\bitcoin-qt-res.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="qt\res\icons\groestlcoin.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

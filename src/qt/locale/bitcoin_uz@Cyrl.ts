@@ -404,7 +404,7 @@
     </message>
     <message>
         <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Мавжуд GroestlCoin буйруқлар матни мосламалари билан  Bitcoin Core ёрдам хабарларини олиш рўйхатини кўрсатиш</translation>
+        <translation>Мавжуд GroestlCoin буйруқлар матни мосламалари билан  GroestlCoin Core ёрдам хабарларини олиш рўйхатини кўрсатиш</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to GroestlCoin network</source>

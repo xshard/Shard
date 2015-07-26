@@ -375,18 +375,17 @@ void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& 
 bool static ScanHash(const CBlockHeader *pblock, uint32_t& nNonce, uint256 *phash)
 {
     // Write the first 76 bytes of the block header to a double-SHA256 state.
-    CHash256 hasher;
     CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
     ss << *pblock;
     assert(ss.size() == 80);
-    hasher.Write((unsigned char*)&ss[0], 76);
 
+	//GRS
+	uint32_t buf[20];
+	memcpy(buf, &ss.begin()[0], 80);
     while (true) {
         nNonce++;
-
-        // Write the last 4 bytes of the block header (the nonce) to a copy of
-        // the double-SHA256 state, and compute the result.
-        CHash256(hasher).Write((unsigned char*)&nNonce, 4).Finalize((unsigned char*)phash);
+		buf[19] = nNonce;
+		*phash = XCoin::HashPow(XCoin::ConstBuf(buf, buf+20));
 
         // Return the nonce if the hash has at least some zero bits,
         // caller will check if it has enough to reach the target

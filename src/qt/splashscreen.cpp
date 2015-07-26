@@ -40,7 +40,8 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     // define text to place
     QString titleText       = tr("GroestlCoin Core");
     QString versionText     = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
-    QString copyrightText   = QChar(0xA9)+QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The GroestlCoin developers"));
+	QString copyrightText   = QChar(0xA9)+QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers")),
+		copyrightText2 = QChar(0xA9)+QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The GroestlCoin developers"));
     QString titleAddText    = networkStyle->getTitleAddText();
 
     QString font            = QApplication::font().toString();
@@ -54,8 +55,9 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     pixmap.setDevicePixelRatio(devicePixelRatio);
 #endif
 
+
     QPainter pixPaint(&pixmap);
-    pixPaint.setPen(QColor(100,100,100));
+	pixPaint.setPen(QColor(100,100,100));
 
     // draw a slighly radial gradient
     QRadialGradient gradient(QPoint(0,0), splashSize.width()/devicePixelRatio);
@@ -69,8 +71,13 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 
     const QSize requiredSize(1024,1024);
     QPixmap icon(networkStyle->getAppIcon().pixmap(requiredSize));
+	//GRS  pixPaint.drawPixmap(rectIcon, icon);
 
-    pixPaint.drawPixmap(rectIcon, icon);
+	// load the bitmap for writing some text over it
+	QRect rectSplash = pixPaint.viewport();	
+	QPixmap pixmapSplash(GetBoolArg("-testnet", false) ? ":/images/splash_testnet" : ":/images/splash");	//GRS
+	pixPaint.drawPixmap(rectSplash, pixmapSplash);
+
 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 33*fontFactor));
@@ -100,6 +107,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     // draw copyright stuff
     pixPaint.setFont(QFont(font, 10*fontFactor));
     pixPaint.drawText(pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight,paddingTop+titleCopyrightVSpace,copyrightText);
+	pixPaint.drawText(pixmap.width()-titleTextWidth-paddingRight, paddingTop+titleCopyrightVSpace+12, copyrightText2);
 
     // draw additional text if special network
     if(!titleAddText.isEmpty()) {
@@ -109,9 +117,10 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
         fm = pixPaint.fontMetrics();
         int titleAddTextWidth  = fm.width(titleAddText);
         pixPaint.drawText(pixmap.width()/devicePixelRatio-titleAddTextWidth-10,15,titleAddText);
-    }
+    } 
 
     pixPaint.end();
+
 
     // Set window title
     setWindowTitle(titleText + " " + titleAddText);

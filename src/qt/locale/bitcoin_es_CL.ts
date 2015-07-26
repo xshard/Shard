@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>GroestlCoin Core client</source>
-        <translation>cliente bitcoin core</translation>
+        <translation>cliente GroestlCoin core</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -296,7 +296,7 @@
     </message>
     <message>
         <source>GroestlCoin Core</source>
-        <translation>bitcoin core</translation>
+        <translation>GroestlCoin core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -451,7 +451,7 @@
     <name>HelpMessageDialog</name>
     <message>
         <source>GroestlCoin Core</source>
-        <translation>bitcoin core</translation>
+        <translation>GroestlCoin core</translation>
     </message>
     <message>
         <source>version</source>
@@ -470,7 +470,7 @@
     </message>
     <message>
         <source>GroestlCoin Core</source>
-        <translation>bitcoin core</translation>
+        <translation>GroestlCoin core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -924,7 +924,7 @@
     <name>SplashScreen</name>
     <message>
         <source>GroestlCoin Core</source>
-        <translation>bitcoin core</translation>
+        <translation>GroestlCoin core</translation>
     </message>
     <message>
         <source>[testnet]</source>

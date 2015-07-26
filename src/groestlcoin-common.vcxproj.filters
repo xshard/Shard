@@ -321,7 +321,7 @@
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
     <ClCompile Include="sphlib\groestl.c">
-      <Filter>Source Files\grs</Filter>
+      <Filter>Source Files\crypto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
