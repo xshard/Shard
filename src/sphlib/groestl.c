@@ -35,9 +35,9 @@
 
 #include "sph_groestl.h"
 
-#if SPH_SMALL_FOOTPRINT && !defined SPH_SMALL_FOOTPRINT_GROESTL
+//#if SPH_SMALL_FOOTPRINT && !defined SPH_SMALL_FOOTPRINT_GROESTL
 #define SPH_SMALL_FOOTPRINT_GROESTL   1
-#endif
+//#endif
 
 /*
  * Apparently, the 32-bit-only version is not faster than the 64-bit
