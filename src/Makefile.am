@@ -17,19 +17,19 @@ $(LIBLEVELDB) $(LIBMEMENV):
           OPT="$(CXXFLAGS) $(CPPFLAGS) -D__STDC_LIMIT_MACROS"
 endif
 
-BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+GROESTLCOIN_CONFIG_INCLUDES=-I$(builddir)/config
+GROESTLCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+GROESTLCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 
-LIBBITCOIN_SERVER=libbitcoin_server.a
-LIBBITCOIN_WALLET=libbitcoin_wallet.a
-LIBBITCOIN_COMMON=libbitcoin_common.a
-LIBBITCOIN_CLI=libbitcoin_cli.a
-LIBBITCOIN_UTIL=libbitcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libbitcoin_crypto.a
-LIBBITCOIN_UNIVALUE=univalue/libbitcoin_univalue.a
-LIBBITCOINQT=qt/libbitcoinqt.a
+LIBGROESTLCOIN_SERVER=libgroestlcoin_server.a
+LIBGROESTLCOIN_WALLET=libgroestlcoin_wallet.a
+LIBGROESTLCOIN_COMMON=libgroestlcoin_common.a
+LIBGROESTLCOIN_CLI=libgroestlcoin_cli.a
+LIBGROESTLCOIN_UTIL=libgroestlcoin_util.a
+LIBGROESTLCOIN_CRYPTO=crypto/libgroestlcoin_crypto.a
+LIBGROESTLCOIN_UNIVALUE=univalue/libgroestlcoin_univalue.a
+LIBGROESTLCOINQT=qt/libgroestlcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -38,22 +38,22 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES = \
-  crypto/libbitcoin_crypto.a \
-  libbitcoin_util.a \
-  libbitcoin_common.a \
-  univalue/libbitcoin_univalue.a \
-  libbitcoin_server.a \
-  libbitcoin_cli.a
+  crypto/libgroestlcoin_crypto.a \
+  libgroestlcoin_util.a \
+  libgroestlcoin_common.a \
+  univalue/libgroestlcoin_univalue.a \
+  libgroestlcoin_server.a \
+  libgroestlcoin_cli.a
 if ENABLE_WALLET
-BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
-EXTRA_LIBRARIES += libbitcoin_wallet.a
+GROESTLCOIN_INCLUDES += $(BDB_CPPFLAGS)
+EXTRA_LIBRARIES += libgroestlcoin_wallet.a
 endif
 
-if BUILD_BITCOIN_LIBS
-lib_LTLIBRARIES = libbitcoinconsensus.la
-LIBBITCOIN_CONSENSUS=libbitcoinconsensus.la
+if BUILD_GROESTLCOIN_LIBS
+lib_LTLIBRARIES = libgroestlcoinconsensus.la
+LIBGROESTLCOIN_CONSENSUS=libgroestlcoinconsensus.la
 else
-LIBBITCOIN_CONSENSUS=
+LIBGROESTLCOIN_CONSENSUS=
 endif
 
 bin_PROGRAMS =
@@ -63,13 +63,13 @@ if BUILD_GROESTLCOIND
   bin_PROGRAMS += groestlcoind
 endif
 
-if BUILD_BITCOIN_UTILS
+if BUILD_GROESTLCOIN_UTILS
   bin_PROGRAMS += groestlcoin-cli groestlcoin-tx
 endif
 
 .PHONY: FORCE
-# bitcoin core #
-BITCOIN_CORE_H = \
+# groestlcoin core #
+GROESTLCOIN_CORE_H = \
   addrman.h \
   alert.h \
   amount.h \
@@ -161,11 +161,11 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libgroestlcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoind and groestlcoin-qt
-libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
-libbitcoin_server_a_SOURCES = \
+# server: shared between groestlcoind and groestlcoin-qt
+libgroestlcoin_server_a_CPPFLAGS = $(GROESTLCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
+libgroestlcoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   bloom.cpp \
@@ -193,12 +193,12 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   validationinterface.cpp \
-  $(BITCOIN_CORE_H)
+  $(GROESTLCOIN_CORE_H)
 
-# wallet: shared between bitcoind and groestlcoin-qt, but only linked
+# wallet: shared between groestlcoind and groestlcoin-qt, but only linked
 # when wallet enabled
-libbitcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_wallet_a_SOURCES = \
+libgroestlcoin_wallet_a_CPPFLAGS = $(GROESTLCOIN_INCLUDES)
+libgroestlcoin_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/rpcdump.cpp \

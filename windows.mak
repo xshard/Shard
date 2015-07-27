@@ -1,7 +1,7 @@
 #	Build MSI packages
 
 MSB=%ProgramFiles(x86)%\MSBuild\14.0\Bin\amd64\msbuild
-WIX_LINK = light.exe -ext WixUIExtension -ext WixUtilExtension -dWixUILicenseRtf=doc\gplv3.rtf
+WIX_LINK = light.exe -ext WixUIExtension -ext WixUtilExtension -dWixUILicenseRtf=doc\groestlcoin_lic.rtf
 
 all : groestlcoin_x86.msi groestlcoin_x64.msi
 
