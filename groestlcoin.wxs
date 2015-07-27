@@ -38,11 +38,20 @@
 
 
    	<Directory Id='TARGETDIR' Name='SourceDir'>
+<?if $(sys.BUILDARCH) = x64 ?>
+		<Directory Id='ProgramFiles64Folder' Name='PFiles'>
+   			<Directory Id='INSTALLDIR' Name='GroestlCoin'>
+	   			<Directory Id='DAEMON' Name='daemon' />
+			</Directory>
+		</Directory>
+<?else ?>
 		<Directory Id='ProgramFilesFolder' Name='PFiles'>
    			<Directory Id='INSTALLDIR' Name='GroestlCoin'>
 	   			<Directory Id='DAEMON' Name='daemon' />
 			</Directory>
 		</Directory>
+<?endif ?>
+
   		<Directory Id="ProgramMenuFolder" Name="Programs" />
    		<Directory Id="DesktopFolder" Name="Desktop" />
 	</Directory>
@@ -50,7 +59,7 @@
 	<Media Id="1" Cabinet="groestlcoin.cab" EmbedCab="yes"/>
 
 	<Component Id='CMP_GrsQt' Guid='a677466c-3dbe-476f-a225-eb19da78004d' Directory='INSTALLDIR' >
-		<File  Source="$(var.OUTDIR)\groestlcoin-qt.exe"	KeyPath='yes' 		>
+		<File  Id="groestlcoin_qt.exe" Source="$(var.OUTDIR)\groestlcoin-qt.exe"	KeyPath='yes' 		>
 			<Shortcut Id="startmenuGroestlcoin" 	Directory="ProgramMenuFolder" 	Name="GroestlCoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" />
 			<Shortcut Id="desktopGroestlcoin" 	Directory="DesktopFolder"  		Name="GroestlCoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" />
 		</File>
@@ -63,7 +72,7 @@
 
  	<CustomAction Id="NewerVersionDetected" Error="There is a later version of this product installed"/>
 	<CustomAction Id="SetARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" /> 
-	<CustomAction Id='LaunchFile' FileKey='GroestlCoin-qt.exe' ExeCommand='' Return="asyncNoWait" />
+	<CustomAction Id='LaunchFile' FileKey='groestlcoin_qt.exe' ExeCommand='' Return="asyncNoWait" />
 	
 	<InstallUISequence>
     	<AppSearch After="FindRelatedProducts"/> 
