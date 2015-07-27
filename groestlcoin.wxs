@@ -10,7 +10,7 @@
 	<?define OUTDIR="x86_R_St\"?>
 <?endif ?>
 
-<Product Name='GroestlCoinCore' Id='*' UpgradeCode='$(var.UpgradeCode)' Version='$(var.PRODVER)' Manufacturer='GroestlCoin' Language='1033' >
+<Product Name='GroestlCoin Core' Id='*' UpgradeCode='$(var.UpgradeCode)' Version='$(var.PRODVER)' Manufacturer='GroestlCoin' Language='1033' >
    	<Package Id='*' Keywords='Installer' Description="GroestlCoin Core" Comments='GroestlCoin Core' Manufacturer='GroestlCoin' InstallerVersion='301' Compressed='yes'  />
 
 	<UIRef Id="WixUI_InstallDir" />
@@ -72,7 +72,7 @@
 
  	<CustomAction Id="NewerVersionDetected" Error="There is a later version of this product installed"/>
 	<CustomAction Id="SetARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" /> 
-	<CustomAction Id='LaunchFile' FileKey='groestlcoin_qt.exe' ExeCommand='' Return="asyncNoWait" />
+	<CustomAction Id='LaunchFile' FileKey='groestlcoin_qt.exe' ExeCommand='' Return="asyncNoWait" /> 
 	
 	<InstallUISequence>
     	<AppSearch After="FindRelatedProducts"/> 
@@ -85,7 +85,7 @@
 		<InstallFiles/>
 		<Custom Action="SetARPINSTALLLOCATION" After="InstallValidate"></Custom>
 		<SelfRegModules/>
-		<Custom Action='LaunchFile' After='InstallFinalize'>LAUNCHPRODUCT</Custom> 
+<!--		<Custom Action='LaunchFile' After='InstallFinalize'>LAUNCHPRODUCT</Custom>  -->
 	</InstallExecuteSequence>
 
 
