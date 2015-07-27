@@ -77,7 +77,7 @@ BITCOIN_CORE_H = \
   base58.h \
   bloom.h \
   chain.h \
-  chainparams.h \
+  groestlcoin.h \
   chainparamsbase.h \
   chainparamsseeds.h \
   checkpoints.h \
@@ -154,6 +154,8 @@ BITCOIN_CORE_H = \
   wallet/wallet.h \
   wallet/wallet_ismine.h \
   wallet/walletdb.h
+
+#!!! excluded  chainparams.h
 
 obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
@@ -237,7 +239,7 @@ libbitcoin_common_a_SOURCES = \
   amount.cpp \
   arith_uint256.cpp \
   base58.cpp \
-  chainparams.cpp \
+  groestlcoin.cpp \
   coins.cpp \
   compressor.cpp \
   core_read.cpp \
@@ -259,6 +261,8 @@ libbitcoin_common_a_SOURCES = \
   script/sign.cpp \
   script/standard.cpp \
   $(BITCOIN_CORE_H)
+
+#!!! excluded chainparams.cpp
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc

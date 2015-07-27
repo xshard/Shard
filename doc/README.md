@@ -1,4 +1,4 @@
-Bitcoin Core 0.11.99
+GroestlCoin Core 2.11
 =====================
 
 Setup
