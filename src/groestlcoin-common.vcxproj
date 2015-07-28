@@ -322,7 +322,7 @@
     <ClCompile Include="script\sigcache.cpp" />
     <ClCompile Include="script\sign.cpp" />
     <ClCompile Include="script\standard.cpp" />
-    <ClCompile Include="sphlib\groestl.c">
+    <ClCompile Include="sphlib\groestl.cpp">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
       </ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">

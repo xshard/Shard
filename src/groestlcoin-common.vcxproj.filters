@@ -320,7 +320,7 @@
     <ClCompile Include="wallet\rpcdump.cpp">
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
-    <ClCompile Include="sphlib\groestl.c">
+    <ClCompile Include="sphlib\groestl.cpp">
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
   </ItemGroup>

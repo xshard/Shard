@@ -242,7 +242,7 @@ libgroestlcoin_common_a_SOURCES = \
   amount.cpp \
   arith_uint256.cpp \
   base58.cpp \
-  sphlib/groestl.c \
+  sphlib/groestl.cpp \
   groestlcoin.cpp \
   coins.cpp \
   compressor.cpp \
