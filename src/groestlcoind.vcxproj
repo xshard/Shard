@@ -199,11 +199,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoind.cpp" />
+    <ClCompile Include="groestlcoind.cpp" />
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="bitcoind-res.rc" />
+    <ResourceCompile Include="groestlcoind-res.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
