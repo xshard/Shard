@@ -77,6 +77,7 @@ GROESTLCOIN_CORE_H = \
   base58.h \
   bloom.h \
   chain.h \
+  bignum.h \
   groestlcoin.h \
   chainparamsbase.h \
   chainparamsseeds.h \

@@ -532,6 +532,9 @@
     <ClInclude Include="wallet\wallet_ismine.h">
       <Filter>Header Files\wallet</Filter>
     </ClInclude>
+    <ClInclude Include="bignum.h">
+      <Filter>Header Files\grs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="el\bignum\x86x64\bignum-x86x64.asm">
