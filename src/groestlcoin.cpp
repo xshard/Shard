@@ -420,7 +420,11 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
+#ifdef _MSC_VER
 		checkpointData = Checkpoints::CCheckpointData{
+#else
+		checkpointData = (Checkpoints::CCheckpointData){
+#endif
 			boost::assign::map_list_of
 			(28888, uint256S("0x00000000000228ce19f55cf0c45e04c7aa5a6a873ed23902b3654c3c49884502"))
 			(58888, uint256S("0x0000000000dd85f4d5471febeb174a3f3f1598ab0af6616e9f266b56272274ef"))
@@ -480,7 +484,11 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
 		/*GRS
-		checkpointData = Checkpoints::CCheckpointData {
+#ifdef _MSC_VER
+		checkpointData = Checkpoints::CCheckpointData{
+#else
+		checkpointData = (Checkpoints::CCheckpointData){
+#endif
 			boost::assign::map_list_of
 			(546, uint256S("000000002a936ca763904c3c35fce2f3556c559c0214345d31b1bcebf76acb70")),
 			1337966069,
@@ -525,7 +533,12 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-		checkpointData = Checkpoints::CCheckpointData {
+
+#ifdef _MSC_VER
+		checkpointData = Checkpoints::CCheckpointData{
+#else
+		checkpointData = (Checkpoints::CCheckpointData) {
+#endif
 			boost::assign::map_list_of
 			(0, uint256S("0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206")),
 			0,
