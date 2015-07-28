@@ -79,6 +79,8 @@ GROESTLCOIN_CORE_H = \
   chain.h \
   bignum.h \
   groestlcoin.h \
+  sphlib/sph_types.h \
+  sphlib/sph_groestl.h \
   chainparamsbase.h \
   chainparamsseeds.h \
   checkpoints.h \
@@ -240,6 +242,7 @@ libgroestlcoin_common_a_SOURCES = \
   amount.cpp \
   arith_uint256.cpp \
   base58.cpp \
+  sphlib/groestl.c \
   groestlcoin.cpp \
   coins.cpp \
   compressor.cpp \
