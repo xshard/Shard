@@ -18,12 +18,12 @@
     <ClCompile Include="win-libs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin-cli.cpp">
+    <ClCompile Include="groestlcoin-cli.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="bitcoin-cli-res.rc">
+    <ResourceCompile Include="groestlcoin-cli-res.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
