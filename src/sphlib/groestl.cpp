@@ -3115,5 +3115,5 @@ sph_groestl512_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 	groestl_big_close((sph_groestl_big_context*)cc, ub, n, dst, 64);
 }
 
-} "C" 
+} // "C" 
 

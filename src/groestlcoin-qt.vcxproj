@@ -130,7 +130,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);..\x64_libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\x64_libs;..\x64_R_St</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <AdditionalDependencies>
       </AdditionalDependencies>
