@@ -190,7 +190,6 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
     const CBlockHeader *BlockCreating = pblock;
-    BlockCreating = BlockCreating;
     int64_t nBlockTimeAverage = 0;
     int64_t nBlockTimeAveragePrev = 0;
     int64_t nBlockTimeCount = 0;
@@ -265,7 +264,6 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
     const CBlockHeader *BlockCreating = pblock;
-    BlockCreating = BlockCreating;
     int64_t nActualTimespan = 0;
     int64_t LastBlockTime = 0;
     int64_t PastBlocksMin = 24;

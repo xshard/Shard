@@ -379,6 +379,7 @@ libgroestlcoinconsensus_la_SOURCES = \
   ecwrapper.cpp \
   sphlib/groestl.cpp \
   groestlcoin.cpp \
+  support/cleanse.cpp \
   hash.cpp \
   primitives/transaction.cpp \
   pubkey.cpp \
