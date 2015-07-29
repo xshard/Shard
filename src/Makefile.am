@@ -221,6 +221,8 @@ crypto_libgroestlcoin_crypto_a_SOURCES = \
   crypto/hmac_sha512.h \
   crypto/ripemd160.cpp \
   crypto/ripemd160.h \
+  sphlib/groestl.cpp \
+  groestlcoin.cpp \
   crypto/sha1.cpp \
   crypto/sha1.h \
   crypto/sha256.cpp \
