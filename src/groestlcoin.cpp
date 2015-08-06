@@ -189,7 +189,6 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     /* current difficulty formula, darkcoin - DarkGravity, written by Evan Duffield - evan@darkcoin.io */
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
-    const CBlockHeader *BlockCreating = pblock;
     int64_t nBlockTimeAverage = 0;
     int64_t nBlockTimeAveragePrev = 0;
     int64_t nBlockTimeCount = 0;
@@ -263,7 +262,6 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     /* current difficulty formula, darkcoin - DarkGravity v3, written by Evan Duffield - evan@darkcoin.io */
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
-    const CBlockHeader *BlockCreating = pblock;
     int64_t nActualTimespan = 0;
     int64_t LastBlockTime = 0;
     int64_t PastBlocksMin = 24;
@@ -350,7 +348,6 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 210000;
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
@@ -367,8 +364,14 @@ public:
         pchMessageStart[1] = 0xbe;
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd4;
-        vAlertPubKey = ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878");
-        nDefaultPort = 1331;
+        
+		vAlertPubKeys.push_back(ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878"));
+		vAlertPubKeys.push_back(ParseHex("03F22A91235119DB418C81FAE48FFC3DC0D8AD10F92F07FDF241D31DB1554627D0"));
+		vAlertPubKeys.push_back(ParseHex("03444DE97F6E1AD5813A7F4FDF7319ADAF69279C649F0C53A510537A363AF3BD0C"));
+		vAlertPubKeys.push_back(ParseHex("03CE700A1EC746AEB4539F5F4474CBE1F0163478823E7026B15E01049406B31215"));
+		vAlertPubKeys.push_back(ParseHex("02F453F66A4983FF149A1B12ED1FE1904044F7FE368B0A5BCD120E70AA5EA9B4AA"));
+
+		nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
 
         /**
@@ -452,13 +455,12 @@ public:
         pchMessageStart[1] = 0xBE;
         pchMessageStart[2] = 0xB4;
         pchMessageStart[3] = 0xD4;
-        vAlertPubKey = ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878");
         nDefaultPort = 17777;
         nPruneAfterHeight = 1000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1436539093;
-        genesis.nNonce = 414098458;
+        genesis.nTime = 1395342913;
+        genesis.nNonce = 873629;
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
 
@@ -505,7 +507,6 @@ class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
-        consensus.nSubsidyHalvingInterval = 150;
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;

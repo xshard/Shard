@@ -156,6 +156,19 @@ bool CAlert::CheckSignature(const std::vector<unsigned char>& alertKey) const
     return true;
 }
 
+bool CAlert::CheckSignature(const CAlertKeys& alertKeys) const {
+	for (size_t i=0; i<alertKeys.size(); ++i) {
+		CPubKey key(alertKeys[i]);
+		if (key.Verify(Hash(vchMsg.begin(), vchMsg.end()), vchSig)) {
+			// Now unserialize the data
+			CDataStream sMsg(vchMsg, SER_NETWORK, PROTOCOL_VERSION);
+			sMsg >> *(CUnsignedAlert*)this;
+			return true;
+		}
+	}
+	return error("CAlert::CheckSignature(): verify signature failed");
+}
+
 CAlert CAlert::getAlertByHash(const uint256 &hash)
 {
     CAlert retval;
@@ -168,9 +181,9 @@ CAlert CAlert::getAlertByHash(const uint256 &hash)
     return retval;
 }
 
-bool CAlert::ProcessAlert(const std::vector<unsigned char>& alertKey, bool fThread)
+bool CAlert::ProcessAlert(const CAlertKeys& alertKeys, bool fThread)
 {
-    if (!CheckSignature(alertKey))
+    if (!CheckSignature(alertKeys))
         return false;
     if (!IsInEffect())
         return false;

@@ -90,8 +90,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -113,8 +112,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -161,8 +159,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -200,6 +197,10 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-config.h</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">libsecp256k1-config.h</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">libsecp256k1-config.h</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="addrman.cpp" />
     <ClCompile Include="alert.cpp" />
@@ -233,6 +234,10 @@
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="crypto\ripemd160.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
@@ -243,6 +248,10 @@
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="crypto\sha1.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
@@ -253,6 +262,10 @@
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="crypto\sha256.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
@@ -263,6 +276,10 @@
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="crypto\sha512.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
@@ -273,6 +290,10 @@
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="eccryptoverify.cpp" />
     <ClCompile Include="ecwrapper.cpp" />
@@ -339,6 +360,24 @@
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
       <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
       <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Create</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">stdafx.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">stdafx.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">stdafx.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">stdafx.h</ForcedIncludeFiles>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="support\cleanse.cpp" />
     <ClCompile Include="support\pagelocker.cpp" />

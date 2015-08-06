@@ -306,6 +306,9 @@
     <ClCompile Include="qt\moc_coincontroltreewidget.cpp">
       <Filter>Source Files\qt\moc</Filter>
     </ClCompile>
+    <ClCompile Include="qt\stdafx.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">

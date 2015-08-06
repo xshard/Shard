@@ -377,9 +377,6 @@ libgroestlcoinconsensus_la_SOURCES = \
   crypto/sha512.cpp \
   eccryptoverify.cpp \
   ecwrapper.cpp \
-  sphlib/groestl.cpp \
-  groestlcoin.cpp \
-  support/cleanse.cpp \
   hash.cpp \
   primitives/transaction.cpp \
   pubkey.cpp \
