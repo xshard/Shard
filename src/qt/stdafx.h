@@ -23,26 +23,31 @@
 
 
 #include <QAbstractTableModel>
+#include <QApplication>
 #include <QObject>
 #include <QByteArray>
 #include <QDialog>
 #include <QString>
 #include <QEvent>
+#include <QFrame>
 #include <QHeaderView>
+#include <QLineEdit>
 #include <QMessageBox>
 #include <QProgressBar>
-#include <QTableView>
 #include <QCloseEvent>
 #include <QIcon>
 #include <QLabel>
+#include <QMap>
+#include <QPalette>
+#include <QPixmap>
 #include <QRegExp>
 #include <QStringList>
+#include <QTableView>
 #include <QTextTable>
 #include <QTextCursor>
 #include <QUrl>
 #include <QVBoxLayout>
-#include <QFrame>
-#include <QMap>
+#include <QtCore>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QVariant>

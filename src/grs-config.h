@@ -2,6 +2,8 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
+#define BUILD_DESC "2.11"
+
 #include <vc-inc.h>
 
 
@@ -31,5 +33,5 @@
 #define QT_STATIC
 
 #define ENABLE_WALLET
-
+#define USE_QRCODE
 

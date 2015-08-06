@@ -25,6 +25,9 @@
     <Filter Include="Source Files\qt\protobuf">
       <UniqueIdentifier>{c512e75b-16bc-4a01-b016-8d4728a660ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\qrencode">
+      <UniqueIdentifier>{b2cfd5dc-e24d-44ef-8989-54047ffe32b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win-libs.cpp">
@@ -308,6 +311,33 @@
     </ClCompile>
     <ClCompile Include="qt\stdafx.cpp">
       <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrencode.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mask.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mmask.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mqrspec.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrinput.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\bitstream.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrspec.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\rscode.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\split.c">
+      <Filter>Source Files\qrencode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,6 @@
 #include "uint256.h"
 
 
-
 namespace XCoin {
 
 class ConstBuf {
