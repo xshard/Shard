@@ -406,6 +406,9 @@ public:
 
         vSeeds.push_back(CDNSSeedData("groestlcoin.net", "groestlcoin.net"));
         vSeeds.push_back(CDNSSeedData("groestlcoin.org", "groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("electrum1.groestlcoin.org", "electrum1.groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("electrum2.groestlcoin.org", "electrum2.groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("jswallet.groestlcoin.org", "jswallet.groestlcoin.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -498,7 +501,7 @@ public:
 
     }
 };
-//!!!T static CTestNetParams testNetParams;
+static CTestNetParams testNetParams;
 
 /**
  * Regression test
@@ -559,8 +562,8 @@ CChainParams &Params(CBaseChainParams::Network network) {
     switch (network) {
         case CBaseChainParams::MAIN:
             return mainParams;
-//!!!T        case CBaseChainParams::TESTNET:
-//!!!T            return testNetParams;
+        case CBaseChainParams::TESTNET:
+            return testNetParams;
 //!!!T         case CBaseChainParams::REGTEST:
 //!!!T             return regTestParams;
         default:

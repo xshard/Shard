@@ -2,7 +2,7 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
-#define BUILD_DESC "2.11"
+#define BUILD_DESC "2.11.0"
 
 #include <vc-inc.h>
 
@@ -34,4 +34,6 @@
 
 #define ENABLE_WALLET
 #define USE_QRCODE
+#define USE_UPNP 1
+
 
