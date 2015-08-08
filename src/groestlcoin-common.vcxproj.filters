@@ -254,9 +254,6 @@
     <ClCompile Include="support\pagelocker.cpp">
       <Filter>Source Files\support</Filter>
     </ClCompile>
-    <ClCompile Include="..\foreign\secp256k1\secp256k1.c">
-      <Filter>Source Files\secp256k1</Filter>
-    </ClCompile>
     <ClCompile Include="crypto\sha512.cpp">
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
@@ -325,6 +322,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="secp256k1\src\secp256k1.c">
+      <Filter>Source Files\secp256k1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -857,6 +857,6 @@ public:
     }
 };
 
-typedef std::vector<std::vector<unsigned char>> CAlertKeys;
+typedef std::vector<std::vector<unsigned char> > CAlertKeys;
 
 #endif // BITCOIN_SERIALIZE_H

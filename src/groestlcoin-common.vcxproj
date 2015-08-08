@@ -192,15 +192,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\foreign\secp256k1\secp256k1.c">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">libsecp256k1-config.h</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-config.h</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">libsecp256k1-config.h</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">libsecp256k1-config.h</ForcedIncludeFiles>
+    <ClCompile Include="secp256k1\src\secp256k1.c">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">libsecp256k1-cfg.h</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="addrman.cpp" />
     <ClCompile Include="alert.cpp" />
@@ -301,10 +305,10 @@
     <ClCompile Include="hash.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="key.cpp">
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;..\foreign\secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="keystore.cpp" />
     <ClCompile Include="leveldbwrapper.cpp">
