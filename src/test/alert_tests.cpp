@@ -122,11 +122,11 @@ BOOST_FIXTURE_TEST_SUITE(Alert_tests, ReadAlerts)
 BOOST_AUTO_TEST_CASE(AlertApplies)
 {
     SetMockTime(11);
-    const std::vector<unsigned char>& alertKey = Params(CBaseChainParams::MAIN).AlertKey();
+    const CAlertKeys& alertKeys = Params(CBaseChainParams::MAIN).AlertKeys();
 
     BOOST_FOREACH(const CAlert& alert, alerts)
     {
-        BOOST_CHECK(alert.CheckSignature(alertKey));
+        BOOST_CHECK(alert.CheckSignature(alertKeys));
     }
 
     BOOST_CHECK(alerts.size() >= 3);
