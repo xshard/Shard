@@ -83,6 +83,8 @@
 }
 #endif
 
+#if 0 //!!!T GRS
+
 struct ReadAlerts : public TestingSetup
 {
     ReadAlerts()
@@ -255,3 +257,5 @@ BOOST_AUTO_TEST_CASE(PartitionAlert)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+
+#endif // 0 GRS
