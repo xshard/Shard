@@ -213,12 +213,6 @@
     <ClCompile Include="base58.cpp" />
     <ClCompile Include="bloom.cpp" />
     <ClCompile Include="chain.cpp" />
-    <ClCompile Include="chainparams.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="chainparamsbase.cpp" />
     <ClCompile Include="checkpoints.cpp" />
     <ClCompile Include="clientversion.cpp" />

@@ -155,9 +155,6 @@
     <ClCompile Include="init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="chainparams.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="compat\glibc_sanity.cpp">
       <Filter>Source Files\compat</Filter>
     </ClCompile>

@@ -54,7 +54,7 @@
 using namespace std;
 
 namespace {
-    const int MAX_OUTBOUND_CONNECTIONS = 8;
+    const int MAX_OUTBOUND_CONNECTIONS = 15;		//GRS
 
     struct ListenSocket {
         SOCKET socket;
