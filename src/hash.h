@@ -124,7 +124,7 @@ inline uint160 Hash160(const std::vector<unsigned char>& vch)
 class CHashWriter
 {
 private:
-    CHash256 ctx;
+    CSHA256 ctx;	//GRS
 
 public:
     int nType;

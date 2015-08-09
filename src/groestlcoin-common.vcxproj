@@ -356,14 +356,14 @@
       </ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
       </ForcedIncludeFiles>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
-      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Size</FavorSizeOrSpeed>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MinSpace</Optimization>
-      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Size</FavorSizeOrSpeed>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MinSpace</Optimization>
-      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
-      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
-      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Speed</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Speed</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Speed</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Speed</FavorSizeOrSpeed>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
