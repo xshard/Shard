@@ -3,6 +3,8 @@
 #pragma comment(lib, "crypt32")
 #pragma comment(lib, "ws2_32")
 #pragma comment(lib, "shell32")
+#pragma comment(lib, "iphlpapi")
+
 
 #pragma comment(lib, "bdb")
 #pragma comment(lib, "leveldb")
@@ -10,6 +12,10 @@
 #pragma comment(lib, "openssl")
 
 #pragma comment(lib, "groestlcoin-common")
+
+#ifdef USE_UPNP
+#	pragma comment(lib, "miniupnpc")
+#endif
 
 #ifdef USE_QT
 #	pragma comment(lib, "imm32")

@@ -465,7 +465,7 @@ public:
         genesis.nTime = 1395342913;
         genesis.nNonce = 873629;
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
+//!!!T GRS        assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
 
         vFixedSeeds.clear();
         vSeeds.clear();

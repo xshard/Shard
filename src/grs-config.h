@@ -31,6 +31,7 @@
 #define BOOST_ASIO_ERROR_CATEGORY_NOEXCEPT noexcept
 
 #define QT_STATIC
+#define MINIUPNP_STATICLIB
 
 #define ENABLE_WALLET
 #define USE_QRCODE
