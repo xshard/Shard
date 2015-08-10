@@ -282,7 +282,7 @@ dnl Internal. Find paths necessary for linking qt static plugins
 dnl Inputs: bitcoin_qt_got_major_vers. 4 or 5.
 dnl Inputs: qt_plugin_path. optional.
 dnl Outputs: QT_LIBS is appended
-AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUGINS],[
+AC_DEFUN([_GROESTLCOIN_QT_FIND_STATIC_PLUGINS],[
   if test x$bitcoin_qt_got_major_vers = x5; then
       if test x$qt_plugin_path != x; then
         QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms"
