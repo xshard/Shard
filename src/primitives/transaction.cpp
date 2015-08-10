@@ -65,19 +65,12 @@ CMutableTransaction::CMutableTransaction(const CTransaction& tx) : nVersion(tx.n
 
 uint256 CMutableTransaction::GetHash() const
 {
-	CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
-	ss << *this;
-	return XCoin::HashFromTx(XCoin::ConstBuf(ss.begin(), ss.end()));
-//GRS    return SerializeHash(*this);
+    return SerializeHash(*this);		//GRS uses single SHA256
 }
 
 void CTransaction::UpdateHash() const
 {
-	CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
-	ss << *this;
-	*const_cast<uint256*>(&hash) = XCoin::HashFromTx(XCoin::ConstBuf(ss.begin(), ss.end()));
-
-//    *const_cast<uint256*>(&hash) = SerializeHash(*this);
+    *const_cast<uint256*>(&hash) = SerializeHash(*this);			//GRS uses single SHA256
 }
 
 size_t CTransaction::DynamicMemoryUsage() const
