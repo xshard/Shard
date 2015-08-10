@@ -2,14 +2,10 @@
 
 #include "groestlcoin.h"
 
-#include <boost/assign/list_of.hpp>
 
-#include "arith_uint256.h"
-#include "chain.h"
-#include "chainparams.h"
-#include "consensus/params.h"
-#include "utilstrencodings.h"
-#include "crypto/sha256.h"
+#include "hash.h"
+#include "crypto/common.h"
+
 
 #include "bignum.h"
 
