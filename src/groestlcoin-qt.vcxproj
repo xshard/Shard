@@ -375,6 +375,7 @@
     <ClCompile Include="qt\paymentrequestplus.cpp" />
     <ClCompile Include="qt\paymentserver.cpp" />
     <ClCompile Include="qt\peertablemodel.cpp" />
+    <ClCompile Include="qt\platformstyle.cpp" />
     <ClCompile Include="qt\qvalidatedlineedit.cpp" />
     <ClCompile Include="qt\qvaluecombobox.cpp" />
     <ClCompile Include="qt\receivecoinsdialog.cpp" />
@@ -383,7 +384,6 @@
     <ClCompile Include="qt\res_bitcoin.cpp" />
     <ClCompile Include="qt\res_bitcoin_locale.cpp" />
     <ClCompile Include="qt\rpcconsole.cpp" />
-    <ClCompile Include="qt\scicon.cpp" />
     <ClCompile Include="qt\sendcoinsdialog.cpp" />
     <ClCompile Include="qt\sendcoinsentry.cpp" />
     <ClCompile Include="qt\signverifymessagedialog.cpp" />
@@ -432,12 +432,12 @@
     <ClInclude Include="qt\paymentrequestplus.h" />
     <ClInclude Include="qt\paymentserver.h" />
     <ClInclude Include="qt\peertablemodel.h" />
+    <ClInclude Include="qt\platformstyle.h" />
     <ClInclude Include="qt\qvaluecombobox.h" />
     <ClInclude Include="qt\receivecoinsdialog.h" />
     <ClInclude Include="qt\receiverequestdialog.h" />
     <ClInclude Include="qt\recentrequeststablemodel.h" />
     <ClInclude Include="qt\rpcconsole.h" />
-    <ClInclude Include="qt\scicon.h" />
     <ClInclude Include="qt\sendcoinsdialog.h" />
     <ClInclude Include="qt\sendcoinsentry.h" />
     <ClInclude Include="qt\signverifymessagedialog.h" />

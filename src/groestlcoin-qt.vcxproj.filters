@@ -54,9 +54,6 @@
     <ClCompile Include="qt\utilitydialog.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
-    <ClCompile Include="qt\scicon.cpp">
-      <Filter>Source Files\qt</Filter>
-    </ClCompile>
     <ClCompile Include="qt\moc_utilitydialog.cpp">
       <Filter>Source Files\qt\moc</Filter>
     </ClCompile>
@@ -339,6 +336,9 @@
     <ClCompile Include="..\foreign\qrencode\split.c">
       <Filter>Source Files\qrencode</Filter>
     </ClCompile>
+    <ClCompile Include="qt\platformstyle.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">
@@ -357,9 +357,6 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\utilitydialog.h">
-      <Filter>Header Files\qt</Filter>
-    </ClInclude>
-    <ClInclude Include="qt\scicon.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\clientmodel.h">
@@ -474,6 +471,9 @@
       <Filter>Header Files\qt</Filter>
     </ClInclude>
     <ClInclude Include="qt\coincontroltreewidget.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\platformstyle.h">
       <Filter>Header Files\qt</Filter>
     </ClInclude>
   </ItemGroup>

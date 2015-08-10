@@ -25,13 +25,9 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-<<<<<<< HEAD
-    TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::GRS)
-=======
     TxViewDelegate(const PlatformStyle *platformStyle):
-        QAbstractItemDelegate(), unit(BitcoinUnits::BTC),
+        QAbstractItemDelegate(), unit(BitcoinUnits::GRS),
         platformStyle(platformStyle)
->>>>>>> upstream/master
     {
 
     }
