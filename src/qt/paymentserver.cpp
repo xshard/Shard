@@ -10,7 +10,7 @@
 
 #include "base58.h"
 #include "chainparams.h"
-#include "main.h"
+#include "main.h" // For minRelayTxFee
 #include "ui_interface.h"
 #include "util.h"
 #include "wallet/wallet.h"
@@ -45,8 +45,6 @@
 #else
 #include <QUrlQuery>
 #endif
-
-using namespace std;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
 const QString BITCOIN_IPC_PREFIX("groestlcoin:");
@@ -647,7 +645,7 @@ void PaymentServer::fetchPaymentACK(CWallet* wallet, SendCoinsRecipient recipien
     // Create a new refund address, or re-use:
     QString account = tr("Refund from %1").arg(recipient.authenticatedMerchant);
     std::string strAccount = account.toStdString();
-    set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
+    std::set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
     if (!refundAddresses.empty()) {
         CScript s = GetScriptForDestination(*refundAddresses.begin());
         payments::Output* refund_to = payment.add_refund_to();

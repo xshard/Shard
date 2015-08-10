@@ -106,30 +106,47 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
   dnl results to QT_LIBS.
   GROESTLCOIN_QT_CHECK([
   TEMP_CPPFLAGS=$CPPFLAGS
+<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
   CPPFLAGS=$QT_INCLUDES
   if test x$groestlcoin_qt_got_major_vers = x5; then
     _GROESTLCOIN_QT_IS_STATIC
     if test x$groestlcoin_cv_static_qt = xyes; then
+=======
+  CPPFLAGS="$QT_INCLUDES $CPPFLAGS"
+  if test x$bitcoin_qt_got_major_vers = x5; then
+    _BITCOIN_QT_IS_STATIC
+    if test x$bitcoin_cv_static_qt = xyes; then
+      _BITCOIN_QT_FIND_STATIC_PLUGINS
+>>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
       AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
-      if test x$qt_plugin_path != x; then
-        QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
-        QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms"
+      AC_CACHE_CHECK(for Qt < 5.4, bitcoin_cv_need_acc_widget,[AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+          [[#include <QtCore>]],[[
+          #if QT_VERSION >= 0x050400
+          choke;
+          #endif
+          ]])],
+        [bitcoin_cv_need_acc_widget=yes],
+        [bitcoin_cv_need_acc_widget=no])
+      ])
+      if test "x$bitcoin_cv_need_acc_widget" = "xyes"; then
+        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(AccessibleFactory)], [-lqtaccessiblewidgets])
       fi
-      if test x$use_pkgconfig = xyes; then
-        PKG_CHECK_MODULES([QTPLATFORM], [Qt5PlatformSupport], [QT_LIBS="$QTPLATFORM_LIBS $QT_LIBS"])
-      fi
+<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
       _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(AccessibleFactory)], [-lqtaccessiblewidgets])
+=======
+>>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
       if test x$TARGET_OS = xwindows; then
         _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)],[-lqwindows])
         AC_DEFINE(QT_QPA_PLATFORM_WINDOWS, 1, [Define this symbol if the qt platform is windows])
       elif test x$TARGET_OS = xlinux; then
+<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
         PKG_CHECK_MODULES([X11XCB], [x11-xcb], [QT_LIBS="$X11XCB_LIBS $QT_LIBS"])
         _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
+=======
+        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
+>>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
         AC_DEFINE(QT_QPA_PLATFORM_XCB, 1, [Define this symbol if the qt platform is xcb])
       elif test x$TARGET_OS = xdarwin; then
-        if test x$use_pkgconfig = xyes; then
-          PKG_CHECK_MODULES([QTPRINT], [Qt5PrintSupport], [QT_LIBS="$QTPRINT_LIBS $QT_LIBS"])
-        fi
         AX_CHECK_LINK_FLAG([[-framework IOKit]],[QT_LIBS="$QT_LIBS -framework IOKit"],[AC_MSG_ERROR(could not iokit framework)])
         _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QCocoaIntegrationPlugin)],[-lqcocoa])
         AC_DEFINE(QT_QPA_PLATFORM_COCOA, 1, [Define this symbol if the qt platform is cocoa])
@@ -138,11 +155,15 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
   else
     if test x$TARGET_OS = xwindows; then
       AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
+<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
       if test x$qt_plugin_path != x; then
         QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
         QT_LIBS="$QT_LIBS -L$qt_plugin_path/codecs"
       fi
       _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([
+=======
+      _BITCOIN_QT_CHECK_STATIC_PLUGINS([
+>>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
          Q_IMPORT_PLUGIN(qcncodecs)
          Q_IMPORT_PLUGIN(qjpcodecs)
          Q_IMPORT_PLUGIN(qtwcodecs)
@@ -281,6 +302,39 @@ AC_DEFUN([_GROESTLCOIN_QT_CHECK_STATIC_PLUGINS],[
   LIBS="$CHECK_STATIC_PLUGINS_TEMP_LIBS"
 ])
 
+dnl Internal. Find paths necessary for linking qt static plugins
+dnl Inputs: bitcoin_qt_got_major_vers. 4 or 5.
+dnl Inputs: qt_plugin_path. optional.
+dnl Outputs: QT_LIBS is appended
+AC_DEFUN([_BITCOIN_QT_FIND_STATIC_PLUGINS],[
+  if test x$bitcoin_qt_got_major_vers = x5; then
+      if test x$qt_plugin_path != x; then
+        QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms"
+        if test -d "$qt_plugin_path/accessible"; then
+          QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
+        fi
+      fi
+     m4_ifdef([PKG_CHECK_MODULES],[
+     if test x$use_pkgconfig = xyes; then
+       PKG_CHECK_MODULES([QTPLATFORM], [Qt5PlatformSupport], [QT_LIBS="$QTPLATFORM_LIBS $QT_LIBS"])
+       if test x$TARGET_OS = xlinux; then
+         PKG_CHECK_MODULES([X11XCB], [x11-xcb], [QT_LIBS="$X11XCB_LIBS $QT_LIBS"])
+         if ${PKG_CONFIG} --exists "Qt5Core >= 5.5" 2>/dev/null; then
+           PKG_CHECK_MODULES([QTXCBQPA], [Qt5XcbQpa], [QT_LIBS="$QTXCBQPA_LIBS $QT_LIBS"])
+         fi
+       elif test x$TARGET_OS = xdarwin; then
+         PKG_CHECK_MODULES([QTPRINT], [Qt5PrintSupport], [QT_LIBS="$QTPRINT_LIBS $QT_LIBS"])
+       fi
+     fi
+     ])
+  else
+    if test x$qt_plugin_path != x; then
+      QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
+      QT_LIBS="$QT_LIBS -L$qt_plugin_path/codecs"
+    fi
+  fi
+])
+
 dnl Internal. Find Qt libraries using pkg-config.
 dnl Inputs: groestlcoin_qt_want_version (from --with-gui=). The version to check
 dnl         first.
@@ -382,11 +436,12 @@ AC_DEFUN([_GROESTLCOIN_QT_FIND_LIBS_WITHOUT_PKGCONFIG],[
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([z] ,[main],,AC_MSG_WARN([zlib not found. Assuming qt has it built-in])))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([png] ,[main],,AC_MSG_WARN([libpng not found. Assuming qt has it built-in])))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([jpeg] ,[main],,AC_MSG_WARN([libjpeg not found. Assuming qt has it built-in])))
-  GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([pcre16] ,[main],,AC_MSG_WARN([libpcre16 not found. Assuming qt has it built-in])))
+  GROESTLCOIN_QT_CHECK(AC_SEARCH_LIBS([pcre16_exec], [qtpcre pcre16],,AC_MSG_WARN([libpcre16 not found. Assuming qt has it built-in])))
+  GROESTLCOIN_QT_CHECK(AC_SEARCH_LIBS([hb_ot_tags_from_script] ,[qtharfbuzzng harfbuzz],,AC_MSG_WARN([libharfbuzz not found. Assuming qt has it built-in or support is disabled])))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Core]   ,[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXCore not found)))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Gui]    ,[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXGui not found)))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Network],[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXNetwork not found)))
-  if test x$groestlcoin_qt_got_major_vers = x5; then
+  if test x$bitcoin_qt_got_major_vers = x5; then
     GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Widgets],[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXWidgets not found)))
   fi
   QT_LIBS="$LIBS"
