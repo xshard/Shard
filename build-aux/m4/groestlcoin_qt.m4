@@ -106,18 +106,11 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
   dnl results to QT_LIBS.
   GROESTLCOIN_QT_CHECK([
   TEMP_CPPFLAGS=$CPPFLAGS
-<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
-  CPPFLAGS=$QT_INCLUDES
+  CPPFLAGS="$QT_INCLUDES $CPPFLAGS"
   if test x$groestlcoin_qt_got_major_vers = x5; then
     _GROESTLCOIN_QT_IS_STATIC
     if test x$groestlcoin_cv_static_qt = xyes; then
-=======
-  CPPFLAGS="$QT_INCLUDES $CPPFLAGS"
-  if test x$bitcoin_qt_got_major_vers = x5; then
-    _BITCOIN_QT_IS_STATIC
-    if test x$bitcoin_cv_static_qt = xyes; then
-      _BITCOIN_QT_FIND_STATIC_PLUGINS
->>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
+      _GROESTLCOIN_QT_FIND_STATIC_PLUGINS
       AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
       AC_CACHE_CHECK(for Qt < 5.4, bitcoin_cv_need_acc_widget,[AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
           [[#include <QtCore>]],[[
@@ -129,22 +122,13 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
         [bitcoin_cv_need_acc_widget=no])
       ])
       if test "x$bitcoin_cv_need_acc_widget" = "xyes"; then
-        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(AccessibleFactory)], [-lqtaccessiblewidgets])
+        _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(AccessibleFactory)], [-lqtaccessiblewidgets])
       fi
-<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
-      _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(AccessibleFactory)], [-lqtaccessiblewidgets])
-=======
->>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
       if test x$TARGET_OS = xwindows; then
         _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)],[-lqwindows])
         AC_DEFINE(QT_QPA_PLATFORM_WINDOWS, 1, [Define this symbol if the qt platform is windows])
       elif test x$TARGET_OS = xlinux; then
-<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
-        PKG_CHECK_MODULES([X11XCB], [x11-xcb], [QT_LIBS="$X11XCB_LIBS $QT_LIBS"])
-        _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
-=======
-        _BITCOIN_QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
->>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
+        _GROESTLCOIN__QT_CHECK_STATIC_PLUGINS([Q_IMPORT_PLUGIN(QXcbIntegrationPlugin)],[-lqxcb -lxcb-static])
         AC_DEFINE(QT_QPA_PLATFORM_XCB, 1, [Define this symbol if the qt platform is xcb])
       elif test x$TARGET_OS = xdarwin; then
         AX_CHECK_LINK_FLAG([[-framework IOKit]],[QT_LIBS="$QT_LIBS -framework IOKit"],[AC_MSG_ERROR(could not iokit framework)])
@@ -155,15 +139,7 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
   else
     if test x$TARGET_OS = xwindows; then
       AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
-<<<<<<< HEAD:build-aux/m4/groestlcoin_qt.m4
-      if test x$qt_plugin_path != x; then
-        QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
-        QT_LIBS="$QT_LIBS -L$qt_plugin_path/codecs"
-      fi
       _GROESTLCOIN_QT_CHECK_STATIC_PLUGINS([
-=======
-      _BITCOIN_QT_CHECK_STATIC_PLUGINS([
->>>>>>> upstream/master:build-aux/m4/bitcoin_qt.m4
          Q_IMPORT_PLUGIN(qcncodecs)
          Q_IMPORT_PLUGIN(qjpcodecs)
          Q_IMPORT_PLUGIN(qtwcodecs)
