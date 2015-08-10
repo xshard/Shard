@@ -7,36 +7,13 @@
 #include "crypto/common.h"
 
 
-#include "bignum.h"
 
-extern "C" {
-#include <sphlib/sph_groestl.h>
-
-#if !defined(UCFG_LIBEXT) && (defined(_M_IX86) || defined(_M_X64))
-
-	static __inline void Cpuid(int a[4], int level) {
-#	ifdef _MSC_VER
-		__cpuid(a, level);
-#	else
-		__cpuid(level, a[0], a[1], a[2], a[3]);
-#	endif
-	}
-
-	char g_bHasSse2;
-
-	static int InitBignumFuns() {
-		int a[4];
-		::Cpuid(a, 1);
-		g_bHasSse2 = a[3] & 0x02000000;
-		return 1;
-	}
-
-	static int s_initBignumFuns = InitBignumFuns();
-#endif // defined(_M_IX86) || defined(_M_X64)
-}
 
 using namespace std;
 
+extern "C" {
+#include <sphlib/sph_groestl.h>
+} // "C"
 
 namespace XCoin {
 
