@@ -279,11 +279,11 @@ AC_DEFUN([_GROESTLCOIN_QT_CHECK_STATIC_PLUGINS],[
 ])
 
 dnl Internal. Find paths necessary for linking qt static plugins
-dnl Inputs: bitcoin_qt_got_major_vers. 4 or 5.
+dnl Inputs: groestlcoin_qt_got_major_vers. 4 or 5.
 dnl Inputs: qt_plugin_path. optional.
 dnl Outputs: QT_LIBS is appended
 AC_DEFUN([_GROESTLCOIN_QT_FIND_STATIC_PLUGINS],[
-  if test x$bitcoin_qt_got_major_vers = x5; then
+  if test x$groestlcoin_qt_got_major_vers = x5; then
       if test x$qt_plugin_path != x; then
         QT_LIBS="$QT_LIBS -L$qt_plugin_path/platforms"
         if test -d "$qt_plugin_path/accessible"; then
@@ -417,7 +417,7 @@ AC_DEFUN([_GROESTLCOIN_QT_FIND_LIBS_WITHOUT_PKGCONFIG],[
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Core]   ,[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXCore not found)))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Gui]    ,[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXGui not found)))
   GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Network],[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXNetwork not found)))
-  if test x$bitcoin_qt_got_major_vers = x5; then
+  if test x$groestlcoin_qt_got_major_vers = x5; then
     GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Widgets],[main],,GROESTLCOIN_QT_FAIL(lib$QT_LIB_PREFIXWidgets not found)))
   fi
   QT_LIBS="$LIBS"
