@@ -323,6 +323,9 @@
     <ClCompile Include="secp256k1\src\secp256k1.c">
       <Filter>Source Files\secp256k1</Filter>
     </ClCompile>
+    <ClCompile Include="groestlcoin-hash.cpp">
+      <Filter>Source Files\grs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

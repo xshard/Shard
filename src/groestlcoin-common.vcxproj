@@ -192,6 +192,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="groestlcoin-hash.cpp" />
     <ClCompile Include="secp256k1\src\secp256k1.c">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>

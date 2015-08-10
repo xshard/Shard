@@ -243,6 +243,7 @@ libgroestlcoin_common_a_SOURCES = \
   arith_uint256.cpp \
   base58.cpp \
   sphlib/groestl.cpp \
+  groestlcoin-hash.cpp \
   groestlcoin.cpp \
   coins.cpp \
   compressor.cpp \
@@ -376,7 +377,7 @@ libgroestlcoinconsensus_la_SOURCES = \
   crypto/sha256.cpp \
   crypto/sha512.cpp \
   sphlib/groestl.cpp \
-  groestlcoin.cpp \
+  groestlcoin-hash.cpp \
   eccryptoverify.cpp \
   ecwrapper.cpp \
   hash.cpp \
