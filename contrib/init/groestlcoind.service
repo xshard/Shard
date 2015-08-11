@@ -1,0 +1,22 @@
+[Unit]
+Description=GroestlCoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=groestlcoin
+Group=groestlcoin
+
+Type=forking
+PIDFile=/var/lib/groestlcoind/groestlcoind.pid
+ExecStart=/usr/bin/groestlcoind -daemon -pid=/var/lib/groestlcoind/groestlcoind.pid \
+-conf=/etc/groestlcoin/groestlcoin.conf -datadir=/var/lib/groestlcoind -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
