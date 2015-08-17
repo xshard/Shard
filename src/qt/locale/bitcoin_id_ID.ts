@@ -363,8 +363,8 @@
         <translation>GroestlCoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Permintaan pembayaran (membangkitkan kode QR dan bitcoin: URIs)</translation>
+        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
+        <translation>Permintaan pembayaran (membangkitkan kode QR dan groestlcoin: URIs)</translation>
     </message>
     <message>
         <source>&amp;About GroestlCoin Core</source>
@@ -379,8 +379,8 @@
         <translation>Tampilkan daftar alamat dan label yang diterima</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Buka URI bitcoin: atau permintaan pembayaran</translation>
+        <source>Open a groestlcoin: URI or payment request</source>
+        <translation>Buka URI groestlcoin: atau permintaan pembayaran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>

@@ -383,8 +383,8 @@
         <translation>GroestlCoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Fizetési kérelem (QR-kódot és "bitcoin:" URI azonosítót hoz létre)</translation>
+        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
+        <translation>Fizetési kérelem (QR-kódot és "groestlcoin:" URI azonosítót hoz létre)</translation>
     </message>
     <message>
         <source>&amp;About GroestlCoin Core</source>
@@ -399,8 +399,8 @@
         <translation>A használt fogadó címek és címkék megtekintése</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>"bitcoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
+        <source>Open a groestlcoin: URI or payment request</source>
+        <translation>"groestlcoin:" URI azonosító vagy fizetési kérelem megnyitása</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -1009,7 +1009,7 @@
         <translation>URI kezelés</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <source>Cannot start groestlcoin: click-to-pay handler</source>
         <translation>A bitcoint nem lehet elindítani: click-to-pay handler</translation>
     </message>
     </context>

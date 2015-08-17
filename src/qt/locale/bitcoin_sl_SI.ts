@@ -367,7 +367,7 @@
         <translation>Prikaži seznam uporabljenih sprejemnih naslovov in oznak</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a groestlcoin: URI or payment request</source>
         <translation>Odpri GroestlCoin: URI ali zahteva o plačilu</translation>
     </message>
     <message>

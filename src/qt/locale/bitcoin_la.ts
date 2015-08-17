@@ -609,7 +609,7 @@
         <translation>Tractatio URI</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <source>Cannot start groestlcoin: click-to-pay handler</source>
         <translation>GroestlCoin incipere non potest: cliccare-ad-pensandum handler</translation>
     </message>
     </context>

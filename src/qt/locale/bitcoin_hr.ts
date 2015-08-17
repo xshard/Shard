@@ -379,8 +379,8 @@
         <translation>GroestlCoin Jezgra</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Zatraži uplate (Stvara QR kodove i bitcoin: URIje)</translation>
+        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
+        <translation>Zatraži uplate (Stvara QR kodove i groestlcoin: URIje)</translation>
     </message>
     <message>
         <source>&amp;About GroestlCoin Core</source>

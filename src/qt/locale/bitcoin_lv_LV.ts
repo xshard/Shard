@@ -359,15 +359,15 @@
         <translation>GroestlCoin Core</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un bitcoin: URIs)</translation>
+        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un groestlcoin: URIs)</translation>
     </message>
     <message>
         <source>&amp;About GroestlCoin Core</source>
         <translation>Par &amp;GroestlCoin Core</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
+        <source>Open a groestlcoin: URI or payment request</source>
         <translation>Atvērt bitcoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>
@@ -949,7 +949,7 @@
         <translation>Maksājumu pieprasījuma kļūda</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <source>Cannot start groestlcoin: click-to-pay handler</source>
         <translation>Nevar palaist GroestlCoin: nospied-lai-maksātu apstrādātāju</translation>
     </message>
     <message>

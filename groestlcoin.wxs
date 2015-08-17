@@ -70,6 +70,12 @@
 		<File  Source="$(var.OUTDIR)\groestlcoin-cli.exe"	 		/>
 	</Component>
 
+	<DirectoryRef Id="ProgramMenuFolder">
+		<Component Id='CMP_ApplicationShortcut' Guid='ed335276-6250-4832-98b3-3694ff8beaee'>
+			<Shortcut Id='UninstallProduct' Name='Uninstall GroestlCoin Core' Description='Uninstalls My Application' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
+		</Component>
+	</DirectoryRef>
+
  	<CustomAction Id="NewerVersionDetected" Error="There is a later version of this product installed"/>
 	<CustomAction Id="SetARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" /> 
 	<CustomAction Id='LaunchFile' FileKey='groestlcoin_qt.exe' ExeCommand='' Return="asyncNoWait" /> 
@@ -92,8 +98,9 @@
 	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" /> 
 
    	<Feature Id='Complete' Level='1' Title='GroestlCoin Core'>
-   		<ComponentRef Id='CMP_GrsQt' />
-   		<ComponentRef Id='CMP_GrsDaemon' />
+   		<ComponentRef Id='CMP_GrsQt' 				/>
+   		<ComponentRef Id='CMP_GrsDaemon'		 	/>
+   		<ComponentRef Id='CMP_ApplicationShortcut' 	/>
    	</Feature>
 
 </Product>

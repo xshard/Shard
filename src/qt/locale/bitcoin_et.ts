@@ -763,7 +763,7 @@
         <translation>URI käsitsemine</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <source>Cannot start groestlcoin: click-to-pay handler</source>
         <translation>GroestlCoin ei käivitu: vajuta-maksa toiming</translation>
     </message>
     </context>

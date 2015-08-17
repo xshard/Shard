@@ -2,7 +2,7 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
-#define BUILD_DESC "2.11.0"
+#define BUILD_DESC "v2.11.0"
 
 #include <vc-inc.h>
 

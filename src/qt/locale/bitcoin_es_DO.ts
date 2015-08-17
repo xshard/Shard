@@ -363,7 +363,7 @@
         <translation>Núcleo de GroestlCoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Solicitar pagos (genera codigo QR y URL's de GroestlCoin)</translation>
     </message>
     <message>
@@ -379,8 +379,8 @@
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Abrir un bitcoin: URI o petición de pago</translation>
+        <source>Open a groestlcoin: URI or payment request</source>
+        <translation>Abrir un groestlcoin: URI o petición de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -973,8 +973,8 @@
         <translation>Error en petición de pago</translation>
     </message>
     <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>No se pudo iniciar bitcoin: manejador de pago-al-clic</translation>
+        <source>Cannot start groestlcoin: click-to-pay handler</source>
+        <translation>No se pudo iniciar groestlcoin: manejador de pago-al-clic</translation>
     </message>
     <message>
         <source>Unverified payment requests to custom payment scripts are unsupported.</source>
