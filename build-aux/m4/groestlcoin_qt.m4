@@ -180,7 +180,7 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
 
 
   dnl enable qt support
-  AC_MSG_CHECKING(whether to build GroestlCoin Core GUI)
+  AC_MSG_CHECKING(whether to build Groestlcoin Core GUI)
   GROESTLCOIN_QT_CHECK([
     groestlcoin_enable_qt=yes
     groestlcoin_enable_qt_test=yes
