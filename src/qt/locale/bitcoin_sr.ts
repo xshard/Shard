@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>Send coins to a GroestlCoin address</source>
-        <translation>Пошаљите новац на bitcoin адресу</translation>
+        <translation>Пошаљите новац на groestlcoin адресу</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -733,7 +733,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcije</translation>

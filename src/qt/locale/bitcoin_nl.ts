@@ -348,7 +348,7 @@
     </message>
     <message>
         <source>Show information about GroestlCoin Core</source>
-        <translation>Toon informatie over bitcoin kern</translation>
+        <translation>Toon informatie over groestlcoin kern</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -415,12 +415,12 @@
         <translation>&amp;Commandoregel-opties</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Toon het GroestlCoin Core hulpbericht om een lijst te krijgen met mogelijke Bitcoin commandoregelopties</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Toon het GroestlCoin Core hulpbericht om een lijst te krijgen met mogelijke GroestlCoin commandoregelopties</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n actieve connectie naar GroestlCoin netwerk</numerusform><numerusform>%n actieve connecties naar Bitcoin netwerk</numerusform></translation>
+        <translation><numerusform>%n actieve connectie naar GroestlCoin netwerk</numerusform><numerusform>%n actieve connecties naar GroestlCoin netwerk</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -883,8 +883,8 @@
         <translation>Omdat dit de eerste keer is dat het programma gestart is, kunt u nu kiezen waar GroestlCoin Core de data moet opslaan.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>GroestlCoin Core zal een kopie van de Bitcoin blokketen downloaden en opslaan. Tenminste %1 GB aan data wordt opgeslagen in deze map en het zal groeien in de tijd. De portemonnee wordt ook in deze map opgeslagen.</translation>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GroestlCoin Core zal een kopie van de GroestlCoin blokketen downloaden en opslaan. Tenminste %1 GB aan data wordt opgeslagen in deze map en het zal groeien in de tijd. De portemonnee wordt ook in deze map opgeslagen.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1240,7 +1240,7 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>Kan bitcoin niet starten: click-to-pay handler</translation>
+        <translation>Kan groestlcoin niet starten: click-to-pay handler</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1835,8 +1835,8 @@
         <translation>totaal ten minste</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>De minimale toeslag betalen is prima mits het transactievolume kleiner is dan de ruimte in de blokken. Let wel op dat dit tot gevolg kan hebben dat een transactie nooit wordt bevestigd als er meer vraag is naar bitcointransacties dan het netwerk kan verwerken.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for groestlcoin transactions than the network can process.</source>
+        <translation>De minimale toeslag betalen is prima mits het transactievolume kleiner is dan de ruimte in de blokken. Let wel op dat dit tot gevolg kan hebben dat een transactie nooit wordt bevestigd als er meer vraag is naar groestlcointransacties dan het netwerk kan verwerken.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2695,7 +2695,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opties:</translation>

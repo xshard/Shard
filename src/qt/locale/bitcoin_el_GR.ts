@@ -301,7 +301,7 @@
     </message>
     <message>
         <source>Send coins to a GroestlCoin address</source>
-        <translation>Στείλε νομίσματα σε μια διεύθυνση bitcoin</translation>
+        <translation>Στείλε νομίσματα σε μια διεύθυνση groestlcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -408,8 +408,8 @@
         <translation>&amp;Επιλογές γραμμής εντολών</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Εμφανιση του GroestlCoin-Qt μήνυματος βοήθειας για να πάρετε μια λίστα με τις πιθανές επιλογές Bitcoin γραμμής εντολών.</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Εμφανιση του GroestlCoin-Qt μήνυματος βοήθειας για να πάρετε μια λίστα με τις πιθανές επιλογές GroestlCoin γραμμής εντολών.</translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -803,8 +803,8 @@
         <translation>Καθώς αυτή είναι η πρώτη φορά που εκκινείται το πρόγραμμα, μπορείτε να διαλέξετε πού θα αποθηκεύει το GroestlCoin Core τα δεδομένα του.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>O πυρήνας GroestlCoin θα κατεβάσει και να αποθηκεύσει ένα αντίγραφο της αλυσίδας μπλοκ Bitcoin. Τουλάχιστον %1GB δεδομένων θα αποθηκευτούν σε αυτόν τον κατάλογο, και θα αυξηθεί με την πάροδο του χρόνου. Το πορτοφόλι θα αποθηκευτεί σε αυτόν τον κατάλογο.</translation>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>O πυρήνας GroestlCoin θα κατεβάσει και να αποθηκεύσει ένα αντίγραφο της αλυσίδας μπλοκ GroestlCoin. Τουλάχιστον %1GB δεδομένων θα αποθηκευτούν σε αυτόν τον κατάλογο, και θα αυξηθεί με την πάροδο του χρόνου. Το πορτοφόλι θα αποθηκευτεί σε αυτόν τον κατάλογο.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -2456,7 +2456,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Επιλογές:</translation>

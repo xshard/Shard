@@ -419,12 +419,12 @@
         <translation>Options de ligne de &amp;commande</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Afficher le message d'aide de GroestlCoin Core pour obtenir une liste des options de ligne de commande Bitcoin possibles.</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Afficher le message d'aide de GroestlCoin Core pour obtenir une liste des options de ligne de commande GroestlCoin possibles.</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n connexion active avec le réseau GroestlCoin</numerusform><numerusform>%n connexions actives avec le réseau Bitcoin</numerusform></translation>
+        <translation><numerusform>%n connexion active avec le réseau GroestlCoin</numerusform><numerusform>%n connexions actives avec le réseau GroestlCoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -883,8 +883,8 @@
         <translation>Comme c'est la première fois que le logiciel est lancé, vous pouvez choisir où GroestlCoin Core stockera ses données.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>GroestlCoin Core va télécharger et stocker une copie de la chaîne de blocs Bitcoin. Au moins %1Go de données seront stockées dans ce répertoire et cela augmentera avec le temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GroestlCoin Core va télécharger et stocker une copie de la chaîne de blocs GroestlCoin. Au moins %1Go de données seront stockées dans ce répertoire et cela augmentera avec le temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1240,7 +1240,7 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>Impossible de démarrer le gestionnaire de cliquer-pour-payer bitcoin :</translation>
+        <translation>Impossible de démarrer le gestionnaire de cliquer-pour-payer groestlcoin :</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1863,7 +1863,7 @@
         <translation>total au moins</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for groestlcoin transactions than the network can process.</source>
         <translation>Il est correct de payer les frais minimum tant que le volume transactionnel est inférieur à l'espace dans les blocs. Mais soyez conscient que ceci pourrait résulter en une transaction n'étant jamais confirmée une fois qu'il y aura plus de transactions que le réseau ne pourra en traiter.</translation>
     </message>
     <message>
@@ -2119,7 +2119,7 @@
     </message>
     <message>
         <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
-        <translation>Un message qui était joint à l'URI GroestlCoin et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau Bitcoin.</translation>
+        <translation>Un message qui était joint à l'URI GroestlCoin et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau GroestlCoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2771,7 +2771,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Options :</translation>
@@ -3113,10 +3113,10 @@
         <translation>Ce produit comprend des logiciels développés par le projet OpenSSL pour être utilisés dans la boîte à outils OpenSSL &lt;https://www.openssl.org/&gt; et un logiciel cryptographique écrit par Eric Young, ainsi qu'un logiciel UPnP écrit par Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use bitcoind, or the -server option to groestlcoin-qt, you must set an rpcpassword in the configuration file:
+        <source>To use groestlcoind, or the -server option to groestlcoin-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=groestlcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -3124,10 +3124,10 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
 </source>
-        <translation>Pour utiliser bitcoind, ou l'option -server de groestlcoin-qt, vous devez définir un mot de passe rpc dans le fichier de configuration :
+        <translation>Pour utiliser groestlcoind, ou l'option -server de groestlcoin-qt, vous devez définir un mot de passe rpc dans le fichier de configuration :
 %s
 Il est recommandé d'utiliser le mot de passe aléatoire suivant :
-rpcuser=bitcoinrpc
+rpcuser=groestlcoinrpc
 rpcpassword=%s
 (vous n'avez pas à mémoriser ce mot de passe)
 Le nom d'utilisateur et le mot de passe NE DOIVENT PAS être identiques.

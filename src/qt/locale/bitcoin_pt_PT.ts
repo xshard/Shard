@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Send coins to a GroestlCoin address</source>
-        <translation>Enviar moedas para um endereço bitcoin</translation>
+        <translation>Enviar moedas para um endereço groestlcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -407,12 +407,12 @@
         <translation>&amp;Opções da linha de &amp;comandos</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
         <translation>Mostrar a mensagem de ajuda do GroestlCoin Core para obter uma lista com possíveis opções de linha de comandos</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n ligação ativa à rede GroestlCoin</numerusform><numerusform>%n ligações ativas à rede Bitcoin</numerusform></translation>
+        <translation><numerusform>%n ligação ativa à rede GroestlCoin</numerusform><numerusform>%n ligações ativas à rede GroestlCoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -749,7 +749,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>O endereço introduzido "%1" não é um endereço bitcoin válido.</translation>
+        <translation>O endereço introduzido "%1" não é um endereço groestlcoin válido.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -829,7 +829,7 @@
         <translation>Sendo esta a primeira vez que o programa é iniciado, poderá escolher onde o GroestlCoin Core irá guardar os seus dados.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>O GroestlCoin Core vai transferir e armazenar uma cópia do "block chain" (cadeia de blocos). Pelo menos %1GB de dados serão armazenados nesta pasta, e vão crescer ao longo do tempo. A sua carteira também irá ser armazenada nesta pasta.</translation>
     </message>
     <message>
@@ -969,7 +969,7 @@
     </message>
     <message>
         <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir a porta do cliente bitcoin automaticamente no seu router. Isto apenas funciona se o seu router suportar UPnP e este se encontrar ligado.</translation>
+        <translation>Abrir a porta do cliente groestlcoin automaticamente no seu router. Isto apenas funciona se o seu router suportar UPnP e este se encontrar ligado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1766,7 +1766,7 @@
         <translation>total minimo</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for groestlcoin transactions than the network can process.</source>
         <translation>Pode pagar somente a taxa minima desde que haja um volume de transações inferior ao espaço nos blocos. No entanto tenha em atenção que esta opção poderá acabar em uma transação nunca confirmada assim que os pedidos de transações excedam a capacidade de processamento da rede.</translation>
     </message>
     <message>
@@ -2626,7 +2626,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opções:</translation>

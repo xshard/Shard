@@ -400,14 +400,14 @@
     </message>
     <message>
         <source>Open a groestlcoin: URI or payment request</source>
-        <translation>開啓 bitcoin 協議的 URI 或付款要求</translation>
+        <translation>開啓 groestlcoin 協議的 URI 或付款要求</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>命令列選項</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
         <translation>顯示位元幣核心的說明訊息，來取得可用命令列選項的列表</translation>
     </message>
     <message numerus="yes">
@@ -829,7 +829,7 @@
         <translation>因為這是程式第一次啓動，你可以選擇位元幣核心儲存資料的地方。</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>位元幣核心會下載並儲存一份位元幣區塊鏈的拷貝。至少有 %1GB 的資料會儲存到這個目錄中，並且還會持續增長。另外錢包資料也會儲存在這個目錄。</translation>
     </message>
     <message>
@@ -1170,7 +1170,7 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>沒辦法啟動 bitcoin 協議的按就付處理器</translation>
+        <translation>沒辦法啟動 groestlcoin 協議的按就付處理器</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
@@ -1765,7 +1765,7 @@
         <translation>總共最少</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for groestlcoin transactions than the network can process.</source>
         <translation>當交易量少於區塊可容納的空間時，只付最低手續費不會有什麽問題。但是當交易量的需求成長到超過整體網路可以處理的量時，可能會造成一筆一直不會被確認的交易。</translation>
     </message>
     <message>
@@ -2625,7 +2625,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>選項:</translation>
@@ -2924,10 +2924,10 @@
         <translation>此產品也包含了由 OpenSSL Project 所開發的 OpenSSL Toolkit 軟體 &lt;https://www.openssl.org/&gt;, 和由 Eric Young 撰寫的加解密軟體，以及由 Thomas Bernard 所撰寫的 UPnP 軟體。</translation>
     </message>
     <message>
-        <source>To use bitcoind, or the -server option to groestlcoin-qt, you must set an rpcpassword in the configuration file:
+        <source>To use groestlcoind, or the -server option to groestlcoin-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=groestlcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -2935,10 +2935,10 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
 </source>
-        <translation>要使用 bitcoind, 或是對 groestlcoin-qt 指定 -server 選項，你必須要在以下設定檔中設定 RPC 密碼(選項: rpcpassword):
+        <translation>要使用 groestlcoind, 或是對 groestlcoin-qt 指定 -server 選項，你必須要在以下設定檔中設定 RPC 密碼(選項: rpcpassword):
 %s
 建議你使用以下隨機產生的密碼:
-rpcuser=bitcoinrpc
+rpcuser=groestlcoinrpc
 rpcpassword=%s
 (你不用記住這個密碼)
 注意使用者名稱(rpcuser)和密碼(rpcpassword)不可以相同！

@@ -733,8 +733,8 @@
         <translation>Program poganjaš prvič. Izberi kje bo GroestlCoin Core shranjeval svoje podatke.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>GroestlCoin Core bo prenesel in shranil kopijo Bitcoin verige blokov. V izbrano mapo bo shranjenih vsaj %1 GB podatkov, ta količina pa bo sčasoma še naraščala. Denarnica bo prav tako shranjena v to mapo.</translation>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>GroestlCoin Core bo prenesel in shranil kopijo GroestlCoin verige blokov. V izbrano mapo bo shranjenih vsaj %1 GB podatkov, ta količina pa bo sčasoma še naraščala. Denarnica bo prav tako shranjena v to mapo.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1941,7 +1941,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Možnosti:</translation>

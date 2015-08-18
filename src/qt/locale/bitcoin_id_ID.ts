@@ -387,8 +387,8 @@
         <translation>&amp;pilihan Perintah-baris</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Tampilkan pesan bantuan GroestlCoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi Bitcoin</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Tampilkan pesan bantuan GroestlCoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi GroestlCoin</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to GroestlCoin network</source>
@@ -2165,7 +2165,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Pilihan:</translation>

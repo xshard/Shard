@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Send coins to a GroestlCoin address</source>
-        <translation>Enviar monedas a una dirección bitcoin</translation>
+        <translation>Enviar monedas a una dirección groestlcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1267,7 +1267,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:

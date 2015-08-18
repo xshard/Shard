@@ -392,7 +392,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>Cereţi plăţi (generează coduri QR şi bitcoin-uri: URls)</translation>
+        <translation>Cereţi plăţi (generează coduri QR şi groestlcoin-uri: URls)</translation>
     </message>
     <message>
         <source>&amp;About GroestlCoin Core</source>
@@ -419,12 +419,12 @@
         <translation>Opţiuni linie de &amp;comandă</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Arată mesajul de ajutor GroestlCoin Core pentru a obţine o listă cu opţiunile posibile de linii de comandă Bitcoin</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Arată mesajul de ajutor GroestlCoin Core pentru a obţine o listă cu opţiunile posibile de linii de comandă GroestlCoin</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n conexiune activă către reţeaua GroestlCoin</numerusform><numerusform>%n conexiuni active către reţeaua Bitcoin</numerusform><numerusform>%n de conexiuni active către reţeaua Bitcoin</numerusform></translation>
+        <translation><numerusform>%n conexiune activă către reţeaua GroestlCoin</numerusform><numerusform>%n conexiuni active către reţeaua GroestlCoin</numerusform><numerusform>%n de conexiuni active către reţeaua Bitcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -799,7 +799,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Adresa introdusă "%1" nu este o adresă bitcoin validă.</translation>
+        <translation>Adresa introdusă "%1" nu este o adresă groestlcoin validă.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -1082,7 +1082,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Alegeţi subdiviziunea folosită la afişarea interfeţei şi la trimiterea de bitcoin.</translation>
+        <translation>Alegeţi subdiviziunea folosită la afişarea interfeţei şi la trimiterea de groestlcoin.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1122,7 +1122,7 @@
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
-        <translation>Adresa bitcoin pe care aţi specificat-o nu este validă.</translation>
+        <translation>Adresa groestlcoin pe care aţi specificat-o nu este validă.</translation>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@
     </message>
     <message>
         <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Atenţie: Adresa bitcoin nevalidă!</translation>
+        <translation>Atenţie: Adresa groestlcoin nevalidă!</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2011,7 +2011,7 @@
     </message>
     <message>
         <source>The GroestlCoin address to send the payment to</source>
-        <translation>Adresa bitcoin către care se face plata</translation>
+        <translation>Adresa groestlcoin către care se face plata</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2039,7 +2039,7 @@
     </message>
     <message>
         <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
-        <translation>un mesaj a fost ataşat la groestlcoin: URI care va fi stocat cu tranzacţia pentru referinţa dvs. Notă: Acest mesaj nu va fi trimis către reţeaua bitcoin.</translation>
+        <translation>un mesaj a fost ataşat la groestlcoin: URI care va fi stocat cu tranzacţia pentru referinţa dvs. Notă: Acest mesaj nu va fi trimis către reţeaua groestlcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2632,7 +2632,7 @@
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Trimitere bitcoin</translation>
+        <translation>Trimitere groestlcoin</translation>
     </message>
 </context>
 <context>
@@ -2671,7 +2671,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opţiuni:</translation>

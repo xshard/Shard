@@ -323,8 +323,8 @@
         <translation>opciones de la &amp;Linea de comandos</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Mostrar mensaje de ayuda del nucleo de GroestlCoin para optener una lista con los posibles comandos  de Bitcoin</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Mostrar mensaje de ayuda del nucleo de GroestlCoin para optener una lista con los posibles comandos  de GroestlCoin</translation>
     </message>
     <message>
         <source>Up to date</source>
@@ -1053,7 +1053,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>&lt;category&gt; can be:</source>
         <translation>&lt;categoria&gt; puede ser:</translation>

@@ -192,7 +192,7 @@
     </message>
     <message>
         <source>GroestlCoin</source>
-        <translation>bitcoin</translation>
+        <translation>groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -326,7 +326,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>آدرس وارد شده "%1" یک آدرس صحیح برای bitcoin نسشت</translation>
+        <translation>آدرس وارد شده "%1" یک آدرس صحیح برای groestlcoin نسشت</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -388,7 +388,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه bitcoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
+        <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه groestlcoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
     </message>
     </context>
 <context>
@@ -883,7 +883,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>انتخابها:</translation>

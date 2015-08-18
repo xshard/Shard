@@ -417,7 +417,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Information</source>
         <translation>Информация</translation>

@@ -403,8 +403,8 @@
         <translation>Opcions de la &amp;línia d'ordes</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Mostra el missatge d'ajuda del GroestlCoin Core per obtindre una llista amb les possibles opcions de línia d'ordes de Bitcoin</translation>
+        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <translation>Mostra el missatge d'ajuda del GroestlCoin Core per obtindre una llista amb les possibles opcions de línia d'ordes de GroestlCoin</translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -793,8 +793,8 @@
         <translation>Atès que és la primera vegada que executeu el programa, podeu triar on emmagatzemarà el GroestlCoin Core les dades.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the Bitcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>El GroestlCoin Core descarregarà i emmagatzemarà una còpia de la cadena de blocs de Bitcoin. Com a mínim s'emmagatzemaran %1 GB de dades en este directori, que seguiran creixent gradualment. També s'hi emmagatzemarà el moneder.</translation>
+        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>El GroestlCoin Core descarregarà i emmagatzemarà una còpia de la cadena de blocs de GroestlCoin. Com a mínim s'emmagatzemaran %1 GB de dades en este directori, que seguiran creixent gradualment. També s'hi emmagatzemarà el moneder.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -2461,7 +2461,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>groestlcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcions:</translation>
