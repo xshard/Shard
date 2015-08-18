@@ -2653,12 +2653,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Vykonať príkaz po prijatí patričného varovania alebo uvidíme veľmi dlhé rozdvojenie siete (%s v cmd je nahradené správou)</translation>
     </message>
     <message>
-        <source>Fees (in BTC/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Poplatky (v BTC/Kb) nižšie ako toľkoto sa považujú za nulové pri postupovaní transakcií (predvolené: %s)</translation>
+        <source>Fees (in GRS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Poplatky (v GRS/Kb) nižšie ako toľkoto sa považujú za nulové pri postupovaní transakcií (predvolené: %s)</translation>
     </message>
     <message>
-        <source>Fees (in BTC/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Poplatky (v BTC/Kb) nižšie ako toľkoto sa považujú za nulové pri vytváraní transakcií (predvolené: %s)</translation>
+        <source>Fees (in GRS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Poplatky (v GRS/Kb) nižšie ako toľkoto sa považujú za nulové pri vytváraní transakcií (predvolené: %s)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
@@ -2677,8 +2677,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Chyba pri čítaní wallet.dat: Peňaženka vyžaduje vyššiu verziu Jadra GroestlCoin</translation>
     </message>
     <message>
-        <source>Fee (in BTC/kB) to add to transactions you send (default: %s)</source>
-        <translation>Poplatok (v BTC/kB), ktorý sa pridá k transakciám, ktoré odosielate (predvolený: %s)</translation>
+        <source>Fee (in GRS/kB) to add to transactions you send (default: %s)</source>
+        <translation>Poplatok (v GRS/kB), ktorý sa pridá k transakciám, ktoré odosielate (predvolený: %s)</translation>
     </message>
     <message>
         <source>Information</source>
