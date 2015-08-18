@@ -1,13 +1,13 @@
-Bitcoin Core version 0.11.0 is now available from:
+Groestlcoin Core version 2.11.0 is now available from:
 
-  <https://bitcoin.org/bin/bitcoin-core-0.11.0/>
+  <https://groestlcoin.org/downloads/>
 
 This is a new major version release, bringing both new features and
 bug fixes.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/bitcoin/bitcoin/issues>
+  <https://github.com/groestlcoin/groestlcoin/issues>
 
 Upgrading and downgrading
 =========================
@@ -17,15 +17,15 @@ How to Upgrade
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over /Applications/Bitcoin-Qt (on Mac) or
-bitcoind/bitcoin-qt (on Linux).
+installer (on Windows) or just copy over /Applications/Groestlcoin-Qt (on Mac) or
+groestlcoind/groestlcoin-qt (on Linux).
 
 Downgrade warning
 ------------------
 
-Because release 0.10.0 and later makes use of headers-first synchronization and
+Because release 2.11.0 and later makes use of headers-first synchronization and
 parallel block download (see further), the block files and databases are not
-backwards-compatible with pre-0.10 versions of Bitcoin Core or other software:
+backwards-compatible with older versions of Groestlcoin Core or other software:
 
 * Blocks will be stored on disk out of order (in the order they are
 received, really), which makes it incompatible with some tools or
@@ -38,41 +38,8 @@ stored on disk, which earlier versions won't support.
 If you want to be able to downgrade smoothly, make a backup of your entire data
 directory. Without this your node will need start syncing (or importing from
 bootstrap.dat) anew afterwards. It is possible that the data from a completely
-synchronised 0.10 node may be usable in older versions as-is, but this is not
+synchronised 2.11.0 node may be usable in older versions as-is, but this is not
 supported and may break as soon as the older version attempts to reindex.
-
-This does not affect wallet forward or backward compatibility. There are no
-known problems when downgrading from 0.11.x to 0.10.x.
-
-Important information
-======================
-
-Transaction flooding
----------------------
-
-At the time of this release, the P2P network is being flooded with low-fee
-transactions. This causes a ballooning of the mempool size.
-
-If this growth of the mempool causes problematic memory use on your node, it is
-possible to change a few configuration options to work around this. The growth
-of the mempool can be monitored with the RPC command `getmempoolinfo`.
-
-One is to increase the minimum transaction relay fee `minrelaytxfee`, which
-defaults to 0.00001. This will cause transactions with fewer BTC/kB fee to be
-rejected, and thus fewer transactions entering the mempool.
-
-The other is to restrict the relaying of free transactions with
-`limitfreerelay`. This option sets the number of kB/minute at which
-free transactions (with enough priority) will be accepted. It defaults to 15.
-Reducing this number reduces the speed at which the mempool can grow due
-to free transactions.
-
-For example, add the following to `bitcoin.conf`:
-
-    minrelaytxfee=0.00005 
-    limitfreerelay=5
-
-More robust solutions are being worked on for a follow-up release.
 
 Notable changes
 ===============
@@ -82,11 +49,11 @@ Block file pruning
 
 This release supports running a fully validating node without maintaining a copy 
 of the raw block and undo data on disk. To recap, there are four types of data 
-related to the blockchain in the bitcoin system: the raw blocks as received over 
+related to the blockchain in the groestlcoin system: the raw blocks as received over 
 the network (blk???.dat), the undo data (rev???.dat), the block index and the 
 UTXO set (both LevelDB databases). The databases are built from the raw data.
 
-Block pruning allows Bitcoin Core to delete the raw block and undo data once 
+Block pruning allows Groestlcoin Core to delete the raw block and undo data once 
 it's been validated and used to build the databases. At that point, the raw data 
 is used only to relay blocks to other nodes, to handle reorganizations, to look 
 up old transactions (if -txindex is enabled or via the RPC/REST interfaces), or 
@@ -94,16 +61,16 @@ for rescanning the wallet. The block index continues to hold the metadata about
 all blocks in the blockchain.
 
 The user specifies how much space to allot for block & undo files. The minimum 
-allowed is 550MB. Note that this is in addition to whatever is required for the 
-block index and UTXO databases. The minimum was chosen so that Bitcoin Core will 
-be able to maintain at least 288 blocks on disk (two days worth of blocks at 10 
-minutes per block). In rare instances it is possible that the amount of space 
+allowed is 55MB. Note that this is in addition to whatever is required for the 
+block index and UTXO databases. The minimum was chosen so that Groestlcoin Core will 
+be able to maintain at least 2880 blocks on disk (two days worth of blocks at 1 
+minute per block). In rare instances it is possible that the amount of space 
 used will exceed the pruning target in order to keep the required last 288 
 blocks on disk.
 
 Block pruning works during initial sync in the same way as during steady state, 
 by deleting block files "as you go" whenever disk space is allocated. Thus, if 
-the user specifies 550MB, once that level is reached the program will begin 
+the user specifies 55MB, once that level is reached the program will begin 
 deleting the oldest block and undo files, while continuing to download the 
 blockchain.
 
@@ -213,7 +180,7 @@ connections. A user and password is sent where they weren't before. This setup
 is exceedingly rare, but in this case `-proxyrandomize=0` can be passed to
 disable the behavior.
 
-0.11.0 Change log
+2.11.0 Change log
 =================
 
 Detailed release notes follow. This overview includes changes that affect

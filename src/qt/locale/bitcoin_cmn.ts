@@ -9,7 +9,7 @@
     <name>AskPassphraseDialog</name>
     </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     </context>
 <context>
     <name>ClientModel</name>

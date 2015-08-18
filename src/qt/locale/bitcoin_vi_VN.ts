@@ -137,7 +137,7 @@
     </message>
     </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>&amp;Overview</source>
         <translation>&amp;Tổng quan</translation>
@@ -167,12 +167,12 @@
         <translation>Mở &amp;URI...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>GroestlCoin Core client</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Groestlcoin Core client</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -207,12 +207,12 @@
         <translation>Trợ &amp;giúp</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>&amp;Về GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>&amp;Về Groestlcoin Core</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -362,16 +362,16 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>version</source>
         <translation>version</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Về GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Về Groestlcoin Core</translation>
     </message>
     </context>
 <context>
@@ -381,8 +381,8 @@
         <translation>Chào mừng</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -577,8 +577,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     </context>
 <context>

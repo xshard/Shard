@@ -81,7 +81,7 @@
     </message>
     </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Error</source>
         <translation>نقص</translation>

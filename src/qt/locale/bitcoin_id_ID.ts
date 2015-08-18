@@ -62,11 +62,11 @@
         <translation>Alamat-alamat menerima</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Alamat-alamat Anda supaya mengirim pembayaran. Periksalah jumlah dan alamat penerima setiap kali Anda mengirim GroestlCoin.</translation>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Alamat-alamat Anda supaya mengirim pembayaran. Periksalah jumlah dan alamat penerima setiap kali Anda mengirim Groestlcoin.</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Alamat-alamat Anda supaya menerima pembayaran. Dianjurkan agar Anda menggunakan alamat menerima yang baru untuk setiap transaksi.</translation>
     </message>
     <message>
@@ -197,7 +197,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Pesan &amp;penanda...</translation>
@@ -267,8 +267,8 @@
         <translation>Buka &amp;URI</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>Client GroestlCoin Inti</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Client Groestlcoin Inti</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -279,8 +279,8 @@
         <translation>Mengindex ulang block di harddisk...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Kirim koin ke alamat GroestlCoin</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Kirim koin ke alamat Groestlcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -303,8 +303,8 @@
         <translation>&amp;Verifikasi pesan...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -319,8 +319,8 @@
         <translation>&amp;Menerima</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>Tampilkan informasi tentang GroestlCoin Inti</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Tampilkan informasi tentang Groestlcoin Inti</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -335,12 +335,12 @@
         <translation>Mengenkripsi kunci-kunci pribadi yang dipunyai dompetmu</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Tandalah pesanan dengan alamat-alamat GroestlCoin Anda supaya membuktikan pesanan itu dikirim oleh Anda</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Tandalah pesanan dengan alamat-alamat Groestlcoin Anda supaya membuktikan pesanan itu dikirim oleh Anda</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Periksakan pesan-pesan supaya menjaminkan ditandatangani oleh alamat GroestlCoin yang terperinci</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Periksakan pesan-pesan supaya menjaminkan ditandatangani oleh alamat Groestlcoin yang terperinci</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -359,16 +359,16 @@
         <translation>Baris tab</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Permintaan pembayaran (membangkitkan kode QR dan groestlcoin: URIs)</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>&amp;Mengenai GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>&amp;Mengenai Groestlcoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -387,12 +387,12 @@
         <translation>&amp;pilihan Perintah-baris</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
-        <translation>Tampilkan pesan bantuan GroestlCoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi GroestlCoin</translation>
+        <source>Show the Groestlcoin Core help message to get a list with possible Groestlcoin command-line options</source>
+        <translation>Tampilkan pesan bantuan Groestlcoin Core untuk memberikan daftar pilihan perintah-baris yang memungkinkan dalam aplikasi Groestlcoin</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n hubungan aktif ke jaringan GroestlCoin</numerusform></translation>
+        <source>%n active connection(s) to Groestlcoin network</source>
+        <translation><numerusform>%n hubungan aktif ke jaringan Groestlcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -704,8 +704,8 @@
         <translation>Alamat yang dimasukkan "%1" sudah ada di dalam buku alamat.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Alamat yang dimasukkan "%1" bukan alamat GroestlCoin yang benar.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Alamat yang dimasukkan "%1" bukan alamat Groestlcoin yang benar.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -742,16 +742,16 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>version</source>
         <translation>versi</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Mengenai GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Mengenai Groestlcoin Core</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -769,8 +769,8 @@
         <translation>Selamat Datang</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>Selamat Datang ke GroestlCoin Core</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Selamat Datang ke Groestlcoin Core</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -781,8 +781,8 @@
         <translation>Menggunakan direktori data yang dipilih Anda:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -875,8 +875,8 @@
         <translation>&amp;Perubahan saldo untuk transaksi yang belum dikonfirmasi</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Otomatis membuka port client GroestlCoin di router. Hanya berjalan apabila router anda mendukung UPnP dan di-enable.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Otomatis membuka port client Groestlcoin di router. Hanya berjalan apabila router anda mendukung UPnP dan di-enable.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -970,8 +970,8 @@
         <translation>Formulir</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informasi terlampir mungkin sudah kedaluwarsa. Dompet Anda secara otomatis mensinkronisasi dengan jaringan GroestlCoin ketika sebuah hubungan terbentuk, namun proses ini belum selesai.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informasi terlampir mungkin sudah kedaluwarsa. Dompet Anda secara otomatis mensinkronisasi dengan jaringan Groestlcoin ketika sebuah hubungan terbentuk, namun proses ini belum selesai.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1517,8 +1517,8 @@
         <translation>Gagal: Transaksi ditolak. Ini mungkin terjadi jika beberapa dari koin dalam dompet Anda telah digunakan, seperti ketika Anda menggunakan salinan wallet.dat dan beberapa koin telah dibelanjakan dalam salinan tersebut tetapi disini tidak tertandai sebagai terpakai.</translation>
     </message>
     <message>
-        <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Awas: Alamat GroestlCoin tidak sah</translation>
+        <source>Warning: Invalid Groestlcoin address</source>
+        <translation>Awas: Alamat Groestlcoin tidak sah</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1595,8 +1595,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>GroestlCoin Core is shutting down...</source>
-        <translation>GroestlCoin Core sementara dimatikan...</translation>
+        <source>Groestlcoin Core is shutting down...</source>
+        <translation>Groestlcoin Core sementara dimatikan...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1642,8 +1642,8 @@
         <translation>Salin tanda tangan terpilih ke sistem klipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Tandai pesan untuk menyetujui kamu pemiliki alamat GroestlCoin ini</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Tandai pesan untuk menyetujui kamu pemiliki alamat Groestlcoin ini</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1721,12 +1721,12 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
-        <translation>Pembangun GroestlCoin Core</translation>
+        <source>The Groestlcoin Core developers</source>
+        <translation>Pembangun Groestlcoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2203,8 +2203,8 @@
         <translation>Jalankan perintah ketika perubahan transaksi dompet (%s di cmd digantikan oleh TxID)</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. GroestlCoin Core is probably already running.</source>
-        <translation>Tidak bisa mengikat dengan %s di computer ini. Kemungkinan GroestlCoin Core sudah mulai.</translation>
+        <source>Unable to bind to %s on this computer. Groestlcoin Core is probably already running.</source>
+        <translation>Tidak bisa mengikat dengan %s di computer ini. Kemungkinan Groestlcoin Core sudah mulai.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -2323,8 +2323,8 @@
         <translation>Impor blok dari eksternal berkas blk000???.dat</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already running.</source>
-        <translation>Tidak bisa mengunci data directory %s. Kemungkinan GroestlCoin Core sudah mulai.</translation>
+        <source>Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already running.</source>
+        <translation>Tidak bisa mengunci data directory %s. Kemungkinan Groestlcoin Core sudah mulai.</translation>
     </message>
     <message>
         <source>Information</source>

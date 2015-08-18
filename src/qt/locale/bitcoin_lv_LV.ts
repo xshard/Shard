@@ -189,7 +189,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Parakstīt &amp;ziņojumu...</translation>
@@ -263,8 +263,8 @@
         <translation>Atvērt &amp;URI...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>GroestlCoin Core klients</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Groestlcoin Core klients</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -275,8 +275,8 @@
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Nosūtīt bitkoinus uz GroestlCoin adresi</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Nosūtīt bitkoinus uz Groestlcoin adresi</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -299,8 +299,8 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -315,8 +315,8 @@
         <translation>&amp;Saņemt</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>Parādīt informāciju par GroestlCoin Core</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Parādīt informāciju par Groestlcoin Core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -331,12 +331,12 @@
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Parakstīt ziņojumus ar savām GroestlCoin adresēm lai pierādītu ka tās pieder tev</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Parakstīt ziņojumus ar savām Groestlcoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām GroestlCoin adresēm</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Groestlcoin adresēm</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -355,16 +355,16 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Pieprasīt maksājumus (izveido QR kodu un groestlcoin: URIs)</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>Par &amp;GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>Par &amp;Groestlcoin Core</translation>
     </message>
     <message>
         <source>Open a groestlcoin: URI or payment request</source>
@@ -644,8 +644,8 @@
         <translation>Nupat ierakstītā adrese "%1" jau atrodas adrešu grāmatā.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Ierakstītā adrese "%1" nav derīga GroestlCoin adrese.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Ierakstītā adrese "%1" nav derīga Groestlcoin adrese.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -678,8 +678,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -690,8 +690,8 @@
         <translation>(%1-biti)</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Par GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Par Groestlcoin Core</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -709,8 +709,8 @@
         <translation>Sveiciens</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>Sveicināts GroestlCoin Core</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Sveicināts Groestlcoin Core</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -721,8 +721,8 @@
         <translation>Izmantot pielāgotu datu mapi:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -815,8 +815,8 @@
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Uz rūtera automātiski atvērt GroestlCoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Groestlcoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -868,7 +868,7 @@
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Vai rādīt GroestlCoin kontroles funkcijas vai nē.</translation>
+        <translation>Vai rādīt Groestlcoin kontroles funkcijas vai nē.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -902,8 +902,8 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar GroestlCoin tīklu, taču šis process vēl nav beidzies.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Groestlcoin tīklu, taču šis process vēl nav beidzies.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -950,7 +950,7 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>Nevar palaist GroestlCoin: nospied-lai-maksātu apstrādātāju</translation>
+        <translation>Nevar palaist Groestlcoin: nospied-lai-maksātu apstrādātāju</translation>
     </message>
     <message>
         <source>Refund from %1</source>
@@ -1286,7 +1286,7 @@
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>GroestlCoin Kontroles Funkcijas</translation>
+        <translation>Groestlcoin Kontroles Funkcijas</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1421,8 +1421,8 @@
         <translation>Transakcijas izveidošana neizdevās!</translation>
     </message>
     <message>
-        <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Brīdinājums: Nederīga GroestlCoin adrese</translation>
+        <source>Warning: Invalid Groestlcoin address</source>
+        <translation>Brīdinājums: Nederīga Groestlcoin adrese</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1495,8 +1495,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>GroestlCoin Core is shutting down...</source>
-        <translation>GroestlCoin Core tiek izslēgta...</translation>
+        <source>Groestlcoin Core is shutting down...</source>
+        <translation>Groestlcoin Core tiek izslēgta...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1542,8 +1542,8 @@
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs GroestlCoin adreses īpašnieks.</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Groestlcoin adreses īpašnieks.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1625,12 +1625,12 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
-        <translation>GroestlCoin Core izstrādātāji</translation>
+        <source>The Groestlcoin Core developers</source>
+        <translation>Groestlcoin Core izstrādātāji</translation>
     </message>
     <message>
         <source>[testnet]</source>

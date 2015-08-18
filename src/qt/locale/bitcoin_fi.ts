@@ -66,12 +66,12 @@
         <translation>Vastaanottava osoite</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Nämä ovat sinun GroestlCoin osoitteita maksujen lähetykseen. Tarkista aina summa ja vastaanottajan osoite ennenkuin lähetät kolikkoja.</translation>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Nämä ovat sinun Groestlcoin osoitteita maksujen lähetykseen. Tarkista aina summa ja vastaanottajan osoite ennenkuin lähetät kolikkoja.</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Nämä ovat sinun GroestlCoin-osoitteesi suoritusten vastaanottamiseen. Suositellaan että annat uuden osoitteen kullekin transaktiolle.</translation>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Nämä ovat sinun Groestlcoin-osoitteesi suoritusten vastaanottamiseen. Suositellaan että annat uuden osoitteen kullekin transaktiolle.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -213,7 +213,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Allekirjoita viesti...</translation>
@@ -287,8 +287,8 @@
         <translation>Avaa &amp;URI...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>GroestlCoin Core ohjelma</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Groestlcoin Core ohjelma</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -299,8 +299,8 @@
         <translation>Ladataan lohkoindeksiä...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Lähetä kolikoita GroestlCoin-osoitteeseen</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Lähetä kolikoita Groestlcoin-osoitteeseen</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -323,8 +323,8 @@
         <translation>Varmista &amp;viesti...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -339,8 +339,8 @@
         <translation>&amp;Vastaanota</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>Näytä tietoja GroestlCoin Core:sta</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Näytä tietoja Groestlcoin Core:sta</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -348,19 +348,19 @@
     </message>
     <message>
         <source>Show or hide the main Window</source>
-        <translation>Näytä tai piilota GroestlCoin-ikkuna</translation>
+        <translation>Näytä tai piilota Groestlcoin-ikkuna</translation>
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
         <translation>Suojaa yksityiset avaimet, jotka kuuluvat lompakkoosi</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Allekirjoita viestisi omalla GroestlCoin -osoitteellasi todistaaksesi, että omistat ne</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Allekirjoita viestisi omalla Groestlcoin -osoitteellasi todistaaksesi, että omistat ne</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Varmista, että viestisi on allekirjoitettu määritetyllä GroestlCoin -osoitteella</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Varmista, että viestisi on allekirjoitettu määritetyllä Groestlcoin -osoitteella</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -379,16 +379,16 @@
         <translation>Välilehtipalkki</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin-ydin</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin-ydin</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Pyydä maksuja (Luo QR koodit ja groestlcoin: URIt)</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>&amp;Tietoja GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>&amp;Tietoja Groestlcoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -407,12 +407,12 @@
         <translation>&amp;Komentorivin valinnat</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
-        <translation>Näytä GroestlCoin Core ohjeet saadaksesi listan mahdollisista GroestlCoinin komentorivivalinnoista</translation>
+        <source>Show the Groestlcoin Core help message to get a list with possible Groestlcoin command-line options</source>
+        <translation>Näytä Groestlcoin Core ohjeet saadaksesi listan mahdollisista Groestlcoinin komentorivivalinnoista</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n aktiivinen yhteys GroestlCoin-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä GroestlCoin-verkkoon</numerusform></translation>
+        <source>%n active connection(s) to Groestlcoin network</source>
+        <translation><numerusform>%n aktiivinen yhteys Groestlcoin-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä Groestlcoin-verkkoon</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -748,8 +748,8 @@
         <translation>Osoite "%1" on jo osoitekirjassa.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Antamasi osoite "%1" ei ole validi GroestlCoin-osoite.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Antamasi osoite "%1" ei ole validi Groestlcoin-osoite.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -786,8 +786,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin-ydin</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin-ydin</translation>
     </message>
     <message>
         <source>version</source>
@@ -798,8 +798,8 @@
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Tietoja GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Tietoja Groestlcoin Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -821,16 +821,16 @@
         <translation>Tervetuloa</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>Tervetuloa GroestlCoin Core</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Tervetuloa Groestlcoin Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where GroestlCoin Core will store its data.</source>
-        <translation>Tämän on ensimmäinen kerta kun GroestlCoin Core on käynnistetty joten voit valita data-hakemiston paikan.</translation>
+        <source>As this is the first time the program is launched, you can choose where Groestlcoin Core will store its data.</source>
+        <translation>Tämän on ensimmäinen kerta kun Groestlcoin Core on käynnistetty joten voit valita data-hakemiston paikan.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>GroestlCoin Core lataa ja tallentaa kopion GroestlCoinin lohkoketjusta. Vähintään %1GB dataa tullaan tallentamaan tähän hakemistoon ja tarve kasvaa ajan myötä. Lomakko tullaan myös tallentamaan tähän hakemistoon.</translation>
+        <source>Groestlcoin Core will download and store a copy of the Groestlcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Groestlcoin Core lataa ja tallentaa kopion Groestlcoinin lohkoketjusta. Vähintään %1GB dataa tullaan tallentamaan tähän hakemistoon ja tarve kasvaa ajan myötä. Lomakko tullaan myös tallentamaan tähän hakemistoon.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -841,8 +841,8 @@
         <translation>Määritä oma kansio:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin-ydin</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin-ydin</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -967,16 +967,16 @@
         <translation>&amp;Käytä varmistamattomia vaihtorahoja</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Avaa GroestlCoin-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Avaa Groestlcoin-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Portin uudelleenohjaus &amp;UPnP:llä</translation>
     </message>
     <message>
-        <source>Connect to the GroestlCoin network through a SOCKS5 proxy.</source>
-        <translation>Yhdistä GroestlCoin-verkkoon SOCKS5-välityspalvelimen kautta.</translation>
+        <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
+        <translation>Yhdistä Groestlcoin-verkkoon SOCKS5-välityspalvelimen kautta.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1070,8 +1070,8 @@
         <translation>Lomake</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu GroestlCoin-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu Groestlcoin-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1111,7 +1111,7 @@
     </message>
     <message>
         <source>Your current total balance</source>
-        <translation>Tililläsi tällä hetkellä olevien GroestlCoinien määrä</translation>
+        <translation>Tililläsi tällä hetkellä olevien Groestlcoinien määrä</translation>
     </message>
     <message>
         <source>Your current balance in watch-only addresses</source>
@@ -1177,8 +1177,8 @@
         <translation>Maksupyynnön haku URL on virheellinen: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid GroestlCoin address or malformed URI parameters.</source>
-        <translation>URIa ei voitu jäsentää! Tämä voi johtua kelvottomasta GroestlCoin-osoitteesta tai virheellisistä URI parametreista.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Groestlcoin address or malformed URI parameters.</source>
+        <translation>URIa ei voitu jäsentää! Tämä voi johtua kelvottomasta Groestlcoin-osoitteesta tai virheellisistä URI parametreista.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1231,8 +1231,8 @@
         <translation>Määrä</translation>
     </message>
     <message>
-        <source>Enter a GroestlCoin address (e.g. %1)</source>
-        <translation>Syötä GroestlCoin-osoite (esim. %1)</translation>
+        <source>Enter a Groestlcoin address (e.g. %1)</source>
+        <translation>Syötä Groestlcoin-osoite (esim. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1524,8 +1524,8 @@
         <translation>&amp;Uudelleenkäytä vastaanotto-osoitetta (ei suositella)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GroestlCoin network.</source>
-        <translation>Valinnainen viesti liitetään maksupyyntöön ja näytetään avattaessa. Viestiä ei lähetetä GroestlCoin-verkkoon.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Groestlcoin network.</source>
+        <translation>Valinnainen viesti liitetään maksupyyntöön ja näytetään avattaessa. Viestiä ei lähetetä Groestlcoin-verkkoon.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1674,7 +1674,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Lähetä GroestlCoineja</translation>
+        <translation>Lähetä Groestlcoineja</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1814,7 +1814,7 @@
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Hyväksy GroestlCoinien lähettäminen</translation>
+        <translation>Hyväksy Groestlcoinien lähettäminen</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -1858,7 +1858,7 @@
     </message>
     <message>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>Maksettavan summan tulee olla suurempi kuin 0 GroestlCoinia.</translation>
+        <translation>Maksettavan summan tulee olla suurempi kuin 0 Groestlcoinia.</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
@@ -1881,8 +1881,8 @@
         <translation>Maksa vain vähimmäiskulu %1</translation>
     </message>
     <message>
-        <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Varoitus: Virheellinen GroestlCoin osoite</translation>
+        <source>Warning: Invalid Groestlcoin address</source>
+        <translation>Varoitus: Virheellinen Groestlcoin osoite</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1932,8 +1932,8 @@
         <translation>Tämä on normaali maksu.</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to send the payment to</source>
-        <translation>GroestlCoin-osoite johon maksu lähetetään</translation>
+        <source>The Groestlcoin address to send the payment to</source>
+        <translation>Groestlcoin-osoite johon maksu lähetetään</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1960,8 +1960,8 @@
         <translation>Aseta nimi tälle osoitteelle lisätäksesi sen käytettyjen osoitteiden listalle.</translation>
     </message>
     <message>
-        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
-        <translation>Viesti joka liitettiin groestlcoin: URI:iin tallennetaan rahansiirtoon viitteeksi. Tätä viestiä ei lähetetä GroestlCoin-verkkoon.</translation>
+        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
+        <translation>Viesti joka liitettiin groestlcoin: URI:iin tallennetaan rahansiirtoon viitteeksi. Tätä viestiä ei lähetetä Groestlcoin-verkkoon.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1975,8 +1975,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>GroestlCoin Core is shutting down...</source>
-        <translation>GroestlCoin core sulkeutuu...</translation>
+        <source>Groestlcoin Core is shutting down...</source>
+        <translation>Groestlcoin core sulkeutuu...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1994,8 +1994,8 @@
         <translation>&amp;Allekirjoita viesti</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to sign the message with</source>
-        <translation>GroestlCoin-osoite jolla viesti allekirjoitetaan</translation>
+        <source>The Groestlcoin address to sign the message with</source>
+        <translation>Groestlcoin-osoite jolla viesti allekirjoitetaan</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2026,8 +2026,8 @@
         <translation>Kopioi tämänhetkinen allekirjoitus leikepöydälle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän GroestlCoin-osoitteen</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän Groestlcoin-osoitteen</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2046,12 +2046,12 @@
         <translation>&amp;Varmista viesti</translation>
     </message>
     <message>
-        <source>The GroestlCoin address the message was signed with</source>
-        <translation>GroestlCoin-osoite jolla viesti on allekirjoitettu</translation>
+        <source>The Groestlcoin address the message was signed with</source>
+        <translation>Groestlcoin-osoite jolla viesti on allekirjoitettu</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä GroestlCoin-osoitteella</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä Groestlcoin-osoitteella</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2117,12 +2117,12 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin-ydin</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin-ydin</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
-        <translation>GroestlCoin Core kehittäjät</translation>
+        <source>The Groestlcoin Core developers</source>
+        <translation>Groestlcoin Core kehittäjät</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2558,7 +2558,7 @@
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Lähetä GroestlCoineja</translation>
+        <translation>Lähetä Groestlcoineja</translation>
     </message>
 </context>
 <context>
@@ -2655,8 +2655,8 @@
         <translation>Tämä on esi-julkaistu testiversio - Käytä omalla riskillä - Ei saa käytää louhimiseen tai kauppasovelluksiin.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. GroestlCoin Core is probably already running.</source>
-        <translation>Ei voida yhdistää %s tässä tietokoneessa. GroestlCoin Core on luultavasti jo käynnissä.</translation>
+        <source>Unable to bind to %s on this computer. Groestlcoin Core is probably already running.</source>
+        <translation>Ei voida yhdistää %s tässä tietokoneessa. Groestlcoin Core on luultavasti jo käynnissä.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -2807,8 +2807,8 @@
         <translation>Tuodaan lohkoja ulkoisesta blk000??.dat tiedostosta</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already running.</source>
-        <translation>Ei voida lukita data-hakemistoa %s. GroestlCoin Core on luultavasti jo käynnissä.</translation>
+        <source>Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already running.</source>
+        <translation>Ei voida lukita data-hakemistoa %s. Groestlcoin Core on luultavasti jo käynnissä.</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
@@ -2831,12 +2831,12 @@
         <translation>Yhdistä SOCKS5 proxin kautta</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The GroestlCoin Core Developers</source>
-        <translation>Copyright (C) 2009-%i  GroestlCoin kehittäjät</translation>
+        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i  Groestlcoin kehittäjät</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of GroestlCoin Core</source>
-        <translation>Virhe ladattaessa wallet.dat-tiedostoa: Tarvitset uudemman version GroestlCoinista</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Groestlcoin Core</source>
+        <translation>Virhe ladattaessa wallet.dat-tiedostoa: Tarvitset uudemman version Groestlcoinista</translation>
     </message>
     <message>
         <source>Information</source>
@@ -2855,8 +2855,8 @@
         <translation>Välityssolmukohdan asetukset:</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the GroestlCoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL valinnat: (katso GroestlCoin Wikistä SSL-asennuksen ohjeet)</translation>
+        <source>RPC SSL options: (see the Groestlcoin Wiki for SSL setup instructions)</source>
+        <translation>RPC SSL valinnat: (katso Groestlcoin Wikistä SSL-asennuksen ohjeet)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -2927,8 +2927,8 @@
         <translation>Käyttäjätunnus JSON-RPC-yhteyksille</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart GroestlCoin Core to complete</source>
-        <translation>Lompakko tarvitsee uudelleenkirjoittaa: käynnistä GroestlCoin uudelleen</translation>
+        <source>Wallet needed to be rewritten: restart Groestlcoin Core to complete</source>
+        <translation>Lompakko tarvitsee uudelleenkirjoittaa: käynnistä Groestlcoin uudelleen</translation>
     </message>
     <message>
         <source>Warning</source>

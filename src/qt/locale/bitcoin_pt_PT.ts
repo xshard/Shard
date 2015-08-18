@@ -66,12 +66,12 @@
         <translation>Endereços de depósito</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estes são os seus endereços GroestlCoin para enviar pagamentos. Verifique sempre o valor e o endereço de envio antes de enviar moedas.</translation>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Estes são os seus endereços Groestlcoin para enviar pagamentos. Verifique sempre o valor e o endereço de envio antes de enviar moedas.</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estes são os seus endereços GroestlCoin para receber pagamentos. É recomendado que utilize um endereço novo para cada transacção.</translation>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Estes são os seus endereços Groestlcoin para receber pagamentos. É recomendado que utilize um endereço novo para cada transacção.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -213,7 +213,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Assinar &amp;mensagem...</translation>
@@ -287,8 +287,8 @@
         <translation>Abrir &amp;URI...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>Cliente GroestlCoin Core</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Cliente Groestlcoin Core</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -299,7 +299,7 @@
         <translation>A reindexar blocos no disco...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
+        <source>Send coins to a Groestlcoin address</source>
         <translation>Enviar moedas para um endereço groestlcoin</translation>
     </message>
     <message>
@@ -323,8 +323,8 @@
         <translation>&amp;Verificar mensagem...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -339,8 +339,8 @@
         <translation>&amp;Receber</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>Mostrar informação sobre GroestlCoin Core</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Mostrar informação sobre Groestlcoin Core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -355,12 +355,12 @@
         <translation>Encriptar as chaves privadas que pertencem à sua carteira</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Assine mensagens com os seus endereços GroestlCoin para provar que os controla</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Assine mensagens com os seus endereços Groestlcoin para provar que os controla</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Verifique mensagens para assegurar que foram assinadas com o endereço GroestlCoin especificado</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Verifique mensagens para assegurar que foram assinadas com o endereço Groestlcoin especificado</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -379,16 +379,16 @@
         <translation>Barra de separadores</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Solicitar pagamentos (gera códigos QR e URIs groestlcoin:)</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>&amp;Sobre o GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>&amp;Sobre o Groestlcoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -407,12 +407,12 @@
         <translation>&amp;Opções da linha de &amp;comandos</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
-        <translation>Mostrar a mensagem de ajuda do GroestlCoin Core para obter uma lista com possíveis opções de linha de comandos</translation>
+        <source>Show the Groestlcoin Core help message to get a list with possible Groestlcoin command-line options</source>
+        <translation>Mostrar a mensagem de ajuda do Groestlcoin Core para obter uma lista com possíveis opções de linha de comandos</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n ligação ativa à rede GroestlCoin</numerusform><numerusform>%n ligações ativas à rede GroestlCoin</numerusform></translation>
+        <source>%n active connection(s) to Groestlcoin network</source>
+        <translation><numerusform>%n ligação ativa à rede Groestlcoin</numerusform><numerusform>%n ligações ativas à rede Groestlcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -748,7 +748,7 @@
         <translation>O endereço introduzido "%1" já se encontra no livro de endereços.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
         <translation>O endereço introduzido "%1" não é um endereço groestlcoin válido.</translation>
     </message>
     <message>
@@ -786,8 +786,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -798,8 +798,8 @@
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Sobre o GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Sobre o Groestlcoin Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -821,16 +821,16 @@
         <translation>Bem-vindo</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>Bem-vindo ao GroestlCoin Core.</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Bem-vindo ao Groestlcoin Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where GroestlCoin Core will store its data.</source>
-        <translation>Sendo esta a primeira vez que o programa é iniciado, poderá escolher onde o GroestlCoin Core irá guardar os seus dados.</translation>
+        <source>As this is the first time the program is launched, you can choose where Groestlcoin Core will store its data.</source>
+        <translation>Sendo esta a primeira vez que o programa é iniciado, poderá escolher onde o Groestlcoin Core irá guardar os seus dados.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>O GroestlCoin Core vai transferir e armazenar uma cópia do "block chain" (cadeia de blocos). Pelo menos %1GB de dados serão armazenados nesta pasta, e vão crescer ao longo do tempo. A sua carteira também irá ser armazenada nesta pasta.</translation>
+        <source>Groestlcoin Core will download and store a copy of the Groestlcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>O Groestlcoin Core vai transferir e armazenar uma cópia do "block chain" (cadeia de blocos). Pelo menos %1GB de dados serão armazenados nesta pasta, e vão crescer ao longo do tempo. A sua carteira também irá ser armazenada nesta pasta.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -841,8 +841,8 @@
         <translation>Utilizar uma pasta de dados personalizada:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -968,7 +968,7 @@
         <translation>&amp;Gastar troco não confirmado</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Abrir a porta do cliente groestlcoin automaticamente no seu router. Isto apenas funciona se o seu router suportar UPnP e este se encontrar ligado.</translation>
     </message>
     <message>
@@ -976,8 +976,8 @@
         <translation>Mapear porta usando &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the GroestlCoin network through a SOCKS5 proxy.</source>
-        <translation>Conectar à rede da GroestlCoin através dum proxy SOCLS5.</translation>
+        <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
+        <translation>Conectar à rede da Groestlcoin através dum proxy SOCLS5.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1071,8 +1071,8 @@
         <translation>Formulário</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>A informação mostrada poderá estar desatualizada. A sua carteira sincroniza automaticamente com a rede GroestlCoin depois de estabelecer ligação, mas este processo ainda não está completo.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A informação mostrada poderá estar desatualizada. A sua carteira sincroniza automaticamente com a rede Groestlcoin depois de estabelecer ligação, mas este processo ainda não está completo.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1178,8 +1178,8 @@
         <translation>O URL de pedido de pagamento é inválido: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid GroestlCoin address or malformed URI parameters.</source>
-        <translation>URI não foi lido correctamente! Isto pode ser causado por um endereço GroestlCoin inválido ou por parâmetros URI malformados.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Groestlcoin address or malformed URI parameters.</source>
+        <translation>URI não foi lido correctamente! Isto pode ser causado por um endereço Groestlcoin inválido ou por parâmetros URI malformados.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1244,8 +1244,8 @@
         <translation>Quantia</translation>
     </message>
     <message>
-        <source>Enter a GroestlCoin address (e.g. %1)</source>
-        <translation>Entre um endereço GroestlCoin (ex. %1)</translation>
+        <source>Enter a Groestlcoin address (e.g. %1)</source>
+        <translation>Entre um endereço Groestlcoin (ex. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1537,8 +1537,8 @@
         <translation>Reutilizar um endereço de receção existente (não recomendado)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GroestlCoin network.</source>
-        <translation>Uma mensagem opcional para anexar ao pedido de pagamento, que será exibida quando o pedido for aberto. Nota: A mensagem não será enviada com o pagamento através da rede GroestlCoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Groestlcoin network.</source>
+        <translation>Uma mensagem opcional para anexar ao pedido de pagamento, que será exibida quando o pedido for aberto. Nota: A mensagem não será enviada com o pagamento através da rede Groestlcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1906,8 +1906,8 @@
         <translation>Pagar somente a taxa minima de %1</translation>
     </message>
     <message>
-        <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Aviso: Endereço GroestlCoin inválido</translation>
+        <source>Warning: Invalid Groestlcoin address</source>
+        <translation>Aviso: Endereço Groestlcoin inválido</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1957,8 +1957,8 @@
         <translation>Este é um pagamento normal.</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to send the payment to</source>
-        <translation>O endereço GroestlCoin para enviar o pagamento</translation>
+        <source>The Groestlcoin address to send the payment to</source>
+        <translation>O endereço Groestlcoin para enviar o pagamento</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1985,8 +1985,8 @@
         <translation>Introduza um rótulo para este endereço para o adicionar à sua lista de endereços usados</translation>
     </message>
     <message>
-        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
-        <translation>Uma mensagem que estava anexada ao URI groestlcoin: que será armazenada com a transação para sua referência. Nota: Esta mensagem não será enviada através da rede GroestlCoin.</translation>
+        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
+        <translation>Uma mensagem que estava anexada ao URI groestlcoin: que será armazenada com a transação para sua referência. Nota: Esta mensagem não será enviada através da rede Groestlcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2000,8 +2000,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>GroestlCoin Core is shutting down...</source>
-        <translation>O GroestlCoin Core está a encerrar...</translation>
+        <source>Groestlcoin Core is shutting down...</source>
+        <translation>O Groestlcoin Core está a encerrar...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2019,8 +2019,8 @@
         <translation>&amp;Assinar Mensagem</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to sign the message with</source>
-        <translation>O endereço GroestlCoin para designar a mensagem</translation>
+        <source>The Groestlcoin address to sign the message with</source>
+        <translation>O endereço Groestlcoin para designar a mensagem</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2051,8 +2051,8 @@
         <translation>Copiar a assinatura actual para a área de transferência</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Assine uma mensagem para provar que é dono deste endereço GroestlCoin</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Assine uma mensagem para provar que é dono deste endereço Groestlcoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2071,12 +2071,12 @@
         <translation>&amp;Verificar Mensagem</translation>
     </message>
     <message>
-        <source>The GroestlCoin address the message was signed with</source>
-        <translation>O endereço GroestlCoin com que a mensagem foi designada</translation>
+        <source>The Groestlcoin address the message was signed with</source>
+        <translation>O endereço Groestlcoin com que a mensagem foi designada</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Verifique a mensagem para assegurar que foi assinada com o endereço GroestlCoin especificado</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Verifique a mensagem para assegurar que foi assinada com o endereço Groestlcoin especificado</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2142,12 +2142,12 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
-        <translation>Os programadores do GroestlCoin Core</translation>
+        <source>The Groestlcoin Core developers</source>
+        <translation>Os programadores do Groestlcoin Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2692,8 +2692,8 @@
         <translation>Esta é uma versão de testes pré-lançamento - use à sua responsabilidade - não usar para minar ou aplicações comerciais</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. GroestlCoin Core is probably already running.</source>
-        <translation>Incapaz de vincular à porta %s neste computador. O GroestlCoin Core provavelmente já está a correr.</translation>
+        <source>Unable to bind to %s on this computer. Groestlcoin Core is probably already running.</source>
+        <translation>Incapaz de vincular à porta %s neste computador. O Groestlcoin Core provavelmente já está a correr.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -2868,8 +2868,8 @@
         <translation>Vincualar o endereço dado e listar as ligações conectadas ao mesmo na lista branca. Use a notação [anfitrião]:porta para IPv6</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already running.</source>
-        <translation>Impossível trancar a pasta de dados %s. Provavelmente o GroestlCoin Core já está a ser executado.</translation>
+        <source>Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already running.</source>
+        <translation>Impossível trancar a pasta de dados %s. Provavelmente o Groestlcoin Core já está a ser executado.</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>

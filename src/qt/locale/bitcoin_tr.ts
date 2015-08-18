@@ -47,11 +47,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>GroestlCoin yollanacak adresi seç</translation>
+        <translation>Groestlcoin yollanacak adresi seç</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>GroestlCoin alınacak adresi seç</translation>
+        <translation>Groestlcoin alınacak adresi seç</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -66,12 +66,12 @@
         <translation>Alım adresleri</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Bunlar ödeme yapmak için kullanacağınız GroestlCoin adreslerinizdir. GroestlCoin yollamadan önce meblağı ve alıcı adresini daima kontrol ediniz.</translation>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Bunlar ödeme yapmak için kullanacağınız Groestlcoin adreslerinizdir. Groestlcoin yollamadan önce meblağı ve alıcı adresini daima kontrol ediniz.</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Bunlar ödeme almak için kullanacağınız GroestlCoin adreslerinizdir. Her muamele için yeni bir alım adresi kullanmanız tavsiye edilir.</translation>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Bunlar ödeme almak için kullanacağınız Groestlcoin adreslerinizdir. Her muamele için yeni bir alım adresi kullanmanız tavsiye edilir.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -168,8 +168,8 @@
         <translation>Cüzdanınızı şifrelemek istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your GroestlCoins from being stolen by malware infecting your computer.</source>
-        <translation>Şifreleme işlemini tamamlamak için GroestlCoin Çekirdeği şimdi kapanacaktır. Cüzdanınızı şifrelemenin, GroestlCoinlerinizin bilgisayara bulaşan kötücül bir yazılım tarafından çalınmaya karşı tamamen koruyamayacağını unutmayınız.</translation>
+        <source>Groestlcoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your Groestlcoins from being stolen by malware infecting your computer.</source>
+        <translation>Şifreleme işlemini tamamlamak için Groestlcoin Çekirdeği şimdi kapanacaktır. Cüzdanınızı şifrelemenin, Groestlcoinlerinizin bilgisayara bulaşan kötücül bir yazılım tarafından çalınmaya karşı tamamen koruyamayacağını unutmayınız.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -221,7 +221,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Mesaj imzala...</translation>
@@ -295,8 +295,8 @@
         <translation>&amp;URI aç...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>GroestlCoin Çekirdeği istemcisi</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Groestlcoin Çekirdeği istemcisi</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -307,8 +307,8 @@
         <translation>Diskteki bloklar yeniden endeksleniyor...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Bir GroestlCoin adresine GroestlCoin yolla</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Bir Groestlcoin adresine Groestlcoin yolla</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -331,8 +331,8 @@
         <translation>Mesaj &amp;kontrol et...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -347,8 +347,8 @@
         <translation>&amp;Al</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği hakkında bilgi göster</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği hakkında bilgi göster</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -363,12 +363,12 @@
         <translation>Cüzdanınızın özel anahtarlarını şifrele</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Mesajları adreslerin size ait olduğunu ispatlamak için GroestlCoin adresleri ile imzala</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Mesajları adreslerin size ait olduğunu ispatlamak için Groestlcoin adresleri ile imzala</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Belirtilen GroestlCoin adresleri ile imzalandıklarından emin olmak için mesajları kontrol et</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Belirtilen Groestlcoin adresleri ile imzalandıklarından emin olmak için mesajları kontrol et</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -387,20 +387,20 @@
         <translation>Sekme araç çubuğu</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Ödeme talep et (QR kodu ve groestlcoin URI'si oluşturur)</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği &amp;hakkında</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği &amp;hakkında</translation>
     </message>
     <message>
-        <source>Modify configuration options for GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği yapılandırma seçeneklerini değiştir</translation>
+        <source>Modify configuration options for Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği yapılandırma seçeneklerini değiştir</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -419,12 +419,12 @@
         <translation>&amp;Komut satırı seçenekleri</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
-        <translation>GroestlCoin komut satırı seçeneklerinin listesini elde etmek için GroestlCoin Çekirdeği yardım mesajını göster</translation>
+        <source>Show the Groestlcoin Core help message to get a list with possible Groestlcoin command-line options</source>
+        <translation>Groestlcoin komut satırı seçeneklerinin listesini elde etmek için Groestlcoin Çekirdeği yardım mesajını göster</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>GroestlCoin şebekesine %n faal bağlantı</numerusform><numerusform>GroestlCoin şebekesine %n faal bağlantı</numerusform></translation>
+        <source>%n active connection(s) to Groestlcoin network</source>
+        <translation><numerusform>Groestlcoin şebekesine %n faal bağlantı</numerusform><numerusform>Groestlcoin şebekesine %n faal bağlantı</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -544,7 +544,7 @@
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Selection</source>
-        <translation>GroestlCoin Seçimi</translation>
+        <translation>Groestlcoin Seçimi</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -806,8 +806,8 @@
         <translation>Girilen "%1" adresi hâlihazırda adres defterinde mevcuttur.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Girilen "%1" adresi geçerli bir GroestlCoin adresi değildir.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Girilen "%1" adresi geçerli bir Groestlcoin adresi değildir.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -844,8 +844,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği</translation>
     </message>
     <message>
         <source>version</source>
@@ -856,8 +856,8 @@
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği hakkında</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği hakkında</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -879,16 +879,16 @@
         <translation>Hoş geldiniz</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>GroestlCoin Çekirdeğine hoş geldiniz.</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Groestlcoin Çekirdeğine hoş geldiniz.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where GroestlCoin Core will store its data.</source>
-        <translation>Bu programı ilk kez başlattığınızdan dolayı GroestlCoin Çekirdeğinin verilerini nereye saklayacağını seçebilirsiniz.</translation>
+        <source>As this is the first time the program is launched, you can choose where Groestlcoin Core will store its data.</source>
+        <translation>Bu programı ilk kez başlattığınızdan dolayı Groestlcoin Çekirdeğinin verilerini nereye saklayacağını seçebilirsiniz.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>GroestlCoin çekirdeği GroestlCoin blok zincirinin bir kopyasını indirip saklayacaktır. Asgari %1GB bouyutunda veri bu klasörde saklanacak ve zamanla bu boyut artacaktır. Cüzdan da bu klasörde saklanacaktır. </translation>
+        <source>Groestlcoin Core will download and store a copy of the Groestlcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Groestlcoin çekirdeği Groestlcoin blok zincirinin bir kopyasını indirip saklayacaktır. Asgari %1GB bouyutunda veri bu klasörde saklanacak ve zamanla bu boyut artacaktır. Cüzdan da bu klasörde saklanacaktır. </translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -899,8 +899,8 @@
         <translation>Özel bir veri klasörü kullan:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -981,8 +981,8 @@
         <translation>Pencere kapatıldığında uygulamadan çıkmak yerine uygulamayı küçültür. Bu seçenek etkinleştirildiğinde, uygulama sadece menüden çıkış seçildiğinde kapanacaktır.</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting GroestlCoin Core.</source>
-        <translation>Kullanıcı arayüzünün dili burada belirtilebilir. Bu ayar GroestlCoin Çekirdeği tekrar başlatıldığında etkinleşecektir.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Groestlcoin Core.</source>
+        <translation>Kullanıcı arayüzünün dili burada belirtilebilir. Bu ayar Groestlcoin Çekirdeği tekrar başlatıldığında etkinleşecektir.</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
@@ -1009,12 +1009,12 @@
         <translation>&amp;Şebeke</translation>
     </message>
     <message>
-        <source>Automatically start GroestlCoin Core after logging in to the system.</source>
-        <translation>Sistemde oturum açıldığında GroestlCoin Çekirdeğini otomatik olarak başlat.</translation>
+        <source>Automatically start Groestlcoin Core after logging in to the system.</source>
+        <translation>Sistemde oturum açıldığında Groestlcoin Çekirdeğini otomatik olarak başlat.</translation>
     </message>
     <message>
-        <source>&amp;Start GroestlCoin Core on system login</source>
-        <translation>GroestlCoin Çekirdeğini sistem oturumuyla &amp;başlat</translation>
+        <source>&amp;Start Groestlcoin Core on system login</source>
+        <translation>Groestlcoin Çekirdeğini sistem oturumuyla &amp;başlat</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
@@ -1041,16 +1041,16 @@
         <translation>Teyit edilmemiş para üstünü &amp;harca</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Yönlendiricide GroestlCoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Yönlendiricide Groestlcoin istemci portlarını otomatik olarak açar. Bu, sadece yönlendiricinizin UPnP desteği bulunuyorsa ve etkinse çalışabilir.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Portları &amp;UPnP kullanarak haritala</translation>
     </message>
     <message>
-        <source>Connect to the GroestlCoin network through a SOCKS5 proxy.</source>
-        <translation>GroestlCoin şebekesine SOCKS5 vekil sunucusu vasıtasıyla bağlan.</translation>
+        <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
+        <translation>Groestlcoin şebekesine SOCKS5 vekil sunucusu vasıtasıyla bağlan.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1098,7 +1098,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>GroestlCoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
+        <translation>Groestlcoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1148,7 +1148,7 @@
         <translation>Form</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Görüntülenen veriler zaman aşımına uğramış olabilir. Bağlantı kurulduğunda cüzdanınız otomatik olarak şebeke ile eşleşir ancak bu işlem henüz tamamlanmamıştır.</translation>
     </message>
     <message>
@@ -1248,15 +1248,15 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>GroestlCoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
+        <translation>Groestlcoin başlatılamadı: tıkla-ve-öde yöneticisi</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>Ödeme talebini alma URL'i geçersiz: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid GroestlCoin address or malformed URI parameters.</source>
-        <translation>URI okunamadı! Sebebi geçersiz bir GroestlCoin adresi veya hatalı URI parametreleri olabilir.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Groestlcoin address or malformed URI parameters.</source>
+        <translation>URI okunamadı! Sebebi geçersiz bir Groestlcoin adresi veya hatalı URI parametreleri olabilir.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1333,8 +1333,8 @@
         <translation>Meblağ</translation>
     </message>
     <message>
-        <source>Enter a GroestlCoin address (e.g. %1)</source>
-        <translation>Bir GroestlCoin adresi giriniz (mesela %1)</translation>
+        <source>Enter a Groestlcoin address (e.g. %1)</source>
+        <translation>Bir Groestlcoin adresi giriniz (mesela %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1443,8 +1443,8 @@
         <translation>Güncel blok sayısı</translation>
     </message>
     <message>
-        <source>Open the GroestlCoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Güncel veri klasöründen GroestlCoin Çekirdeği hata ayıklama kütük dosyasını açar. Büyük kütük dosyaları için bu birkaç saniye alabilir.</translation>
+        <source>Open the Groestlcoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Güncel veri klasöründen Groestlcoin Çekirdeği hata ayıklama kütük dosyasını açar. Büyük kütük dosyaları için bu birkaç saniye alabilir.</translation>
     </message>
     <message>
         <source>Received</source>
@@ -1563,8 +1563,8 @@
         <translation>Konsolu temizle</translation>
     </message>
     <message>
-        <source>Welcome to the GroestlCoin Core RPC console.</source>
-        <translation>GroestlCoin Çekirdeği RPC konsoluna hoş geldiniz.</translation>
+        <source>Welcome to the Groestlcoin Core RPC console.</source>
+        <translation>Groestlcoin Çekirdeği RPC konsoluna hoş geldiniz.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1638,8 +1638,8 @@
         <translation>&amp;Hâlihazırda bulunan bir alım adresini kullan (önerilmez)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GroestlCoin network.</source>
-        <translation>Talep açıldığında gösterilecek, isteğinize dayalı, ödeme talebi ile ilişkilendirilecek bir mesaj. Not: Bu mesaj ödeme ile birlikte GroestlCoin şebekesi üzerinden gönderilmeyecektir.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Groestlcoin network.</source>
+        <translation>Talep açıldığında gösterilecek, isteğinize dayalı, ödeme talebi ile ilişkilendirilecek bir mesaj. Not: Bu mesaj ödeme ile birlikte Groestlcoin şebekesi üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1788,7 +1788,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>GroestlCoin yolla</translation>
+        <translation>Groestlcoin yolla</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -2027,8 +2027,8 @@
         <translation>Çift adres bulundu: adresler herbiri için sadece bir kez kullanılmalıdır.</translation>
     </message>
     <message>
-        <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Uyarı: geçersiz GroestlCoin adresi</translation>
+        <source>Warning: Invalid Groestlcoin address</source>
+        <translation>Uyarı: geçersiz Groestlcoin adresi</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2078,8 +2078,8 @@
         <translation>Bu, normal bir ödemedir.</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to send the payment to</source>
-        <translation>Ödemenin yollanacağı GroestlCoin adresi</translation>
+        <source>The Groestlcoin address to send the payment to</source>
+        <translation>Ödemenin yollanacağı Groestlcoin adresi</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2098,7 +2098,7 @@
         <translation>Bu unsuru kaldır</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less GroestlCoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less Groestlcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Ücret yollanan meblağdan alınacaktır. Alıcı meblağ alanında girdiğinizden daha az groestlcoin alacaktır.  Eğer birden çok alıcı seçiliyse ücret eşit olarak bölünecektir.</translation>
     </message>
     <message>
@@ -2122,8 +2122,8 @@
         <translation>Kullanılmış adres listesine eklemek için bu adrese bir etiket girin</translation>
     </message>
     <message>
-        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
-        <translation>GroestlCoin: URI'siyle ilişkili ve bilginiz için muameleyle saklanacak bir mesaj. Not: Bu mesaj GroestlCoin şebekesi üzerinden gönderilmeyecektir.</translation>
+        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
+        <translation>Groestlcoin: URI'siyle ilişkili ve bilginiz için muameleyle saklanacak bir mesaj. Not: Bu mesaj Groestlcoin şebekesi üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2137,8 +2137,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>GroestlCoin Core is shutting down...</source>
-        <translation>GroestlCoin Çekirdeği kapanıyor...</translation>
+        <source>Groestlcoin Core is shutting down...</source>
+        <translation>Groestlcoin Çekirdeği kapanıyor...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2156,12 +2156,12 @@
         <translation>Mesaj &amp;imzala</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive GroestlCoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Groestlcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Adreslerinize yollanan groestlcoinleri alabileceğiniz ispatlamak için adreslerinizle mesaj/anlaşma imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz ya da rastgele hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to sign the message with</source>
-        <translation>Mesajın imzalanmasında kullanılacak GroestlCoin adresi</translation>
+        <source>The Groestlcoin address to sign the message with</source>
+        <translation>Mesajın imzalanmasında kullanılacak Groestlcoin adresi</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2192,8 +2192,8 @@
         <translation>Güncel imzayı sistem panosuna kopyala</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Bu GroestlCoin adresinin sizin olduğunu ispatlamak için mesajı imzalayın</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Bu Groestlcoin adresinin sizin olduğunu ispatlamak için mesajı imzalayın</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2216,12 +2216,12 @@
         <translation>Alıcının adresini, mesajı (satır sonları, boşluklar, sekmeler vs. karakterleri tam olarak kopyaladığınızdan emin olunuz) ve imzayı aşağıda giriniz. Bir ortadaki adam saldırısı tarafından kandırılmaya mâni olmak için imzadan, imzalı mesajın içeriğini aşan bir anlam çıkarmamaya dikkat ediniz. Bunun sadece imzalayan tarafın adres ile alım yapabildiğini ispatladığını ve herhangi bir muamelenin gönderi tarafını kanıtlayamayacağını unutmayınız!</translation>
     </message>
     <message>
-        <source>The GroestlCoin address the message was signed with</source>
-        <translation>Mesajın imzalanmasında kullanılan GroestlCoin adresi</translation>
+        <source>The Groestlcoin address the message was signed with</source>
+        <translation>Mesajın imzalanmasında kullanılan Groestlcoin adresi</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Belirtilen GroestlCoin adresi ile imzalandığını doğrulamak için mesajı kontrol et</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Belirtilen Groestlcoin adresi ile imzalandığını doğrulamak için mesajı kontrol et</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2287,12 +2287,12 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Çekirdeği</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Çekirdeği</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
-        <translation>GroestlCoin Çekirdeği geliştiricileri</translation>
+        <source>The Groestlcoin Core developers</source>
+        <translation>Groestlcoin Çekirdeği geliştiricileri</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2736,7 +2736,7 @@
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>GroestlCoin yolla</translation>
+        <translation>Groestlcoin yolla</translation>
     </message>
 </context>
 <context>
@@ -2853,8 +2853,8 @@
         <translation>Bu yayın öncesi bir deneme sürümüdür - tüm riski siz üstlenmiş olursunuz - groestlcoin oluşturmak ya da ticari uygulamalar için kullanmayınız</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. GroestlCoin Core is probably already running.</source>
-        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. GroestlCoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
+        <source>Unable to bind to %s on this computer. Groestlcoin Core is probably already running.</source>
+        <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. Groestlcoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -3045,8 +3045,8 @@
         <translation>Belirtilen adrese bağlan ve JSON RPC bağlantıları için dinlemeye geç. IPv6 için [makine]:port imlasını kullanınız. Bu seçenek birden çok kez belirtilebilir (varsayılan: tüm arayüzlere bağlan)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already running.</source>
-        <translation>%s veri dizininde kilit elde edilemedi. GroestlCoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
+        <source>Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already running.</source>
+        <translation>%s veri dizininde kilit elde edilemedi. Groestlcoin Çekirdeği muhtemelen hâlihazırda çalışmaktadır.</translation>
     </message>
     <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
@@ -3130,7 +3130,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "Groestlcoin Alert" admin@foo.com
 </source>
         <translation>groestlcoind ya da groestlcoin-qt ile -server seçeneğini kullanmak için yapılandırma dosyasında bir rpc parolası belirtmeniz gerekir:
 %s
@@ -3141,7 +3141,7 @@ rpcpassword=%s
 Kullanıcı ismi ile parolanın FARKLI olmaları gerekir.
 Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.
 Sorunlar hakkında bildiri almak için alertnotify unsurunu ayarlamanız tavsiye edilir;
-mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
+mesela: alertnotify=echo %%s | mail -s "Groestlcoin Alert" admin@foo.com
 </translation>
     </message>
     <message>
@@ -3149,8 +3149,8 @@ mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>İkaz: -maxtxfee çok yüksek bir değere ayarlanmış! Bu denli yüksek ücretler tek bir muamelede ödenebilir.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong GroestlCoin Core will not work properly.</source>
-        <translation>Uyarı: Lütfen bilgisayarınızın saat ve tarihinin doğru olduğunu kontol ediniz! Saatinizde gecikme varsa GroestlCoin Çekirdeği doğru şekilde çalışamaz.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Groestlcoin Core will not work properly.</source>
+        <translation>Uyarı: Lütfen bilgisayarınızın saat ve tarihinin doğru olduğunu kontol ediniz! Saatinizde gecikme varsa Groestlcoin Çekirdeği doğru şekilde çalışamaz.</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
@@ -3193,16 +3193,16 @@ mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>SOCKS5 vekil sunucusu vasıtasıyla bağlan</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The GroestlCoin Core Developers</source>
-        <translation>Telif hakkı 2009-%i GroestlCoin Çekirdeği Geliştiricileri</translation>
+        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
+        <translation>Telif hakkı 2009-%i Groestlcoin Çekirdeği Geliştiricileri</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>
         <translation>-rpcbind değeri %s şebeke adresi olarak ayrıştırılamadı</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of GroestlCoin Core</source>
-        <translation>wallet.dat dosyasının yüklenmesinde hata: Cüzdan GroestlCoin Çekirdeğinin daha yeni bir sürümünü gerektirmektedir</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Groestlcoin Core</source>
+        <translation>wallet.dat dosyasının yüklenmesinde hata: Cüzdan Groestlcoin Çekirdeğinin daha yeni bir sürümünü gerektirmektedir</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -3221,8 +3221,8 @@ mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Bilgi</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. GroestlCoin Core is shutting down.</source>
-        <translation>Başlatma sınaması başarısız oldu. GroestlCoin Çekirdeği kapatılıyor.</translation>
+        <source>Initialization sanity check failed. Groestlcoin Core is shutting down.</source>
+        <translation>Başlatma sınaması başarısız oldu. Groestlcoin Çekirdeği kapatılıyor.</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -3257,8 +3257,8 @@ mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Düğüm röle seçenekleri:</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the GroestlCoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL seçenekleri: (SSL kurulumu yönergeleri için GroestlCoin vikisine bakınız)</translation>
+        <source>RPC SSL options: (see the Groestlcoin Wiki for SSL setup instructions)</source>
+        <translation>RPC SSL seçenekleri: (SSL kurulumu yönergeleri için Groestlcoin vikisine bakınız)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3357,8 +3357,8 @@ mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>JSON-RPC bağlantıları için kullanıcı ismi</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart GroestlCoin Core to complete</source>
-        <translation>Cüzdanın tekrar yazılması gerekmektedir: tamamlamak için GroestlCoin Çekirdeğini yeniden başlatın</translation>
+        <source>Wallet needed to be rewritten: restart Groestlcoin Core to complete</source>
+        <translation>Cüzdanın tekrar yazılması gerekmektedir: tamamlamak için Groestlcoin Çekirdeğini yeniden başlatın</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -3478,7 +3478,7 @@ mesela: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
     </message>
     <message>
         <source>Generate coins (default: %u)</source>
-        <translation>GroestlCoin oluştur (varsayılan: %u)</translation>
+        <translation>Groestlcoin oluştur (varsayılan: %u)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: %u, 0 = all)</source>

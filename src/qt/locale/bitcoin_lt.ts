@@ -177,7 +177,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Pasirašyti ži&amp;nutę...</translation>
@@ -247,8 +247,8 @@
         <translation>&amp;Gaunami adresai...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>GroestlCoin Core klientas</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Groestlcoin Core klientas</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -259,8 +259,8 @@
         <translation>Blokai iš naujo indeksuojami...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Siųsti monetas GroestlCoin adresui</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Siųsti monetas Groestlcoin adresui</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -283,8 +283,8 @@
         <translation>&amp;Tikrinti žinutę...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -299,8 +299,8 @@
         <translation>&amp;Gauti</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>Rodyti informaciją apie GroestlCoin Core</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Rodyti informaciją apie Groestlcoin Core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -331,12 +331,12 @@
         <translation>Kortelių įrankinė</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin branduolys</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin branduolys</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>&amp;Apie GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>&amp;Apie Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -564,8 +564,8 @@
         <translation>Įvestas adresas „%1“ jau yra adresų knygelėje.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Įvestas adresas „%1“ nėra galiojantis GroestlCoin adresas.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Įvestas adresas „%1“ nėra galiojantis Groestlcoin adresas.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -586,16 +586,16 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin branduolys</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin branduolys</translation>
     </message>
     <message>
         <source>version</source>
         <translation>versija</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Apie GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Apie Groestlcoin Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -617,12 +617,12 @@
         <translation>Sveiki</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>Sveiki atvykę į GroestlCoin Core.</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Sveiki atvykę į Groestlcoin Core.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin branduolys</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin branduolys</translation>
     </message>
     <message>
         <source>Error</source>
@@ -647,8 +647,8 @@
         <translation>&amp;Tinklas</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatiškai atidaryti GroestlCoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatiškai atidaryti Groestlcoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1098,7 +1098,7 @@
         <translation>Įveskite pranešimą, kurį norite pasirašyti čia</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
         <translation>Registruotis žinute įrodymuii, kad turite šį adresą</translation>
     </message>
     <message>
@@ -1114,8 +1114,8 @@
         <translation>&amp;Patikrinti žinutę</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas GroestlCoin adresas</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Groestlcoin adresas</translation>
     </message>
     <message>
         <source>Click "Sign Message" to generate signature</source>
@@ -1165,8 +1165,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin branduolys</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin branduolys</translation>
     </message>
     <message>
         <source>[testnet]</source>

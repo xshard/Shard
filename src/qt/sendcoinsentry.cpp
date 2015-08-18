@@ -37,9 +37,9 @@ SendCoinsEntry::SendCoinsEntry(const PlatformStyle *platformStyle, QWidget *pare
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
 
-    // normal GroestlCoin address field
+    // normal Groestlcoin address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying GroestlCoin address(es)
+    // just a label for displaying Groestlcoin address(es)
     ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
 
     // Connect signals

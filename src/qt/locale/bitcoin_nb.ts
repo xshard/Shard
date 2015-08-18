@@ -66,12 +66,12 @@
         <translation>Mottaksadresser</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dette er dine GroestlCoin-adresser for å sende betalinger. Alltid sjekk beløp og mottakeradresse før sending av mynter.</translation>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Dette er dine Groestlcoin-adresser for å sende betalinger. Alltid sjekk beløp og mottakeradresse før sending av mynter.</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dette er dine GroestlCoin-adresser for å sende betalinger. Det er anbefalt å bruk en ny mottaksadresse for hver transaksjon.</translation>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Dette er dine Groestlcoin-adresser for å sende betalinger. Det er anbefalt å bruk en ny mottaksadresse for hver transaksjon.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -168,8 +168,8 @@
         <translation>Er du sikker på at du vil kryptere lommeboken?</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your GroestlCoins from being stolen by malware infecting your computer.</source>
-        <translation>GroestlCoin Core vil nå avslutte for å fullføre krypteringsprosessen. Husk at kryptering av lommeboken ikke kan beskytte fullstendig mot tyveri av dine GroestlCoins hvis datamaskinen din er infisert av skadevare.</translation>
+        <source>Groestlcoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your Groestlcoins from being stolen by malware infecting your computer.</source>
+        <translation>Groestlcoin Core vil nå avslutte for å fullføre krypteringsprosessen. Husk at kryptering av lommeboken ikke kan beskytte fullstendig mot tyveri av dine Groestlcoins hvis datamaskinen din er infisert av skadevare.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -221,7 +221,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signer &amp;melding...</translation>
@@ -295,8 +295,8 @@
         <translation>Åpne &amp;URI...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>GroestlCoin Core-klient</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>Groestlcoin Core-klient</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -307,8 +307,8 @@
         <translation>Reindekserer blokker på harddisk...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Send til en GroestlCoin-adresse</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Send til en Groestlcoin-adresse</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -331,8 +331,8 @@
         <translation>&amp;Verifiser melding...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -347,8 +347,8 @@
         <translation>&amp;Motta</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
-        <translation>Vis informasjon om GroestlCoin Core</translation>
+        <source>Show information about Groestlcoin Core</source>
+        <translation>Vis informasjon om Groestlcoin Core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -363,12 +363,12 @@
         <translation>Krypter de private nøklene som tilhører lommeboken din</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Signer en melding med GroestlCoin-adressene dine for å bevise at du eier dem</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Signer en melding med Groestlcoin-adressene dine for å bevise at du eier dem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Bekreft meldinger for å være sikker på at de ble signert av en angitt GroestlCoin-adresse</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Bekreft meldinger for å være sikker på at de ble signert av en angitt Groestlcoin-adresse</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -387,20 +387,20 @@
         <translation>Verktøylinje for faner</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
         <translation>Forespør betalinger (genererer QR-koder og groestlcoin: URIer)</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>&amp;Om GroestlCoin Core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>&amp;Om Groestlcoin Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for GroestlCoin Core</source>
-        <translation>Endre konfigurasjonsvalg for GroestlCoin Core</translation>
+        <source>Modify configuration options for Groestlcoin Core</source>
+        <translation>Endre konfigurasjonsvalg for Groestlcoin Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -412,19 +412,19 @@
     </message>
     <message>
         <source>Open a groestlcoin: URI or payment request</source>
-        <translation>Åpne en GroestlCoin: URI eller betalingsetterspørring</translation>
+        <translation>Åpne en Groestlcoin: URI eller betalingsetterspørring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Kommandolinjevalg</translation>
     </message>
     <message>
-        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
-        <translation>Vis GroestlCoin Core hjelpemeldingen for å få en liste med mulige kommandolinjevalg</translation>
+        <source>Show the Groestlcoin Core help message to get a list with possible Groestlcoin command-line options</source>
+        <translation>Vis Groestlcoin Core hjelpemeldingen for å få en liste med mulige kommandolinjevalg</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to GroestlCoin network</source>
-        <translation><numerusform>%n aktiv forbindelse til GroestlCoin-nettverket</numerusform><numerusform>%n aktive forbindelser til GroestlCoin-nettverket</numerusform></translation>
+        <source>%n active connection(s) to Groestlcoin network</source>
+        <translation><numerusform>%n aktiv forbindelse til Groestlcoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Groestlcoin-nettverket</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -806,8 +806,8 @@
         <translation>Den oppgitte adressen "%1" er allerede i adresseboken.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Den angitte adressed "%1" er ikke en gyldig GroestlCoin-adresse.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Den angitte adressed "%1" er ikke en gyldig Groestlcoin-adresse.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -844,8 +844,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>version</source>
@@ -856,8 +856,8 @@
         <translation> (%1-bit)</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
-        <translation>Om GroestlCoin Core</translation>
+        <source>About Groestlcoin Core</source>
+        <translation>Om Groestlcoin Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -879,16 +879,16 @@
         <translation>Velkommen</translation>
     </message>
     <message>
-        <source>Welcome to GroestlCoin Core.</source>
-        <translation>Velkommen til GroestlCoin Core.</translation>
+        <source>Welcome to Groestlcoin Core.</source>
+        <translation>Velkommen til Groestlcoin Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where GroestlCoin Core will store its data.</source>
-        <translation>Siden dette er første gang programmet starter, kan du nå velge hvor GroestlCoin Core skal lagre sine data.</translation>
+        <source>As this is the first time the program is launched, you can choose where Groestlcoin Core will store its data.</source>
+        <translation>Siden dette er første gang programmet starter, kan du nå velge hvor Groestlcoin Core skal lagre sine data.</translation>
     </message>
     <message>
-        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>GroestlCoin Core vil laste ned og lagre en kopi av GroestlCoin sin blokkjede. Minst %1GB av data vil bli lagret i denne mappen, og det vil vokse over tid. Lommeboken vil også bli lagret i denne mappen.</translation>
+        <source>Groestlcoin Core will download and store a copy of the Groestlcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Groestlcoin Core vil laste ned og lagre en kopi av Groestlcoin sin blokkjede. Minst %1GB av data vil bli lagret i denne mappen, og det vil vokse over tid. Lommeboken vil også bli lagret i denne mappen.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -899,8 +899,8 @@
         <translation>Bruk en egendefinert datamappe:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -981,8 +981,8 @@
         <translation>Minimer i stedet for å avslutte applikasjonen når vinduet lukkes. Når dette er valgt, vil applikasjonen avsluttes kun etter at Avslutte er valgt i menyen.</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting GroestlCoin Core.</source>
-        <translation>Språk for brukergrensesnittet kan velges her. Denne innstillingen trer i kraft etter omstart av GroestlCoin Core.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Groestlcoin Core.</source>
+        <translation>Språk for brukergrensesnittet kan velges her. Denne innstillingen trer i kraft etter omstart av Groestlcoin Core.</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
@@ -1009,12 +1009,12 @@
         <translation>&amp;Nettverk</translation>
     </message>
     <message>
-        <source>Automatically start GroestlCoin Core after logging in to the system.</source>
-        <translation>Start GroestlCoin Core automatisk ved oppstart av datamaskinen.</translation>
+        <source>Automatically start Groestlcoin Core after logging in to the system.</source>
+        <translation>Start Groestlcoin Core automatisk ved oppstart av datamaskinen.</translation>
     </message>
     <message>
-        <source>&amp;Start GroestlCoin Core on system login</source>
-        <translation>&amp;Start GroestlCoin Core ved oppstart av datamaskinen</translation>
+        <source>&amp;Start Groestlcoin Core on system login</source>
+        <translation>&amp;Start Groestlcoin Core ved oppstart av datamaskinen</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
@@ -1041,16 +1041,16 @@
         <translation>&amp;Bruk ubekreftet veksel</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Åpne automatisk GroestlCoin klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Åpne automatisk Groestlcoin klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Sett opp port ved hjelp av &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the GroestlCoin network through a SOCKS5 proxy.</source>
-        <translation>Koble til GroestlCoin-nettverket gjennom en SOCKS5 proxy.</translation>
+        <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
+        <translation>Koble til Groestlcoin-nettverket gjennom en SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1148,8 +1148,8 @@
         <translation>Skjema</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med GroestlCoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Groestlcoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1248,15 +1248,15 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>Kan ikke starte GroestlCoin: klikk-og-betal håndterer</translation>
+        <translation>Kan ikke starte Groestlcoin: klikk-og-betal håndterer</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>Hentelenke for betalingsetterspørring er ugyldig: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid GroestlCoin address or malformed URI parameters.</source>
-        <translation>URI kan ikke fortolkes! Dette kan være forårsaket av en ugyldig GroestlCoin-adresse eller feilformede URI-parametre.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Groestlcoin address or malformed URI parameters.</source>
+        <translation>URI kan ikke fortolkes! Dette kan være forårsaket av en ugyldig Groestlcoin-adresse eller feilformede URI-parametre.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1333,8 +1333,8 @@
         <translation>Beløp</translation>
     </message>
     <message>
-        <source>Enter a GroestlCoin address (e.g. %1)</source>
-        <translation>Oppgi en GroestlCoin-adresse (f.eks. %1)</translation>
+        <source>Enter a Groestlcoin address (e.g. %1)</source>
+        <translation>Oppgi en Groestlcoin-adresse (f.eks. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1443,8 +1443,8 @@
         <translation>Nåværende antall blokker</translation>
     </message>
     <message>
-        <source>Open the GroestlCoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Åpne GroestlCoin Core sin loggfil for feilsøk fra gjeldende datamappe. Dette kan ta noen sekunder for store loggfiler.</translation>
+        <source>Open the Groestlcoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Åpne Groestlcoin Core sin loggfil for feilsøk fra gjeldende datamappe. Dette kan ta noen sekunder for store loggfiler.</translation>
     </message>
     <message>
         <source>Received</source>
@@ -1563,8 +1563,8 @@
         <translation>Tøm konsoll</translation>
     </message>
     <message>
-        <source>Welcome to the GroestlCoin Core RPC console.</source>
-        <translation>Velkommen til GroestlCoin Core sin RPC-konsoll.</translation>
+        <source>Welcome to the Groestlcoin Core RPC console.</source>
+        <translation>Velkommen til Groestlcoin Core sin RPC-konsoll.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1638,8 +1638,8 @@
         <translation>Gj&amp;enbruk en eksisterende mottaksadresse (ikke anbefalt)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GroestlCoin network.</source>
-        <translation>En valgfri melding å tilknytte betalingsetterspørringen, som vil bli vist når forespørselen er åpnet. Meldingen vil ikke bli sendt med betalingen over GroestlCoin-nettverket.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Groestlcoin network.</source>
+        <translation>En valgfri melding å tilknytte betalingsetterspørringen, som vil bli vist når forespørselen er åpnet. Meldingen vil ikke bli sendt med betalingen over Groestlcoin-nettverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1788,7 +1788,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send GroestlCoins</translation>
+        <translation>Send Groestlcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1872,7 +1872,7 @@
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for groestlcoin transactions than the network can process.</source>
-        <translation>Betaling av bare minimumsavgiften går helt fint så lenge det er mindre transaksjonsvolum enn plass i blokkene. Men vær klar over at dette kan ende opp i en transaksjon som aldri blir bekreftet når det er mer etterspørsel etter GroestlCoin-transaksjoner enn nettverket kan behandle.</translation>
+        <translation>Betaling av bare minimumsavgiften går helt fint så lenge det er mindre transaksjonsvolum enn plass i blokkene. Men vær klar over at dette kan ende opp i en transaksjon som aldri blir bekreftet når det er mer etterspørsel etter Groestlcoin-transaksjoner enn nettverket kan behandle.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -2031,8 +2031,8 @@
         <translation>Gjenbruk av adresse funnet: adresser skal bare brukes en gang hver.</translation>
     </message>
     <message>
-        <source>Warning: Invalid GroestlCoin address</source>
-        <translation>Advarsel: Ugyldig GroestlCoin-adresse</translation>
+        <source>Warning: Invalid Groestlcoin address</source>
+        <translation>Advarsel: Ugyldig Groestlcoin-adresse</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -2082,8 +2082,8 @@
         <translation>Dette er en normal betaling.</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to send the payment to</source>
-        <translation>GroestlCoin-adressen betalingen skal sendes til</translation>
+        <source>The Groestlcoin address to send the payment to</source>
+        <translation>Groestlcoin-adressen betalingen skal sendes til</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2102,8 +2102,8 @@
         <translation>Fjern denne oppføringen</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less GroestlCoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre GroestlCoins enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less Groestlcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre Groestlcoins enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2126,8 +2126,8 @@
         <translation>Skriv inn en merkelapp for denne adressen for å legge den til listen av brukte adresser</translation>
     </message>
     <message>
-        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
-        <translation>En melding som var tilknyttet groestlcoinen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over GroestlCoin-nettverket.</translation>
+        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
+        <translation>En melding som var tilknyttet groestlcoinen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Groestlcoin-nettverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2141,8 +2141,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>GroestlCoin Core is shutting down...</source>
-        <translation>GroestlCoin Core lukker...</translation>
+        <source>Groestlcoin Core is shutting down...</source>
+        <translation>Groestlcoin Core lukker...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2160,12 +2160,12 @@
         <translation>&amp;Signer Melding</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive GroestlCoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta GroestlCoins sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Groestlcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta Groestlcoins sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
     </message>
     <message>
-        <source>The GroestlCoin address to sign the message with</source>
-        <translation>GroestlCoin-adressen meldingen skal signeres med</translation>
+        <source>The Groestlcoin address to sign the message with</source>
+        <translation>Groestlcoin-adressen meldingen skal signeres med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2196,8 +2196,8 @@
         <translation>Kopier valgt signatur til utklippstavle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Signer meldingen for å bevise at du eier denne GroestlCoin-adressen</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Signer meldingen for å bevise at du eier denne Groestlcoin-adressen</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2220,12 +2220,12 @@
         <translation>Skriv inn mottakerens adresse, melding (forsikre deg om at du kopier linjeskift, mellomrom, faner osv. nøyaktig) og underskrift nedenfor for å bekrefte meldingen. Vær forsiktig så du ikke leser mer ut av signaturen enn hva som er i den signerte meldingen i seg selv, for å unngå å bli lurt av et man-in-the-middle-angrep. Merk at dette bare beviser at den som signerer kan motta med adressen, dette beviser ikke hvem som har sendt transaksjoner!</translation>
     </message>
     <message>
-        <source>The GroestlCoin address the message was signed with</source>
-        <translation>GroestlCoin-adressen meldingen ble signert med</translation>
+        <source>The Groestlcoin address the message was signed with</source>
+        <translation>Groestlcoin-adressen meldingen ble signert med</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte GroestlCoin-adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte Groestlcoin-adressen</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2291,12 +2291,12 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Core</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
-        <translation>GroestlCoin Core utviklerne</translation>
+        <source>The Groestlcoin Core developers</source>
+        <translation>Groestlcoin Core utviklerne</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2422,7 +2422,7 @@
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Genererte GroestlCoins må modnes %1 blokker før de kan brukes. Da du genererte denne blokken ble den kringkastet på nettverket for å bli lagt til i kjeden av blokker. Hvis den ikke kommer med i kjeden vil den endre seg til "ikke akseptert" og pengene vil ikke kunne brukes. Dette vil noen ganger skje hvis en annen node genererer en blokk noen sekunder i tid fra din egen.</translation>
+        <translation>Genererte Groestlcoins må modnes %1 blokker før de kan brukes. Da du genererte denne blokken ble den kringkastet på nettverket for å bli lagt til i kjeden av blokker. Hvis den ikke kommer med i kjeden vil den endre seg til "ikke akseptert" og pengene vil ikke kunne brukes. Dette vil noen ganger skje hvis en annen node genererer en blokk noen sekunder i tid fra din egen.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2740,7 +2740,7 @@
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send GroestlCoins</translation>
+        <translation>Send Groestlcoins</translation>
     </message>
 </context>
 <context>
@@ -2857,8 +2857,8 @@
         <translation>Dette er en forhåndssluppet testversjon - bruk på egen risiko - ikke for bruk til blokkutvinning eller bedriftsapplikasjoner</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. GroestlCoin Core is probably already running.</source>
-        <translation>Ute av stand til å binde til %s på denne datamaskinen. GroestlCoin Core kjører sannsynligvis allerede.</translation>
+        <source>Unable to bind to %s on this computer. Groestlcoin Core is probably already running.</source>
+        <translation>Ute av stand til å binde til %s på denne datamaskinen. Groestlcoin Core kjører sannsynligvis allerede.</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
@@ -3049,8 +3049,8 @@
         <translation>Bind til gitt adresse for å lytte for JSON-RPC-tilkoblinger. Bruk [host]:port notasjon for IPv6. Dette alternativet kan angis flere ganger (standardverdi: bind til alle grensesnitt)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already running.</source>
-        <translation>Ute av stand til å låse datamappen %s. GroestlCoin Core kjører sannsynligvis allerede.</translation>
+        <source>Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already running.</source>
+        <translation>Ute av stand til å låse datamappen %s. Groestlcoin Core kjører sannsynligvis allerede.</translation>
     </message>
     <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
@@ -3134,7 +3134,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
+for example: alertnotify=echo %%s | mail -s "Groestlcoin Alert" admin@foo.com
 </source>
         <translation>For å bruke groestlcoind, eller -server valget til groestlcoin-qt, må du angi et rpcpassord i konfigurasjonsfilen:
 %s
@@ -3145,7 +3145,7 @@ rpcpassword=%s
 Brukernavnet og passordet MÅ IKKE være like.
 Om filen ikke eksisterer, opprett den med eier-kun-les filrettigheter.
 Det er også anbefalt at å sette varselsmelding slik du får melding om problemer;
-for eksempel: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
+for eksempel: alertnotify=echo %%s | mail -s "Groestlcoin Alert" admin@foo.com
 </translation>
     </message>
     <message>
@@ -3153,8 +3153,8 @@ for eksempel: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Advarsel: -paytxfee er satt veldig høyt! Så stort gebyr kan bli betalt ved en enkelt transaksjon.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong GroestlCoin Core will not work properly.</source>
-        <translation>Advarsel: Vennligst undersøk at din datamaskin har riktig dato og klokkeslett! Hvis klokken er stilt feil vil ikke GroestlCoin Core fungere riktig.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Groestlcoin Core will not work properly.</source>
+        <translation>Advarsel: Vennligst undersøk at din datamaskin har riktig dato og klokkeslett! Hvis klokken er stilt feil vil ikke Groestlcoin Core fungere riktig.</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
@@ -3197,16 +3197,16 @@ for eksempel: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Koble til via SOCKS5-proxy</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The GroestlCoin Core Developers</source>
-        <translation>Copyright (C) 2009-%i utviklerne av GroestlCoin Core</translation>
+        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i utviklerne av Groestlcoin Core</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>
         <translation>Kunne ikke tolke -rpcbind-verdi %s som en nettverksadresse</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of GroestlCoin Core</source>
-        <translation>Feil ved lasting av wallet.dat: Lommeboken krever en nyere versjon av GroestlCoin Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Groestlcoin Core</source>
+        <translation>Feil ved lasting av wallet.dat: Lommeboken krever en nyere versjon av Groestlcoin Core</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -3225,8 +3225,8 @@ for eksempel: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Informasjon</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. GroestlCoin Core is shutting down.</source>
-        <translation>Sunnhetssjekk ved oppstart feilet. GroestlCoin Core stenges ned.</translation>
+        <source>Initialization sanity check failed. Groestlcoin Core is shutting down.</source>
+        <translation>Sunnhetssjekk ved oppstart feilet. Groestlcoin Core stenges ned.</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -3261,8 +3261,8 @@ for eksempel: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Node alternativer for videresending:</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the GroestlCoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL-valg: (se GroestlCoin Wiki for oppsettsinstruksjoner for SSL)</translation>
+        <source>RPC SSL options: (see the Groestlcoin Wiki for SSL setup instructions)</source>
+        <translation>RPC SSL-valg: (se Groestlcoin Wiki for oppsettsinstruksjoner for SSL)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3361,8 +3361,8 @@ for eksempel: alertnotify=echo %%s | mail -s "GroestlCoin Alert" admin@foo.com
         <translation>Brukernavn for JSON-RPC forbindelser</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart GroestlCoin Core to complete</source>
-        <translation>Lommeboken måtte skrives på nytt: start GroestlCoin Core på nytt for å fullføre</translation>
+        <source>Wallet needed to be rewritten: restart Groestlcoin Core to complete</source>
+        <translation>Lommeboken måtte skrives på nytt: start Groestlcoin Core på nytt for å fullføre</translation>
     </message>
     <message>
         <source>Warning</source>

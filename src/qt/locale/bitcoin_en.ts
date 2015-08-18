@@ -85,12 +85,12 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -211,7 +211,7 @@
     </message>
     <message>
         <location line="+11"/>
-        <source>GroestlCoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your GroestlCoins from being stolen by malware infecting your computer.</source>
+        <source>Groestlcoin Core will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your Groestlcoins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -284,7 +284,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <location filename="../groestlcoingui.cpp" line="+326"/>
         <source>Sign &amp;message...</source>
@@ -377,7 +377,7 @@
     </message>
     <message>
         <location line="+175"/>
-        <source>GroestlCoin Core client</source>
+        <source>Groestlcoin Core client</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -392,8 +392,8 @@
     </message>
     <message>
         <location line="-416"/>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Send coins to a GroestlCoin address</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Send coins to a Groestlcoin address</translation>
     </message>
     <message>
         <location line="+65"/>
@@ -422,8 +422,8 @@
     </message>
     <message>
         <location line="+439"/>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <location line="-653"/>
@@ -442,7 +442,7 @@
     </message>
     <message>
         <location line="+40"/>
-        <source>Show information about GroestlCoin Core</source>
+        <source>Show information about Groestlcoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -462,13 +462,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Sign messages with your GroestlCoin addresses to prove you own them</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Sign messages with your Groestlcoin addresses to prove you own them</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Verify messages to ensure they were signed with specified GroestlCoin addresses</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Verify messages to ensure they were signed with specified Groestlcoin addresses</translation>
     </message>
     <message>
         <location line="+49"/>
@@ -492,8 +492,8 @@
     </message>
     <message>
         <location line="-311"/>
-        <source>GroestlCoin Core</source>
-        <translation type="unfinished">GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation type="unfinished">Groestlcoin Core</translation>
     </message>
     <message>
         <location line="+164"/>
@@ -502,12 +502,12 @@
     </message>
     <message>
         <location line="+38"/>
-        <source>&amp;About GroestlCoin Core</source>
+        <source>&amp;About Groestlcoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Modify configuration options for GroestlCoin Core</source>
+        <source>Modify configuration options for Groestlcoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -532,15 +532,15 @@
     </message>
     <message>
         <location line="+2"/>
-        <source>Show the GroestlCoin Core help message to get a list with possible GroestlCoin command-line options</source>
+        <source>Show the Groestlcoin Core help message to get a list with possible Groestlcoin command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+309"/>
-        <source>%n active connection(s) to GroestlCoin network</source>
+        <source>%n active connection(s) to Groestlcoin network</source>
         <translation>
-            <numerusform>%n active connection to GroestlCoin network</numerusform>
-            <numerusform>%n active connections to GroestlCoin network</numerusform>
+            <numerusform>%n active connection to Groestlcoin network</numerusform>
+            <numerusform>%n active connections to Groestlcoin network</numerusform>
         </translation>
     </message>
     <message>
@@ -1028,8 +1028,8 @@
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid GroestlCoin address.</source>
-        <translation>The entered address &quot;%1&quot; is not a valid GroestlCoin address.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Groestlcoin address.</source>
+        <translation>The entered address &quot;%1&quot; is not a valid Groestlcoin address.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1074,8 +1074,8 @@
     <name>HelpMessageDialog</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+33"/>
-        <source>GroestlCoin Core</source>
-        <translation type="unfinished">GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation type="unfinished">Groestlcoin Core</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1090,7 +1090,7 @@
     </message>
     <message>
         <location line="+5"/>
-        <source>About GroestlCoin Core</source>
+        <source>About Groestlcoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1118,17 +1118,17 @@
     </message>
     <message>
         <location line="+9"/>
-        <source>Welcome to GroestlCoin Core.</source>
+        <source>Welcome to Groestlcoin Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>As this is the first time the program is launched, you can choose where GroestlCoin Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Groestlcoin Core will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>GroestlCoin Core will download and store a copy of the GroestlCoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Groestlcoin Core will download and store a copy of the Groestlcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1143,8 +1143,8 @@
     </message>
     <message>
         <location filename="../intro.cpp" line="+82"/>
-        <source>GroestlCoin Core</source>
-        <translation type="unfinished">GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation type="unfinished">Groestlcoin Core</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1250,7 +1250,7 @@
     </message>
     <message>
         <location line="+45"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting GroestlCoin Core.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Groestlcoin Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1286,12 +1286,12 @@
     </message>
     <message>
         <location line="-153"/>
-        <source>Automatically start GroestlCoin Core after logging in to the system.</source>
+        <source>Automatically start Groestlcoin Core after logging in to the system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start GroestlCoin Core on system login</source>
+        <source>&amp;Start Groestlcoin Core on system login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1326,8 +1326,8 @@
     </message>
     <message>
         <location line="+30"/>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1336,7 +1336,7 @@
     </message>
     <message>
         <location line="+17"/>
-        <source>Connect to the GroestlCoin network through a SOCKS5 proxy.</source>
+        <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1461,8 +1461,8 @@
     <message>
         <location line="+59"/>
         <location line="+386"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <location line="-139"/>
@@ -1605,7 +1605,7 @@
     </message>
     <message>
         <location line="+21"/>
-        <source>URI cannot be parsed! This can be caused by an invalid GroestlCoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Groestlcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1702,7 +1702,7 @@
     </message>
     <message>
         <location filename="../guiutil.cpp" line="+110"/>
-        <source>Enter a GroestlCoin address (e.g. %1)</source>
+        <source>Enter a Groestlcoin address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1862,7 +1862,7 @@
     </message>
     <message>
         <location line="+72"/>
-        <source>Open the GroestlCoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Groestlcoin Core debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2014,7 +2014,7 @@
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-36"/>
-        <source>Welcome to the GroestlCoin Core RPC console.</source>
+        <source>Welcome to the Groestlcoin Core RPC console.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2110,7 +2110,7 @@
     <message>
         <location line="+14"/>
         <location line="+23"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the GroestlCoin network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Groestlcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2610,7 +2610,7 @@
     </message>
     <message>
         <location line="+231"/>
-        <source>Warning: Invalid GroestlCoin address</source>
+        <source>Warning: Invalid Groestlcoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2675,7 +2675,7 @@
     </message>
     <message>
         <location line="+39"/>
-        <source>The GroestlCoin address to send the payment to</source>
+        <source>The Groestlcoin address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2702,7 +2702,7 @@
     </message>
     <message>
         <location line="-1021"/>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less GroestlCoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less Groestlcoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2732,7 +2732,7 @@
     </message>
     <message>
         <location line="+47"/>
-        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the GroestlCoin network.</source>
+        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2752,7 +2752,7 @@
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+81"/>
-        <source>GroestlCoin Core is shutting down...</source>
+        <source>Groestlcoin Core is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2775,12 +2775,12 @@
     </message>
     <message>
         <location line="+6"/>
-        <source>You can sign messages/agreements with your addresses to prove you can receive GroestlCoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Groestlcoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The GroestlCoin address to sign the message with</source>
+        <source>The Groestlcoin address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2822,8 +2822,8 @@
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Sign the message to prove you own this GroestlCoin address</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Sign the message to prove you own this Groestlcoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2853,13 +2853,13 @@
     </message>
     <message>
         <location line="+21"/>
-        <source>The GroestlCoin address the message was signed with</source>
+        <source>The Groestlcoin address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Verify the message to ensure it was signed with the specified GroestlCoin address</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Verify the message to ensure it was signed with the specified Groestlcoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2947,12 +2947,12 @@
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+41"/>
-        <source>GroestlCoin Core</source>
-        <translation type="unfinished">GroestlCoin Core</translation>
+        <source>Groestlcoin Core</source>
+        <translation type="unfinished">Groestlcoin Core</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>The GroestlCoin Core developers</source>
+        <source>The Groestlcoin Core developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3674,7 +3674,7 @@
     </message>
     <message>
         <location line="+20"/>
-        <source>Unable to bind to %s on this computer. GroestlCoin Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Groestlcoin Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3914,7 +3914,7 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4018,7 +4018,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Groestlcoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -4029,7 +4029,7 @@ for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@
     </message>
     <message>
         <location line="+6"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong GroestlCoin Core will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Groestlcoin Core will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4084,7 +4084,7 @@ for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@
     </message>
     <message>
         <location line="+3"/>
-        <source>Copyright (C) 2009-%i The GroestlCoin Core Developers</source>
+        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4094,7 +4094,7 @@ for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@
     </message>
     <message>
         <location line="+11"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of GroestlCoin Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Groestlcoin Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4119,7 +4119,7 @@ for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@
     </message>
     <message>
         <location line="+1"/>
-        <source>Initialization sanity check failed. GroestlCoin Core is shutting down.</source>
+        <source>Initialization sanity check failed. Groestlcoin Core is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4164,7 +4164,7 @@ for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@
     </message>
     <message>
         <location line="+9"/>
-        <source>RPC SSL options: (see the GroestlCoin Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Groestlcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4289,7 +4289,7 @@ for example: alertnotify=echo %%s | mail -s &quot;GroestlCoin Alert&quot; admin@
     </message>
     <message>
         <location line="+4"/>
-        <source>Wallet needed to be rewritten: restart GroestlCoin Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Groestlcoin Core to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

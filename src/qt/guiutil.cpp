@@ -107,7 +107,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a GroestlCoin address (e.g. %1)").arg("Fpjgtzfvsqwwu2pEwtXkV5gXhTNmpTf25L"));
+    widget->setPlaceholderText(QObject::tr("Enter a Groestlcoin address (e.g. %1)").arg("Fpjgtzfvsqwwu2pEwtXkV5gXhTNmpTf25L"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -582,11 +582,11 @@ TableViewLastColumnResizingFixer::TableViewLastColumnResizingFixer(QTableView* t
 boost::filesystem::path static StartupShortcutPath()
 {
     if (GetBoolArg("-testnet", false))
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "GroestlCoin (testnet).lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin (testnet).lnk";
     else if (GetBoolArg("-regtest", false))
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "GroestlCoin (regtest).lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin (regtest).lnk";
 
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "GroestlCoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin.lnk";
 }
 
 bool GetStartOnSystemStartup()

@@ -30,7 +30,7 @@
         <translation>&amp;Dele</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Hae sunt inscriptiones mittendi pensitationes.  Semper inspice quantitatem et inscriptionem accipiendi antequam nummos mittis.</translation>
     </message>
     <message>
@@ -157,7 +157,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signa &amp;nuntium...</translation>
@@ -223,8 +223,8 @@
         <translation>Recreans indicem frustorum in disco...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
-        <translation>Mitte nummos ad inscriptionem GroestlCoin</translation>
+        <source>Send coins to a Groestlcoin address</source>
+        <translation>Mitte nummos ad inscriptionem Groestlcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -247,8 +247,8 @@
         <translation>&amp;Verifica nuntium...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -275,12 +275,12 @@
         <translation>Cifra claves privatas quae cassidili tui sunt</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
-        <translation>Signa nuntios cum tuis inscriptionibus GroestlCoin ut demonstres te eas possidere</translation>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
+        <translation>Signa nuntios cum tuis inscriptionibus Groestlcoin ut demonstres te eas possidere</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified GroestlCoin addresses</source>
-        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus GroestlCoin</translation>
+        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
+        <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Groestlcoin</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -299,8 +299,8 @@
         <translation>Tabella instrumentorum "Tabs"</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Nucleus</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Nucleus</translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -436,8 +436,8 @@
         <translation>Inserta inscriptio "%1" iam in libro inscriptionum est.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>Inscriptio inserta "%1" non valida inscriptio GroestlCoin est.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>Inscriptio inserta "%1" non valida inscriptio Groestlcoin est.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -454,8 +454,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Nucleus</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Nucleus</translation>
     </message>
     <message>
         <source>version</source>
@@ -477,8 +477,8 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Nucleus</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Nucleus</translation>
     </message>
     <message>
         <source>Error</source>
@@ -511,8 +511,8 @@
         <translation>&amp;Rete</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Aperi per se portam clientis GroestlCoin in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Aperi per se portam clientis Groestlcoin in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -590,8 +590,8 @@
         <translation>Schema</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the GroestlCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete GroestlCoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete Groestlcoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
     </message>
     <message>
         <source>Immature:</source>
@@ -610,7 +610,7 @@
     </message>
     <message>
         <source>Cannot start groestlcoin: click-to-pay handler</source>
-        <translation>GroestlCoin incipere non potest: cliccare-ad-pensandum handler</translation>
+        <translation>Groestlcoin incipere non potest: cliccare-ad-pensandum handler</translation>
     </message>
     </context>
 <context>
@@ -906,8 +906,8 @@
         <translation>Copia signationem in latibulum systematis</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
-        <translation>Signa nuntium ut demonstres hanc inscriptionem GroestlCoin a te possessa esse</translation>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
+        <translation>Signa nuntium ut demonstres hanc inscriptionem Groestlcoin a te possessa esse</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -926,8 +926,8 @@
         <translation>&amp;Verifica Nuntium</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified GroestlCoin address</source>
-        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione GroestlCoin</translation>
+        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
+        <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Groestlcoin</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -993,8 +993,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Nucleus</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Nucleus</translation>
     </message>
     <message>
         <source>[testnet]</source>

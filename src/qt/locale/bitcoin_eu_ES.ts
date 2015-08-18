@@ -105,7 +105,7 @@
     </message>
     </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Sarearekin sinkronizatzen...</translation>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Erakutsi GroestlCoin-i buruzko informazioa</translation>
+        <translation>Erakutsi Groestlcoin-i buruzko informazioa</translation>
     </message>
     <message>
         <source>&amp;Options...</source>

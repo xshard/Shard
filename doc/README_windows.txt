@@ -1,4 +1,4 @@
-GroestlCoin Core 2.11
+Groestlcoin Core 2.11
 =====================
 
 Intro

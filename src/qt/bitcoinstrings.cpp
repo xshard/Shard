@@ -30,7 +30,7 @@ QT_TRANSLATE_NOOP("groestlcoin-core", ""
 "notation for IPv6. This option can be specified multiple times (default: "
 "bind to all interfaces)"),
 QT_TRANSLATE_NOOP("groestlcoin-core", ""
-"Cannot obtain a lock on data directory %s. GroestlCoin Core is probably already "
+"Cannot obtain a lock on data directory %s. Groestlcoin Core is probably already "
 "running."),
 QT_TRANSLATE_NOOP("groestlcoin-core", ""
 "Continuously rate-limit free transactions to <n>*1000 bytes per minute "
@@ -328,7 +328,7 @@ QT_TRANSLATE_NOOP("groestlcoin-core", "Username for JSON-RPC connections"),
 QT_TRANSLATE_NOOP("groestlcoin-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("groestlcoin-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("groestlcoin-core", "Wallet %s resides outside data directory %s"),
-QT_TRANSLATE_NOOP("groestlcoin-core", "Wallet needed to be rewritten: restart GroestlCoin Core to complete"),
+QT_TRANSLATE_NOOP("groestlcoin-core", "Wallet needed to be rewritten: restart Groestlcoin Core to complete"),
 QT_TRANSLATE_NOOP("groestlcoin-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("groestlcoin-core", "Warning"),
 QT_TRANSLATE_NOOP("groestlcoin-core", "Warning: This version is obsolete; upgrade required!"),

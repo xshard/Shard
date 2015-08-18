@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2015 The GroestlCoin developers
+// Copyright (c) 2014-2015 The Groestlcoin developers
 
 #include "groestlcoin.h"
 

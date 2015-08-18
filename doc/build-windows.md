@@ -1,6 +1,6 @@
 Windows BUILD NOTES
 ====================
-Some notes on how to build GroestlCoin in Windows. 
+Some notes on how to build Groestlcoin in Windows. 
 
 Tools
 ---------------------
@@ -15,7 +15,7 @@ Build Boost and Qt as static libs
 
 Get sources with 3rd-party libs
 -----------------------------------
-git clone --recursive https://github.com/GroestlCoin/bitcoin groestlcoin
+git clone --recursive https://github.com/Groestlcoin/bitcoin groestlcoin
 
 cd groestlcoin
 mkdir x86_libs

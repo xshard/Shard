@@ -232,7 +232,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             total += subtotal;
         }
         else
-        {   // User-entered GroestlCoin address / amount:
+        {   // User-entered Groestlcoin address / amount:
             if(!validateAddress(rcp.address))
             {
                 return InvalidAddress;

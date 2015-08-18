@@ -9,14 +9,14 @@
     <name>AskPassphraseDialog</name>
     </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Jezrga</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Jezrga</translation>
     </message>
     </context>
 <context>
@@ -34,15 +34,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Jezrga</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Jezrga</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Jezrga</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Jezrga</translation>
     </message>
     </context>
 <context>
@@ -109,8 +109,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin Jezrga</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin Jezrga</translation>
     </message>
     </context>
 <context>

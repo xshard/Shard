@@ -165,7 +165,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Firmar &amp;Mensaje...</translation>
@@ -227,15 +227,15 @@
         <translation>Abrir y url...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
-        <translation>cliente GroestlCoin core</translation>
+        <source>Groestlcoin Core client</source>
+        <translation>cliente Groestlcoin core</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
         <translation>Cargando el index de bloques...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
+        <source>Send coins to a Groestlcoin address</source>
         <translation>Enviar monedas a una dirección groestlcoin</translation>
     </message>
     <message>
@@ -255,8 +255,8 @@
         <translation>Abre consola de depuración y diagnóstico</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
-        <translation>GroestlCoin</translation>
+        <source>Groestlcoin</source>
+        <translation>Groestlcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -275,7 +275,7 @@
         <translation>&amp;Mostrar/Ocultar</translation>
     </message>
     <message>
-        <source>Sign messages with your GroestlCoin addresses to prove you own them</source>
+        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
         <translation>Firmar un mensaje para provar que usted es dueño de esta dirección</translation>
     </message>
     <message>
@@ -295,8 +295,8 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -428,8 +428,8 @@
         <translation>La dirección introducida "%1" ya esta guardada en la libreta de direcciones.</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid GroestlCoin address.</source>
-        <translation>La dirección introducida "%1" no es una dirección GroestlCoin valida.</translation>
+        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
+        <translation>La dirección introducida "%1" no es una dirección Groestlcoin valida.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -450,8 +450,8 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin core</translation>
     </message>
     <message>
         <source>version</source>
@@ -469,8 +469,8 @@
         <translation>bienvenido</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -507,8 +507,8 @@
         <translation>experto</translation>
     </message>
     <message>
-        <source>Automatically open the GroestlCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abre automáticamente el puerto del cliente GroestlCoin en el router. Esto funciona solo cuando tu router es compatible con UPnP y está habilitado.</translation>
+        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abre automáticamente el puerto del cliente Groestlcoin en el router. Esto funciona solo cuando tu router es compatible con UPnP y está habilitado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -876,7 +876,7 @@
         <translation>Firma</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
         <translation>Firmar un mensjage para probar que usted es dueño de esta dirección</translation>
     </message>
     <message>
@@ -901,7 +901,7 @@
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation>Por favor, revise la dirección GroestlCoin e inténtelo denuevo</translation>
+        <translation>Por favor, revise la dirección Groestlcoin e inténtelo denuevo</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
@@ -923,8 +923,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
-        <translation>GroestlCoin core</translation>
+        <source>Groestlcoin Core</source>
+        <translation>Groestlcoin core</translation>
     </message>
     <message>
         <source>[testnet]</source>

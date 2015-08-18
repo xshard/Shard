@@ -10,8 +10,8 @@
 	<?define OUTDIR="x86_R_St\"?>
 <?endif ?>
 
-<Product Name='GroestlCoin Core' Id='*' UpgradeCode='$(var.UpgradeCode)' Version='$(var.PRODVER)' Manufacturer='GroestlCoin' Language='1033' >
-   	<Package Id='*' Keywords='Installer' Description="GroestlCoin Core" Comments='GroestlCoin Core' Manufacturer='GroestlCoin' InstallerVersion='301' Compressed='yes'  />
+<Product Name='Groestlcoin Core' Id='*' UpgradeCode='$(var.UpgradeCode)' Version='$(var.PRODVER)' Manufacturer='Groestlcoin' Language='1033' >
+   	<Package Id='*' Keywords='Installer' Description="Groestlcoin Core" Comments='Groestlcoin Core' Manufacturer='Groestlcoin' InstallerVersion='301' Compressed='yes'  />
 
 	<UIRef Id="WixUI_InstallDir" />
 
@@ -24,7 +24,7 @@
     <Icon Id="Groestlcoin.ico" SourceFile="src\qt\res\icons\groestlcoin.ico " />
 
 	<Property Id="ARPPRODUCTICON" Value="Groestlcoin.ico" />
-   	<Property Id='DiskPrompt' Value="GroestlCoin Core" />
+   	<Property Id='DiskPrompt' Value="Groestlcoin Core" />
 	<Property Id="ARPHELPLINK" Value="http://www.groestlcoin.org/downloads/" />
 	<Property Id="ARPURLINFOABOUT" Value="http://www.groestlcoin.org/downloads/" />
 	<Property Id="ARPURLUPDATEINFO" Value="http://www.groestlcoin.org/downloads/" />
@@ -40,13 +40,13 @@
    	<Directory Id='TARGETDIR' Name='SourceDir'>
 <?if $(sys.BUILDARCH) = x64 ?>
 		<Directory Id='ProgramFiles64Folder' Name='PFiles'>
-   			<Directory Id='INSTALLDIR' Name='GroestlCoin'>
+   			<Directory Id='INSTALLDIR' Name='Groestlcoin'>
 	   			<Directory Id='DAEMON' Name='daemon' />
 			</Directory>
 		</Directory>
 <?else ?>
 		<Directory Id='ProgramFilesFolder' Name='PFiles'>
-   			<Directory Id='INSTALLDIR' Name='GroestlCoin'>
+   			<Directory Id='INSTALLDIR' Name='Groestlcoin'>
 	   			<Directory Id='DAEMON' Name='daemon' />
 			</Directory>
 		</Directory>
@@ -60,8 +60,8 @@
 
 	<Component Id='CMP_GrsQt' Guid='a677466c-3dbe-476f-a225-eb19da78004d' Directory='INSTALLDIR' >
 		<File  Id="groestlcoin_qt.exe" Source="$(var.OUTDIR)\groestlcoin-qt.exe"	KeyPath='yes' 		>
-			<Shortcut Id="startmenuGroestlcoin" 	Directory="ProgramMenuFolder" 	Name="GroestlCoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" />
-			<Shortcut Id="desktopGroestlcoin" 	Directory="DesktopFolder"  		Name="GroestlCoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" />
+			<Shortcut Id="startmenuGroestlcoin" 	Directory="ProgramMenuFolder" 	Name="Groestlcoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" />
+			<Shortcut Id="desktopGroestlcoin" 	Directory="DesktopFolder"  		Name="Groestlcoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" />
 		</File>
 	</Component>
 
@@ -72,7 +72,7 @@
 
 	<DirectoryRef Id="ProgramMenuFolder">
 		<Component Id='CMP_ApplicationShortcut' Guid='ed335276-6250-4832-98b3-3694ff8beaee'>
-			<Shortcut Id='UninstallProduct' Name='Uninstall GroestlCoin Core' Description='Uninstalls My Application' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
+			<Shortcut Id='UninstallProduct' Name='Uninstall Groestlcoin Core' Description='Uninstalls My Application' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
 		</Component>
 	</DirectoryRef>
 
@@ -97,7 +97,7 @@
 
 	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" /> 
 
-   	<Feature Id='Complete' Level='1' Title='GroestlCoin Core'>
+   	<Feature Id='Complete' Level='1' Title='Groestlcoin Core'>
    		<ComponentRef Id='CMP_GrsQt' 				/>
    		<ComponentRef Id='CMP_GrsDaemon'		 	/>
    		<ComponentRef Id='CMP_ApplicationShortcut' 	/>

@@ -66,11 +66,11 @@
         <translation>استقبال العناوين</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>هذه هي عناوين Bitcion التابعة لك من أجل إرسال الدفعات. تحقق دائما من المبلغ و عنوان المرسل المستقبل قبل إرسال العملات</translation>
     </message>
     <message>
-        <source>These are your GroestlCoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>هذه هي عناوين Bitcion التابعة لك من أجل إستقبال الدفعات. ينصح استخدام عنوان جديد من أجل كل صفقة</translation>
     </message>
     <message>
@@ -209,7 +209,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlCoinGUI</name>
+    <name>GroestlcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>التوقيع و الرسائل</translation>
@@ -283,7 +283,7 @@
         <translation>افتح &amp;URI...</translation>
     </message>
     <message>
-        <source>GroestlCoin Core client</source>
+        <source>Groestlcoin Core client</source>
         <translation>عميل bitcion core</translation>
     </message>
     <message>
@@ -295,7 +295,7 @@
         <translation>إعادة الفهرسة الكتل على القرص ...</translation>
     </message>
     <message>
-        <source>Send coins to a GroestlCoin address</source>
+        <source>Send coins to a Groestlcoin address</source>
         <translation>ارسل عملات الى عنوان بيتكوين</translation>
     </message>
     <message>
@@ -315,7 +315,7 @@
         <translation>&amp;التحقق من الرسالة...</translation>
     </message>
     <message>
-        <source>GroestlCoin</source>
+        <source>Groestlcoin</source>
         <translation>بت كوين</translation>
     </message>
     <message>
@@ -327,7 +327,7 @@
         <translation>&amp;استقبل</translation>
     </message>
     <message>
-        <source>Show information about GroestlCoin Core</source>
+        <source>Show information about Groestlcoin Core</source>
         <translation>  اظهار معلومات حول bitcion core</translation>
     </message>
     <message>
@@ -359,12 +359,12 @@
         <translation>شريط أدوات علامات التبويب</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
+        <source>Groestlcoin Core</source>
         <translation>جوهر البيت كوين</translation>
     </message>
     <message>
-        <source>&amp;About GroestlCoin Core</source>
-        <translation>حول GroestlCoin core</translation>
+        <source>&amp;About Groestlcoin Core</source>
+        <translation>حول Groestlcoin core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -602,7 +602,7 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>GroestlCoin Core</source>
+        <source>Groestlcoin Core</source>
         <translation>جوهر البيت كوين</translation>
     </message>
     <message>
@@ -610,7 +610,7 @@
         <translation>النسخة</translation>
     </message>
     <message>
-        <source>About GroestlCoin Core</source>
+        <source>About Groestlcoin Core</source>
         <translation>عن جوهر البيت كوين</translation>
     </message>
     <message>
@@ -633,7 +633,7 @@
         <translation>استخدام دليل بيانات مخصص:</translation>
     </message>
     <message>
-        <source>GroestlCoin Core</source>
+        <source>Groestlcoin Core</source>
         <translation>جوهر البيت كوين</translation>
     </message>
     <message>
@@ -1202,7 +1202,7 @@
         <translation>التوقيع</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this GroestlCoin address</source>
+        <source>Sign the message to prove you own this Groestlcoin address</source>
         <translation>وقع الرسالة لتثبت انك تمتلك عنوان البت كوين هذا</translation>
     </message>
     <message>
@@ -1269,11 +1269,11 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>GroestlCoin Core</source>
+        <source>Groestlcoin Core</source>
         <translation>جوهر البيت كوين</translation>
     </message>
     <message>
-        <source>The GroestlCoin Core developers</source>
+        <source>The Groestlcoin Core developers</source>
         <translation>مطوري جوهر البيت كوين</translation>
     </message>
     <message>
