@@ -1,12 +1,12 @@
 *.tar.gz
 
 *.exe
-src/bitcoin
-src/bitcoind
-src/bitcoin-cli
-src/bitcoin-tx
-src/test/test_bitcoin
-src/qt/test/test_bitcoin-qt
+src/groestlcoin
+src/groestlcoind
+src/groestlcoin-cli
+src/groestlcoin-tx
+src/test/test_groestlcoin
+src/qt/test/test_groestlcoin-qt
 
 # autoreconf
 Makefile.in
@@ -29,8 +29,8 @@ config.log
 config.status
 configure
 libtool
-src/config/bitcoin-config.h
-src/config/bitcoin-config.h.in
+src/config/groestlcoin-config.h
+src/config/groestlcoin-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -55,7 +55,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.bitcoin
+.groestlcoin
 *.a
 *.pb.cc
 *.pb.h
