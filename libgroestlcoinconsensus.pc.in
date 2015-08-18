@@ -3,8 +3,8 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
-Name: GroestlCoin Core consensus library
-Description: Library for the GroestlCoin consensus protocol.
+Name: Groestlcoin Core consensus library
+Description: Library for the Groestlcoin consensus protocol.
 Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -lgroestlcoinconsensus
 Cflags: -I${includedir}
