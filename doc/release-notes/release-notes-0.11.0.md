@@ -180,7 +180,7 @@ connections. A user and password is sent where they weren't before. This setup
 is exceedingly rare, but in this case `-proxyrandomize=0` can be passed to
 disable the behavior.
 
-0.11.0 Change log
+2.11.0 Change log
 =================
 
 Detailed release notes follow. This overview includes changes that affect
