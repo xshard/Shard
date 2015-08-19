@@ -447,7 +447,6 @@ public:
         vSeeds.clear();
 		vSeeds.push_back(CDNSSeedData("testnet1.groestlcoin.org", "testnet1.groestlcoin.org"));
 		vSeeds.push_back(CDNSSeedData("testnet2.groestlcoin.org", "testnet2.groestlcoin.org"));
-		vSeeds.push_back(CDNSSeedData("seed.ufasoft.com", "seed.ufasoft.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
