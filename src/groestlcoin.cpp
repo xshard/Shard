@@ -291,6 +291,42 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     return DarkGravityWave(pindexLast, pblock);
 }
 
+static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
+	CMutableTransaction txNew;
+	txNew.nVersion = 1;
+	txNew.vin.resize(1);
+	txNew.vout.resize(1);
+	txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+	txNew.vout[0].nValue = genesisReward;
+	txNew.vout[0].scriptPubKey = genesisOutputScript;
+
+	CBlock genesis;
+	genesis.nTime    = nTime;
+	genesis.nBits    = nBits;
+	genesis.nNonce   = nNonce;
+	genesis.nVersion = nVersion;
+	genesis.vtx.push_back(txNew);
+	genesis.hashPrevBlock.SetNull();
+	genesis.hashMerkleRoot = genesis.BuildMerkleTree();
+	return genesis;
+}
+
+/**
+* Build the genesis block. Note that the output of its generation
+* transaction cannot be spent since it did not originally exist in the
+* database.
+*
+* CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
+*   CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+*     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
+*     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
+*   vMerkleTree: 4a5e1e
+*/
+static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
+	const char* pszTimestamp = "Pressure must be put on Vladimir Putin over Crimea";
+	const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
+	return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
+}
 
 
 /**
@@ -334,6 +370,9 @@ public:
 		nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
 
+
+		genesis = CreateGenesisBlock(1395342829, 220035, 0x1e0fffff, 112, 0);
+
         /**
          * Build the genesis block. Note that the output of its generation
          * transaction cannot be spent since it did not originally exist in the
@@ -345,20 +384,14 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
          *   vMerkleTree: 4a5e1e
          */
-        const char* pszTimestamp = "Pressure must be put on Vladimir Putin over Crimea";
+		/*!!!R
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
-        txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 0;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock.SetNull();
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
-        genesis.nVersion = 112;
-        genesis.nTime    = 1395342829;
-        genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 220035;
+		*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
 		assert(consensus.hashGenesisBlock == uint256S("0x00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023"));
@@ -384,7 +417,7 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-#ifdef _MSC_VER
+#ifdef _MSC_VER //!!!
 		checkpointData = Checkpoints::CCheckpointData{
 #else
 		checkpointData = (Checkpoints::CCheckpointData){
@@ -422,8 +455,7 @@ public:
         nPruneAfterHeight = 1000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1395342913;
-        genesis.nNonce = 873629;
+		genesis = CreateGenesisBlock(1395342913, 873629, 0x1e0fffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
 //!!!T GRS        assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
 
@@ -478,12 +510,11 @@ public:
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
-        genesis.nTime = 1296688602;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 2;
         consensus.hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
-        assert(consensus.hashGenesisBlock == uint256S("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
+
+		genesis = CreateGenesisBlock(1395342913, 873630, 0x1e0fffff, 3, 0);
+///!!!        assert(consensus.hashGenesisBlock == uint256S("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
         nPruneAfterHeight = 1000;
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.

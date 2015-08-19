@@ -268,8 +268,6 @@ libgroestlcoin_common_a_SOURCES = \
   script/standard.cpp \
   $(GROESTLCOIN_CORE_H)
 
-#!!! excluded chainparams.cpp
-
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
