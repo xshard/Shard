@@ -371,7 +371,6 @@ public:
 		assert(consensus.hashGenesisBlock == uint256S("0x00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023"));
 		assert(genesis.hashMerkleRoot == uint256S("0x3ce968df58f9c8a752306c4b7264afab93149dbc578bd08a42c446caaa6628bb"));
 
-        vSeeds.push_back(CDNSSeedData("groestlcoin.net", "groestlcoin.net"));
         vSeeds.push_back(CDNSSeedData("groestlcoin.org", "groestlcoin.org"));
 		vSeeds.push_back(CDNSSeedData("electrum1.groestlcoin.org", "electrum1.groestlcoin.org"));
 		vSeeds.push_back(CDNSSeedData("electrum2.groestlcoin.org", "electrum2.groestlcoin.org"));
