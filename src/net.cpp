@@ -1383,7 +1383,7 @@ void ThreadOpenConnections()
 
         int nTries = 0;
 
-		const int nMaxTries = Params().MiningRequiresPeers() ? 100 : 10; //!!!P
+		const int nMaxTries = Params().MiningRequiresPeers() ? 100 : 5; //!!!P
         while (true)
         {
             CAddrInfo addr = addrman.Select();
