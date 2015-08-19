@@ -344,24 +344,28 @@ void CAddrMan::Attempt_(const CService& addr, int64_t nTime)
     info.nAttempts++;
 }
 
+static int GetRandIntFast(int nMax) {		//!!!PO	
+	return rand() % nMax;
+}
+
 CAddrInfo CAddrMan::Select_()
 {
     if (size() == 0)
         return CAddrInfo();
 
     // Use a 50% chance for choosing between tried and new table entries.
-    if (nTried > 0 && (nNew == 0 || GetRandInt(2) == 0)) {
+    if (nTried > 0 && (nNew == 0 || GetRandIntFast(2) == 0)) {
         // use a tried node
         double fChanceFactor = 1.0;
         while (1) {
-            int nKBucket = GetRandInt(ADDRMAN_TRIED_BUCKET_COUNT);
-            int nKBucketPos = GetRandInt(ADDRMAN_BUCKET_SIZE);
+            int nKBucket = GetRandIntFast(ADDRMAN_TRIED_BUCKET_COUNT);
+            int nKBucketPos = GetRandIntFast(ADDRMAN_BUCKET_SIZE);
             if (vvTried[nKBucket][nKBucketPos] == -1)
                 continue;
             int nId = vvTried[nKBucket][nKBucketPos];
             assert(mapInfo.count(nId) == 1);
             CAddrInfo& info = mapInfo[nId];
-            if (GetRandInt(1 << 30) < fChanceFactor * info.GetChance() * (1 << 30))
+            if (GetRandIntFast(1 << 30) < fChanceFactor * info.GetChance() * (1 << 30))
                 return info;
             fChanceFactor *= 1.2;
         }
@@ -369,14 +373,14 @@ CAddrInfo CAddrMan::Select_()
         // use a new node
         double fChanceFactor = 1.0;
         while (1) {
-			int nUBucket = rand() % ADDRMAN_NEW_BUCKET_COUNT; //!!!PO GetRandInt(ADDRMAN_NEW_BUCKET_COUNT);
-			int nUBucketPos = rand() % ADDRMAN_BUCKET_SIZE;  //!!!PO GetRandInt(ADDRMAN_BUCKET_SIZE);
+			int nUBucket = GetRandIntFast(ADDRMAN_NEW_BUCKET_COUNT);
+			int nUBucketPos = GetRandIntFast(ADDRMAN_BUCKET_SIZE);
             if (vvNew[nUBucket][nUBucketPos] == -1)
                 continue;
             int nId = vvNew[nUBucket][nUBucketPos];
             assert(mapInfo.count(nId) == 1);
             CAddrInfo& info = mapInfo[nId];
-            if (GetRandInt(1 << 30) < fChanceFactor * info.GetChance() * (1 << 30))
+            if (GetRandIntFast(1 << 30) < fChanceFactor * info.GetChance() * (1 << 30))
                 return info;
             fChanceFactor *= 1.2;
         }
