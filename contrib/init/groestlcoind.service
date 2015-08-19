@@ -1,5 +1,5 @@
 [Unit]
-Description=GroestlCoin's distributed currency daemon
+Description=Groestlcoin's distributed currency daemon
 After=network.target
 
 [Service]
