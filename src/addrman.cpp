@@ -369,8 +369,8 @@ CAddrInfo CAddrMan::Select_()
         // use a new node
         double fChanceFactor = 1.0;
         while (1) {
-            int nUBucket = GetRandInt(ADDRMAN_NEW_BUCKET_COUNT);
-            int nUBucketPos = GetRandInt(ADDRMAN_BUCKET_SIZE);
+			int nUBucket = rand() % ADDRMAN_NEW_BUCKET_COUNT; //!!!PO GetRandInt(ADDRMAN_NEW_BUCKET_COUNT);
+			int nUBucketPos = rand() % ADDRMAN_BUCKET_SIZE;  //!!!PO GetRandInt(ADDRMAN_BUCKET_SIZE);
             if (vvNew[nUBucket][nUBucketPos] == -1)
                 continue;
             int nId = vvNew[nUBucket][nUBucketPos];
