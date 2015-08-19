@@ -119,33 +119,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 static const int64_t nTargetTimespan = 86400; //1 day
 static const int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
 
-arith_uint256 bnProofOfWorkLimit = UintToArith256(uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));
-
-unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime, const Consensus::Params& params)
-{
-	unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
-
-      // Testnet has min-difficulty blocks
-    // after nTargetSpacing*2 time between blocks:
-    if (params.fPowAllowMinDifficultyBlocks && nTime > nTargetSpacing*2)
-        return nProofOfWorkLimit;
-
-    CBigNum bnResult;
-    bnResult.SetCompact(nBase);
-	const uint256 abnProofOfWorkLimit = ArithToUint256(bnProofOfWorkLimit);
-    while (nTime > 0 && bnResult.getuint256() < abnProofOfWorkLimit)
-    {
-        // Maximum 400% adjustment...
-        bnResult *= 4;
-        // ... in best-case exactly 4-times-normal target time
-        nTime -= nTargetTimespan*4;
-    }
-    if (bnResult > CBigNum(abnProofOfWorkLimit))
-        bnResult = CBigNum(abnProofOfWorkLimit);
-    return bnResult.GetCompact();
-}
-//--------------------------
-unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock) {
+unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
     /* current difficulty formula, darkcoin - DarkGravity, written by Evan Duffield - evan@darkcoin.io */
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
@@ -161,7 +135,9 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     CBigNum PastDifficultyAverage;
     CBigNum PastDifficultyAveragePrev;
 
-    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) { return bnProofOfWorkLimit.GetCompact(); }
+    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) {
+		return UintToArith256(params.powLimit).GetCompact();
+	}
         
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
         if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
@@ -210,15 +186,14 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
             bnNew /= nTargetTimespan;
     }
 
-	const uint256 abnProofOfWorkLimit = ArithToUint256(bnProofOfWorkLimit);
-    if (bnNew > CBigNum(abnProofOfWorkLimit)){
-        bnNew = CBigNum(abnProofOfWorkLimit);
+    if (bnNew > CBigNum(params.powLimit)){
+        bnNew = CBigNum(params.powLimit);
     }
      
     return bnNew.GetCompact();
 }
 
-unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlockHeader *pblock) {
+unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
     /* current difficulty formula, darkcoin - DarkGravity v3, written by Evan Duffield - evan@darkcoin.io */
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
@@ -231,7 +206,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     CBigNum PastDifficultyAveragePrev;
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) { 
-        return bnProofOfWorkLimit.GetCompact(); 
+		return UintToArith256(params.powLimit).GetCompact();
     }
         
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
@@ -267,28 +242,27 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     bnNew *= nActualTimespan;
     bnNew /= nTargetTimespan;
 
-	const uint256 abnProofOfWorkLimit = ArithToUint256(bnProofOfWorkLimit);
-	if (bnNew > CBigNum(abnProofOfWorkLimit)) {
-		bnNew = CBigNum(abnProofOfWorkLimit);
+	if (bnNew > CBigNum(params.powLimit)) {
+		bnNew = CBigNum(params.powLimit);
 	}
     return bnNew.GetCompact();
 }
 //----------------------
 
-unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
-{
-    if (params.fPowAllowMinDifficultyBlocks)
-    {//test net, DGWv3 since block 10
-        if (pindexLast->nHeight >= (10 - 1))
-            return DarkGravityWave3(pindexLast, pblock);
-    }
-    else
-    {//main net, DGWv3 since block 100,000
-        if (pindexLast->nHeight >= (100000 - 1))
-            return DarkGravityWave3(pindexLast, pblock);
+unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
+    if (params.fPowAllowMinDifficultyBlocks)  {
+
+		 // Special difficulty rule for testnet:
+		 // If the new block's timestamp is more than 2* 10 minutes
+		 // then allow mining of a min-difficulty block.
+
+		if (pblock->GetBlockTime() > pindexLast->GetBlockTime() + params.nPowTargetSpacing*2)
+			return UintToArith256(params.powLimit).GetCompact();
     }
 
-    return DarkGravityWave(pindexLast, pblock);
+	if (pindexLast->nHeight >= (100000 - 1))
+		return DarkGravityWave3(pindexLast, pblock, params);
+    return DarkGravityWave(pindexLast, pblock, params);
 }
 
 static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
@@ -446,23 +420,34 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 51;
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
-        consensus.fPowAllowMinDifficultyBlocks = true;
-        pchMessageStart[0] = 0xF9;
-        pchMessageStart[1] = 0xBE;
-        pchMessageStart[2] = 0xB4;
-        pchMessageStart[3] = 0xD4;
+		consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+		consensus.fPowAllowMinDifficultyBlocks = true;
+        pchMessageStart[0] = 0x0b;
+        pchMessageStart[1] = 0x11;
+        pchMessageStart[2] = 0x09;
+        pchMessageStart[3] = 0x07;
+
         nDefaultPort = 17777;
         nPruneAfterHeight = 1000000;
 
+/*!!!R		for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
+			genesis = CreateGenesisBlock(1440000002, nonce, 0x1e00ffff, 3, 0);
+			consensus.hashGenesisBlock = genesis.GetHash();
+			if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit))
+				break;
+		}
+		*/
+
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-		genesis = CreateGenesisBlock(1395342913, 873629, 0x1e0fffff, 3, 0);
+		genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-//!!!T GRS        assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("groestlcoin.net", "groestlcoin.net"));
-        vSeeds.push_back(CDNSSeedData("groestlcoin.org", "groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("testnet1.groestlcoin.org", "testnet1.groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("testnet2.groestlcoin.org", "testnet2.groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("seed.ufasoft.com", "seed.ufasoft.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -472,7 +457,7 @@ public:
 
         //GRS vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;			//GRS  Testnet can have single node
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
@@ -505,16 +490,12 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         pchMessageStart[0] = 0xfa;
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
-        consensus.hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
 
-		genesis = CreateGenesisBlock(1395342913, 873630, 0x1e0fffff, 3, 0);
-///!!!        assert(consensus.hashGenesisBlock == uint256S("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
         nPruneAfterHeight = 1000;
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
@@ -526,7 +507,7 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-
+		/*!!!R
 #ifdef _MSC_VER
 		checkpointData = Checkpoints::CCheckpointData{
 #else
@@ -538,6 +519,7 @@ public:
 			0,
 			0
 		};
+		*/
     }
 };
 //!!!T static CRegTestParams regTestParams;
