@@ -228,3 +228,11 @@ In this case there is no dependency on Berkeley DB 4.8.
 Mining is also possible in disable-wallet mode, but only using the `getblocktemplate` RPC
 call not `getwork`.
 
+Upgrading from Groestlcoin 2.1.6
+---------------------------------
+Previous version 2.1.6 used directory name .GroestlCoin/GroestlCoin.conf
+
+Canonical name for .GroestlCoin in UNIX changed to use all lowercase: .groestlcoin. Unix users who are upgrading can make a link as a solution:
+	ln .GroestlCoin .groestlcoin
+	ln .groestlcoin/GroestlCoin.conf groestlcoin.conf 
+
