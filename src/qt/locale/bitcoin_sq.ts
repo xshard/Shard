@@ -145,7 +145,7 @@
     </message>
     </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>BitcoinGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Duke u sinkronizuar me rrjetin...</translation>

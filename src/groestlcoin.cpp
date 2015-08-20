@@ -461,18 +461,18 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
 
-		/*GRS
+		
 #ifdef _MSC_VER
 		checkpointData = Checkpoints::CCheckpointData{
 #else
 		checkpointData = (Checkpoints::CCheckpointData){
 #endif
 			boost::assign::map_list_of
-			(546, uint256S("000000002a936ca763904c3c35fce2f3556c559c0214345d31b1bcebf76acb70")),
-			1337966069,
-			1488,
-			300
-		}; */
+			(0, uint256S("000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")),
+			1440000002,
+			0,
+			10
+		};
 
     }
 };

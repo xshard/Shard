@@ -193,7 +193,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>BitcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;mensaje</translation>

@@ -57,7 +57,7 @@
     <name>AskPassphraseDialog</name>
     </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>BitcoinGUI</name>
     <message>
         <source>&amp;Options...</source>
         <translation>Pilihan</translation>

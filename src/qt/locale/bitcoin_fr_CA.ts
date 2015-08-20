@@ -65,7 +65,7 @@
     </message>
     </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>BitcoinGUI</name>
     </context>
 <context>
     <name>ClientModel</name>
