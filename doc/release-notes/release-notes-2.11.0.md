@@ -139,6 +139,386 @@ for a higher target number of blocks. It is not uncommon for there to be no
 fee or priority high enough to be reliably (85%) included in the next block and
 for this reason, the default for `-txconfirmtarget=n` has changed from 1 to 2.
 
+Rebranding to Groestlcoin Core
+---------------------------
+
+To reduce confusion between Groestlcoin-the-network and Groestlcoin-the-software we
+have renamed the reference client to Groestlcoin Core.
+
+
+OP_RETURN and data in the block chain
+-------------------------------------
+On OP_RETURN:  This change is not an endorsement of storing data in the
+blockchain.  The OP_RETURN change creates a provably-prunable output,
+to avoid data storage schemes -- some of which were already deployed --
+that were storing arbitrary data such as images as forever-unspendable
+TX outputs, bloating Groestlcoin's UTXO database.
+
+Storing arbitrary data in the blockchain is still a bad idea; it is less
+costly and far more efficient to store non-currency data elsewhere.
+
+Autotools build system
+-----------------------
+
+For 2.11.0 we switched to an autotools-based build system instead of individual
+(q)makefiles.
+
+Using the standard "./autogen.sh; ./configure; make" to build Groestlcoin-Qt and
+groestlcoind makes it easier for experienced open source developers to contribute 
+to the project.
+
+Be sure to check doc/build-*.md for your platform before building from source.
+
+Groestlcoin-cli
+-------------
+
+Another change in the 2.11.0 release is moving away from the groestlcoind executable
+functioning both as a server and as a RPC client. The RPC client functionality
+("tell the running groestlcoin daemon to do THIS") was split into a separate
+executable, 'groestlcoin-cli'. The RPC client code will eventually be removed from
+groestlcoind, but will be kept for backwards compatibility for a release or two.
+
+`walletpassphrase` RPC
+-----------------------
+
+The behavior of the `walletpassphrase` RPC when the wallet is already unlocked
+has changed.
+
+The 2.1.0.6 behavior of `walletpassphrase` is to fail when the wallet is already unlocked:
+
+    > walletpassphrase 1000
+    walletunlocktime = now + 1000
+    > walletpassphrase 10
+    Error: Wallet is already unlocked (old unlock time stays)
+
+The new behavior of `walletpassphrase` is to set a new unlock time overriding
+the old one:
+
+    > walletpassphrase 1000
+    walletunlocktime = now + 1000
+    > walletpassphrase 10
+    walletunlocktime = now + 10 (overriding the old unlock time)
+
+Transaction malleability-related fixes
+--------------------------------------
+
+This release contains a few fixes for transaction ID (TXID) malleability 
+issues:
+
+- -nospendzeroconfchange command-line option, to avoid spending
+  zero-confirmation change
+- IsStandard() transaction rules tightened to prevent relaying and mining of
+  mutated transactions
+- Additional information in listtransactions/gettransaction output to
+  report wallet transactions that conflict with each other because
+  they spend the same outputs.
+- Bug fixes to the getbalance/listaccounts RPC commands, which would report
+  incorrect balances for double-spent (or mutated) transactions.
+- New option: -zapwallettxes to rebuild the wallet's transaction information
+
+Transaction Fees
+----------------
+
+This release drops the default fee required to relay transactions across the
+network and for miners to consider the transaction in their blocks to
+0.01mGRS per kilobyte.
+
+Note that getting a transaction relayed across the network does NOT guarantee
+that the transaction will be accepted by a miner; by default, miners fill
+their blocks with 50 kilobytes of high-priority transactions, and then with
+700 kilobytes of the highest-fee-per-kilobyte transactions.
+
+The minimum relay/mining fee-per-kilobyte may be changed with the
+minrelaytxfee option. Note that previous releases incorrectly used
+the mintxfee setting to determine which low-priority transactions should
+be considered for inclusion in blocks.
+
+The wallet code still uses a default fee for low-priority transactions of
+0.1mGRS per kilobyte. During periods of heavy transaction volume, even this
+fee may not be enough to get transactions confirmed quickly; the mintxfee
+option may be used to override the default.
+
+Faster synchronization
+----------------------
+
+Groestlcoin Core now uses 'headers-first synchronization'. This means that we first
+ask peers for block headers and validate those. In a second stage, when the headers 
+have been discovered, we download the blocks. However, as we already know about the 
+whole chain in advance, the blocks can be downloaded in parallel from all available peers.
+
+In practice, this means a much faster and more robust synchronization. On
+recent hardware with a decent network link, it can be as little as 30 minutes
+for an initial full synchronization. You may notice a slower progress in the
+very first few minutes, when headers are still being fetched and verified, but
+it should gain speed afterwards.
+
+A few RPCs were added/updated as a result of this:
+- `getblockchaininfo` now returns the number of validated headers in addition to
+the number of validated blocks.
+- `getpeerinfo` lists both the number of blocks and headers we know we have in
+common with each peer. While synchronizing, the heights of the blocks that we
+have requested from peers (but haven't received yet) are also listed as
+'inflight'.
+- A new RPC `getchaintips` lists all known branches of the block chain,
+including those we only have headers for.
+
+Transaction fee changes
+-----------------------
+
+This release automatically estimates how high a transaction fee (or how
+high a priority) transactions require to be confirmed quickly. The default
+settings will create transactions that confirm quickly; see the new
+'txconfirmtarget' setting to control the tradeoff between fees and
+confirmation times. Fees are added by default unless the 'sendfreetransactions' 
+setting is enabled.
+
+Prior releases used hard-coded fees (and priorities), and would
+sometimes create transactions that took a very long time to confirm.
+
+Statistics used to estimate fees and priorities are saved in the
+data directory in the `fee_estimates.dat` file just before
+program shutdown, and are read in at startup.
+
+New command line options for transaction fee changes:
+- `-txconfirmtarget=n` : create transactions that have enough fees (or priority)
+so they are likely to begin confirmation within n blocks (default: 1). This setting
+is over-ridden by the -paytxfee option.
+- `-sendfreetransactions` : Send transactions as zero-fee transactions if possible 
+(default: 0)
+
+New RPC commands for fee estimation:
+- `estimatefee nblocks` : Returns approximate fee-per-1,000-bytes needed for
+a transaction to begin confirmation within nblocks. Returns -1 if not enough
+transactions have been observed to compute a good estimate.
+- `estimatepriority nblocks` : Returns approximate priority needed for
+a zero-fee transaction to begin confirmation within nblocks. Returns -1 if not
+enough free transactions have been observed to compute a good
+estimate.
+
+RPC access control changes
+--------------------------
+
+Subnet matching for the purpose of access control is now done
+by matching the binary network address, instead of with string wildcard matching.
+For the user this means that `-rpcallowip` takes a subnet specification, which can be
+
+- a single IP address (e.g. `1.2.3.4` or `fe80::0012:3456:789a:bcde`)
+- a network/CIDR (e.g. `1.2.3.0/24` or `fe80::0000/64`)
+- a network/netmask (e.g. `1.2.3.4/255.255.255.0` or `fe80::0012:3456:789a:bcde/ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff`)
+
+An arbitrary number of `-rpcallow` arguments can be given. An incoming connection will be accepted if its origin address
+matches one of them.
+
+For example:
+
+| 2.1.0.6 and before                           | 2.11.0                                |
+|--------------------------------------------|---------------------------------------|
+| `-rpcallowip=192.168.1.1`                  | `-rpcallowip=192.168.1.1` (unchanged) |
+| `-rpcallowip=192.168.1.*`                  | `-rpcallowip=192.168.1.0/24`          |
+| `-rpcallowip=192.168.*`                    | `-rpcallowip=192.168.0.0/16`          |
+| `-rpcallowip=*` (dangerous!)               | `-rpcallowip=::/0` (still dangerous!) |
+
+Using wildcards will result in the rule being rejected with the following error in debug.log:
+
+    Error: Invalid -rpcallowip subnet specification: *. Valid are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24).
+
+
+REST interface
+--------------
+
+A new HTTP API is exposed when running with the `-rest` flag, which allows
+unauthenticated access to public node data.
+
+It is served on the same port as RPC, but does not need a password, and uses
+plain HTTP instead of JSON-RPC.
+
+Assuming a local RPC server running on port 1441, it is possible to request:
+- Blocks: http://localhost:1441/rest/block/*HASH*.*EXT*
+- Blocks without transactions: http://localhost:1441/rest/block/notxdetails/*HASH*.*EXT*
+- Transactions (requires `-txindex`): http://localhost:1441/rest/tx/*HASH*.*EXT*
+
+In every case, *EXT* can be `bin` (for raw binary data), `hex` (for hex-encoded
+binary) or `json`.
+
+For more details, see the `doc/REST-interface.md` document in the repository.
+
+RPC Server "Warm-Up" Mode
+-------------------------
+
+The RPC server is started earlier now, before most of the expensive
+intialisations like loading the block index.  It is available now almost
+immediately after starting the process.  However, until all initialisations
+are done, it always returns an immediate error with code -28 to all calls.
+
+This new behaviour can be useful for clients to know that a server is already
+started and will be available soon (for instance, so that they do not
+have to start it themselves).
+
+Improved signing security
+-------------------------
+
+For 2.11.0 the security of signing against unusual attacks has been
+improved by making the signatures constant time and deterministic.
+
+This change is a result of switching signing to use libsecp256k1
+instead of OpenSSL. Libsecp256k1 is a cryptographic library
+optimized for the curve Groestlcoin uses which was created by Bitcoin
+Core developer Pieter Wuille.
+
+There exist attacks[1] against most ECC implementations where an
+attacker on shared virtual machine hardware could extract a private
+key if they could cause a target to sign using the same key hundreds
+of times. While using shared hosts and reusing keys are inadvisable
+for other reasons, it's a better practice to avoid the exposure.
+
+OpenSSL has code in their source repository for derandomization
+and reduction in timing leaks that we've eagerly wanted to use for a
+long time, but this functionality has still not made its
+way into a released version of OpenSSL. Libsecp256k1 achieves
+significantly stronger protection: As far as we're aware this is
+the only deployed implementation of constant time signing for
+the curve Groestlcoin uses and we have reason to believe that
+libsecp256k1 is better tested and more thoroughly reviewed
+than the implementation in OpenSSL.
+
+[1] https://eprint.iacr.org/2014/161.pdf
+
+Watch-only wallet support
+-------------------------
+
+The wallet can now track transactions to and from wallets for which you know
+all addresses (or scripts), even without the private keys.
+
+This can be used to track payments without needing the private keys online on a
+possibly vulnerable system. In addition, it can help for (manual) construction
+of multisig transactions where you are only one of the signers.
+
+One new RPC, `importaddress`, is added which functions similarly to
+`importprivkey`, but instead takes an address or script (in hexadecimal) as
+argument.  After using it, outputs credited to this address or script are
+considered to be received, and transactions consuming these outputs will be
+considered to be sent.
+
+The following RPCs have optional support for watch-only:
+`getbalance`, `listreceivedbyaddress`, `listreceivedbyaccount`,
+`listtransactions`, `listaccounts`, `listsinceblock`, `gettransaction`. See the
+RPC documentation for those methods for more information.
+
+Compared to using `getrawtransaction`, this mechanism does not require
+`-txindex`, scales better, integrates better with the wallet, and is compatible
+with future block chain pruning functionality. It does mean that all relevant
+addresses need to added to the wallet before the payment, though.
+
+Consensus library
+-----------------
+
+Starting from 2.11.0, the Groestlcoin Core distribution includes a consensus library.
+
+The purpose of this library is to make the verification functionality that is
+critical to Groestlcoin's consensus available to other applications, e.g. 
+alternative node implementations.
+
+This library is called `libgroestlcoinconsensus.so` (or, `.dll` for Windows).
+Its interface is defined in the C header [groestlcoinconsensus.h](https://github.com/GroestlCoin/groestlcoin/blob/master/src/script/groestlcoinconsensus.h).
+
+In its initial version the API includes two functions:
+
+- `groestlcoinconsensus_verify_script` verifies a script. It returns whether the indicated input of the provided serialized transaction 
+correctly spends the passed scriptPubKey under additional constraints indicated by flags
+- `groestlcoinconsensus_version` returns the API version, currently at an experimental `0`
+
+The functionality is planned to be extended to e.g. UTXO management in upcoming releases, but the interface
+for existing methods should remain stable.
+
+Standard script rules relaxed for P2SH addresses
+------------------------------------------------
+
+The IsStandard() rules have been almost completely removed for P2SH
+redemption scripts, allowing applications to make use of any valid
+script type, such as "n-of-m OR y", hash-locked oracle addresses, etc.
+While the Groestlcoin protocol has always supported these types of script,
+actually using them on mainnet has been previously inconvenient as
+standard Groestlcoin Core nodes wouldn't relay them to miners, nor would
+most miners include them in blocks they mined.
+
+groestlcoin-tx
+----------
+
+It has been observed that many of the RPC functions offered by groestlcoind are
+"pure functions", and operate independently of the groestlcoind wallet. This
+included many of the RPC "raw transaction" API functions, such as
+createrawtransaction.
+
+groestlcoin-tx is a newly introduced command line utility designed to enable easy
+manipulation of groestlcoin transactions. A summary of its operation may be
+obtained via "groestlcoin-tx --help" Transactions may be created or signed in a
+manner similar to the RPC raw tx API. Transactions may be updated, deleting
+inputs or outputs, or appending new inputs and outputs. Custom scripts may be
+easily composed using a simple text notation, borrowed from the groestlcoin test
+suite.
+
+This tool may be used for experimenting with new transaction types, signing
+multi-party transactions, and many other uses. Long term, the goal is to
+deprecate and remove "pure function" RPC API calls, as those do not require a
+server round-trip to execute.
+
+Other utilities "groestlcoin-key" and "groestlcoin-script" have been proposed, making
+key and script operations easily accessible via command line.
+
+Mining and relay policy enhancements
+------------------------------------
+
+Groestlcoin Core's block templates are now for version 3 blocks only, and any mining
+software relying on its `getblocktemplate` must be updated in parallel to use
+libblkmaker either version 0.4.2 or any version from 0.5.1 onward.
+If you are solo mining, this will affect you the moment you upgrade Groestlcoin
+Core, which must be done prior to BIP66 achieving its 951/1001 status.
+If you are mining with the stratum mining protocol: this does not affect you.
+If you are mining with the getblocktemplate protocol to a pool: this will affect
+you at the pool operator's discretion, which must be no later than BIP66
+achieving its 951/1001 status.
+
+The `prioritisetransaction` RPC method has been added to enable miners to
+manipulate the priority of transactions on an individual basis.
+
+Groestlcoin Core now supports BIP 22 long polling, so mining software can be
+notified immediately of new templates rather than having to poll periodically.
+
+Support for BIP 23 block proposals is now available in groestlcoin Core's
+`getblocktemplate` method. This enables miners to check the basic validity of
+their next block before expending work on it, reducing risks of accidental
+hardforks or mining invalid blocks.
+
+Two new options to control mining policy:
+- `-datacarrier=0/1` : Relay and mine "data carrier" (OP_RETURN) transactions
+if this is 1.
+- `-datacarriersize=n` : Maximum size, in bytes, we consider acceptable for
+"data carrier" outputs.
+
+The relay policy has changed to more properly implement the desired behavior of not 
+relaying free (or very low fee) transactions unless they have a priority above the 
+AllowFreeThreshold(), in which case they are relayed subject to the rate limiter.
+
+BIP 66: strict DER encoding for signatures
+------------------------------------------
+
+Groestlcoin Core 2.11.0 implements BIP 66, which introduces block version 3, and a new
+consensus rule, which prohibits non-DER signatures. Such transactions have been
+non-standard since Groestlcoin v2.1.0.6 (released in June 2014), but were
+technically still permitted inside blocks.
+
+This change breaks the dependency on OpenSSL's signature parsing, and is
+required if implementations would want to remove all of OpenSSL from the
+consensus code.
+
+The same miner-voting mechanism as in BIP 34 is used: when 751 out of a
+sequence of 1001 blocks have version number 3 or higher, the new consensus
+rule becomes active for those blocks. When 951 out of a sequence of 1001
+blocks have version number 3 or higher, it becomes mandatory for all blocks.
+
+Backward compatibility with current mining software is NOT provided, thus miners
+should read the first paragraph of "Mining and relay policy enhancements" above.
+
 Privacy: Disable wallet transaction broadcast
 ----------------------------------------------
 
@@ -179,294 +559,6 @@ authentication, but doesn't require it, this change may cause that proxy to reje
 connections. A user and password is sent where they weren't before. This setup
 is exceedingly rare, but in this case `-proxyrandomize=0` can be passed to
 disable the behavior.
-
-2.11.0 Change log
-=================
-
-Detailed release notes follow. This overview includes changes that affect
-behavior, not code moves, refactors and string updates. For convenience in locating
-the code changes and accompanying discussion, both the pull request and
-git merge commit are mentioned.
-
-### RPC and REST
-- #5461 `5f7279a` signrawtransaction: validate private key
-- #5444 `103f66b` Add /rest/headers/<count>/<hash>.<ext>
-- #4964 `95ecc0a` Add scriptPubKey field to validateaddress RPC call
-- #5476 `c986972` Add time offset into getpeerinfo output
-- #5540 `84eba47` Add unconfirmed and immature balances to getwalletinfo
-- #5599 `40e96a3` Get rid of the internal miner's hashmeter
-- #5711 `87ecfb0` Push down RPC locks
-- #5754 `1c4e3f9` fix getblocktemplate lock issue
-- #5756 `5d901d8` Fix getblocktemplate_proposals test by mining one block
-- #5548 `d48ce48` Add /rest/chaininfos
-- #5992 `4c4f1b4` Push down RPC reqWallet flag
-- #6036 `585b5db` Show zero value txouts in listunspent
-- #5199 `6364408` Add RPC call `gettxoutproof` to generate and verify merkle blocks
-- #5418 `16341cc` Report missing inputs in sendrawtransaction
-- #5937 `40f5e8d` show script verification errors in signrawtransaction result
-- #5420 `1fd2d39` getutxos REST command (based on Bip64)
-- #6193 `42746b0` [REST] remove json input for getutxos, limit to query max. 15 outpoints
-- #6226 `5901596` json: fail read_string if string contains trailing garbage
-
-### Configuration and command-line options
-- #5636 `a353ad4` Add option `-allowselfsignedrootcertificate` to allow self signed root certs (for testing payment requests)
-- #5900 `3e8a1f2` Add a consistency check `-checkblockindex` for the block chain data structures
-- #5951 `7efc9cf` Make it possible to disable wallet transaction broadcast (using `-walletbroadcast=0`)
-- #5911 `b6ea3bc` privacy: Stream isolation for Tor (on by default, use `-proxyrandomize=0` to disable)
-- #5863 `c271304` Add autoprune functionality (`-prune=<size>`)
-- #6153 `0bcf04f` Parameter interaction: disable upnp if -proxy set
-- #6274 `4d9c7fe` Add option `-alerts` to opt out of alert system
-
-### Block and transaction handling
-- #5367 `dcc1304` Do all block index writes in a batch
-- #5253 `203632d` Check against MANDATORY flags prior to accepting to mempool
-- #5459 `4406c3e` Reject headers that build on an invalid parent
-- #5481 `055f3ae` Apply AreSane() checks to the fees from the network
-- #5580 `40d65eb` Preemptively catch a few potential bugs
-- #5349 `f55c5e9` Implement test for merkle tree malleability in CPartialMerkleTree
-- #5564 `a89b837` clarify obscure uses of EvalScript()
-- #5521 `8e4578a` Reject non-final txs even in testnet/regtest
-- #5707 `6af674e` Change hardcoded character constants to descriptive named constants for db keys
-- #5286 `fcf646c` Change the default maximum OP_RETURN size to 80 bytes
-- #5710 `175d86e` Add more information to errors in ReadBlockFromDisk
-- #5948 `b36f1ce` Use GetAncestor to compute new target
-- #5959 `a0bfc69` Add additional block index consistency checks
-- #6058 `7e0e7f8` autoprune minor post-merge improvements
-- #5159 `2cc1372` New fee estimation code
-- #6102 `6fb90d8` Implement accurate UTXO cache size accounting
-- #6129 `2a82298` Bug fix for clearing fCheckForPruning
-- #5947 `e9af4e6` Alert if it is very likely we are getting a bad chain
-- #6203 `c00ae64` Remove P2SH coinbase flag, no longer interesting
-- #5985 `37b4e42` Fix removing of orphan transactions
-- #6221 `6cb70ca` Prune: Support noncontiguous block files
-- #6256 `fce474c` Use best header chain timestamps to detect partitioning
-- #6233 `a587606` Advance pindexLastCommonBlock for blocks in chainActive
-
-### P2P protocol and network code
-- #5507 `844ace9` Prevent DOS attacks on in-flight data structures
-- #5770 `32a8b6a` Sanitize command strings before logging them
-- #5859 `dd4ffce` Add correct bool combiner for net signals
-- #5876 `8e4fd0c` Add a NODE_GETUTXO service bit and document NODE_NETWORK
-- #6028 `b9311fb` Move nLastTry from CAddress to CAddrInfo
-- #5662 `5048465` Change download logic to allow calling getdata on inbound peers
-- #5971 `18d2832` replace absolute sleep with conditional wait
-- #5918 `7bf5d5e` Use equivalent PoW for non-main-chain requests
-- #6059 `f026ab6` chainparams: use SeedSpec6's rather than CAddress's for fixed seeds
-- #6080 `31c0bf1` Add jonasschnellis dns seeder
-- #5976 `9f7809f` Reduce download timeouts as blocks arrive
-- #6172 `b4bbad1` Ignore getheaders requests when not synced
-- #5875 `304892f` Be stricter in processing unrequested blocks
-- #6333 `41bbc85` Hardcoded seeds update June 2015
-
-### Validation
-- #5143 `48e1765` Implement BIP62 rule 6
-- #5713 `41e6e4c` Implement BIP66
-
-### Build system
-- #5501 `c76c9d2` Add mips, mipsel and aarch64 to depends platforms
-- #5334 `cf87536` libbitcoinconsensus: Add pkg-config support
-- #5514 `ed11d53` Fix 'make distcheck'
-- #5505 `a99ef7d` Build winshutdownmonitor.cpp on Windows only
-- #5582 `e8a6639` Osx toolchain update
-- #5684 `ab64022` osx: bump build sdk to 10.9
-- #5695 `23ef5b7` depends: latest config.guess and config.sub
-- #5509 `31dedb4` Fixes when compiling in c++11 mode
-- #5819 `f8e68f7` release: use static libstdc++ and disable reduced exports by default
-- #5510 `7c3fbc3` Big endian support
-- #5149 `c7abfa5` Add script to verify all merge commits are signed
-- #6082 `7abbb7e` qt: disable qt tests when one of the checks for the gui fails
-- #6244 `0401aa2` configure: Detect (and reject) LibreSSL
-- #6269 `95aca44` gitian: Use the new bitcoin-detached-sigs git repo for OSX signatures
-- #6285 `ef1d506` Fix scheduler build with some boost versions.
-- #6280 `25c2216` depends: fix Boost 1.55 build on GCC 5
-- #6303 `b711599` gitian: add a gitian-win-signer descriptor
-- #6246 `8ea6d37` Fix build on FreeBSD
-- #6282 `daf956b` fix crash on shutdown when e.g. changing -txindex and abort action
-- #6354 `bdf0d94` Gitian windows signing normalization
-
-### Wallet
-- #2340 `811c71d` Discourage fee sniping with nLockTime
-- #5485 `d01bcc4` Enforce minRelayTxFee on wallet created tx and add a maxtxfee option
-- #5508 `9a5cabf` Add RandAddSeedPerfmon to MakeNewKey
-- #4805 `8204e19` Do not flush the wallet in AddToWalletIfInvolvingMe(..)
-- #5319 `93b7544` Clean up wallet encryption code
-- #5831 `df5c246` Subtract fee from amount
-- #6076 `6c97fd1` wallet: fix boost::get usage with boost 1.58
-- #5511 `23c998d` Sort pending wallet transactions before reaccepting
-- #6126 `26e08a1` Change default nTxConfirmTarget to 2
-- #6183 `75a4d51` Fix off-by-one error w/ nLockTime in the wallet
-- #6276 `c9fd907` Fix getbalance * 0
-
-### GUI
-- #5219 `f3af0c8` New icons
-- #5228 `bb3c75b` HiDPI (retina) support for splash screen
-- #5258 `73cbf0a` The RPC Console should be a QWidget to make window more independent
-- #5488 `851dfc7` Light blue icon color for regtest
-- #5547 `a39aa74` New icon for the debug window
-- #5493 `e515309` Adopt style colour for button icons
-- #5557 `70477a0` On close of splashscreen interrupt verifyDB
-- #5559 `83be8fd` Make the command-line-args dialog better
-- #5144 `c5380a9` Elaborate on signverify message dialog warning
-- #5489 `d1aa3c6` Optimize PNG files
-- #5649 `e0cd2f5` Use text-color icons for system tray Send/Receive menu entries
-- #5651 `848f55d` Coin Control: Use U+2248 "ALMOST EQUAL TO" rather than a simple tilde
-- #5626 `ab0d798` Fix icon sizes and column width
-- #5683 `c7b22aa` add new osx dmg background picture
-- #5620 `7823598` Payment request expiration bug fix
-- #5729 `9c4a5a5` Allow unit changes for read-only BitcoinAmountField
-- #5753 `0f44672` Add bitcoin logo to about screen
-- #5629 `a956586` Prevent amount overflow problem with payment requests
-- #5830 `215475a` Don't save geometry for options and about/help window
-- #5793 `d26f0b2` Honor current network when creating autostart link
-- #5847 `f238add` Startup script for centos, with documentation
-- #5915 `5bd3a92` Fix a static qt5 crash when using certain versions of libxcb
-- #5898 `bb56781` Fix rpc console font size to flexible metrics
-- #5467 `bc8535b` Payment request / server work - part 2
-- #6161 `180c164` Remove movable option for toolbar
-- #6160 `0d862c2` Overviewpage: make sure warning icons gets colored
-
-### Tests
-- #5453 `2f2d337` Add ability to run single test manually to RPC tests
-- #5421 `886eb57` Test unexecuted OP_CODESEPARATOR
-- #5530 `565b300` Additional rpc tests
-- #5611 `37b185c` Fix spurious windows test failures after 012598880c
-- #5613 `2eda47b` Fix smartfees test for change to relay policy
-- #5612 `e3f5727` Fix zapwallettxes test
-- #5642 `30a5b5f` Prepare paymentservertests for new unit tests
-- #5784 `e3a3cd7` Fix usage of NegateSignatureS in script_tests
-- #5813 `ee9f2bf` Add unit tests for next difficulty calculations
-- #5855 `d7989c0` Travis: run unit tests in different orders
-- #5852 `cdae53e` Reinitialize state in between individual unit tests.
-- #5883 `164d7b6` tests: add a BasicTestingSetup and apply to all tests
-- #5940 `446bb70` Regression test for ResendWalletTransactions
-- #6052 `cf7adad` fix and enable bip32 unit test
-- #6039 `734f80a` tests: Error when setgenerate is used on regtest
-- #6074 `948beaf` Correct the PUSHDATA4 minimal encoding test in script_invalid.json
-- #6032 `e08886d` Stop nodes after RPC tests, even with --nocleanup
-- #6075 `df1609f` Add additional script edge condition tests
-- #5981 `da38dc6` Python P2P testing 
-- #5958 `9ef00c3` Add multisig rpc tests
-- #6112 `fec5c0e` Add more script edge condition tests
-
-### Miscellaneous
-- #5457, #5506, #5952, #6047 Update libsecp256k1
-- #5437 `84857e8` Add missing CAutoFile::IsNull() check in main
-- #5490 `ec20fd7` Replace uint256/uint160 with opaque blobs where possible
-- #5654, #5764 Adding jonasschnelli's GPG key
-- #5477 `5f04d1d` OS X 10.10: LSSharedFileListItemResolve() is deprecated
-- #5679 `beff11a` Get rid of DetectShutdownThread
-- #5787 `9bd8c9b` Add fanquake PGP key
-- #5366 `47a79bb` No longer check osx compatibility in RenameThread
-- #5689 `07f4386` openssl: abstract out OPENSSL_cleanse
-- #5708 `8b298ca` Add list of implemented BIPs
-- #5809 `46bfbe7` Add bitcoin-cli man page
-- #5839 `86eb461` keys: remove libsecp256k1 verification until it's actually supported
-- #5749 `d734d87` Help messages correctly formatted (79 chars)
-- #5884 `7077fe6` BUGFIX: Stack around the variable 'rv' was corrupted
-- #5849 `41259ca` contrib/init/bitcoind.openrc: Compatibility with previous OpenRC init script variables
-- #5950 `41113e3` Fix locale fallback and guard tests against invalid locale settings
-- #5965 `7c6bfb1` Add git-subtree-check.sh script
-- #6033 `1623f6e` FreeBSD, OpenBSD thread renaming
-- #6064 `b46e7c2` Several changes to mruset
-- #6104 `3e2559c` Show an init message while activating best chain
-- #6125 `351f73e` Clean up parsing of bool command line args
-- #5964 `b4c219b` Lightweight task scheduler
-- #6116 `30dc3c1` [OSX] rename Bitcoin-Qt.app to Bitcoin-Core.app
-- #6168 `b3024f0` contrib/linearize: Support linearization of testnet blocks
-- #6098 `7708fcd` Update Windows resource files (and add one for bitcoin-tx)
-- #6159 `e1412d3` Catch errors on datadir lock and pidfile delete
-- #6186 `182686c` Fix two problems in CSubnet parsing
-- #6174 `df992b9` doc: add translation strings policy
-- #6210 `dfdb6dd` build: disable optional use of gmp in internal secp256k1 build
-- #6264 `94cd705` Remove translation for -help-debug options
-- #6286 `3902c15` Remove berkeley-db4 workaround in MacOSX build docs
-- #6319 `3f8fcc9` doc: update mailing list address
-
-Credits
-=======
-
-Thanks to everyone who directly contributed to this release:
-
-- 21E14
-- Adam Weiss
-- Alex Morcos
-- ayeowch
-- azeteki
-- Ben Holden-Crowther
-- bikinibabe
-- BitcoinPRReadingGroup
-- Blake Jakopovic
-- BtcDrak
-- charlescharles
-- Chris Arnesen
-- Ciemon
-- CohibAA
-- Corinne Dashjr
-- Cory Fields
-- Cozz Lovan
-- Daira Hopwood
-- Daniel Kraft
-- Dave Collins
-- David A. Harding
-- dexX7
-- Earlz
-- Eric Lombrozo
-- Eric R. Schulz
-- Everett Forth
-- Flavien Charlon
-- fsb4000
-- Gavin Andresen
-- Gregory Maxwell
-- Heath
-- Ivan Pustogarov
-- Jacob Welsh
-- Jameson Lopp
-- Jason Lewicki
-- Jeff Garzik
-- Jonas Schnelli
-- Jonathan Brown
-- Jorge Timón
-- joshr
-- jtimon
-- Julian Yap
-- Luca Venturini
-- Luke Dashjr
-- Manuel Araoz
-- MarcoFalke
-- Matt Bogosian
-- Matt Corallo
-- Micha
-- Michael Ford
-- Mike Hearn
-- mrbandrews
-- Nicolas Benoit
-- paveljanik
-- Pavel Janík
-- Pavel Vasin
-- Peter Todd
-- Philip Kaufmann
-- Pieter Wuille
-- pstratem
-- randy-waterhouse
-- rion
-- Rob Van Mieghem
-- Ross Nicoll
-- Ruben de Vries
-- sandakersmann
-- Shaul Kfir
-- Shawn Wilkinson
-- sinetek
-- Suhas Daftuar
-- svost
-- Thomas Zander
-- Tom Harding
-- UdjinM6
-- Vitalii Demianets
-- Wladimir J. van der Laan
-
-And all those who contributed additional code review and/or security research:
-
-- Sergio Demian Lerner
 
 As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).
 
