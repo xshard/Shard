@@ -11,10 +11,10 @@ src\qt\res_bitcoin.cpp : src\qt\moc.proj
 	cd ..\..
 
 
-x86_R_St\groestlcoin-qt.exe : src\qt\res_bitcoin.cpp
+x86_R_St\groestlcoin-qt.exe : src\main.cpp src\qt\res_bitcoin.cpp
 	$(MSB) groestlcoin.sln /p:Configuration=R_St,Platform=x86 /v:n
 
-x64_R_St\groestlcoin-qt.exe : src\qt\res_bitcoin.cpp
+x64_R_St\groestlcoin-qt.exe : src\main.cpp src\qt\res_bitcoin.cpp
 	$(MSB) groestlcoin.sln /p:Configuration=R_St,Platform=x64 /v:n
 
 

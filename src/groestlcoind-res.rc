@@ -17,7 +17,7 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Groestlcoin"
-            VALUE "FileDescription",    "bitcoind (Groestlcoin node with a JSON-RPC server)"
+            VALUE "FileDescription",    "groestlcoind (Groestlcoin node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "groestlcoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR
