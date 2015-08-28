@@ -119,6 +119,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 static const int64_t nTargetTimespan = 86400; //1 day
 static const int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
 
+//!!!BUG this function is non-deterministic  because FP-arithetics
 unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
     /* current difficulty formula, darkcoin - DarkGravity, written by Evan Duffield - evan@darkcoin.io */
     const CBlockIndex *BlockLastSolved = pindexLast;

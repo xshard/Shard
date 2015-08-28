@@ -9,7 +9,11 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include <gmp.h>
+#ifdef _MSC_VER
+#	include <mpir.h>
+#else
+#	include <gmp.h>
+#endif
 
 #include "util.h"
 #include "num.h"
