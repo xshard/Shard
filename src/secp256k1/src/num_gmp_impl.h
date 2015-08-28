@@ -14,7 +14,6 @@
 #else
 #	include <gmp.h>
 #endif
-
 #include "util.h"
 #include "num.h"
 
