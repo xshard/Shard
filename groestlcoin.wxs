@@ -74,7 +74,7 @@
 
 	<DirectoryRef Id="ApplicationProgramsFolder">
 		<Component Id='CMP_ApplicationShortcut' Guid='ed335276-6250-4832-98b3-3694ff8beaee'>
-			<Shortcut Id="startmenuGroestlcoin" Name="Groestlcoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="no" />
+			<Shortcut Id="startmenuGroestlcoin" Name="Groestlcoin Core" Target="[#groestlcoin_qt.exe]" Icon="Groestlcoin.ico" IconIndex="0" Advertise="no" />
 			<Shortcut Id='UninstallProduct' 	Name='Uninstall Groestlcoin Core' Description='Uninstalls My Application' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
 			<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
 			<RegistryValue Root="HKCU" Key="Software\Groestlcoin" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
