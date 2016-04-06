@@ -2975,8 +2975,8 @@ rpcpassword=%s
         <translation>Підключитись через SOCKS5-проксі</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
-        <translation>(C) 2009-%i Розробники Groestlcoin Core</translation>
+        <source>Copyright (C) 2014-%i The Groestlcoin Core Developers</source>
+        <translation>(C) 2014-%i Розробники Groestlcoin Core</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>

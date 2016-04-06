@@ -3193,8 +3193,8 @@ for eksempel: alertnotify=echo %%s | mail -s "Groestlcoin Alert" admin@foo.com
         <translation>Forbind gennem SOCKS5-proxy</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
-        <translation>Ophavsret © 2009-%i Udviklerne af Groestlcoin Core</translation>
+        <source>Copyright (C) 2014-%i The Groestlcoin Core Developers</source>
+        <translation>Ophavsret © 2014-%i Udviklerne af Groestlcoin Core</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>

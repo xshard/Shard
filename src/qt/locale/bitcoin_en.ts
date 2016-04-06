@@ -4084,7 +4084,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Groestlcoin Alert&quot; admin@
     </message>
     <message>
         <location line="+3"/>
-        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
+        <source>Copyright (C) 2014-%i The Groestlcoin Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

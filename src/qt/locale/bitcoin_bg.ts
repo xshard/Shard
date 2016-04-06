@@ -2387,7 +2387,7 @@
         <translation>Свързване чрез SOCKS5  прокси</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
+        <source>Copyright (C) 2014-%i The Groestlcoin Core Developers</source>
         <translation>Всички права запазени (C) 2009-%i Доставчиците на Биткойн</translation>
     </message>
     <message>

@@ -2943,8 +2943,8 @@
         <translation>Připojit se přes SOCKS5 proxy</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Groestlcoin Core Developers</source>
-        <translation>Copyright (C) 2009-%i Vývojáři Groestlcoin Core</translation>
+        <source>Copyright (C) 2014-%i The Groestlcoin Core Developers</source>
+        <translation>Copyright (C) 2014-%i Vývojáři Groestlcoin Core</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>
