@@ -1,3 +1,7 @@
+dnl Copyright (c) 2013-2016 The Bitcoin Core developers
+dnl Distributed under the MIT software license, see the accompanying
+dnl file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 dnl Helper for cases where a qt dependency is not met.
 dnl Output: If qt version is auto, set groestlcoin_enable_qt to false. Else, exit.
 AC_DEFUN([GROESTLCOIN_QT_FAIL],[
@@ -50,7 +54,7 @@ AC_DEFUN([GROESTLCOIN_QT_INIT],[
   dnl enable qt support
   AC_ARG_WITH([gui],
     [AS_HELP_STRING([--with-gui@<:@=no|qt4|qt5|auto@:>@],
-    [build groestlcoin-qt GUI (default=auto, qt4 tried first)])],
+    [build groestlcoin-qt GUI (default=auto, qt5 tried first)])],
     [
      groestlcoin_qt_want_version=$withval
      if test x$groestlcoin_qt_want_version = xyes; then
@@ -106,10 +110,12 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
   dnl results to QT_LIBS.
   GROESTLCOIN_QT_CHECK([
   TEMP_CPPFLAGS=$CPPFLAGS
+  TEMP_CXXFLAGS=$CXXFLAGS
   CPPFLAGS="$QT_INCLUDES $CPPFLAGS"
+  CXXFLAGS="$PIC_FLAGS $CXXFLAGS"
   if test x$groestlcoin_qt_got_major_vers = x5; then
     _GROESTLCOIN_QT_IS_STATIC
-    if test x$groestlcoin_cv_static_qt = xyes; then
+    if test x$bitcoin_cv_static_qt = xyes; then
       _GROESTLCOIN_QT_FIND_STATIC_PLUGINS
       AC_DEFINE(QT_STATICPLUGIN, 1, [Define this symbol if qt plugins are static])
       AC_CACHE_CHECK(for Qt < 5.4, bitcoin_cv_need_acc_widget,[AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
@@ -149,12 +155,50 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
     fi
   fi
   CPPFLAGS=$TEMP_CPPFLAGS
+  CXXFLAGS=$TEMP_CXXFLAGS
   ])
 
   if test x$use_pkgconfig$qt_bin_path = xyes; then
     if test x$groestlcoin_qt_got_major_vers = x5; then
       qt_bin_path="`$PKG_CONFIG --variable=host_bins Qt5Core 2>/dev/null`"
     fi
+  fi
+
+  if test x$use_hardening != xno; then
+    BITCOIN_QT_CHECK([
+    AC_MSG_CHECKING(whether -fPIE can be used with this Qt config)
+    TEMP_CPPFLAGS=$CPPFLAGS
+    TEMP_CXXFLAGS=$CXXFLAGS
+    CPPFLAGS="$QT_INCLUDES $CPPFLAGS"
+    CXXFLAGS="$PIE_FLAGS $CXXFLAGS"
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <QtCore/qconfig.h>]],
+      [[
+          #if defined(QT_REDUCE_RELOCATIONS)
+              choke;
+          #endif
+      ]])],
+      [ AC_MSG_RESULT(yes); QT_PIE_FLAGS=$PIE_FLAGS ],
+      [ AC_MSG_RESULT(no); QT_PIE_FLAGS=$PIC_FLAGS]
+    )
+    CPPFLAGS=$TEMP_CPPFLAGS
+    CXXFLAGS=$TEMP_CXXFLAGS
+    ])
+  else
+    BITCOIN_QT_CHECK([
+    AC_MSG_CHECKING(whether -fPIC is needed with this Qt config)
+    TEMP_CPPFLAGS=$CPPFLAGS
+    CPPFLAGS="$QT_INCLUDES $CPPFLAGS"
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <QtCore/qconfig.h>]],
+      [[
+          #if defined(QT_REDUCE_RELOCATIONS)
+              choke;
+          #endif
+      ]])],
+      [ AC_MSG_RESULT(no)],
+      [ AC_MSG_RESULT(yes); QT_PIE_FLAGS=$PIC_FLAGS]
+    )
+    CPPFLAGS=$TEMP_CPPFLAGS
+    ])
   fi
 
   GROESTLCOIN_QT_PATH_PROGS([MOC], [moc-qt${groestlcoin_qt_got_major_vers} moc${groestlcoin_qt_got_major_vers} moc], $qt_bin_path)
@@ -180,7 +224,7 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
 
 
   dnl enable qt support
-  AC_MSG_CHECKING(whether to build Groestlcoin Core GUI)
+  AC_MSG_CHECKING(whether to build ]AC_PACKAGE_NAME[ GUI)
   GROESTLCOIN_QT_CHECK([
     groestlcoin_enable_qt=yes
     groestlcoin_enable_qt_test=yes
@@ -202,6 +246,7 @@ AC_DEFUN([GROESTLCOIN_QT_CONFIGURE],[
   ])
   AC_MSG_RESULT([$groestlcoin_enable_qt (Qt${groestlcoin_qt_got_major_vers})])
 
+  AC_SUBST(QT_PIE_FLAGS)
   AC_SUBST(QT_INCLUDES)
   AC_SUBST(QT_LIBS)
   AC_SUBST(QT_LDFLAGS)
@@ -290,8 +335,9 @@ AC_DEFUN([_GROESTLCOIN_QT_FIND_STATIC_PLUGINS],[
           QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
         fi
       fi
-     m4_ifdef([PKG_CHECK_MODULES],[
      if test x$use_pkgconfig = xyes; then
+     : dnl
+     m4_ifdef([PKG_CHECK_MODULES],[
        PKG_CHECK_MODULES([QTPLATFORM], [Qt5PlatformSupport], [QT_LIBS="$QTPLATFORM_LIBS $QT_LIBS"])
        if test x$TARGET_OS = xlinux; then
          PKG_CHECK_MODULES([X11XCB], [x11-xcb], [QT_LIBS="$X11XCB_LIBS $QT_LIBS"])
@@ -301,8 +347,23 @@ AC_DEFUN([_GROESTLCOIN_QT_FIND_STATIC_PLUGINS],[
        elif test x$TARGET_OS = xdarwin; then
          PKG_CHECK_MODULES([QTPRINT], [Qt5PrintSupport], [QT_LIBS="$QTPRINT_LIBS $QT_LIBS"])
        fi
-     fi
      ])
+     else
+       if test x$TARGET_OS = xwindows; then
+         AC_CACHE_CHECK(for Qt >= 5.6, bitcoin_cv_need_platformsupport,[AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+             [[#include <QtCore>]],[[
+             #if QT_VERSION < 0x050600
+             choke;
+             #endif
+             ]])],
+           [bitcoin_cv_need_platformsupport=yes],
+           [bitcoin_cv_need_platformsupport=no])
+         ])
+         if test x$bitcoin_cv_need_platformsupport = xyes; then
+           BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}PlatformSupport],[main],,BITCOIN_QT_FAIL(lib$QT_LIB_PREFIXPlatformSupport not found)))
+         fi
+       fi
+     fi
   else
     if test x$qt_plugin_path != x; then
       QT_LIBS="$QT_LIBS -L$qt_plugin_path/accessible"
@@ -343,8 +404,8 @@ AC_DEFUN([_GROESTLCOIN_QT_FIND_LIBS_WITH_PKGCONFIG],[
 
       dnl qt version is set to 'auto' and the preferred version wasn't found. Now try the other.
       if test x$have_qt = xno && test x$groestlcoin_qt_want_version = xauto; then
-        if test x$auto_priority_version = x$qt5; then
-          PKG_CHECK_MODULES([QT], [$qt4_modules], [QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt; groestlcoin_qt_got_major_vers=4], [have_qt=no])
+        if test x$auto_priority_version = xqt5; then
+          PKG_CHECK_MODULES([QT], [$qt4_modules], [QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt; bitcoin_qt_got_major_vers=4], [have_qt=no])
         else
           PKG_CHECK_MODULES([QT], [$qt5_modules], [QT_INCLUDES="$QT_CFLAGS"; have_qt=yes; QT_LIB_PREFIX=Qt5; groestlcoin_qt_got_major_vers=5], [have_qt=no])
         fi
@@ -373,6 +434,8 @@ dnl Outputs: groestlcoin_qt_got_major_vers is set to "4" or "5".
 dnl Outputs: have_qt_test and have_qt_dbus are set (if applicable) to yes|no.
 AC_DEFUN([_GROESTLCOIN_QT_FIND_LIBS_WITHOUT_PKGCONFIG],[
   TEMP_CPPFLAGS="$CPPFLAGS"
+  TEMP_CXXFLAGS="$CXXFLAGS"
+  CXXFLAGS="$PIC_FLAGS $CXXFLAGS"
   TEMP_LIBS="$LIBS"
   GROESTLCOIN_QT_CHECK([
     if test x$qt_include_path != x; then
@@ -442,6 +505,7 @@ AC_DEFUN([_GROESTLCOIN_QT_FIND_LIBS_WITHOUT_PKGCONFIG],[
     fi
   ])
   CPPFLAGS="$TEMP_CPPFLAGS"
+  CXXFLAGS="$TEMP_CXXFLAGS"
   LIBS="$TEMP_LIBS"
 ])
 

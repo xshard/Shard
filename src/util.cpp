@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin Core developers
+// Copyright (c) 2009-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -99,17 +99,20 @@ namespace boost {
 
 using namespace std;
 
+const char * const BITCOIN_CONF_FILENAME = "groestlcoin.conf";
+const char * const BITCOIN_PID_FILENAME = "groestlcoin.pid";
+
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
 bool fDebug = false;
 bool fPrintToConsole = false;
 bool fPrintToDebugLog = true;
-bool fDaemon = false;
 bool fServer = false;
 string strMiscWarning;
-bool fLogTimestamps = false;
-bool fLogIPs = false;
-volatile bool fReopenDebugLog = false;
+bool fLogTimestamps = DEFAULT_LOGTIMESTAMPS;
+bool fLogTimeMicros = DEFAULT_LOGTIMEMICROS;
+bool fLogIPs = DEFAULT_LOGIPS;
+std::atomic<bool> fReopenDebugLog(false);
 CTranslationInterface translationInterface;
 
 /** Init OpenSSL library multithreading support */
@@ -263,9 +266,13 @@ static std::string LogTimestampStr(const std::string &str, bool *fStartedNewLine
     if (!fLogTimestamps)
         return str;
 
-    if (*fStartedNewLine)
-        strStamped =  DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()) + ' ' + str;
-    else
+    if (*fStartedNewLine) {
+        int64_t nTimeMicros = GetLogTimeMicros();
+        strStamped = DateTimeStrFormat("%Y-%m-%d %H:%M:%S", nTimeMicros/1000000);
+        if (fLogTimeMicros)
+            strStamped += strprintf(".%06d", nTimeMicros%1000000);
+        strStamped += ' ' + str;
+    } else
         strStamped = str;
 
     if (!str.empty() && str[str.size()-1] == '\n')
@@ -280,18 +287,19 @@ int LogPrintStr(const std::string &str)
 {
     int ret = 0; // Returns total number of characters written
     static bool fStartedNewLine = true;
+
+    string strTimestamped = LogTimestampStr(str, &fStartedNewLine);
+
     if (fPrintToConsole)
     {
         // print to console
-        ret = fwrite(str.data(), 1, str.size(), stdout);
+        ret = fwrite(strTimestamped.data(), 1, strTimestamped.size(), stdout);
         fflush(stdout);
     }
     else if (fPrintToDebugLog)
     {
         boost::call_once(&DebugPrintInit, debugPrintInitFlag);
         boost::mutex::scoped_lock scoped_lock(*mutexDebugLog);
-
-        string strTimestamped = LogTimestampStr(str, &fStartedNewLine);
 
         // buffer if we haven't opened the log yet
         if (fileout == NULL) {
@@ -441,7 +449,6 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
     std::string message = FormatException(pex, pszThread);
     LogPrintf("\n\n************************\n%s\n", message);
     fprintf(stderr, "\n\n************************\n%s\n", message.c_str());
-    strMiscWarning = message;
 }
 
 boost::filesystem::path GetDefaultDataDir()
@@ -463,9 +470,7 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    pathRet /= "Library/Application Support";
-    TryCreateDirectory(pathRet);
-    return pathRet / "Groestlcoin";
+    return pathRet / "Library/Application Support/Groestlcoin";
 #else
     // Unix
     return pathRet / ".groestlcoin";
@@ -513,19 +518,20 @@ void ClearDatadirCache()
     pathCachedNetSpecific = boost::filesystem::path();
 }
 
-boost::filesystem::path GetConfigFile()
+boost::filesystem::path GetConfigFile(const std::string& confPath)
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "groestlcoin.conf"));
+    boost::filesystem::path pathConfigFile(confPath);
     if (!pathConfigFile.is_complete())
         pathConfigFile = GetDataDir(false) / pathConfigFile;
 
     return pathConfigFile;
 }
 
-void ReadConfigFile(map<string, string>& mapSettingsRet,
+void ReadConfigFile(const std::string& confPath,
+                    map<string, string>& mapSettingsRet,
                     map<string, vector<string> >& mapMultiSettingsRet)
 {
-    boost::filesystem::ifstream streamConfig(GetConfigFile());
+    boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good())
         return; // No groestlcoin.conf file is OK
 
@@ -549,7 +555,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 #ifndef WIN32
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "groestlcoin.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", BITCOIN_PID_FILENAME));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -595,19 +601,19 @@ bool TryCreateDirectory(const boost::filesystem::path& p)
     return false;
 }
 
-void FileCommit(FILE *fileout)
+void FileCommit(FILE *file)
 {
-    fflush(fileout); // harmless if redundantly called
+    fflush(file); // harmless if redundantly called
 #ifdef WIN32
-    HANDLE hFile = (HANDLE)_get_osfhandle(_fileno(fileout));
+    HANDLE hFile = (HANDLE)_get_osfhandle(_fileno(file));
     FlushFileBuffers(hFile);
 #else
     #if defined(__linux__) || defined(__NetBSD__)
-    fdatasync(fileno(fileout));
+    fdatasync(fileno(file));
     #elif defined(__APPLE__) && defined(F_FULLFSYNC)
-    fcntl(fileno(fileout), F_FULLFSYNC, 0);
+    fcntl(fileno(file), F_FULLFSYNC, 0);
     #else
-    fsync(fileno(fileout));
+    fsync(fileno(file));
     #endif
 #endif
 }
@@ -730,28 +736,6 @@ boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate)
 }
 #endif
 
-boost::filesystem::path GetTempPath() {
-#if BOOST_FILESYSTEM_VERSION == 3
-    return boost::filesystem::temp_directory_path();
-#else
-    // TODO: remove when we don't support filesystem v2 anymore
-    boost::filesystem::path path;
-#ifdef WIN32
-    char pszPath[MAX_PATH] = "";
-
-    if (GetTempPathA(MAX_PATH, pszPath))
-        path = boost::filesystem::path(pszPath);
-#else
-    path = boost::filesystem::path("/tmp");
-#endif
-    if (path.empty() || !boost::filesystem::is_directory(path)) {
-        LogPrintf("GetTempPath(): failed to find temp path\n");
-        return boost::filesystem::path("");
-    }
-    return path;
-#endif
-}
-
 void runCommand(const std::string& strCommand)
 {
     int nErr = ::system(strCommand.c_str());
@@ -794,17 +778,16 @@ void SetupEnvironment()
     boost::filesystem::path::imbue(loc);
 }
 
-void SetThreadPriority(int nPriority)
+bool SetupNetworking()
 {
 #ifdef WIN32
-    SetThreadPriority(GetCurrentThread(), nPriority);
-#else // WIN32
-#ifdef PRIO_THREAD
-    setpriority(PRIO_THREAD, 0, nPriority);
-#else // PRIO_THREAD
-    setpriority(PRIO_PROCESS, 0, nPriority);
-#endif // PRIO_THREAD
-#endif // WIN32
+    // Initialize Windows Sockets
+    WSADATA wsadata;
+    int ret = WSAStartup(MAKEWORD(2,2), &wsadata);
+    if (ret != NO_ERROR || LOBYTE(wsadata.wVersion ) != 2 || HIBYTE(wsadata.wVersion) != 2)
+        return false;
+#endif
+    return true;
 }
 
 int GetNumCores()
@@ -816,3 +799,13 @@ int GetNumCores()
 #endif
 }
 
+std::string CopyrightHolders(const std::string& strPrefix)
+{
+    std::string strCopyrightHolders = strPrefix + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
+
+    // Check for untranslated substitution to make sure Bitcoin Core copyright is not removed by accident
+    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Bitcoin Core") == std::string::npos) {
+        strCopyrightHolders += "\n" + strPrefix + "The Bitcoin Core developers";
+    }
+    return strCopyrightHolders;
+}

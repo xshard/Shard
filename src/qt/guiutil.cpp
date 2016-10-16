@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2013 The Bitcoin Core developers
+// Copyright (c) 2011-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -62,6 +62,10 @@
 #include <QUrlQuery>
 #endif
 
+#if QT_VERSION >= 0x50200
+#include <QFontDatabase>
+#endif
+
 #if BOOST_FILESYSTEM_VERSION >= 3
 static boost::filesystem::detail::utf8_codecvt_facet utf8;
 #endif
@@ -88,8 +92,11 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
-QFont bitcoinAddressFont()
+QFont fixedPitchFont()
 {
+#if QT_VERSION >= 0x50200
+    return QFontDatabase::systemFont(QFontDatabase::FixedFont);
+#else
     QFont font("Monospace");
 #if QT_VERSION >= 0x040800
     font.setStyleHint(QFont::Monospace);
@@ -97,17 +104,36 @@ QFont bitcoinAddressFont()
     font.setStyleHint(QFont::TypeWriter);
 #endif
     return font;
+#endif
+}
+
+// Just some dummy data to generate an convincing random-looking (but consistent) address
+static const uint8_t dummydata[] = {0xeb,0x15,0x23,0x1d,0xfc,0xeb,0x60,0x92,0x58,0x86,0xb6,0x7d,0x06,0x52,0x99,0x92,0x59,0x15,0xae,0xb1,0x72,0xc0,0x66,0x47};
+
+// Generate a dummy address with invalid CRC, starting with the network prefix.
+static std::string DummyAddress(const CChainParams &params)
+{
+    std::vector<unsigned char> sourcedata = params.Base58Prefix(CChainParams::PUBKEY_ADDRESS);
+    sourcedata.insert(sourcedata.end(), dummydata, dummydata + sizeof(dummydata));
+    for(int i=0; i<256; ++i) { // Try every trailing byte
+        std::string s = EncodeBase58(begin_ptr(sourcedata), end_ptr(sourcedata));
+        if (!CBitcoinAddress(s).IsValid())
+            return s;
+        sourcedata[sourcedata.size()-1] += 1;
+    }
+    return "";
 }
 
 void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 {
     parent->setFocusProxy(widget);
 
-    widget->setFont(bitcoinAddressFont());
+    widget->setFont(fixedPitchFont());
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Groestlcoin address (e.g. %1)").arg("Fpjgtzfvsqwwu2pEwtXkV5gXhTNmpTf25L"));
+    widget->setPlaceholderText(QObject::tr("Enter a Groestlcoin address (e.g. %1)").arg(
+        QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -217,7 +243,7 @@ QString formatBitcoinURI(const SendCoinsRecipient &info)
 
     if (!info.message.isEmpty())
     {
-        QString msg(QUrl::toPercentEncoding(info.message));;
+        QString msg(QUrl::toPercentEncoding(info.message));
         ret += QString("%1message=%2").arg(paramCount == 0 ? "?" : "&").arg(msg);
         paramCount++;
     }
@@ -265,17 +291,17 @@ void copyEntryData(QAbstractItemView *view, int column, int role)
     }
 }
 
-QString getEntryData(QAbstractItemView *view, int column, int role)
+QVariant getEntryData(QAbstractItemView *view, int column, int role)
 {
     if(!view || !view->selectionModel())
-        return QString();
+        return QVariant();
     QModelIndexList selection = view->selectionModel()->selectedRows(column);
 
     if(!selection.isEmpty()) {
         // Return first item
-        return (selection.at(0).data(role).toString());
+        return (selection.at(0).data(role));
     }
-    return QString();
+    return QVariant();
 }
 
 QString getSaveFileName(QWidget *parent, const QString &caption, const QString &dir,
@@ -404,7 +430,7 @@ void SubstituteFonts(const QString& language)
 {
 #if defined(Q_OS_MAC)
 // Background:
-// OSX's default font changed in 10.9 and QT is unable to find it with its
+// OSX's default font changed in 10.9 and Qt is unable to find it with its
 // usual fallback methods when building against the 10.7 sdk or lower.
 // The 10.8 SDK added a function to let it find the correct fallback font.
 // If this fallback is not properly loaded, some characters may fail to
@@ -436,9 +462,9 @@ void SubstituteFonts(const QString& language)
 #endif
 }
 
-ToolTipToRichTextFilter::ToolTipToRichTextFilter(int size_threshold, QObject *parent) :
+ToolTipToRichTextFilter::ToolTipToRichTextFilter(int _size_threshold, QObject *parent) :
     QObject(parent),
-    size_threshold(size_threshold)
+    size_threshold(_size_threshold)
 {
 
 }
@@ -581,12 +607,12 @@ TableViewLastColumnResizingFixer::TableViewLastColumnResizingFixer(QTableView* t
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    if (GetBoolArg("-testnet", false))
+    std::string chain = ChainNameFromCommandLine();
+    if (chain == CBaseChainParams::MAIN)
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin.lnk";
+    if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
         return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin (testnet).lnk";
-    else if (GetBoolArg("-regtest", false))
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin (regtest).lnk";
-
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Groestlcoin (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -681,7 +707,10 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "groestlcoin.desktop";
+    std::string chain = ChainNameFromCommandLine();
+    if (chain == CBaseChainParams::MAIN)
+        return GetAutostartDir() / "groestlcoin.desktop";
+    return GetAutostartDir() / strprintf("groestlcoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -719,15 +748,14 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
+        std::string chain = ChainNameFromCommandLine();
         // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        if (GetBoolArg("-testnet", false))
-            optionFile << "Name=Bitcoin (testnet)\n";
-        else if (GetBoolArg("-regtest", false))
-            optionFile << "Name=Bitcoin (regtest)\n";
-        else
+        if (chain == CBaseChainParams::MAIN)
             optionFile << "Name=Bitcoin\n";
+        else
+            optionFile << strprintf("Name=Bitcoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -896,6 +924,15 @@ QString formatServicesStr(quint64 mask)
             case NODE_GETUTXO:
                 strList.append("GETUTXO");
                 break;
+            case NODE_BLOOM:
+                strList.append("BLOOM");
+                break;
+            case NODE_WITNESS:
+                strList.append("WITNESS");
+                break;
+            case NODE_XTHIN:
+                strList.append("XTHIN");
+                break;
             default:
                 strList.append(QString("%1[%2]").arg("UNKNOWN").arg(check));
             }
@@ -918,4 +955,40 @@ QString formatTimeOffset(int64_t nTimeOffset)
   return QString(QObject::tr("%1 s")).arg(QString::number((int)nTimeOffset, 10));
 }
 
+QString formateNiceTimeOffset(qint64 secs)
+{
+    // Represent time from last generated block in human readable text
+    QString timeBehindText;
+    const int HOUR_IN_SECONDS = 60*60;
+    const int DAY_IN_SECONDS = 24*60*60;
+    const int WEEK_IN_SECONDS = 7*24*60*60;
+    const int YEAR_IN_SECONDS = 31556952; // Average length of year in Gregorian calendar
+    if(secs < 60)
+    {
+        timeBehindText = QObject::tr("%n seconds(s)","",secs);
+    }
+    else if(secs < 2*HOUR_IN_SECONDS)
+    {
+        timeBehindText = QObject::tr("%n minutes(s)","",secs/60);
+    }
+    else if(secs < 2*DAY_IN_SECONDS)
+    {
+        timeBehindText = QObject::tr("%n hour(s)","",secs/HOUR_IN_SECONDS);
+    }
+    else if(secs < 2*WEEK_IN_SECONDS)
+    {
+        timeBehindText = QObject::tr("%n day(s)","",secs/DAY_IN_SECONDS);
+    }
+    else if(secs < YEAR_IN_SECONDS)
+    {
+        timeBehindText = QObject::tr("%n week(s)","",secs/WEEK_IN_SECONDS);
+    }
+    else
+    {
+        qint64 years = secs / YEAR_IN_SECONDS;
+        qint64 remainder = secs % YEAR_IN_SECONDS;
+        timeBehindText = QObject::tr("%1 and %2").arg(QObject::tr("%n year(s)", "", years)).arg(QObject::tr("%n week(s)","", remainder/WEEK_IN_SECONDS));
+    }
+    return timeBehindText;
+}
 } // namespace GUIUtil

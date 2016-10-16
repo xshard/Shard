@@ -1,41 +1,55 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to
 release-notes at release time)
 
+Bitcoin Core version *version* is now available from:
+
+  <https://bitcoin.org/bin/bitcoin-core-*version*/>
+
+This is a new major version release, including new features, various bugfixes
+and performance improvements, as well as updated translations.
+
+Please report bugs using the issue tracker at github:
+
+  <https://github.com/bitcoin/bitcoin/issues>
+
+To receive security and update notifications, please subscribe to:
+
+  <https://bitcoincore.org/en/list/announcements/join/>
+
+Compatibility
+==============
+
+Microsoft ended support for Windows XP on [April 8th, 2014](https://www.microsoft.com/en-us/WindowsForBusiness/end-of-xp-support),
+an OS initially released in 2001. This means that not even critical security
+updates will be released anymore. Without security updates, using a bitcoin
+wallet on a XP machine is irresponsible at least.
+
+In addition to that, with 0.12.x there have been varied reports of Bitcoin Core
+randomly crashing on Windows XP. It is [not clear](https://github.com/bitcoin/bitcoin/issues/7681#issuecomment-217439891)
+what the source of these crashes is, but it is likely that upstream
+libraries such as Qt are no longer being tested on XP.
+
+We do not have time nor resources to provide support for an OS that is
+end-of-life. From 0.13.0 on, Windows XP is no longer supported. Users are
+suggested to upgrade to a newer version of Windows, or install an alternative OS
+that is supported.
+
+No attempt is made to prevent installing or running the software on Windows XP,
+you can still do so at your own risk, but do not expect it to work: do not
+report issues about Windows XP to the issue tracker.
+
 Notable changes
 ===============
 
-Random-cookie RPC authentication
----------------------------------
+Low-level RPC changes
+----------------------
 
-When no `-rpcpassword` is specified, the daemon now uses a special 'cookie'
-file for authentication. This file is generated with random content when the
-daemon starts, and deleted when it exits. Its contents are used as
-authentication token. Read access to this file controls who can access through
-RPC. By default it is stored in the data directory but its location can be
-overridden with the option `-rpccookiefile`.
+- `importprunedfunds` only accepts two required arguments. Some versions accept
+  an optional third arg, which was always ignored. Make sure to never pass more
+  than two arguments.
 
-This is similar to Tor's CookieAuthentication: see
-https://www.torproject.org/docs/tor-manual.html.en
 
-This allows running bitcoind without having to do any manual configuration.
-
-Low-level RPC API changes
---------------------------
-
-- Monetary amounts can be provided as strings. This means that for example the
-  argument to sendtoaddress can be "0.0001" instead of 0.0001. This can be an
-  advantage if a JSON library insists on using a lossy floating point type for
-  numbers, which would be dangerous for monetary amounts.
-
-Option parsing behavior
------------------------
-
-Command line options are now parsed strictly in the order in which they are
-specified. It used to be the case that `-X -noX` ends up, unintuitively, with X
-set, as `-X` had precedence over `-noX`. This is no longer the case. Like for
-other software, the last specified value for an option will hold.
-
-0.12.0 Change log
+0.14.0 Change log
 =================
 
 Detailed release notes follow. This overview includes changes that affect
@@ -44,6 +58,12 @@ the code changes and accompanying discussion, both the pull request and
 git merge commit are mentioned.
 
 ### RPC and REST
+
+UTXO set query (`GET /rest/getutxos/<checkmempool>/<txid>-<n>/<txid>-<n>/.../<txid>-<n>.<bin|hex|json>`) responses
+were changed to return status code HTTP_BAD_REQUEST (400) instead of HTTP_INTERNAL_SERVER_ERROR (500) when requests
+contain invalid parameters.
+
+The first boolean argument to `getaddednodeinfo` has been removed. This is an incompatible change.
 
 ### Configuration and command-line options
 
@@ -63,5 +83,10 @@ git merge commit are mentioned.
 
 ### Miscellaneous
 
-- Removed bitrpc.py from contrib
+Credits
+=======
 
+Thanks to everyone who directly contributed to this release:
+
+
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).

@@ -1,121 +1,98 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build groestlcoind (headless client) for OSX.
-
-Notes
------
-
-* Tested on OS X 10.7 through 10.10 on 64-bit Intel processors only.
-
-* All of the commands should be executed in a Terminal application. The
-built-in one is located in `/Applications/Utilities`.
+The commands in this guide should be executed in a Terminal application.
+The built-in one is located in `/Applications/Utilities/Terminal.app`.
 
 Preparation
 -----------
+Install the OS X command line tools:
 
-You need to install XCode with all the options checked so that the compiler
-and everything is available in /usr not just /Developer. XCode should be
-available on your OS X installation media, but if not, you can get the
-current version from https://developer.apple.com/xcode/. If you install
-Xcode 4.3 or later, you'll need to install its command line tools. This can
-be done in `Xcode > Preferences > Downloads > Components` and generally must
-be re-done or updated every time Xcode is updated.
+`xcode-select --install`
 
-You will also need to install [Homebrew](http://brew.sh) in order to install library
-dependencies.
+When the popup appears, click `Install`.
 
-The installation of the actual dependencies is covered in the Instructions
-sections below.
+Then install [Homebrew](http://brew.sh).
 
-Instructions: Homebrew
+Dependencies
 ----------------------
 
-#### Install dependencies using Homebrew
+    brew install automake berkeley-db4 libtool boost --c++11 miniupnpc openssl pkg-config homebrew/versions/protobuf260 --c++11 qt5 libevent
 
-        brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5
+NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-NOTE: Building with Qt4 is still supported, however, could result in a broken UI. As such, building with Qt5 is recommended.
+Build Groestlcoin Core
+------------------------
 
-### Building `groestlcoind`
-
-1. Clone the github tree to get the source code and go into the directory.
+1. Clone the bitcoin source code and cd into `bitcoin`
 
         git clone https://github.com/Groestlcoin/groestlcoin.git
         cd groestlcoin
 
-2.0	 Build dependencies
-		cd depends
-		make
+2.  Build groestlcoin-core:
 
-2.5  Build groestlcoind:
+    Configure and build the headless bitcoin binaries as well as the GUI (if Qt is found).
+
+    You can disable the GUI build by passing `--without-gui` to configure.
 
         ./autogen.sh
-		LDFLAGS=-lcups ./configure --disable-tests --prefix=`pwd`/depends/x86_64-apple-darwin12.0.0/ --with-gui
+        ./configure
         make
 
-3.  It is also a good idea to build and run the unit tests:
+3.  It is recommended to build and run the unit tests:
 
         make check
 
-4.  (Optional) You can also install groestlcoind to your path:
+4.  You can also create a .dmg that contains the .app bundle (optional):
 
-        make install
-
-Use Qt Creator as IDE
-------------------------
-You can use Qt Creator as IDE, for debugging and for manipulating forms, etc.
-Download Qt Creator from http://www.qt.io/download/. Download the "community edition" and only install Qt Creator (uncheck the rest during the installation process).
-
-1. Make sure you installed everything through homebrew mentioned above 
-2. Do a proper ./configure --with-gui=qt5 --enable-debug
-3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "groestlcoin-qt" as project name, enter src/qt as location
-5. Leave the file selection as it is
-6. Confirm the "summary page"
-7. In the "Projects" tab select "Manage Kits..."
-8. Select the default "Desktop" kit and select "Clang (x86 64bit in /usr/bin)" as compiler
-9. Select LLDB as debugger (you might need to set the path to your installtion)
-10. Start debugging with Qt Creator
-
-Creating a release build
-------------------------
-You can ignore this section if you are building `groestlcoind` for your own use.
-
-groestlcoind/groestlcoin-cli binaries are not included in the Groestlcoin-Qt.app bundle.
-
-If you are building `groestlcoind` or `Groestlcoin-Qt` for others, your build machine should be set up
-as follows for maximum compatibility:
-
-All dependencies should be compiled with these flags:
-
- -mmacosx-version-min=10.7
- -arch x86_64
- -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
-
-Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Groestlcoin-Qt.app
-bundle is packaged and signed to create the .dmg disk image that is distributed.
+        make deploy
 
 Running
 -------
 
-It's now available at `./groestlcoind`, provided that you are still in the `src`
-directory. We have to first create the RPC configuration file, though.
+Groestlcoin Core is now available at `./src/bitcoind`
 
-Run `./groestlcoind` to get the filename where it should be put, or just try these
-commands:
+Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=bitcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
+    echo -e "rpcuser=bitcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Bitcoin/bitcoin.conf"
 
-The next time you run it, it will start downloading the blockchain, but it won't
-output anything while it's doing this. This process may take several hours;
-you can monitor its process by looking at the debug.log file, like this:
+    chmod 600 "/Users/${USER}/Library/Application Support/Bitcoin/bitcoin.conf"
 
-    tail -f $HOME/Library/Application\ Support/Groestlcoin/debug.log
+The first time you run bitcoind, it will start downloading the blockchain. This process could take several hours.
+
+You can monitor the download process by looking at the debug.log file:
+
+<<<<<<< HEAD
+Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Groestlcoin-Qt.app
+bundle is packaged and signed to create the .dmg disk image that is distributed.
+=======
+    tail -f $HOME/Library/Application\ Support/Bitcoin/debug.log
+>>>>>>> upstream/master
 
 Other commands:
 -------
 
-    ./groestlcoind -daemon # to start the groestlcoin daemon.
-    ./groestlcoin-cli --help  # for a list of command-line options.
-    ./groestlcoin-cli help    # When the daemon is running, to get a list of RPC commands
+    ./src/bitcoind -daemon # Starts the bitcoin daemon.
+    ./src/bitcoin-cli --help # Outputs a list of command-line options.
+    ./src/bitcoin-cli help # Outputs a list of RPC commands when the daemon is running.
+
+Using Qt Creator as IDE
+------------------------
+You can use Qt Creator as an IDE, for bitcoin development.
+Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
+Uncheck everything except Qt Creator during the installation process.
+
+1. Make sure you installed everything through Homebrew mentioned above
+2. Do a proper ./configure --enable-debug
+3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
+4. Enter "bitcoin-qt" as project name, enter src/qt as location
+5. Leave the file selection as it is
+6. Confirm the "summary page"
+7. In the "Projects" tab select "Manage Kits..."
+8. Select the default "Desktop" kit and select "Clang (x86 64bit in /usr/bin)" as compiler
+9. Select LLDB as debugger (you might need to set the path to your installation)
+10. Start debugging with Qt Creator
+
+
+* Tested on OS X 10.7 through 10.11 on 64-bit Intel processors only.
+
+* Building with downloaded Qt binaries is not officially supported. See the notes in [#7714](https://github.com/bitcoin/bitcoin/issues/7714)

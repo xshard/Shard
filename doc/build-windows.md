@@ -1,37 +1,44 @@
-Windows BUILD NOTES
+WINDOWS BUILD NOTES
 ====================
-Some notes on how to build Groestlcoin in Windows. 
 
-Tools
----------------------
-Install Visual Studio 2015
-Boost
-Qt
+Some notes on how to build Bitcoin Core for Windows.
 
-Preparation
-----------------
-Build Boost and Qt as static libs
+Most developers use cross-compilation from Ubuntu to build executables for
+Windows. This is also used to build the release binaries.
 
+Building on Windows itself is possible (for example using msys / mingw-w64),
+but no one documented the steps to do this. If you are doing this, please contribute them.
 
-Get sources with 3rd-party libs
------------------------------------
-git clone --recursive https://github.com/Groestlcoin/groestlcoin
+Cross-compilation
+-------------------
 
-cd groestlcoin
-mkdir x86_libs
-mkdir x64_libs
-# copy built x86 Qt and boost .lib files to x86_libs/
-# copy built x64 Qt and boost .lib files to x64_libs/
+These steps can be performed on, for example, an Ubuntu VM. The depends system
+will also work on other Linux distributions, however the commands for
+installing the toolchain will be different.
 
+Make sure you install the build requirements mentioned in
+[build-unix.md](/doc/build-unix.md).
+Then, install the toolchains and curl:
 
-cd src\qt
-msbuild moc.proj
-cd ..
+    sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev g++-mingw-w64-x86-64 mingw-w64-x86-64-dev curl
 
-Open solution file groestlcoin.sln 
-Select "R_St" configuration and one of platforms: x86 or x64
-build
+To build executables for Windows 32-bit:
 
+    cd depends
+    make HOST=i686-w64-mingw32 -j4
+    cd ..
+    ./autogen.sh # not required when building from tarball
+    ./configure --prefix=`pwd`/depends/i686-w64-mingw32
+    make
 
+To build executables for Windows 64-bit:
 
- 
+    cd depends
+    make HOST=x86_64-w64-mingw32 -j4
+    cd ..
+    ./autogen.sh # not required when building from tarball
+    ./configure --prefix=`pwd`/depends/x86_64-w64-mingw32
+    make
+
+For further documentation on the depends system see [README.md](../depends/README.md) in the depends directory.
+

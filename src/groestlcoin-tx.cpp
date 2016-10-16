@@ -1,6 +1,10 @@
-// Copyright (c) 2009-2014 The Bitcoin Core developers
+// Copyright (c) 2009-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#if defined(HAVE_CONFIG_H)
+#include "config/bitcoin-config.h"
+#endif
 
 #include "base58.h"
 #include "clientversion.h"
@@ -12,7 +16,7 @@
 #include "primitives/transaction.h"
 #include "script/script.h"
 #include "script/sign.h"
-#include "univalue/univalue.h"
+#include <univalue.h>
 #include "util.h"
 #include "utilmoneystr.h"
 #include "utilstrencodings.h"
@@ -35,17 +39,19 @@ static bool AppInitRawTx(int argc, char* argv[])
     ParseParameters(argc, argv);
 
     // Check for -testnet or -regtest parameter (Params() calls are only valid after this clause)
-    if (!SelectParamsFromCommandLine()) {
-        fprintf(stderr, "Error: Invalid combination of -regtest and -testnet.\n");
+    try {
+        SelectParams(ChainNameFromCommandLine());
+    } catch (const std::exception& e) {
+        fprintf(stderr, "Error: %s\n", e.what());
         return false;
     }
 
     fCreateBlank = GetBoolArg("-create", false);
 
-    if (argc<2 || mapArgs.count("-?") || mapArgs.count("-help"))
+    if (argc<2 || mapArgs.count("-?") || mapArgs.count("-h") || mapArgs.count("-help"))
     {
         // First part of help message is specific to this utility
-        std::string strUsage = _("Groestlcoin Core groestlcoin-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = strprintf(_("%s groestlcoin-tx utility version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
               "  groestlcoin-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded groestlcoin transaction") + "\n" +
               "  groestlcoin-tx [options] -create [commands]   " + _("Create hex-encoded groestlcoin transaction") + "\n" +
@@ -58,15 +64,14 @@ static bool AppInitRawTx(int argc, char* argv[])
         strUsage += HelpMessageOpt("-create", _("Create new, empty TX."));
         strUsage += HelpMessageOpt("-json", _("Select JSON output"));
         strUsage += HelpMessageOpt("-txid", _("Output only the hex-encoded transaction id of the resultant transaction."));
-        strUsage += HelpMessageOpt("-regtest", _("Enter regression test mode, which uses a special chain in which blocks can be solved instantly."));
-        strUsage += HelpMessageOpt("-testnet", _("Use the test network"));
+        AppendParamsHelpMessages(strUsage);
 
         fprintf(stdout, "%s", strUsage.c_str());
 
         strUsage = HelpMessageGroup(_("Commands:"));
         strUsage += HelpMessageOpt("delin=N", _("Delete input N from TX"));
         strUsage += HelpMessageOpt("delout=N", _("Delete output N from TX"));
-        strUsage += HelpMessageOpt("in=TXID:VOUT", _("Add input to TX"));
+        strUsage += HelpMessageOpt("in=TXID:VOUT(:SEQUENCE_NUMBER)", _("Add input to TX"));
         strUsage += HelpMessageOpt("locktime=N", _("Set TX lock time to N"));
         strUsage += HelpMessageOpt("nversion=N", _("Set TX version to N"));
         strUsage += HelpMessageOpt("outaddr=VALUE:ADDRESS", _("Add address-based output to TX"));
@@ -176,30 +181,35 @@ static void MutateTxLocktime(CMutableTransaction& tx, const string& cmdVal)
 
 static void MutateTxAddInput(CMutableTransaction& tx, const string& strInput)
 {
+    std::vector<std::string> vStrInputParts;
+    boost::split(vStrInputParts, strInput, boost::is_any_of(":"));
+
     // separate TXID:VOUT in string
-    size_t pos = strInput.find(':');
-    if ((pos == string::npos) ||
-        (pos == 0) ||
-        (pos == (strInput.size() - 1)))
+    if (vStrInputParts.size()<2)
         throw runtime_error("TX input missing separator");
 
     // extract and validate TXID
-    string strTxid = strInput.substr(0, pos);
+    string strTxid = vStrInputParts[0];
     if ((strTxid.size() != 64) || !IsHex(strTxid))
         throw runtime_error("invalid TX input txid");
     uint256 txid(uint256S(strTxid));
 
     static const unsigned int minTxOutSz = 9;
-    static const unsigned int maxVout = MAX_BLOCK_SIZE / minTxOutSz;
+    static const unsigned int maxVout = MAX_BLOCK_BASE_SIZE / minTxOutSz;
 
     // extract and validate vout
-    string strVout = strInput.substr(pos + 1, string::npos);
+    string strVout = vStrInputParts[1];
     int vout = atoi(strVout);
     if ((vout < 0) || (vout > (int)maxVout))
         throw runtime_error("invalid TX input vout");
 
+    // extract the optional sequence number
+    uint32_t nSequenceIn=std::numeric_limits<unsigned int>::max();
+    if (vStrInputParts.size() > 2)
+        nSequenceIn = std::stoul(vStrInputParts[2]);
+
     // append to transaction input list
-    CTxIn txin(txid, vout);
+    CTxIn txin(txid, vout, CScript(), nSequenceIn);
     tx.vin.push_back(txin);
 }
 
@@ -353,6 +363,18 @@ vector<unsigned char> ParseHexUO(map<string,UniValue>& o, string strKey)
     return ParseHexUV(o[strKey], strKey);
 }
 
+static CAmount AmountFromValue(const UniValue& value)
+{
+    if (!value.isNum() && !value.isStr())
+        throw runtime_error("Amount is not a number or string");
+    CAmount amount;
+    if (!ParseFixedPoint(value.getValStr(), 8, &amount))
+        throw runtime_error("Invalid amount");
+    if (!MoneyRange(amount))
+        throw runtime_error("Amount out of range");
+    return amount;
+}
+
 static void MutateTxSign(CMutableTransaction& tx, const string& flagStr)
 {
     int nHashType = SIGHASH_ALL;
@@ -373,10 +395,8 @@ static void MutateTxSign(CMutableTransaction& tx, const string& flagStr)
 
     if (!registers.count("privatekeys"))
         throw runtime_error("privatekeys register variable must be set.");
-    bool fGivenKeys = false;
     CBasicKeyStore tempKeystore;
     UniValue keysObj = registers["privatekeys"];
-    fGivenKeys = true;
 
     for (unsigned int kidx = 0; kidx < keysObj.size(); kidx++) {
         if (!keysObj[kidx].isStr())
@@ -417,19 +437,22 @@ static void MutateTxSign(CMutableTransaction& tx, const string& flagStr)
                 CCoinsModifier coins = view.ModifyCoins(txid);
                 if (coins->IsAvailable(nOut) && coins->vout[nOut].scriptPubKey != scriptPubKey) {
                     string err("Previous output scriptPubKey mismatch:\n");
-                    err = err + coins->vout[nOut].scriptPubKey.ToString() + "\nvs:\n"+
-                        scriptPubKey.ToString();
+                    err = err + ScriptToAsmStr(coins->vout[nOut].scriptPubKey) + "\nvs:\n"+
+                        ScriptToAsmStr(scriptPubKey);
                     throw runtime_error(err);
                 }
                 if ((unsigned int)nOut >= coins->vout.size())
                     coins->vout.resize(nOut+1);
                 coins->vout[nOut].scriptPubKey = scriptPubKey;
-                coins->vout[nOut].nValue = 0; // we don't know the actual output value
+                coins->vout[nOut].nValue = 0;
+                if (prevOut.exists("amount")) {
+                    coins->vout[nOut].nValue = AmountFromValue(prevOut["amount"]);
+                }
             }
 
             // if redeemScript given and private keys given,
             // add redeemScript to the tempKeystore so it can be signed:
-            if (fGivenKeys && scriptPubKey.IsPayToScriptHash() &&
+            if ((scriptPubKey.IsPayToScriptHash() || scriptPubKey.IsPayToWitnessScriptHash()) &&
                 prevOut.exists("redeemScript")) {
                 UniValue v = prevOut["redeemScript"];
                 vector<unsigned char> rsData(ParseHexUV(v, "redeemScript"));
@@ -452,17 +475,19 @@ static void MutateTxSign(CMutableTransaction& tx, const string& flagStr)
             continue;
         }
         const CScript& prevPubKey = coins->vout[txin.prevout.n].scriptPubKey;
+        const CAmount& amount = coins->vout[txin.prevout.n].nValue;
 
-        txin.scriptSig.clear();
+        SignatureData sigdata;
         // Only sign SIGHASH_SINGLE if there's a corresponding output:
         if (!fHashSingle || (i < mergedTx.vout.size()))
-            SignSignature(keystore, prevPubKey, mergedTx, i, nHashType);
+            ProduceSignature(MutableTransactionSignatureCreator(&keystore, &mergedTx, i, amount, nHashType), prevPubKey, sigdata);
 
         // ... and merge in other signatures:
-        BOOST_FOREACH(const CTransaction& txv, txVariants) {
-            txin.scriptSig = CombineSignatures(prevPubKey, mergedTx, i, txin.scriptSig, txv.vin[i].scriptSig);
-        }
-        if (!VerifyScript(txin.scriptSig, prevPubKey, STANDARD_SCRIPT_VERIFY_FLAGS, MutableTransactionSignatureChecker(&mergedTx, i)))
+        BOOST_FOREACH(const CTransaction& txv, txVariants)
+            sigdata = CombineSignatures(prevPubKey, MutableTransactionSignatureChecker(&mergedTx, i, amount), sigdata, DataFromTransaction(txv, i));
+        UpdateTransaction(mergedTx, i, sigdata);
+
+        if (!VerifyScript(txin.scriptSig, prevPubKey, mergedTx.wit.vtxinwit.size() > i ? &mergedTx.wit.vtxinwit[i].scriptWitness : NULL, STANDARD_SCRIPT_VERIFY_FLAGS, MutableTransactionSignatureChecker(&mergedTx, i, amount)))
             fComplete = false;
     }
 
@@ -476,15 +501,21 @@ static void MutateTxSign(CMutableTransaction& tx, const string& flagStr)
 
 class Secp256k1Init
 {
+    ECCVerifyHandle globalVerifyHandle;
+
 public:
-    Secp256k1Init() { ECC_Start(); }
-    ~Secp256k1Init() { ECC_Stop(); }
+    Secp256k1Init() {
+        ECC_Start();
+    }
+    ~Secp256k1Init() {
+        ECC_Stop();
+    }
 };
 
 static void MutateTx(CMutableTransaction& tx, const string& command,
                      const string& commandVal)
 {
-    boost::scoped_ptr<Secp256k1Init> ecc;
+    std::unique_ptr<Secp256k1Init> ecc;
 
     if (command == "nversion")
         MutateTxVersion(tx, commandVal);

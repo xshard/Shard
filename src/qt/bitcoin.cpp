@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The Bitcoin Core developers
+// Copyright (c) 2011-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,7 +26,7 @@
 #endif
 
 #include "init.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 #include "scheduler.h"
 #include "ui_interface.h"
 #include "util.h"
@@ -201,8 +201,10 @@ public:
     /// Create payment server
     void createPaymentServer();
 #endif
+    /// parameter interaction/setup based on rules
+    void parameterSetup();
     /// Create options model
-    void createOptionsModel();
+    void createOptionsModel(bool resetSettings);
     /// Create main window
     void createWindow(const NetworkStyle *networkStyle);
     /// Create splash screen
@@ -266,13 +268,6 @@ void BitcoinCore::initialize()
     {
         qDebug() << __func__ << ": Running AppInit2 in thread";
         int rv = AppInit2(threadGroup, scheduler);
-        if(rv)
-        {
-            /* Start a dummy RPC thread if no RPC thread is active yet
-             * to handle timeouts.
-             */
-            StartDummyRPCThread();
-        }
         Q_EMIT initializeResult(rv);
     } catch (const std::exception& e) {
         handleRunawayException(&e);
@@ -286,7 +281,7 @@ void BitcoinCore::shutdown()
     try
     {
         qDebug() << __func__ << ": Running Shutdown in thread";
-        threadGroup.interrupt_all();
+        Interrupt(threadGroup);
         threadGroup.join_all();
         Shutdown();
         qDebug() << __func__ << ": Shutdown finished";
@@ -316,14 +311,8 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     // UI per-platform customization
     // This must be done inside the BitcoinApplication constructor, or after it, because
     // PlatformStyle::instantiate requires a QApplication
-#if defined(Q_OS_MAC)
-    std::string platformName = "macosx";
-#elif defined(Q_OS_WIN)
-    std::string platformName = "windows";
-#else
-    std::string platformName = "other";
-#endif
-    platformName = GetArg("-uiplatform", platformName);
+    std::string platformName;
+    platformName = GetArg("-uiplatform", BitcoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));
     if (!platformStyle) // Fall back to "other" if specified name not found
         platformStyle = PlatformStyle::instantiate("other");
@@ -359,9 +348,9 @@ void BitcoinApplication::createPaymentServer()
 }
 #endif
 
-void BitcoinApplication::createOptionsModel()
+void BitcoinApplication::createOptionsModel(bool resetSettings)
 {
-    optionsModel = new OptionsModel();
+    optionsModel = new OptionsModel(NULL, resetSettings);
 }
 
 void BitcoinApplication::createWindow(const NetworkStyle *networkStyle)
@@ -381,6 +370,7 @@ void BitcoinApplication::createSplashScreen(const NetworkStyle *networkStyle)
     splash->setAttribute(Qt::WA_DeleteOnClose);
     splash->show();
     connect(this, SIGNAL(splashFinished(QWidget*)), splash, SLOT(slotFinish(QWidget*)));
+    connect(this, SIGNAL(requestedShutdown()), splash, SLOT(close()));
 }
 
 void BitcoinApplication::startThread()
@@ -402,6 +392,12 @@ void BitcoinApplication::startThread()
     connect(this, SIGNAL(stopThread()), coreThread, SLOT(quit()));
 
     coreThread->start();
+}
+
+void BitcoinApplication::parameterSetup()
+{
+    InitLogging();
+    InitParameterInteraction();
 }
 
 void BitcoinApplication::requestInitialize()
@@ -540,6 +536,9 @@ int main(int argc, char *argv[])
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
+#if QT_VERSION >= 0x050600
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
 #ifdef Q_OS_MAC
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
@@ -573,7 +572,7 @@ int main(int argc, char *argv[])
 
     // Show help message immediately after parsing command-line options (for "-lang") and setting locale,
     // but before showing splash screen.
-    if (mapArgs.count("-?") || mapArgs.count("-help") || mapArgs.count("-version"))
+    if (mapArgs.count("-?") || mapArgs.count("-h") || mapArgs.count("-help") || mapArgs.count("-version"))
     {
         HelpMessageDialog help(NULL, mapArgs.count("-version"));
         help.showOrPrint();
@@ -582,20 +581,21 @@ int main(int argc, char *argv[])
 
     /// 5. Now that settings and translations are available, ask user for data directory
     // User language is set up: pick a data directory
-    Intro::pickDataDirectory();
+    if (!Intro::pickDataDirectory())
+        return 0;
 
     /// 6. Determine availability of data directory and parse groestlcoin.conf
     /// - Do not call GetDataDir(true) before this step finishes
     if (!boost::filesystem::is_directory(GetDataDir(false)))
     {
-        QMessageBox::critical(0, QObject::tr("Groestlcoin Core"),
+        QMessageBox::critical(0, QObject::tr(PACKAGE_NAME),
                               QObject::tr("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
     }
     try {
-        ReadConfigFile(mapArgs, mapMultiArgs);
+        ReadConfigFile(GetArg("-conf", BITCOIN_CONF_FILENAME), mapArgs, mapMultiArgs);
     } catch (const std::exception& e) {
-        QMessageBox::critical(0, QObject::tr("Groestlcoin Core"),
+        QMessageBox::critical(0, QObject::tr(PACKAGE_NAME),
                               QObject::tr("Error: Cannot parse configuration file: %1. Only use key=value syntax.").arg(e.what()));
         return false;
     }
@@ -607,8 +607,10 @@ int main(int argc, char *argv[])
     // - Needs to be done before createOptionsModel
 
     // Check for -testnet or -regtest parameter (Params() calls are only valid after this clause)
-    if (!SelectParamsFromCommandLine()) {
-        QMessageBox::critical(0, QObject::tr("Groestlcoin Core"), QObject::tr("Error: Invalid combination of -regtest and -testnet."));
+    try {
+        SelectParams(ChainNameFromCommandLine());
+    } catch(std::exception &e) {
+        QMessageBox::critical(0, QObject::tr(PACKAGE_NAME), QObject::tr("Error: %1").arg(e.what()));
         return 1;
     }
 #ifdef ENABLE_WALLET
@@ -652,13 +654,15 @@ int main(int argc, char *argv[])
     // Install qDebug() message handler to route to debug.log
     qInstallMessageHandler(DebugMessageHandler);
 #endif
+    // Allow parameter interaction before we create the options model
+    app.parameterSetup();
     // Load GUI settings from QSettings
-    app.createOptionsModel();
+    app.createOptionsModel(mapArgs.count("-resetguisettings") != 0);
 
     // Subscribe to global signals from core
     uiInterface.InitMessage.connect(InitMessage);
 
-    if (GetBoolArg("-splash", true) && !GetBoolArg("-min", false))
+    if (GetBoolArg("-splash", DEFAULT_SPLASHSCREEN) && !GetBoolArg("-min", false))
         app.createSplashScreen(networkStyle.data());
 
     try
@@ -666,7 +670,7 @@ int main(int argc, char *argv[])
         app.createWindow(networkStyle.data());
         app.requestInitialize();
 #if defined(Q_OS_WIN) && QT_VERSION >= 0x050000
-        WinShutdownMonitor::registerShutdownBlockReason(QObject::tr("Groestlcoin Core didn't yet exit safely..."), (HWND)app.getMainWinId());
+        WinShutdownMonitor::registerShutdownBlockReason(QObject::tr("%1 didn't yet exit safely...").arg(QObject::tr(PACKAGE_NAME)), (HWND)app.getMainWinId());
 #endif
         app.exec();
         app.requestShutdown();

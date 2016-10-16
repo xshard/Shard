@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2014 The Bitcoin Core developers
+// Copyright (c) 2011-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,9 +11,11 @@
 #include "net.h"
 
 #include <QWidget>
+#include <QCompleter>
 
 class ClientModel;
 class PlatformStyle;
+class RPCTimerInterface;
 
 namespace Ui {
     class RPCConsole;
@@ -33,6 +35,8 @@ public:
     explicit RPCConsole(const PlatformStyle *platformStyle, QWidget *parent);
     ~RPCConsole();
 
+    static bool RPCExecuteCommandLine(std::string &strResult, const std::string &strCommand);
+
     void setClientModel(ClientModel *model);
 
     enum MessageClass {
@@ -41,6 +45,13 @@ public:
         CMD_REQUEST,
         CMD_REPLY,
         CMD_ERROR
+    };
+
+    enum TabTypes {
+        TAB_INFO = 0,
+        TAB_CONSOLE = 1,
+        TAB_GRAPH = 2,
+        TAB_PEERS = 3
     };
 
 protected:
@@ -60,15 +71,27 @@ private Q_SLOTS:
     void showEvent(QShowEvent *event);
     void hideEvent(QHideEvent *event);
     /** Show custom context menu on Peers tab */
-    void showMenu(const QPoint& point);
+    void showPeersTableContextMenu(const QPoint& point);
+    /** Show custom context menu on Bans tab */
+    void showBanTableContextMenu(const QPoint& point);
+    /** Hides ban table if no bans are present */
+    void showOrHideBanTableIfRequired();
+    /** clear the selected node */
+    void clearSelectedNode();
 
 public Q_SLOTS:
-    void clear();
+    void clear(bool clearHistory = true);
+    void fontBigger();
+    void fontSmaller();
+    void setFontSize(int newSize);
+    /** Append the message to the message widget */
     void message(int category, const QString &message, bool html = false);
     /** Set number of connections shown in the UI */
     void setNumConnections(int count);
     /** Set number of blocks and last block date shown in the UI */
-    void setNumBlocks(int count, const QDateTime& blockDate);
+    void setNumBlocks(int count, const QDateTime& blockDate, double nVerificationProgress, bool headers);
+    /** Set size (number of transactions and memory usage) of the mempool in the UI */
+    void setMempoolSize(long numberOfTxs, size_t dynUsage);
     /** Go forward or back in history */
     void browseHistory(int offset);
     /** Scroll console view to end */
@@ -79,6 +102,12 @@ public Q_SLOTS:
     void peerLayoutChanged();
     /** Disconnect a selected node on the Peers tab */
     void disconnectSelectedNode();
+    /** Ban a selected node on the Peers tab */
+    void banSelectedNode(int bantime);
+    /** Unban a selected node on the Bans tab */
+    void unbanSelectedNode();
+    /** set which tab has the focus (is visible) */
+    void setTabFocus(enum TabTypes tabType);
 
 Q_SIGNALS:
     // For RPC command executor
@@ -91,14 +120,15 @@ private:
     void setTrafficGraphRange(int mins);
     /** show detailed information on ui about selected node */
     void updateNodeDetail(const CNodeCombinedStats *stats);
-    /** clear the selected node */
-    void clearSelectedNode();
 
     enum ColumnWidths
     {
         ADDRESS_COLUMN_WIDTH = 200,
-        SUBVERSION_COLUMN_WIDTH = 100,
-        PING_COLUMN_WIDTH = 80
+        SUBVERSION_COLUMN_WIDTH = 150,
+        PING_COLUMN_WIDTH = 80,
+        BANSUBNET_COLUMN_WIDTH = 200,
+        BANTIME_COLUMN_WIDTH = 250
+
     };
 
     Ui::RPCConsole *ui;
@@ -106,8 +136,12 @@ private:
     QStringList history;
     int historyPtr;
     NodeId cachedNodeid;
-    QMenu *contextMenu;
     const PlatformStyle *platformStyle;
+    RPCTimerInterface *rpcTimerInterface;
+    QMenu *peersTableContextMenu;
+    QMenu *banTableContextMenu;
+    int consoleFontSize;
+    QCompleter *autoCompleter;
 };
 
 #endif // BITCOIN_QT_RPCCONSOLE_H

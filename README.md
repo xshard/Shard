@@ -10,9 +10,9 @@ The algorithm was written as a candidate for sha3
 
 https://bitcointalk.org/index.php?topic=525926.0
 
-Copyright (c) 2009-2014 The Bitcoin Core Developers
+Copyright (c) 2009-2016 The Bitcoin Core Developers
 
-Copyright (c) 2014-2015 The Groestlcoin Core Developers
+Copyright (c) 2014-2016 The Groestlcoin Core Developers
 
 What is Groestlcoin?
 -----------------
@@ -32,7 +32,7 @@ License
 Groestlcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see http://opensource.org/licenses/MIT.
 
-Development process
+Development Process
 -------------------
 
 Developers work in their own trees, then submit pull requests when they think
@@ -63,8 +63,9 @@ lots of money.
 
 ### Automated Testing
 
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code. Unit tests can be compiled and run (assuming they weren't disabled in configure) with: `make check`
+Developers are strongly encouraged to write [unit tests](/doc/unit-tests.md) for new code, and to
+submit new unit tests for old code. Unit tests can be compiled and run
+(assuming they weren't disabled in configure) with: `make check`
 
 Every pull request is built for both Windows and Linux on a dedicated server,
 and unit and sanity tests are automatically run. The binaries produced may be
@@ -109,4 +110,3 @@ Groestlcoin Core is a multithreaded application, and deadlocks or other multithr
 can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
 CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of what locks
 are held, and adds warning to the debug.log file if inconsistencies are detected.
-

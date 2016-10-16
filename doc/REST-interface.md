@@ -3,6 +3,8 @@ Unauthenticated REST Interface
 
 The REST API can be enabled with the `-rest` option.
 
+The interface runs on the same port as the JSON-RPC interface, by default port 8332 for mainnet and port 18332 for testnet.
+
 Supported API
 -------------
 
@@ -76,6 +78,20 @@ $ curl localhost:18332/rest/getutxos/checkmempool/b2cdfd7b89def827ff8af7cd9bff76
    "bitmap" : "1"
 }
 ```
+
+####Memory pool
+`GET /rest/mempool/info.json`
+
+Returns various information about the TX mempool.
+Only supports JSON as output format.
+* size : (numeric) the number of transactions in the TX mempool
+* bytes : (numeric) size of the TX mempool in bytes
+* usage : (numeric) total TX mempool memory usage
+
+`GET /rest/mempool/contents.json`
+
+Returns transactions in the TX mempool.
+Only supports JSON as output format.
 
 Risks
 -------------
