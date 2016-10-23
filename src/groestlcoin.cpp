@@ -11,6 +11,7 @@
 #include "arith_uint256.h"
 #include "chain.h"
 #include "chainparams.h"
+#include "consensus/merkle.h"
 #include "consensus/params.h"
 #include "utilstrencodings.h"
 #include "crypto/sha256.h"
@@ -49,13 +50,13 @@ int64_t minimumSubsidy = 5.0 * COIN;
 static const int64_t nPremine = 240640 * COIN;
 
 int64_t static GetBlockSubsidy(int nHeight){
-    
-	
+
+
 	if (nHeight == 0)
     {
         return nGenesisBlockRewardCoin;
     }
-	
+
 	if (nHeight == 1)
     {
         return nPremine;
@@ -70,9 +71,9 @@ int64_t static GetBlockSubsidy(int nHeight){
 		total									=240640
 		*/
     }
-    
+
 	int64_t nSubsidy = 512 * COIN;
-    
+
     // Subsidy is reduced by 6% every 10080 blocks, which will occur approximately every 1 week
     int exponent=(nHeight / 10080);
     for(int i=0;i<exponent;i++){
@@ -143,7 +144,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) {
 		return UintToArith256(params.powLimit).GetCompact();
 	}
-        
+
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
         if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
         CountBlocks++;
@@ -172,7 +173,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         if (BlockReading->pprev == NULL) { assert(BlockReading); break; }
         BlockReading = BlockReading->pprev;
     }
-    
+
     CBigNum bnNew(PastDifficultyAverage);
     if (nBlockTimeCount != 0 && nBlockTimeCount2 != 0) {
             double SmartAverage = (((nBlockTimeAverage)*0.7)+((nBlockTimeSum2 / nBlockTimeCount2)*0.3));
@@ -194,7 +195,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     if (bnNew > CBigNum(params.powLimit)){
         bnNew = CBigNum(params.powLimit);
     }
-     
+
     return bnNew.GetCompact();
 }
 
@@ -210,10 +211,10 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     CBigNum PastDifficultyAverage;
     CBigNum PastDifficultyAveragePrev;
 
-    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) { 
+    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) {
 		return UintToArith256(params.powLimit).GetCompact();
     }
-        
+
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
         if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
         CountBlocks++;
@@ -228,12 +229,12 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
             int64_t Diff = (LastBlockTime - BlockReading->GetBlockTime());
             nActualTimespan += Diff;
         }
-        LastBlockTime = BlockReading->GetBlockTime();      
+        LastBlockTime = BlockReading->GetBlockTime();
 
         if (BlockReading->pprev == NULL) { assert(BlockReading); break; }
         BlockReading = BlockReading->pprev;
     }
-    
+
     CBigNum bnNew(PastDifficultyAverage);
 
     int64_t nTargetTimespan = CountBlocks*nTargetSpacing;
@@ -286,7 +287,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 	genesis.nVersion = nVersion;
 	genesis.vtx.push_back(txNew);
 	genesis.hashPrevBlock.SetNull();
-	genesis.hashMerkleRoot = genesis.BuildMerkleTree();
+	genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 	return genesis;
 }
 
@@ -323,14 +324,14 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nMajorityEnforceBlockUpgrade = 750;
-        consensus.nMajorityRejectBlockOutdated = 950;
-        consensus.nMajorityWindow = 1000;
+//!!!?        consensus.nMajorityEnforceBlockUpgrade = 750;
+//!!!?        consensus.nMajorityRejectBlockOutdated = 950;
+//!!!?        consensus.nMajorityWindow = 1000;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
-        /** 
+        /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
@@ -339,7 +340,7 @@ public:
         pchMessageStart[1] = 0xbe;
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd4;
-        
+
 		vAlertPubKeys.push_back(ParseHex("04EDAFBD18D712C2D4E6C456A9DCCC285871744876944266349DAD92A2192168BA81FDE56E459D58FF08C54EF5D7232CDA0F8CD992F3B308EF2FE0A0D0C346D878"));
 		vAlertPubKeys.push_back(ParseHex("03F22A91235119DB418C81FAE48FFC3DC0D8AD10F92F07FDF241D31DB1554627D0"));
 		vAlertPubKeys.push_back(ParseHex("03444DE97F6E1AD5813A7F4FDF7319ADAF69279C649F0C53A510537A363AF3BD0C"));
@@ -396,9 +397,9 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
 
 #ifdef _MSC_VER //!!!
-		checkpointData = Checkpoints::CCheckpointData{
+		checkpointData = CCheckpointData{
 #else
-		checkpointData = (Checkpoints::CCheckpointData){
+		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
 			(28888, uint256S("0x00000000000228ce19f55cf0c45e04c7aa5a6a873ed23902b3654c3c49884502"))
@@ -421,9 +422,9 @@ class CTestNetParams : public CMainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nMajorityEnforceBlockUpgrade = 51;
-        consensus.nMajorityRejectBlockOutdated = 75;
-        consensus.nMajorityWindow = 100;
+//!!!T        consensus.nMajorityEnforceBlockUpgrade = 51;
+//!!!T        consensus.nMajorityRejectBlockOutdated = 75;
+//!!!T        consensus.nMajorityWindow = 100;
 		consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 		consensus.fPowAllowMinDifficultyBlocks = true;
         pchMessageStart[0] = 0x0b;
@@ -466,11 +467,11 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
 
-		
+
 #ifdef _MSC_VER
-		checkpointData = Checkpoints::CCheckpointData{
+		checkpointData = CCheckpointData{
 #else
-		checkpointData = (Checkpoints::CCheckpointData){
+		checkpointData = CCheckpointData){
 #endif
 			boost::assign::map_list_of
 			(0, uint256S("000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")),
@@ -490,9 +491,9 @@ class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
-        consensus.nMajorityEnforceBlockUpgrade = 750;
-        consensus.nMajorityRejectBlockOutdated = 950;
-        consensus.nMajorityWindow = 1000;
+//!!!T        consensus.nMajorityEnforceBlockUpgrade = 750;
+//!!!T        consensus.nMajorityRejectBlockOutdated = 950;
+//!!!T        consensus.nMajorityWindow = 1000;
         pchMessageStart[0] = 0xfa;
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xb5;
@@ -534,32 +535,25 @@ const CChainParams &Params() {
     return *pCurrentParams;
 }
 
-CChainParams &Params(CBaseChainParams::Network network) {
-    switch (network) {
-        case CBaseChainParams::MAIN:
-            return mainParams;
-        case CBaseChainParams::TESTNET:
-            return testNetParams;
-//!!!T         case CBaseChainParams::REGTEST:
-//!!!T             return regTestParams;
-        default:
-            assert(false && "Unimplemented network");
-            return mainParams;
-    }
-}
-
-void SelectParams(CBaseChainParams::Network network) {
-    SelectBaseParams(network);
-    pCurrentParams = &Params(network);
-}
-
-bool SelectParamsFromCommandLine()
+CChainParams& Params(const std::string& chain)
 {
-    CBaseChainParams::Network network = NetworkIdFromCommandLine();
-    if (network == CBaseChainParams::MAX_NETWORK_TYPES)
-        return false;
-
-    SelectParams(network);
-    return true;
+	if (chain == CBaseChainParams::MAIN)
+		return mainParams;
+	else if (chain == CBaseChainParams::TESTNET)
+		return testNetParams;
+//!!!T	else if (chain == CBaseChainParams::REGTEST)
+//!!!T		return regTestParams;
+	else
+		throw std::runtime_error(strprintf("%s: Unknown chain %s.", __func__, chain));
 }
 
+void SelectParams(const std::string& network)
+{
+	SelectBaseParams(network);
+	pCurrentParams = &Params(network);
+}
+
+void UpdateRegtestBIP9Parameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
+{
+//GRS	regTestParams.UpdateBIP9Parameters(d, nStartTime, nTimeout);
+}

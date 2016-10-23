@@ -92,7 +92,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;univalue\include;</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -116,7 +116,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;univalue\include;</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -142,7 +142,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;univalue\include;</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -177,7 +177,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\inc;univalue\include;</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -200,7 +200,12 @@
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="groestlcoind-res.rc" />
+    <ResourceCompile Include="groestlcoind-res.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">_UNICODE;UNICODE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">_UNICODE;UNICODE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">_UNICODE;UNICODE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">_UNICODE;UNICODE;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

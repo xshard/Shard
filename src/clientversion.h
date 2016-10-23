@@ -6,7 +6,11 @@
 #define BITCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#	ifdef _WIN32
+#		include "grs-config.h"
+#	else
+#		include "config/bitcoin-config.h"
+#	endif
 #else
 
 /**
@@ -27,6 +31,8 @@
  * Todo: update this when changing our copyright comments in the source
  */
 #define COPYRIGHT_YEAR 2016
+
+#define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers" //!!!P
 
 #endif //HAVE_CONFIG_H
 

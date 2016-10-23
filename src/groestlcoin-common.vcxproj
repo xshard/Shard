@@ -23,6 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>grs</RootNamespace>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
@@ -30,6 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -94,7 +96,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -116,7 +118,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -139,7 +141,7 @@
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -173,7 +175,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -192,7 +194,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="addrdb.cpp" />
+    <ClCompile Include="blockencodings.cpp" />
+    <ClCompile Include="consensus\merkle.cpp" />
+    <ClCompile Include="crypto\aes.cpp" />
+    <ClCompile Include="crypto\hmac_sha256.cpp" />
+    <ClCompile Include="dbwrapper.cpp" />
     <ClCompile Include="groestlcoin-hash.cpp" />
+    <ClCompile Include="httprpc.cpp" />
+    <ClCompile Include="httpserver.cpp" />
+    <ClCompile Include="netaddress.cpp" />
+    <ClCompile Include="policy\rbf.cpp" />
+    <ClCompile Include="rpc\blockchain.cpp" />
+    <ClCompile Include="rpc\client.cpp" />
+    <ClCompile Include="rpc\mining.cpp" />
+    <ClCompile Include="rpc\misc.cpp" />
+    <ClCompile Include="rpc\net.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="rpc\protocol.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="rpc\rawtransaction.cpp" />
+    <ClCompile Include="rpc\server.cpp" />
+    <ClCompile Include="script\ismine.cpp" />
     <ClCompile Include="secp256k1\src\secp256k1.c">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
@@ -208,7 +239,6 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="addrman.cpp" />
-    <ClCompile Include="alert.cpp" />
     <ClCompile Include="amount.cpp" />
     <ClCompile Include="arith_uint256.cpp" />
     <ClCompile Include="base58.cpp" />
@@ -294,8 +324,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="eccryptoverify.cpp" />
-    <ClCompile Include="ecwrapper.cpp" />
     <ClCompile Include="groestlcoin.cpp" />
     <ClCompile Include="hash.cpp" />
     <ClCompile Include="init.cpp" />
@@ -306,16 +334,15 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="keystore.cpp" />
-    <ClCompile Include="leveldbwrapper.cpp">
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">..\inc;..\foreign\leveldb\helpers\memenv</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">..\inc;..\foreign\leveldb\helpers\memenv</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">..\inc;..\foreign\leveldb\helpers\memenv</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;..\foreign\leveldb\helpers\memenv</AdditionalIncludeDirectories>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="merkleblock.cpp" />
     <ClCompile Include="miner.cpp" />
-    <ClCompile Include="net.cpp" />
+    <ClCompile Include="net.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="netbase.cpp" />
     <ClCompile Include="noui.cpp" />
     <ClCompile Include="policy\fees.cpp" />
@@ -323,18 +350,15 @@
     <ClCompile Include="pow.cpp" />
     <ClCompile Include="primitives\block.cpp" />
     <ClCompile Include="primitives\transaction.cpp" />
-    <ClCompile Include="protocol.cpp" />
+    <ClCompile Include="protocol.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="pubkey.cpp" />
     <ClCompile Include="random.cpp" />
     <ClCompile Include="rest.cpp" />
-    <ClCompile Include="rpcblockchain.cpp" />
-    <ClCompile Include="rpcclient.cpp" />
-    <ClCompile Include="rpcmining.cpp" />
-    <ClCompile Include="rpcmisc.cpp" />
-    <ClCompile Include="rpcnet.cpp" />
-    <ClCompile Include="rpcprotocol.cpp" />
-    <ClCompile Include="rpcrawtransaction.cpp" />
-    <ClCompile Include="rpcserver.cpp" />
     <ClCompile Include="scheduler.cpp" />
     <ClCompile Include="script\interpreter.cpp" />
     <ClCompile Include="script\script.cpp" />
@@ -377,24 +401,26 @@
     <ClCompile Include="support\cleanse.cpp" />
     <ClCompile Include="support\pagelocker.cpp" />
     <ClCompile Include="timedata.cpp" />
+    <ClCompile Include="torcontrol.cpp" />
     <ClCompile Include="txdb.cpp" />
     <ClCompile Include="txmempool.cpp" />
     <ClCompile Include="uint256.cpp" />
-    <ClCompile Include="univalue\univalue.cpp" />
-    <ClCompile Include="univalue\univalue_read.cpp" />
-    <ClCompile Include="univalue\univalue_write.cpp" />
+    <ClCompile Include="ui_interface.cpp" />
+    <ClCompile Include="univalue\lib\univalue.cpp" />
+    <ClCompile Include="univalue\lib\univalue_read.cpp" />
+    <ClCompile Include="univalue\lib\univalue_write.cpp" />
     <ClCompile Include="util.cpp" />
     <ClCompile Include="utilmoneystr.cpp" />
     <ClCompile Include="utilstrencodings.cpp" />
     <ClCompile Include="utiltime.cpp" />
     <ClCompile Include="validationinterface.cpp" />
+    <ClCompile Include="versionbits.cpp" />
     <ClCompile Include="wallet\crypter.cpp" />
     <ClCompile Include="wallet\db.cpp" />
     <ClCompile Include="wallet\rpcdump.cpp" />
     <ClCompile Include="wallet\rpcwallet.cpp" />
     <ClCompile Include="wallet\wallet.cpp" />
     <ClCompile Include="wallet\walletdb.cpp" />
-    <ClCompile Include="wallet\wallet_ismine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addrman.h" />

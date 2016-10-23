@@ -51,9 +51,6 @@
     <Filter Include="Source Files\policy">
       <UniqueIdentifier>{d053d0c4-d795-44f6-a65c-608fb7ae75e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\unicalue">
-      <UniqueIdentifier>{1f83340c-7b57-494e-8e96-eeacca8a2ca3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\univalue">
       <UniqueIdentifier>{675dbde1-f1c8-45ca-a5cd-639084a0fd90}</UniqueIdentifier>
     </Filter>
@@ -68,6 +65,15 @@
     </Filter>
     <Filter Include="Source Files\bignum">
       <UniqueIdentifier>{b349a269-b7d6-4d21-83f0-cf7c764cf101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\univalue">
+      <UniqueIdentifier>{1f83340c-7b57-494e-8e96-eeacca8a2ca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\consensus">
+      <UniqueIdentifier>{3c843bad-e7f3-45b6-92f1-d1209c334e3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rpc">
+      <UniqueIdentifier>{4855b9e4-32d4-488c-a15e-2a91f1d602e7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +140,6 @@
     <ClCompile Include="utiltime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="alert.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="txdb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -179,22 +182,13 @@
     <ClCompile Include="crypto\sha1.cpp">
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
-    <ClCompile Include="eccryptoverify.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="crypto\ripemd160.cpp">
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
     <ClCompile Include="policy\policy.cpp">
       <Filter>Source Files\policy</Filter>
     </ClCompile>
-    <ClCompile Include="leveldbwrapper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="miner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rpcserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="addrman.cpp">
@@ -209,9 +203,6 @@
     <ClCompile Include="compat\vc_compat.cpp">
       <Filter>Source Files\compat</Filter>
     </ClCompile>
-    <ClCompile Include="rpcprotocol.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -221,23 +212,11 @@
     <ClCompile Include="script\sigcache.cpp">
       <Filter>Source Files\script</Filter>
     </ClCompile>
-    <ClCompile Include="univalue\univalue.cpp">
-      <Filter>Source Files\unicalue</Filter>
-    </ClCompile>
     <ClCompile Include="pow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rpcnet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="script\standard.cpp">
       <Filter>Source Files\script</Filter>
-    </ClCompile>
-    <ClCompile Include="univalue\univalue_read.cpp">
-      <Filter>Source Files\unicalue</Filter>
-    </ClCompile>
-    <ClCompile Include="ecwrapper.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="script\script_error.cpp">
       <Filter>Source Files\script</Filter>
@@ -257,12 +236,6 @@
     <ClCompile Include="rest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="rpcblockchain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rpcrawtransaction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="utilmoneystr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -272,15 +245,6 @@
     <ClCompile Include="base58.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="rpcmining.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="univalue\univalue_write.cpp">
-      <Filter>Source Files\unicalue</Filter>
-    </ClCompile>
-    <ClCompile Include="rpcmisc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="core_read.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -288,9 +252,6 @@
       <Filter>Source Files\script</Filter>
     </ClCompile>
     <ClCompile Include="core_write.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rpcclient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="wallet\rpcwallet.cpp">
@@ -308,9 +269,6 @@
     <ClCompile Include="wallet\db.cpp">
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
-    <ClCompile Include="wallet\wallet_ismine.cpp">
-      <Filter>Source Files\wallet</Filter>
-    </ClCompile>
     <ClCompile Include="wallet\rpcdump.cpp">
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
@@ -325,6 +283,81 @@
     </ClCompile>
     <ClCompile Include="groestlcoin-hash.cpp">
       <Filter>Source Files\grs</Filter>
+    </ClCompile>
+    <ClCompile Include="univalue\lib\univalue.cpp">
+      <Filter>Source Files\univalue</Filter>
+    </ClCompile>
+    <ClCompile Include="univalue\lib\univalue_read.cpp">
+      <Filter>Source Files\univalue</Filter>
+    </ClCompile>
+    <ClCompile Include="univalue\lib\univalue_write.cpp">
+      <Filter>Source Files\univalue</Filter>
+    </ClCompile>
+    <ClCompile Include="consensus\merkle.cpp">
+      <Filter>Source Files\consensus</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\protocol.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="dbwrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\server.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\aes.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="netaddress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\rawtransaction.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\net.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\blockchain.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\misc.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="httpserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="versionbits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="addrdb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script\ismine.cpp">
+      <Filter>Source Files\script</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\mining.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="policy\rbf.cpp">
+      <Filter>Source Files\policy</Filter>
+    </ClCompile>
+    <ClCompile Include="blockencodings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="torcontrol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\hmac_sha256.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="httprpc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc\client.cpp">
+      <Filter>Source Files\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui_interface.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

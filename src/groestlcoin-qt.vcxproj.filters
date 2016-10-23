@@ -339,6 +339,21 @@
     <ClCompile Include="qt\platformstyle.cpp">
       <Filter>Source Files\qt</Filter>
     </ClCompile>
+    <ClCompile Include="qt\modaloverlay.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bantablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="ui_interface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bantablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_modaloverlay.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">

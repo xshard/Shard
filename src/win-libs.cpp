@@ -1,4 +1,5 @@
 #pragma comment(lib, "user32")
+#pragma comment(lib, "advapi32")
 #pragma comment(lib, "shlwapi")
 #pragma comment(lib, "crypt32")
 #pragma comment(lib, "ws2_32")
@@ -10,6 +11,7 @@
 #pragma comment(lib, "leveldb")
 #pragma comment(lib, "mpir")
 #pragma comment(lib, "openssl")
+#pragma comment(lib, "libevent")
 
 #pragma comment(lib, "groestlcoin-common")
 

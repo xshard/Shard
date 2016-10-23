@@ -44,8 +44,6 @@ static const unsigned int DEFAULT_KEYPOOL_SIZE = 100;
 static const CAmount DEFAULT_TRANSACTION_FEE = 10000;	// GRS
 //! -paytxfee will warn if called with a higher fee than this amount (in satoshis) per KB
 static const CAmount nHighTransactionFeeWarning = 0.01 * COIN;
-//! -maxtxfee default
-static const CAmount DEFAULT_TRANSACTION_MAXFEE = 0.1 * COIN;
 //! -fallbackfee default
 static const CAmount DEFAULT_FALLBACK_FEE = 20000;
 //! -mintxfee default

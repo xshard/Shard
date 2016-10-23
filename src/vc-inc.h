@@ -159,7 +159,7 @@
 #define NOMINMAX					// used in windows.h
 
 #define _WIN32_WINNT 0x602
-#define _WIN32_WINNT_WINTHRESHOLD 0x0700		//!!!?
+#define _WIN32_WINNT_WINTHRESHOLD 0x0A00		//!!!?
 #define NTDDI_WIN7SP1 0x06010001 //!!!?
 
 #ifdef _WIN32_WCE

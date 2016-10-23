@@ -22,6 +22,7 @@
     <ProjectGuid>{2620C0CD-299D-4FB6-A59B-ED164DEC0FB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>grs</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
@@ -29,6 +30,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -92,7 +94,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -117,7 +119,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -143,7 +145,7 @@
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -178,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\inc;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -303,6 +305,7 @@
     <ClCompile Include="qt\addressbookpage.cpp" />
     <ClCompile Include="qt\addresstablemodel.cpp" />
     <ClCompile Include="qt\askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\bantablemodel.cpp" />
     <ClCompile Include="qt\bitcoin.cpp">
       <Command Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
@@ -327,6 +330,7 @@
     <ClCompile Include="qt\moc_addressbookpage.cpp" />
     <ClCompile Include="qt\moc_addresstablemodel.cpp" />
     <ClCompile Include="qt\moc_askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\moc_bantablemodel.cpp" />
     <ClCompile Include="qt\moc_bitcoinaddressvalidator.cpp" />
     <ClCompile Include="qt\moc_bitcoinamountfield.cpp" />
     <ClCompile Include="qt\moc_bitcoingui.cpp" />
@@ -338,6 +342,7 @@
     <ClCompile Include="qt\moc_editaddressdialog.cpp" />
     <ClCompile Include="qt\moc_guiutil.cpp" />
     <ClCompile Include="qt\moc_intro.cpp" />
+    <ClCompile Include="qt\moc_modaloverlay.cpp" />
     <ClCompile Include="qt\moc_notificator.cpp" />
     <ClCompile Include="qt\moc_openuridialog.cpp" />
     <ClCompile Include="qt\moc_optionsdialog.cpp" />
@@ -365,6 +370,7 @@
     <ClCompile Include="qt\moc_walletframe.cpp" />
     <ClCompile Include="qt\moc_walletmodel.cpp" />
     <ClCompile Include="qt\moc_walletview.cpp" />
+    <ClCompile Include="qt\modaloverlay.cpp" />
     <ClCompile Include="qt\networkstyle.cpp" />
     <ClCompile Include="qt\notificator.cpp" />
     <ClCompile Include="qt\openuridialog.cpp" />
@@ -407,6 +413,12 @@
     <ClCompile Include="qt\walletmodeltransaction.cpp" />
     <ClCompile Include="qt\walletview.cpp" />
     <ClCompile Include="qt\winshutdownmonitor.cpp" />
+    <ClCompile Include="ui_interface.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -457,7 +469,12 @@
     <ClInclude Include="qt\winshutdownmonitor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="qt\res\bitcoin-qt-res.rc" />
+    <ResourceCompile Include="qt\res\bitcoin-qt-res.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">_UNICODE;UNICODE;%(PreprocessorDefinitions);HAVE_CONFIG_H;RC_COMPILER</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">_UNICODE;UNICODE;%(PreprocessorDefinitions);HAVE_CONFIG_H;RC_COMPILER</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">_UNICODE;UNICODE;%(PreprocessorDefinitions);HAVE_CONFIG_H;RC_COMPILER</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">_UNICODE;UNICODE;%(PreprocessorDefinitions);HAVE_CONFIG_H;RC_COMPILER</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="qt\res\icons\groestlcoin.ico" />

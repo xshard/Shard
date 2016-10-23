@@ -44,9 +44,9 @@
 #include <stdio.h>
 #include <memory>
 
-#ifndef WIN32
+//!!!P #ifndef WIN32
 #include <signal.h>
-#endif
+//!!!P #endif
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
@@ -495,7 +495,7 @@ std::string LicenseInfo()
     const std::string URL_WEBSITE = "<https://groestlcoin.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
-			strprintf(_("Copyright (C) 2014-%i The Groestlcoin Core Developers"), COPYRIGHT_YEAR)) + "\n" +
+			strprintf(_("Copyright (C) 2014-%i The Groestlcoin Core Developers"), COPYRIGHT_YEAR) + "\n" +
            "\n" +
            strprintf(_("Please contribute if you find %s useful. "
                        "Visit %s for further information about the software."),
@@ -793,7 +793,7 @@ void InitLogging()
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("Bitcoin version %s\n", FormatFullVersion());
+    LogPrintf("Groestlcoin version %s\n", FormatFullVersion());
 }
 
 /** Initialize bitcoin.
@@ -1067,11 +1067,8 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 #endif
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
-    LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("Groestlcoin version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
-
-    if (fPrintToDebugLog)
-        OpenDebugLog();
+	if (fPrintToDebugLog)
+		OpenDebugLog();
 
     if (!fLogTimestamps)
         LogPrintf("Startup time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()));

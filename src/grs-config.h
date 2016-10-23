@@ -2,12 +2,25 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
-#define BUILD_DESC "v2.11.0"
+#define PACKAGE_NAME "Groestlcoin Core"
 
-#include <vc-inc.h>
+#define CLIENT_VERSION_MAJOR 2
+#define CLIENT_VERSION_MINOR 13
+#define CLIENT_VERSION_REVISION 0
+#define CLIENT_VERSION_BUILD 0
+
+#define BUILD_DESC "v2.13.0"
+
+#define COPYRIGHT_HOLDERS "The Groestlcoin Core developers"
+#define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
+#define COPYRIGHT_HOLDERS_SUBSTITUTION "Groestlcoin Core"
+
+#ifndef RC_COMPILER
+#	include <vc-inc.h>
+#endif
 
 
-#pragma warning(disable: 4018 4101 4242 4244 4267 4290 4717 4800)
+#pragma warning(disable: 4018 4101 4146 4242 4244 4267 4290 4334 4717 4789 4800)
 
 #define WIN32
 
@@ -36,5 +49,4 @@
 #define ENABLE_WALLET
 #define USE_QRCODE
 #define USE_UPNP 1
-
 

@@ -505,211 +505,118 @@ void BlockAssembler::addPackageTxs()
     }
 }
 
-void BlockAssembler::addPriorityTxs()
+//
+// ScanHash scans nonces looking for a hash with at least some zero bits.
+// The nonce is usually preserved between calls, but periodically or if the
+// nonce is 0xffff0000 or above, the block is rebuilt and nNonce starts over at
+// zero.
+//
+bool static ScanHash(const CBlockHeader *pblock, uint32_t& nNonce, uint256 *phash)
 {
-    // Write the first 76 bytes of the block header to a double-SHA256 state.
-    CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-    ss << *pblock;
-    assert(ss.size() == 80);
+	// Write the first 76 bytes of the block header to a double-SHA256 state.
+	CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+	ss << *pblock;
+	assert(ss.size() == 80);
 
 	//GRS
 	uint32_t buf[20];
 	memcpy(buf, &ss.begin()[0], 80);
-    while (true) {
-        nNonce++;
+	while (true) {
+		nNonce++;
 		buf[19] = nNonce;
-		*phash = XCoin::HashPow(XCoin::ConstBuf(buf, buf+20));
+		*phash = XCoin::HashPow(XCoin::ConstBuf(buf, buf + 20));
 
-        // Return the nonce if the hash has at least some zero bits,
-        // caller will check if it has enough to reach the target
-        if (((uint16_t*)phash)[15] == 0)
-            return true;
-    // How much of the block should be dedicated to high-priority transactions,
-    // included regardless of the fees they pay
-    unsigned int nBlockPrioritySize = GetArg("-blockprioritysize", DEFAULT_BLOCK_PRIORITY_SIZE);
-    nBlockPrioritySize = std::min(nBlockMaxSize, nBlockPrioritySize);
+		// Return the nonce if the hash has at least some zero bits,
+		// caller will check if it has enough to reach the target
+		if (((uint16_t*)phash)[15] == 0)
+			return true;
 
-    if (nBlockPrioritySize == 0) {
-        return;
-    }
+		// If nothing found after trying for a while, return -1
+		if ((nNonce & 0xfff) == 0)
+			return false;
+	}
+}
 
-    bool fSizeAccounting = fNeedSizeAccounting;
-    fNeedSizeAccounting = true;
-
-    // This vector will be sorted into a priority queue:
-    vector<TxCoinAgePriority> vecPriority;
-    TxCoinAgePriorityCompare pricomparer;
-    std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash> waitPriMap;
-    typedef std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash>::iterator waitPriIter;
-    double actualPriority = -1;
-
-    vecPriority.reserve(mempool.mapTx.size());
-    for (CTxMemPool::indexed_transaction_set::iterator mi = mempool.mapTx.begin();
-         mi != mempool.mapTx.end(); ++mi)
-    {
-        LOCK(cs_main);
-        if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("GroestlcoinMiner: generated block is stale");
-        double dPriority = mi->GetPriority(nHeight);
-        CAmount dummy;
-        mempool.ApplyDeltas(mi->GetTx().GetHash(), dPriority, dummy);
-        vecPriority.push_back(TxCoinAgePriority(dPriority, mi));
-    }
-    std::make_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
-
-    CTxMemPool::txiter iter;
-    while (!vecPriority.empty() && !blockFinished) { // add a tx from priority queue to fill the blockprioritysize
-        iter = vecPriority.front().second;
-        actualPriority = vecPriority.front().first;
-        std::pop_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
-        vecPriority.pop_back();
-
-        // If tx already in block, skip
-        if (inBlock.count(iter)) {
-            assert(false); // shouldn't happen for priority txs
-            continue;
-        }
-
-        // cannot accept witness transactions into a non-witness block
-        if (!fIncludeWitness && !iter->GetTx().wit.IsNull())
-            continue;
-
-    // Process this block the same as if we had received it from another node
-    CValidationState state;
-    if (!ProcessNewBlock(state, NULL, pblock, true, NULL))
-        return error("GroestlcoinMiner: ProcessNewBlock, block not accepted");
-        // If tx is dependent on other mempool txs which haven't yet been included
-        // then put it in the waitSet
-        if (isStillDependent(iter)) {
-            waitPriMap.insert(std::make_pair(iter, actualPriority));
-            continue;
-        }
-
-        // If this tx fits in the block add it, otherwise keep looping
-        if (TestForBlock(iter)) {
-            AddToBlock(iter);
-
-void static BitcoinMiner(const CChainParams& chainparams)
+void BlockAssembler::addPriorityTxs()
 {
-    LogPrintf("GroestlcoinMiner started\n");
-    SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("groestlcoin-miner");
+	// How much of the block should be dedicated to high-priority transactions,
+	// included regardless of the fees they pay
+	unsigned int nBlockPrioritySize = GetArg("-blockprioritysize", DEFAULT_BLOCK_PRIORITY_SIZE);
+	nBlockPrioritySize = std::min(nBlockMaxSize, nBlockPrioritySize);
 
-    unsigned int nExtraNonce = 0;
+	if (nBlockPrioritySize == 0) {
+		return;
+	}
 
-    boost::shared_ptr<CReserveScript> coinbaseScript;
-    GetMainSignals().ScriptForMining(coinbaseScript);
+	bool fSizeAccounting = fNeedSizeAccounting;
+	fNeedSizeAccounting = true;
 
-    try {
-        //throw an error if no script was provided
-        if (!coinbaseScript->reserveScript.size())
-            throw std::runtime_error("No coinbase script available (mining requires a wallet)");
+	// This vector will be sorted into a priority queue:
+	vector<TxCoinAgePriority> vecPriority;
+	TxCoinAgePriorityCompare pricomparer;
+	std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash> waitPriMap;
+	typedef std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash>::iterator waitPriIter;
+	double actualPriority = -1;
 
-        while (true) {
-            if (chainparams.MiningRequiresPeers()) {
-                // Busy-wait for the network to come online so we don't waste time mining
-                // on an obsolete chain. In regtest mode we expect to fly solo.
-                do {
-                    bool fvNodesEmpty;
-                    {
-                        LOCK(cs_vNodes);
-                        fvNodesEmpty = vNodes.empty();
-                    }
-                    if (!fvNodesEmpty && !IsInitialBlockDownload())
-                        break;
-                    MilliSleep(1000);
-                } while (true);
-            // If now that this txs is added we've surpassed our desired priority size
-            // or have dropped below the AllowFreeThreshold, then we're done adding priority txs
-            if (nBlockSize >= nBlockPrioritySize || !AllowFree(actualPriority)) {
-                break;
-            }
+	vecPriority.reserve(mempool.mapTx.size());
+	for (CTxMemPool::indexed_transaction_set::iterator mi = mempool.mapTx.begin();
+		mi != mempool.mapTx.end(); ++mi)
+	{
+		double dPriority = mi->GetPriority(nHeight);
+		CAmount dummy;
+		mempool.ApplyDeltas(mi->GetTx().GetHash(), dPriority, dummy);
+		vecPriority.push_back(TxCoinAgePriority(dPriority, mi));
+	}
+	std::make_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
 
-            // This tx was successfully added, so
-            // add transactions that depend on this one to the priority queue to try again
-            BOOST_FOREACH(CTxMemPool::txiter child, mempool.GetMemPoolChildren(iter))
-            {
-                LogPrintf("Error in GroestlcoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
-                return;
-            }
-            CBlock *pblock = &pblocktemplate->block;
-            IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
+	CTxMemPool::txiter iter;
+	while (!vecPriority.empty() && !blockFinished) { // add a tx from priority queue to fill the blockprioritysize
+		iter = vecPriority.front().second;
+		actualPriority = vecPriority.front().first;
+		std::pop_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
+		vecPriority.pop_back();
 
-            LogPrintf("Running GroestlcoinMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
-                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+		// If tx already in block, skip
+		if (inBlock.count(iter)) {
+			assert(false); // shouldn't happen for priority txs
+			continue;
+		}
 
-            //
-            // Search
-            //
-            int64_t nStart = GetTime();
-            arith_uint256 hashTarget = arith_uint256().SetCompact(pblock->nBits);
-            uint256 hash;
-            uint32_t nNonce = 0;
-            while (true) {
-                // Check if something found
-                if (ScanHash(pblock, nNonce, &hash))
-                {
-                    if (UintToArith256(hash) <= hashTarget)
-                    {
-                        // Found a solution
-                        pblock->nNonce = nNonce;
-                        assert(hash == pblock->GetHash());
+		// cannot accept witness transactions into a non-witness block
+		if (!fIncludeWitness && !iter->GetTx().wit.IsNull())
+			continue;
 
-                        SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("GroestlcoinMiner:\n");
-                        LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
-                        ProcessBlockFound(pblock, chainparams);
-                        SetThreadPriority(THREAD_PRIORITY_LOWEST);
-                        coinbaseScript->KeepScript();
+		// If tx is dependent on other mempool txs which haven't yet been included
+		// then put it in the waitSet
+		if (isStillDependent(iter)) {
+			waitPriMap.insert(std::make_pair(iter, actualPriority));
+			continue;
+		}
 
-                        // In regression test mode, stop mining after a block is found.
-                        if (chainparams.MineBlocksOnDemand())
-                            throw boost::thread_interrupted();
+		// If this tx fits in the block add it, otherwise keep looping
+		if (TestForBlock(iter)) {
+			AddToBlock(iter);
 
-                        break;
-                    }
-                }
+			// If now that this txs is added we've surpassed our desired priority size
+			// or have dropped below the AllowFreeThreshold, then we're done adding priority txs
+			if (nBlockSize >= nBlockPrioritySize || !AllowFree(actualPriority)) {
+				break;
+			}
 
-                // Check for stop or if block needs to be rebuilt
-                boost::this_thread::interruption_point();
-                // Regtest mode doesn't require peers
-                if (vNodes.empty() && chainparams.MiningRequiresPeers())
-                    break;
-                if (nNonce >= 0xffff0000)
-                    break;
-                if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
-                    break;
-                if (pindexPrev != chainActive.Tip())
-                    break;
-
-                // Update nTime every few seconds
-                if (UpdateTime(pblock, chainparams.GetConsensus(), pindexPrev) < 0)
-                    break; // Recreate the block if the clock has run backwards,
-                           // so that we can use the correct time.
-                if (chainparams.GetConsensus().fPowAllowMinDifficultyBlocks)
-                {
-                    // Changing pblock->nTime can change work required on testnet:
-                    hashTarget.SetCompact(pblock->nBits);
-                waitPriIter wpiter = waitPriMap.find(child);
-                if (wpiter != waitPriMap.end()) {
-                    vecPriority.push_back(TxCoinAgePriority(wpiter->second,child));
-                    std::push_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
-                    waitPriMap.erase(wpiter);
-                }
-            }
-        }
-    }
-    catch (const boost::thread_interrupted&)
-    {
-        LogPrintf("GroestlcoinMiner terminated\n");
-        throw;
-    }
-    catch (const std::runtime_error &e)
-    {
-        LogPrintf("GroestlcoinMiner runtime error: %s\n", e.what());
-        return;
-    }
-    fNeedSizeAccounting = fSizeAccounting;
+			// This tx was successfully added, so
+			// add transactions that depend on this one to the priority queue to try again
+			BOOST_FOREACH(CTxMemPool::txiter child, mempool.GetMemPoolChildren(iter))
+			{
+				waitPriIter wpiter = waitPriMap.find(child);
+				if (wpiter != waitPriMap.end()) {
+					vecPriority.push_back(TxCoinAgePriority(wpiter->second, child));
+					std::push_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
+					waitPriMap.erase(wpiter);
+				}
+			}
+		}
+	}
+	fNeedSizeAccounting = fSizeAccounting;
 }
 
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce)
