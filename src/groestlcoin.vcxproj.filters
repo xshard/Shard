@@ -359,6 +359,12 @@
     <ClCompile Include="ui_interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="groestlcoin-dll.cpp">
+      <Filter>Source Files\grs</Filter>
+    </ClCompile>
+    <ClCompile Include="win-libs.cpp">
+      <Filter>Source Files\grs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

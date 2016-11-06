@@ -27,7 +27,7 @@
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
@@ -200,6 +200,7 @@
     <ClCompile Include="crypto\aes.cpp" />
     <ClCompile Include="crypto\hmac_sha256.cpp" />
     <ClCompile Include="dbwrapper.cpp" />
+    <ClCompile Include="groestlcoin-dll.cpp" />
     <ClCompile Include="groestlcoin-hash.cpp" />
     <ClCompile Include="httprpc.cpp" />
     <ClCompile Include="httpserver.cpp" />
@@ -421,6 +422,7 @@
     <ClCompile Include="wallet\rpcwallet.cpp" />
     <ClCompile Include="wallet\wallet.cpp" />
     <ClCompile Include="wallet\walletdb.cpp" />
+    <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addrman.h" />

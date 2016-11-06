@@ -21,6 +21,9 @@
     <ClCompile Include="win-libs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="groestlcoind-short.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="groestlcoind-res.rc">

@@ -13,8 +13,6 @@
 #pragma comment(lib, "openssl")
 #pragma comment(lib, "libevent")
 
-#pragma comment(lib, "groestlcoin-common")
-
 #ifdef USE_UPNP
 #	pragma comment(lib, "miniupnpc")
 #endif
@@ -54,6 +52,11 @@ Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 
 #endif
 
+#ifndef _WINDLL
+#	pragma comment(lib, "groestlcoin")
+#endif
+
+
 
 #include <windows.h>
 #undef WinMain
@@ -81,4 +84,3 @@ extern "C" {
 } // "C"
 
 #endif // USE_QT
-
