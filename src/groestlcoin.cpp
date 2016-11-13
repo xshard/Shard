@@ -327,6 +327,7 @@ public:
 		consensus.BIP34Height = 742000;
 		consensus.BIP34Hash = uint256S("0x000000000110e86e2f91a9fbbff44b3fa906e4ff6a7bad3a1eafc66e1b2b6f10");
 		consensus.BIP66Height = 742000;
+		consensus.BIP65Height = INT_MAX;	//!!!?
 
 //!!!?        consensus.nMajorityEnforceBlockUpgrade = 750;
 //!!!?        consensus.nMajorityRejectBlockOutdated = 950;
@@ -335,7 +336,9 @@ public:
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
-        /**
+        consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
+		consensus.nMinerConfirmationWindow = 2016;
+		/**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
@@ -426,11 +429,20 @@ class CTestNetParams : public CMainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
+		consensus.BIP34Height = 742000;	//!!!?
+		consensus.BIP34Hash = uint256S("0x000000000110e86e2f91a9fbbff44b3fa906e4ff6a7bad3a1eafc66e1b2b6f10");	//!!!?
+		consensus.BIP66Height = 742000;	//!!!?
+		consensus.BIP65Height = INT_MAX;	//!!!?
+
+        consensus.nPowTargetSpacing = 60;
+		consensus.fPowAllowMinDifficultyBlocks = true;
+        consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
+		consensus.nMinerConfirmationWindow = 2016;
+
 //!!!T        consensus.nMajorityEnforceBlockUpgrade = 51;
 //!!!T        consensus.nMajorityRejectBlockOutdated = 75;
 //!!!T        consensus.nMajorityWindow = 100;
 		consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-		consensus.fPowAllowMinDifficultyBlocks = true;
         pchMessageStart[0] = 0x0b;
         pchMessageStart[1] = 0x11;
         pchMessageStart[2] = 0x09;
@@ -495,6 +507,12 @@ class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
+
+        consensus.nPowTargetSpacing = 60;
+		consensus.fPowAllowMinDifficultyBlocks = true;
+        consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
+		consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+
 //!!!T        consensus.nMajorityEnforceBlockUpgrade = 750;
 //!!!T        consensus.nMajorityRejectBlockOutdated = 950;
 //!!!T        consensus.nMajorityWindow = 1000;
