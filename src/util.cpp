@@ -145,7 +145,7 @@ public:
         // that the config appears to have been loaded and there are no modules/engines available.
         OPENSSL_no_config();
 
-#ifdef WIN32
+#if defined(WIN32) && !UCFG_GRS_FAST
         // Seed OpenSSL PRNG with current contents of the screen
         RAND_screen();
 #endif

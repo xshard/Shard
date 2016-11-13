@@ -2,6 +2,8 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
+#define UCFG_GRS_FAST 1	//!!!T
+
 #define PACKAGE_NAME "Groestlcoin Core"
 
 #define CLIENT_VERSION_MAJOR 2
