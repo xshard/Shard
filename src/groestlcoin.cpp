@@ -97,24 +97,26 @@ int64_t static GetBlockSubsidy120000(int nHeight)
 
 int64_t static GetBlockSubsidy150000(int nHeight)
 {
-	// Subsidy is reduced by 1% every week (10080 blocks)
-	int64_t nSubsidy = 25 * COIN;
-	int exponent = ((nHeight - 150000) / 10080);
-	for(int i=0; i<exponent; i++)
-		nSubsidy = (nSubsidy * 99) / 100;
+	static int heightOfMinSubsidy = INT_MAX;
+	if (nHeight < heightOfMinSubsidy) {
+		// Subsidy is reduced by 1% every week (10080 blocks)
+		int64_t nSubsidy = 25 * COIN;
+		int exponent = ((nHeight - 150000) / 10080);
+		for (int i = 0; i < exponent; i++)
+			nSubsidy = (nSubsidy * 99) / 100;
 
-	return (nSubsidy < minimumSubsidy)? minimumSubsidy : nSubsidy;
+		if (nSubsidy >= minimumSubsidy)
+			return nSubsidy;
+		heightOfMinSubsidy = (min)(heightOfMinSubsidy, nHeight);
+	}
+	return minimumSubsidy;
 }
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-	if(nHeight >= 150000)
-		return GetBlockSubsidy150000(nHeight);
-
-	if(nHeight >= 120000)
-		return GetBlockSubsidy120000(nHeight);
-
-	return GetBlockSubsidy(nHeight);
+	return nHeight >= 150000 ? GetBlockSubsidy150000(nHeight)
+		: nHeight >= 120000 ? GetBlockSubsidy120000(nHeight)
+		: GetBlockSubsidy(nHeight);
 }
 
 //

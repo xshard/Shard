@@ -95,8 +95,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -120,8 +120,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -146,8 +146,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -173,7 +173,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -184,7 +184,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -206,6 +206,104 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\foreign\qrencode\bitstream.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mask.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mmask.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mqrspec.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrencode.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+      </PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrinput.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrspec.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\rscode.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\split.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
     <ClCompile Include="addrdb.cpp" />
     <ClCompile Include="blockencodings.cpp" />
     <ClCompile Include="consensus\merkle.cpp" />
@@ -218,6 +316,101 @@
     <ClCompile Include="httpserver.cpp" />
     <ClCompile Include="netaddress.cpp" />
     <ClCompile Include="policy\rbf.cpp" />
+    <ClCompile Include="qt\addressbookpage.cpp" />
+    <ClCompile Include="qt\addresstablemodel.cpp" />
+    <ClCompile Include="qt\askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\bantablemodel.cpp" />
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="qt\bitcoinamountfield.cpp" />
+    <ClCompile Include="qt\bitcoingui.cpp" />
+    <ClCompile Include="qt\bitcoinunits.cpp" />
+    <ClCompile Include="qt\clientmodel.cpp" />
+    <ClCompile Include="qt\coincontroldialog.cpp" />
+    <ClCompile Include="qt\coincontroltreewidget.cpp" />
+    <ClCompile Include="qt\csvmodelwriter.cpp" />
+    <ClCompile Include="qt\editaddressdialog.cpp" />
+    <ClCompile Include="qt\guiutil.cpp" />
+    <ClCompile Include="qt\intro.cpp" />
+    <ClCompile Include="qt\moc_addressbookpage.cpp" />
+    <ClCompile Include="qt\moc_addresstablemodel.cpp" />
+    <ClCompile Include="qt\moc_askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\moc_bantablemodel.cpp" />
+    <ClCompile Include="qt\moc_bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="qt\moc_bitcoinamountfield.cpp" />
+    <ClCompile Include="qt\moc_bitcoingui.cpp" />
+    <ClCompile Include="qt\moc_bitcoinunits.cpp" />
+    <ClCompile Include="qt\moc_clientmodel.cpp" />
+    <ClCompile Include="qt\moc_coincontroldialog.cpp" />
+    <ClCompile Include="qt\moc_coincontroltreewidget.cpp" />
+    <ClCompile Include="qt\moc_csvmodelwriter.cpp" />
+    <ClCompile Include="qt\moc_editaddressdialog.cpp" />
+    <ClCompile Include="qt\moc_guiutil.cpp" />
+    <ClCompile Include="qt\moc_intro.cpp" />
+    <ClCompile Include="qt\moc_modaloverlay.cpp" />
+    <ClCompile Include="qt\moc_notificator.cpp" />
+    <ClCompile Include="qt\moc_openuridialog.cpp" />
+    <ClCompile Include="qt\moc_optionsdialog.cpp" />
+    <ClCompile Include="qt\moc_optionsmodel.cpp" />
+    <ClCompile Include="qt\moc_overviewpage.cpp" />
+    <ClCompile Include="qt\moc_paymentserver.cpp" />
+    <ClCompile Include="qt\moc_peertablemodel.cpp" />
+    <ClCompile Include="qt\moc_qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp" />
+    <ClCompile Include="qt\moc_receivecoinsdialog.cpp" />
+    <ClCompile Include="qt\moc_receiverequestdialog.cpp" />
+    <ClCompile Include="qt\moc_recentrequeststablemodel.cpp" />
+    <ClCompile Include="qt\moc_rpcconsole.cpp" />
+    <ClCompile Include="qt\moc_sendcoinsdialog.cpp" />
+    <ClCompile Include="qt\moc_sendcoinsentry.cpp" />
+    <ClCompile Include="qt\moc_signverifymessagedialog.cpp" />
+    <ClCompile Include="qt\moc_splashscreen.cpp" />
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\moc_transactiondesc.cpp" />
+    <ClCompile Include="qt\moc_transactiondescdialog.cpp" />
+    <ClCompile Include="qt\moc_transactionfilterproxy.cpp" />
+    <ClCompile Include="qt\moc_transactiontablemodel.cpp" />
+    <ClCompile Include="qt\moc_transactionview.cpp" />
+    <ClCompile Include="qt\moc_utilitydialog.cpp" />
+    <ClCompile Include="qt\moc_walletframe.cpp" />
+    <ClCompile Include="qt\moc_walletmodel.cpp" />
+    <ClCompile Include="qt\moc_walletview.cpp" />
+    <ClCompile Include="qt\modaloverlay.cpp" />
+    <ClCompile Include="qt\networkstyle.cpp" />
+    <ClCompile Include="qt\notificator.cpp" />
+    <ClCompile Include="qt\openuridialog.cpp" />
+    <ClCompile Include="qt\optionsdialog.cpp" />
+    <ClCompile Include="qt\optionsmodel.cpp" />
+    <ClCompile Include="qt\overviewpage.cpp" />
+    <ClCompile Include="qt\paymentrequest.pb.cc" />
+    <ClCompile Include="qt\paymentrequestplus.cpp" />
+    <ClCompile Include="qt\paymentserver.cpp" />
+    <ClCompile Include="qt\peertablemodel.cpp" />
+    <ClCompile Include="qt\platformstyle.cpp" />
+    <ClCompile Include="qt\qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\qvaluecombobox.cpp" />
+    <ClCompile Include="qt\receivecoinsdialog.cpp" />
+    <ClCompile Include="qt\receiverequestdialog.cpp" />
+    <ClCompile Include="qt\recentrequeststablemodel.cpp" />
+    <ClCompile Include="qt\res_bitcoin.cpp" />
+    <ClCompile Include="qt\res_bitcoin_locale.cpp" />
+    <ClCompile Include="qt\rpcconsole.cpp" />
+    <ClCompile Include="qt\sendcoinsdialog.cpp" />
+    <ClCompile Include="qt\sendcoinsentry.cpp" />
+    <ClCompile Include="qt\signverifymessagedialog.cpp" />
+    <ClCompile Include="qt\splashscreen.cpp" />
+    <ClCompile Include="qt\trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\transactiondesc.cpp" />
+    <ClCompile Include="qt\transactiondescdialog.cpp" />
+    <ClCompile Include="qt\transactionfilterproxy.cpp" />
+    <ClCompile Include="qt\transactionrecord.cpp" />
+    <ClCompile Include="qt\transactiontablemodel.cpp" />
+    <ClCompile Include="qt\transactionview.cpp" />
+    <ClCompile Include="qt\utilitydialog.cpp" />
+    <ClCompile Include="qt\walletframe.cpp" />
+    <ClCompile Include="qt\walletmodel.cpp" />
+    <ClCompile Include="qt\walletmodeltransaction.cpp" />
+    <ClCompile Include="qt\walletview.cpp" />
+    <ClCompile Include="qt\winshutdownmonitor.cpp" />
     <ClCompile Include="rpc\blockchain.cpp" />
     <ClCompile Include="rpc\client.cpp" />
     <ClCompile Include="rpc\mining.cpp" />

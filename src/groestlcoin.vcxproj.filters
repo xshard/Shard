@@ -75,6 +75,18 @@
     <Filter Include="Source Files\rpc">
       <UniqueIdentifier>{4855b9e4-32d4-488c-a15e-2a91f1d602e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\qt">
+      <UniqueIdentifier>{5b3136ef-5099-46d2-ba15-1f4c2b2d900b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qt\moc">
+      <UniqueIdentifier>{39c1ac14-cd4f-41bd-971e-27afc444fdcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qt\protobuf">
+      <UniqueIdentifier>{dc29137c-070e-46e6-a151-83646e540e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qrencode">
+      <UniqueIdentifier>{d6982f6d-6a52-4b09-9518-f8c2581c08d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -364,6 +376,318 @@
     </ClCompile>
     <ClCompile Include="win-libs.cpp">
       <Filter>Source Files\grs</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\addressbookpage.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\addresstablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\askpassphrasedialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bantablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinamountfield.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoingui.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinunits.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\clientmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\coincontroldialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\coincontroltreewidget.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\csvmodelwriter.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\editaddressdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\guiutil.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\intro.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\modaloverlay.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\networkstyle.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\notificator.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\openuridialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\optionsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\optionsmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\overviewpage.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentrequestplus.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentserver.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\peertablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\platformstyle.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\qvalidatedlineedit.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\qvaluecombobox.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\receivecoinsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\receiverequestdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\recentrequeststablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\rpcconsole.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\sendcoinsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\sendcoinsentry.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\signverifymessagedialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\splashscreen.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\trafficgraphwidget.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactiondesc.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactiondescdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactionfilterproxy.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactionrecord.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactiontablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactionview.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\utilitydialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletframe.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletmodeltransaction.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletview.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\winshutdownmonitor.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_addressbookpage.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_addresstablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_askpassphrasedialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bantablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinaddressvalidator.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinamountfield.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoingui.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinunits.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_clientmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_coincontroldialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_coincontroltreewidget.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_csvmodelwriter.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_editaddressdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_guiutil.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_intro.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_modaloverlay.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_notificator.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_openuridialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_optionsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_optionsmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_overviewpage.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_paymentserver.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_peertablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_qvalidatedlineedit.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_receivecoinsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_receiverequestdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_recentrequeststablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_rpcconsole.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_sendcoinsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_sendcoinsentry.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_signverifymessagedialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_splashscreen.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactiondesc.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactiondescdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactionfilterproxy.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactiontablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactionview.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_utilitydialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_walletframe.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_walletmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_walletview.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentrequest.pb.cc">
+      <Filter>Source Files\qt\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\bitstream.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mask.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mmask.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mqrspec.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrencode.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrinput.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrspec.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\rscode.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\split.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin_locale.cpp">
+      <Filter>Source Files\qt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

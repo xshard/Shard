@@ -495,7 +495,6 @@ std::string LicenseInfo()
     const std::string URL_WEBSITE = "<https://groestlcoin.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
-			strprintf(_("Copyright (C) 2014-%i The Groestlcoin Core Developers"), COPYRIGHT_YEAR) + "\n" +
            "\n" +
            strprintf(_("Please contribute if you find %s useful. "
                        "Visit %s for further information about the software."),

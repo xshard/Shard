@@ -13,7 +13,7 @@
 
 #define BUILD_DESC "v2.13.0"
 
-#define COPYRIGHT_HOLDERS "The Groestlcoin Core developers"
+#define COPYRIGHT_HOLDERS "The %s developers"
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
 #define COPYRIGHT_HOLDERS_SUBSTITUTION "Groestlcoin Core"
 

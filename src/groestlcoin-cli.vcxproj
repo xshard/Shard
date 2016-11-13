@@ -78,15 +78,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
     <ClCompile>
@@ -108,9 +112,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir);..\x86_libs</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>groestlcoin.lib</AdditionalDependencies>
+      <EntryPointSymbol>GroestlcoinCliEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
     <ClCompile>
@@ -132,9 +140,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir);..\x64_libs</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>groestlcoin.lib</AdditionalDependencies>
+      <EntryPointSymbol>GroestlcoinCliEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
     <ClCompile>
@@ -157,9 +167,11 @@
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <AdditionalLibraryDirectories>$(OutDir);..\x86_libs</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>groestlcoin.lib</AdditionalDependencies>
+      <EntryPointSymbol>GroestlcoinCliEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
@@ -193,15 +205,12 @@
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <AdditionalLibraryDirectories>$(OutDir);..\x64_libs</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>groestlcoin.lib</AdditionalDependencies>
+      <EntryPointSymbol>GroestlcoinCliEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="groestlcoin-cli.cpp" />
-    <ClCompile Include="rpc\client.cpp" />
-    <ClCompile Include="win-libs.cpp" />
-  </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="groestlcoin-cli-res.rc" />
   </ItemGroup>
