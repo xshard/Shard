@@ -223,8 +223,8 @@ AC_ARG_WITH([utils],
 AC_ARG_WITH([libs],
   [AS_HELP_STRING([--with-libs],
   [build libraries (default=yes)])],
-  [build_groestlcoin_libs=$withval],
-  [build_groestlcoin_libs=yes])
+  [build_bitcoin_libs=$withval],
+  [build_bitcoin_libs=yes])
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
@@ -882,12 +882,12 @@ AM_CONDITIONAL([BUILD_GROESTLCOIN_UTILS], [test x$build_groestlcoin_utils = xyes
 AC_MSG_RESULT($build_groestlcoin_utils)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_GROESTLCOIN_LIBS], [test x$build_groestlcoin_libs = xyes])
-if test x$build_groestlcoin_libs = xyes; then
+AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_bitcoin_libs = xyes])
+if test x$build_bitcoin_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
   AC_CONFIG_FILES([libgroestlcoinconsensus.pc:libgroestlcoinconsensus.pc.in])
 fi
-AC_MSG_RESULT($build_groestlcoin_libs)
+AC_MSG_RESULT($build_bitcoin_libs)
 
 AC_LANG_POP
 
@@ -1005,7 +1005,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test x$build_groestlcoin_utils$build_groestlcoin_libs$build_groestlcoind$bitcoin_enable_qt$use_bench$use_tests = xnononononono; then
+if test x$build_groestlcoin_utils$build_bitcoin_libs$build_groestlcoind$bitcoin_enable_qt$use_bench$use_tests = xnononononono; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --with-utils --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
 fi
 
