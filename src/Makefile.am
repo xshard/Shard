@@ -19,18 +19,18 @@ LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
 GROESTLCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-GROESTLCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-GROESTLCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
-GROESTLCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
+BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
 LIBBITCOIN_SERVER=libgroestlcoin_server.a
 LIBBITCOIN_COMMON=libgroestlcoin_common.a
-LIBGROESTLCOIN_CONSENSUS=libgroestlcoin_consensus.a
-LIBGROESTLCOIN_CLI=libgroestlcoin_cli.a
-LIBGROESTLCOIN_UTIL=libgroestlcoin_util.a
-LIBGROESTLCOIN_CRYPTO=crypto/libgroestlcoin_crypto.a
-LIBGROESTLCOINQT=qt/libgroestlcoinqt.a
+LIBBITCOIN_CONSENSUS=libgroestlcoin_consensus.a
+LIBBITCOIN_CLI=libgroestlcoin_cli.a
+LIBBITCOIN_UTIL=libgroestlcoin_util.a
+LIBBITCOIN_CRYPTO=crypto/libgroestlcoin_crypto.a
+LIBBITCOINQT=qt/libgroestlcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
@@ -74,7 +74,7 @@ endif
 
 .PHONY: FORCE check-symbols check-security
 # bitcoin core #
-GROESTLCOIN_CORE_H = \
+BITCOIN_CORE_H = \
   addrdb.h \
   addrman.h \
   base58.h \
@@ -170,7 +170,7 @@ obj/build.h: FORCE
 libgroestlcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
 # server: shared between bitcoind and bitcoin-qt
-libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libgroestlcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -309,12 +309,12 @@ libgroestlcoin_common_a_SOURCES = \
   scheduler.cpp \
   script/sign.cpp \
   script/standard.cpp \
-  $(GROESTLCOIN_CORE_H)
+  $(BITCOIN_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libgroestlcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES)
+libgroestlcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libgroestlcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_util_a_SOURCES = \
   support/pagelocker.cpp \
@@ -331,25 +331,25 @@ libgroestlcoin_util_a_SOURCES = \
   utilmoneystr.cpp \
   utilstrencodings.cpp \
   utiltime.cpp \
-  $(GROESTLCOIN_CORE_H)
+  $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
 libgroestlcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between bitcoin-cli and bitcoin-qt
-libgroestlcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES)
+# cli: shared between groestlcoin-cli and groestlcoin-qt
+libgroestlcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libgroestlcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_cli_a_SOURCES = \
   rpc/client.cpp \
-  $(GROESTLCOIN_CORE_H)
+  $(BITCOIN_CORE_H)
 
 nodist_libgroestlcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
 groestlcoind_SOURCES = groestlcoind.cpp
-groestlcoind_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES)
+groestlcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 groestlcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 groestlcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -361,11 +361,11 @@ groestlcoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
-  $(LIBGROESTLCOIN_UTIL) \
-  $(LIBGROESTLCOIN_WALLET) \
-  $(LIBGROESTLCOIN_ZMQ) \
-  $(LIBGROESTLCOIN_CONSENSUS) \
-  $(LIBGROESTLCOIN_CRYPTO) \
+  $(LIBBITCOIN_UTIL) \
+  $(LIBBITCOIN_WALLET) \
+  $(LIBBITCOIN_ZMQ) \
+  $(LIBBITCOIN_CONSENSUS) \
+  $(LIBBITCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
@@ -373,8 +373,8 @@ groestlcoind_LDADD = \
 groestlcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # groestlcoin-cli binary #
-groestlcoin_cli_SOURCES = bitcoin-cli.cpp
-groestlcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES) $(EVENT_CFLAGS)
+groestlcoin_cli_SOURCES = groestlcoin-cli.cpp
+groestlcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 groestlcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 groestlcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -392,8 +392,8 @@ groestlcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # groestlcoin-tx binary #
-groestlcoin_tx_SOURCES = bitcoin-tx.cpp
-groestlcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES)
+groestlcoin_tx_SOURCES = groestlcoin-tx.cpp
+groestlcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 groestlcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 groestlcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
@@ -404,9 +404,9 @@ endif
 groestlcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
-  $(LIBGROESTLCOIN_UTIL) \
-  $(LIBGROESTLCOIN_CONSENSUS) \
-  $(LIBGROESTLCOIN_CRYPTO) \
+  $(LIBBITCOIN_UTIL) \
+  $(LIBBITCOIN_CONSENSUS) \
+  $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
 groestlcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
