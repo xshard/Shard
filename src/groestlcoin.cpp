@@ -489,7 +489,7 @@ public:
 #ifdef _MSC_VER
 		checkpointData = CCheckpointData{
 #else
-		checkpointData = CCheckpointData){
+		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
 			(0, uint256S("000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")),

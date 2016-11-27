@@ -24,8 +24,8 @@ GROESTLCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPP
 GROESTLCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 GROESTLCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBGROESTLCOIN_SERVER=libgroestlcoin_server.a
-LIBGROESTLCOIN_COMMON=libgroestlcoin_common.a
+LIBBITCOIN_SERVER=libgroestlcoin_server.a
+LIBBITCOIN_COMMON=libgroestlcoin_common.a
 LIBGROESTLCOIN_CONSENSUS=libgroestlcoin_consensus.a
 LIBGROESTLCOIN_CLI=libgroestlcoin_cli.a
 LIBGROESTLCOIN_UTIL=libgroestlcoin_util.a
@@ -37,10 +37,10 @@ if ENABLE_ZMQ
 LIBBITCOIN_ZMQ=libgroestlcoin_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libbitcoinconsensus.la
+LIBBITCOINCONSENSUS=libgroestlcoinconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libbitcoin_wallet.a
+LIBBITCOIN_WALLET=libgroestlcoin_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -210,9 +210,9 @@ libgroestlcoin_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libbitcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libbitcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libbitcoin_zmq_a_SOURCES = \
+libgroestlcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libgroestlcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libgroestlcoin_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
@@ -234,9 +234,9 @@ libgroestlcoin_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libbitcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES)
-crypto_libbitcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libbitcoin_crypto_a_SOURCES = \
+crypto_libgroestlcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES)
+crypto_libgroestlcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libgroestlcoin_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/common.h \
@@ -254,9 +254,9 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.h
 
 # consensus: shared between all executables that validate any consensus rules.
-libbitcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libbitcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libbitcoin_consensus_a_SOURCES = \
+libgroestlcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libgroestlcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libgroestlcoin_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -273,7 +273,7 @@ libbitcoin_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/bitcoinconsensus.cpp \
+  script/groestlcoinconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -348,7 +348,7 @@ nodist_libgroestlcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-groestlcoind_SOURCES = bitcoind.cpp
+groestlcoind_SOURCES = groestlcoind.cpp
 groestlcoind_CPPFLAGS = $(AM_CPPFLAGS) $(GROESTLCOIN_INCLUDES)
 groestlcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 groestlcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
@@ -358,8 +358,8 @@ groestlcoind_SOURCES += groestlcoind-res.rc
 endif
 
 groestlcoind_LDADD = \
-  $(LIBGROESTLCOIN_SERVER) \
-  $(LIBGROESTLCOIN_COMMON) \
+  $(LIBBITCOIN_SERVER) \
+  $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
   $(LIBGROESTLCOIN_UTIL) \
   $(LIBGROESTLCOIN_WALLET) \
@@ -382,13 +382,13 @@ if TARGET_WINDOWS
 groestlcoin_cli_SOURCES += groestlcoin-cli-res.rc
 endif
 
-bitcoin_cli_LDADD = \
+groestlcoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-bitcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+groestlcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # groestlcoin-tx binary #
@@ -403,7 +403,7 @@ endif
 
 groestlcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBGROESTLCOIN_COMMON) \
+  $(LIBBITCOIN_COMMON) \
   $(LIBGROESTLCOIN_UTIL) \
   $(LIBGROESTLCOIN_CONSENSUS) \
   $(LIBGROESTLCOIN_CRYPTO) \
@@ -414,8 +414,8 @@ groestlcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 
 # bitcoinconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/bitcoinconsensus.h
-libgroestlcoinconsensus_la_SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) $(libbitcoin_consensus_a_SOURCES)
+include_HEADERS = script/groestlcoinconsensus.h
+libgroestlcoinconsensus_la_SOURCES = $(crypto_libgroestlcoin_crypto_a_SOURCES) $(libgroestlcoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
   libgroestlcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
