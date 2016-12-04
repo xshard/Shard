@@ -2623,7 +2623,8 @@ void CConnman::PushMessage(CNode* pnode, CSerializedNetMsg&& msg)
 
     std::vector<unsigned char> serializedHeader;
     serializedHeader.reserve(CMessageHeader::HEADER_SIZE);
-    uint256 hash = Hash(msg.data.data(), msg.data.data() + nMessageSize);
+	//GRS
+	uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data.data(), msg.data.data() + nMessageSize));
     CMessageHeader hdr(Params().MessageStart(), msg.command.c_str(), nMessageSize);
     memcpy(hdr.pchChecksum, hash.begin(), CMessageHeader::CHECKSUM_SIZE);
 
@@ -2631,27 +2632,6 @@ void CConnman::PushMessage(CNode* pnode, CSerializedNetMsg&& msg)
 
     size_t nBytesSent = 0;
     {
-/*<<<<<<< HEAD
-        LEAVE_CRITICAL_SECTION(cs_vSend);
-        return;
-    }
-    // Set the size
-    unsigned int nSize = ssSend.size() - CMessageHeader::HEADER_SIZE;
-    WriteLE32((uint8_t*)&ssSend[CMessageHeader::MESSAGE_SIZE_OFFSET], nSize);
-
-    //log total amount of bytes per command
-    mapSendBytesPerMsgCmd[std::string(pszCommand)] += nSize + CMessageHeader::HEADER_SIZE;
-
-    // Set the checksum
-	//GRS
-    uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(ssSend.begin() + CMessageHeader::HEADER_SIZE, ssSend.end()));
-    unsigned int nChecksum = 0;
-    memcpy(&nChecksum, &hash, sizeof(nChecksum));
-    assert(ssSend.size () >= CMessageHeader::CHECKSUM_OFFSET + sizeof(nChecksum));
-    memcpy((char*)&ssSend[CMessageHeader::CHECKSUM_OFFSET], &nChecksum, sizeof(nChecksum));
-
-    LogPrint("net", "(%d bytes) peer=%d\n", nSize, id);
-=======*/
         LOCK(pnode->cs_vSend);
         if(pnode->hSocket == INVALID_SOCKET) {
             return;

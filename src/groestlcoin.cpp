@@ -287,7 +287,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 	genesis.nBits    = nBits;
 	genesis.nNonce   = nNonce;
 	genesis.nVersion = nVersion;
-	genesis.vtx.push_back(txNew);
+	genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
 	genesis.hashPrevBlock.SetNull();
 	genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 	return genesis;
@@ -403,10 +403,9 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-        fTestnetToBeDeprecatedFieldRPC = false;
 
 #ifdef _MSC_VER //!!!
-		checkpointData = CCheckpointData{
+		checkpointData = CCheckpointData {
 #else
 		checkpointData = (CCheckpointData){
 #endif
@@ -483,7 +482,6 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
-        fTestnetToBeDeprecatedFieldRPC = true;
 
 
 #ifdef _MSC_VER
@@ -533,7 +531,6 @@ public:
         fDefaultConsistencyChecks = true;
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
-        fTestnetToBeDeprecatedFieldRPC = false;
 
 		/*!!!R
 #ifdef _MSC_VER

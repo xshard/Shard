@@ -33,6 +33,8 @@ struct CCheckpointData {
     double fTransactionsPerDay;
 };
 
+typedef std::vector<std::vector<unsigned char> > CAlertKeys;	//GRS
+
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
  * Bitcoin system. There are three: the main network on which people trade goods

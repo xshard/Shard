@@ -92,9 +92,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="amount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -241,9 +238,6 @@
     </ClCompile>
     <ClCompile Include="crypto\hmac_sha512.cpp">
       <Filter>Source Files\crypto</Filter>
-    </ClCompile>
-    <ClCompile Include="support\pagelocker.cpp">
-      <Filter>Source Files\support</Filter>
     </ClCompile>
     <ClCompile Include="crypto\sha512.cpp">
       <Filter>Source Files\crypto</Filter>
@@ -703,6 +697,15 @@
     </ClCompile>
     <ClCompile Include="groestlcoind.cpp">
       <Filter>Header Files\grs\inc</Filter>
+    </ClCompile>
+    <ClCompile Include="support\lockedpool.cpp">
+      <Filter>Source Files\support</Filter>
+    </ClCompile>
+    <ClCompile Include="validation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="net_processing.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

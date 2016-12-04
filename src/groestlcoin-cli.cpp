@@ -26,7 +26,7 @@
 
 static const char DEFAULT_RPCCONNECT[] = "127.0.0.1";
 static const int DEFAULT_HTTP_CLIENT_TIMEOUT=900;
-static const int CONTINUE_EXECUTION=-1;
+#define CONTINUE_EXECUTION 1 //GRS
 
 std::string HelpMessageCli()
 {

@@ -333,6 +333,7 @@
     <ClCompile Include="httprpc.cpp" />
     <ClCompile Include="httpserver.cpp" />
     <ClCompile Include="netaddress.cpp" />
+    <ClCompile Include="net_processing.cpp" />
     <ClCompile Include="policy\rbf.cpp" />
     <ClCompile Include="qt\addressbookpage.cpp" />
     <ClCompile Include="qt\addresstablemodel.cpp" />
@@ -564,7 +565,6 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="keystore.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="merkleblock.cpp" />
     <ClCompile Include="miner.cpp" />
     <ClCompile Include="net.cpp">
@@ -629,7 +629,7 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">stdafx.h</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="support\cleanse.cpp" />
-    <ClCompile Include="support\pagelocker.cpp" />
+    <ClCompile Include="support\lockedpool.cpp" />
     <ClCompile Include="timedata.cpp" />
     <ClCompile Include="torcontrol.cpp" />
     <ClCompile Include="txdb.cpp" />
@@ -643,6 +643,7 @@
     <ClCompile Include="utilmoneystr.cpp" />
     <ClCompile Include="utilstrencodings.cpp" />
     <ClCompile Include="utiltime.cpp" />
+    <ClCompile Include="validation.cpp" />
     <ClCompile Include="validationinterface.cpp" />
     <ClCompile Include="versionbits.cpp" />
     <ClCompile Include="wallet\crypter.cpp" />

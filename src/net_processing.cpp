@@ -43,7 +43,7 @@ int64_t nTimeBestReceived = 0; // Used only to inform the wallet of when we last
 struct IteratorComparator
 {
     template<typename I>
-    bool operator()(const I& a, const I& b)
+    bool operator()(const I& a, const I& b) const //!!!P
     {
         return &(*a) < &(*b);
     }
