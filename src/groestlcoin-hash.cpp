@@ -77,11 +77,23 @@ MessageHasher::MessageHasher() {
 	sph_groestl512_init(c);
 }
 
-MessageHasher::~MessageHasher() {
-	delete (sph_groestl512_context*)ctx;
-
+MessageHasher::MessageHasher(MessageHasher&& x)
+	:	ctx(x.ctx)
+{
+	x.ctx = 0;
 }
 
+MessageHasher::~MessageHasher() {
+	delete (sph_groestl512_context*)ctx;
+}
+
+MessageHasher& MessageHasher::operator=(MessageHasher&& x)
+{
+	delete (sph_groestl512_context*)ctx;
+	ctx = x.ctx;
+	x.ctx = 0;
+	return *this;
+}
 
 } // XCoin::
 

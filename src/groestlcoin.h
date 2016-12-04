@@ -56,7 +56,9 @@ public:
 	void Finalize(unsigned char hash[32]);
 	MessageHasher& Write(const unsigned char *data, size_t len);
 	MessageHasher();
+	MessageHasher(MessageHasher&& x);
 	~MessageHasher();
+	MessageHasher& operator=(MessageHasher&& x);
 };
 
 
