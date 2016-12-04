@@ -25,15 +25,15 @@ uint256 HashGroestl(const ConstBuf& cbuf) {
     sph_groestl512_context  ctx_gr[2];
     static unsigned char pblank[1];
     uint256 hash[4];
-	
+
     sph_groestl512_init(&ctx_gr[0]);
     sph_groestl512 (&ctx_gr[0], cbuf.P ? cbuf.P : pblank, cbuf.Size);
     sph_groestl512_close(&ctx_gr[0], static_cast<void*>(&hash[0]));
-	
+
 	sph_groestl512_init(&ctx_gr[1]);
 	sph_groestl512(&ctx_gr[1],static_cast<const void*>(&hash[0]), 64);
 	sph_groestl512_close(&ctx_gr[1],static_cast<void*>(&hash[2]));
-	
+
     return hash[2];
 }
 
@@ -51,6 +51,35 @@ uint256 HashForSignature(const ConstBuf& cbuf) {
 	uint256 r;
 	sha.Finalize((unsigned char*)&r);
 	return r;
+}
+
+void MessageHasher::Finalize(unsigned char h[32]) {
+	auto c = (sph_groestl512_context*)ctx;
+	uint256 hash[4];
+	sph_groestl512_close(c, static_cast<void*>(&hash[0]));
+
+	sph_groestl512_context  c2;
+	sph_groestl512_init(&c2);
+	sph_groestl512(&c2, static_cast<const void*>(&hash[0]), 64);
+	sph_groestl512_close(&c2, static_cast<void*>(&hash[2]));
+	memcpy(h, static_cast<void*>(&hash[2]), 32);
+}
+
+MessageHasher& MessageHasher::Write(const unsigned char *data, size_t len) {
+	auto c = (sph_groestl512_context*)ctx;
+	sph_groestl512(c, data, len);
+	return *this;
+}
+
+MessageHasher::MessageHasher() {
+	auto c = new sph_groestl512_context;
+	ctx = c;
+	sph_groestl512_init(c);
+}
+
+MessageHasher::~MessageHasher() {
+	delete (sph_groestl512_context*)ctx;
+
 }
 
 

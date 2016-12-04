@@ -865,9 +865,6 @@
     <ClInclude Include="script\standard.h">
       <Filter>Header Files\script</Filter>
     </ClInclude>
-    <ClInclude Include="ecwrapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="script\script_error.h">
       <Filter>Header Files\script</Filter>
     </ClInclude>

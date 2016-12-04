@@ -49,6 +49,15 @@ inline uint256 HashMessage(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 inline uint256 HashForAddress(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 
 
+class MessageHasher {
+private:
+	void *ctx;
+public:
+	void Finalize(unsigned char hash[32]);
+	MessageHasher& Write(const unsigned char *data, size_t len);
+	MessageHasher();
+	~MessageHasher();
+};
 
 
 } // XCoin::

@@ -675,7 +675,6 @@
     <ClInclude Include="crypto\sha256.h" />
     <ClInclude Include="crypto\sha512.h" />
     <ClInclude Include="eccryptoverify.h" />
-    <ClInclude Include="ecwrapper.h" />
     <ClInclude Include="groestlcoin.h" />
     <ClInclude Include="grs-config.h" />
     <ClInclude Include="hash.h" />
