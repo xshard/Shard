@@ -87,6 +87,9 @@
     <Filter Include="Source Files\qrencode">
       <UniqueIdentifier>{d6982f6d-6a52-4b09-9518-f8c2581c08d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\grs\inc">
+      <UniqueIdentifier>{bb2e4e65-7fab-4cce-b17b-933c3d1a38b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -688,6 +691,18 @@
     </ClCompile>
     <ClCompile Include="qt\res_bitcoin_locale.cpp">
       <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoin.cpp">
+      <Filter>Header Files\grs\inc</Filter>
+    </ClCompile>
+    <ClCompile Include="groestlcoin-cli.cpp">
+      <Filter>Header Files\grs\inc</Filter>
+    </ClCompile>
+    <ClCompile Include="groestlcoin-tx.cpp">
+      <Filter>Header Files\grs\inc</Filter>
+    </ClCompile>
+    <ClCompile Include="groestlcoind.cpp">
+      <Filter>Header Files\grs\inc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

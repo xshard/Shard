@@ -310,8 +310,26 @@
     <ClCompile Include="crypto\aes.cpp" />
     <ClCompile Include="crypto\hmac_sha256.cpp" />
     <ClCompile Include="dbwrapper.cpp" />
+    <ClCompile Include="groestlcoin-cli.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="groestlcoin-dll.cpp" />
     <ClCompile Include="groestlcoin-hash.cpp" />
+    <ClCompile Include="groestlcoin-tx.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="groestlcoind.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="httprpc.cpp" />
     <ClCompile Include="httpserver.cpp" />
     <ClCompile Include="netaddress.cpp" />
@@ -320,6 +338,12 @@
     <ClCompile Include="qt\addresstablemodel.cpp" />
     <ClCompile Include="qt\askpassphrasedialog.cpp" />
     <ClCompile Include="qt\bantablemodel.cpp" />
+    <ClCompile Include="qt\bitcoin.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="qt\bitcoinaddressvalidator.cpp" />
     <ClCompile Include="qt\bitcoinamountfield.cpp" />
     <ClCompile Include="qt\bitcoingui.cpp" />
