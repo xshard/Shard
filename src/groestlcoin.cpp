@@ -123,7 +123,6 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 // minimum amount of work that could possibly be required nTime after
 // minimum work required was nBase
 //
-static const int64_t nTargetTimespan = 86400; //1 day
 static const int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
 
 //!!!BUG this function is non-deterministic  because FP-arithetics
