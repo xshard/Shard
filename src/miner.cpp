@@ -508,38 +508,6 @@ void BlockAssembler::addPackageTxs()
     }
 }
 
-//
-// ScanHash scans nonces looking for a hash with at least some zero bits.
-// The nonce is usually preserved between calls, but periodically or if the
-// nonce is 0xffff0000 or above, the block is rebuilt and nNonce starts over at
-// zero.
-//
-bool static ScanHash(const CBlockHeader *pblock, uint32_t& nNonce, uint256 *phash)
-{
-	// Write the first 76 bytes of the block header to a double-SHA256 state.
-	CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-	ss << *pblock;
-	assert(ss.size() == 80);
-
-	//GRS
-	uint32_t buf[20];
-	memcpy(buf, &ss.begin()[0], 80);
-	while (true) {
-		nNonce++;
-		buf[19] = nNonce;
-		*phash = XCoin::HashPow(XCoin::ConstBuf(buf, buf + 20));
-
-		// Return the nonce if the hash has at least some zero bits,
-		// caller will check if it has enough to reach the target
-		if (((uint16_t*)phash)[15] == 0)
-			return true;
-
-		// If nothing found after trying for a while, return -1
-		if ((nNonce & 0xfff) == 0)
-			return false;
-	}
-}
-
 void BlockAssembler::addPriorityTxs()
 {
 	// How much of the block should be dedicated to high-priority transactions,
