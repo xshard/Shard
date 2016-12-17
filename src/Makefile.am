@@ -64,7 +64,7 @@ bin_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_GROESTLCOIND
+if BUILD_BITCOIND
   bin_PROGRAMS += groestlcoind
 endif
 

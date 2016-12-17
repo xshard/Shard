@@ -582,10 +582,10 @@ if test x$use_upnp != xno; then
   )
 fi
 
-GROESTLCOIN_QT_INIT
+BITCOIN_QT_INIT
 
 dnl sets $groestlcoin_enable_qt, $groestlcoin_enable_qt_test, $groestlcoin_enable_qt_dbus
-GROESTLCOIN_QT_CONFIGURE([$use_pkgconfig], [qt5])
+BITCOIN_QT_CONFIGURE([$use_pkgconfig], [qt5])
 
 if test x$build_groestlcoin_utils$build_groestlcoind$groestlcoin_enable_qt$use_tests$use_bench = xnonononono; then
     use_boost=no
@@ -765,9 +765,9 @@ if test x$use_pkgconfig = xyes; then
     [
       PKG_CHECK_MODULES([SSL], [libssl],, [AC_MSG_ERROR(openssl  not found.)])
       PKG_CHECK_MODULES([CRYPTO], [libcrypto],,[AC_MSG_ERROR(libcrypto  not found.)])
-      GROESTLCOIN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [GROESTLCOIN_QT_FAIL(libprotobuf not found)])])
+      BITCOIN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [BITCOIN_QT_FAIL(libprotobuf not found)])])
       if test x$use_qr != xno; then
-        GROESTLCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+        BITCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
       fi
       if test x$build_bitcoin_utils$build_bitcoind$bitcoin_enable_qt$use_tests != xnononono; then
         PKG_CHECK_MODULES([EVENT], [libevent],, [AC_MSG_ERROR(libevent not found.)])
@@ -825,10 +825,10 @@ else
     esac
   fi
 
-  GROESTLCOIN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], GROESTLCOIN_QT_FAIL(libprotobuf not found)))
+  BITCOIN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], BITCOIN_QT_FAIL(libprotobuf not found)))
   if test x$use_qr != xno; then
-    GROESTLCOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
-    GROESTLCOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
+    BITCOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
+    BITCOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
   fi
 fi
 
@@ -880,10 +880,10 @@ AM_CONDITIONAL([EMBEDDED_UNIVALUE],[test x$need_bundled_univalue = xyes])
 AC_SUBST(UNIVALUE_CFLAGS)
 AC_SUBST(UNIVALUE_LIBS)
 
-GROESTLCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
+BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
 AC_MSG_CHECKING([whether to build groestlcoind])
-AM_CONDITIONAL([BUILD_GROESTLCOIND], [test x$build_groestlcoind = xyes])
+AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_groestlcoind = xyes])
 AC_MSG_RESULT($build_groestlcoind)
 
 AC_MSG_CHECKING([whether to build utils (groestlcoin-cli groestlcoin-tx)])
