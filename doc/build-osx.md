@@ -60,13 +60,10 @@ Before running, it's recommended you create an RPC configuration file.
 The first time you run bitcoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
+    tail -f $HOME/Library/Application\ Support/Groestlcoin/debug.log
 
-<<<<<<< HEAD
 Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Groestlcoin-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
-=======
-    tail -f $HOME/Library/Application\ Support/Bitcoin/debug.log
->>>>>>> upstream/master
 
 Other commands:
 -------
