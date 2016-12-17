@@ -37,8 +37,10 @@ share/qt/Info.plist
 
 src/univalue/gen
 
+src/*.vcxproj.user
 src/qt/*.moc
 src/qt/moc_*.cpp
+src/qt/ui_*.h
 src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
@@ -111,3 +113,26 @@ qa/cache/*
 
 libbitcoinconsensus.pc
 contrib/devtools/split-debug.sh
+
+src/qt/res_bitcoin.cpp
+src/qt/res_bitcoin_locale.cpp
+src/*.aps
+
+my-groestlcoin.sln
+.vs
+*.cmd
+*.msi
+*.wixobj
+*.wixpdb
+upload.mak
+
+AppData
+inc
+obj
+tags
+x64_D_St
+x64_R_St
+x64_libs
+x86_D_St
+x86_R_St
+x86_libs
