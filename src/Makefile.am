@@ -68,7 +68,7 @@ if BUILD_BITCOIND
   bin_PROGRAMS += groestlcoind
 endif
 
-if BUILD_GROESTLCOIN_UTILS
+if BUILD_BITCOIN_UTILS
   bin_PROGRAMS += groestlcoin-cli groestlcoin-tx
 endif
 

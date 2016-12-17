@@ -887,7 +887,7 @@ AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_groestlcoind = xyes])
 AC_MSG_RESULT($build_groestlcoind)
 
 AC_MSG_CHECKING([whether to build utils (groestlcoin-cli groestlcoin-tx)])
-AM_CONDITIONAL([BUILD_GROESTLCOIN_UTILS], [test x$build_groestlcoin_utils = xyes])
+AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_groestlcoin_utils = xyes])
 AC_MSG_RESULT($build_groestlcoin_utils)
 
 AC_MSG_CHECKING([whether to build libraries])
