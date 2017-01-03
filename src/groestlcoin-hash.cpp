@@ -53,7 +53,7 @@ uint256 HashForSignature(const ConstBuf& cbuf) {
 	return r;
 }
 
-void MessageHasher::Finalize(unsigned char h[32]) {
+void GroestlHasher::Finalize(unsigned char h[32]) {
 	auto c = (sph_groestl512_context*)ctx;
 	uint256 hash[4];
 	sph_groestl512_close(c, static_cast<void*>(&hash[0]));
@@ -65,29 +65,29 @@ void MessageHasher::Finalize(unsigned char h[32]) {
 	memcpy(h, static_cast<void*>(&hash[2]), 32);
 }
 
-MessageHasher& MessageHasher::Write(const unsigned char *data, size_t len) {
+GroestlHasher& GroestlHasher::Write(const unsigned char *data, size_t len) {
 	auto c = (sph_groestl512_context*)ctx;
 	sph_groestl512(c, data, len);
 	return *this;
 }
 
-MessageHasher::MessageHasher() {
+GroestlHasher::GroestlHasher() {
 	auto c = new sph_groestl512_context;
 	ctx = c;
 	sph_groestl512_init(c);
 }
 
-MessageHasher::MessageHasher(MessageHasher&& x)
+GroestlHasher::GroestlHasher(GroestlHasher&& x)
 	:	ctx(x.ctx)
 {
 	x.ctx = 0;
 }
 
-MessageHasher::~MessageHasher() {
+GroestlHasher::~GroestlHasher() {
 	delete (sph_groestl512_context*)ctx;
 }
 
-MessageHasher& MessageHasher::operator=(MessageHasher&& x)
+GroestlHasher& GroestlHasher::operator=(GroestlHasher&& x)
 {
 	delete (sph_groestl512_context*)ctx;
 	ctx = x.ctx;

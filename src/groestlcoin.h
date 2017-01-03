@@ -49,16 +49,49 @@ inline uint256 HashMessage(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 inline uint256 HashForAddress(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
 
 
-class MessageHasher {
+class GroestlHasher {
 private:
 	void *ctx;
 public:
 	void Finalize(unsigned char hash[32]);
-	MessageHasher& Write(const unsigned char *data, size_t len);
-	MessageHasher();
-	MessageHasher(MessageHasher&& x);
-	~MessageHasher();
-	MessageHasher& operator=(MessageHasher&& x);
+	GroestlHasher& Write(const unsigned char *data, size_t len);
+	GroestlHasher();
+	GroestlHasher(GroestlHasher&& x);
+	~GroestlHasher();
+	GroestlHasher& operator=(GroestlHasher&& x);
+};
+
+class CGroestlHashWriter
+{
+private:
+	GroestlHasher ctx;
+
+	const int nType;
+	const int nVersion;
+public:
+
+	CGroestlHashWriter(int nTypeIn, int nVersionIn) : nType(nTypeIn), nVersion(nVersionIn) {}
+
+	int GetType() const { return nType; }
+	int GetVersion() const { return nVersion; }
+
+	void write(const char *pch, size_t size) {
+		ctx.Write((const unsigned char*)pch, size);
+	}
+
+	// invalidates the object
+	uint256 GetHash() {
+		uint256 result;
+		ctx.Finalize((unsigned char*)&result);
+		return result;
+	}
+
+	template<typename T>
+	CGroestlHashWriter& operator<<(const T& obj) {
+		// Serialize to this stream
+		::Serialize(*this, obj);
+		return (*this);
+	}
 };
 
 

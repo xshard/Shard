@@ -269,6 +269,8 @@ libgroestlcoin_consensus_a_SOURCES = \
   consensus/validation.h \
   hash.cpp \
   hash.h \
+  sphlib/groestl.cpp \
+  groestlcoin-hash.cpp \
   prevector.h \
   primitives/block.cpp \
   primitives/block.h \
@@ -297,8 +299,6 @@ libgroestlcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_common_a_SOURCES = \
   amount.cpp \
   base58.cpp \
-  sphlib/groestl.cpp \
-  groestlcoin-hash.cpp \
   groestlcoin.cpp \
   coins.cpp \
   compressor.cpp \

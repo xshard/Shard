@@ -532,7 +532,7 @@ public:
 
 class CNetMessage {
 private:
-    mutable XCoin::MessageHasher hasher;
+    mutable XCoin::GroestlHasher hasher;
     mutable uint256 data_hash;
 public:
     bool in_data;                   // parsing header (false) or data (true)

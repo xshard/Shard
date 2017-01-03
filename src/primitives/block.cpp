@@ -13,10 +13,9 @@
 
 uint256 CBlockHeader::GetHash() const
 {
-	CDataStream stm(SER_NETWORK, PROTOCOL_VERSION);
-	stm << *this;
-	return XCoin::HashPow(XCoin::ConstBuf(stm.begin(), stm.end()));
-//!!!R    return SerializeHash(*this);
+	XCoin::CGroestlHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);	//GRS
+	ss << *this;
+	return ss.GetHash();
 }
 
 std::string CBlock::ToString() const
