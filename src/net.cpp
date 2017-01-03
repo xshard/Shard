@@ -1671,8 +1671,6 @@ void CConnman::ThreadOpenConnections()
 
         int64_t nANow = GetAdjustedTime();
         int nTries = 0;
-
-		const int nMaxTries = Params().MiningRequiresPeers() ? 100 : 5; //!!!P
         while (true)
         {
             CAddrInfo addr = addrman.Select(fFeeler);
@@ -1685,8 +1683,8 @@ void CConnman::ThreadOpenConnections()
             // stop this loop, and let the outer loop run again (which sleeps, adds seed nodes, recalculates
             // already-connected network ranges, ...) before trying new addrman addresses.
             nTries++;
-            if (nTries > nMaxTries)
-                break;
+			if (nTries > 100)
+				break;
 
             if (IsLimited(addr))
                 continue;
