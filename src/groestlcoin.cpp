@@ -400,6 +400,7 @@ public:
 		vSeeds.push_back(CDNSSeedData("electrum1.groestlcoin.org", "electrum1.groestlcoin.org"));
 		vSeeds.push_back(CDNSSeedData("electrum2.groestlcoin.org", "electrum2.groestlcoin.org"));
 		vSeeds.push_back(CDNSSeedData("jswallet.groestlcoin.org", "jswallet.groestlcoin.org"));
+		vSeeds.push_back(CDNSSeedData("groestlsight.groestlcoin.org", "groestlsight.groestlcoin.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
