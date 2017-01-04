@@ -96,7 +96,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -108,7 +108,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\x86_libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <BaseAddress>0x10000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -121,7 +121,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -133,7 +133,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\x64_libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <BaseAddress>0x180000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -147,7 +147,7 @@
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -160,7 +160,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <AdditionalLibraryDirectories>..\x86_libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <BaseAddress>0x10000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -184,7 +184,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -198,7 +198,7 @@
     </ClCompile>
     <Link>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
-      <AdditionalLibraryDirectories>..\x64_libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <BaseAddress>0x180000000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>

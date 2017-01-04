@@ -98,7 +98,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -124,7 +124,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -151,7 +151,7 @@
       <Optimization>MinSpace</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -187,7 +187,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_INC)\QtCore;$(QT_INC)\QtGui;$(QT_INC)\QtWidgets;$(QT_INC)\QtNetwork;$(QT_INC);$(QT_INC)\..\..\Q_$(PlatformSHortName)\include\QtCore;$(QT_INC)\..\..\Q_$(PlatformSHortName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
