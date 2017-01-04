@@ -11,17 +11,17 @@ src\qt\res_bitcoin.cpp : src\qt\moc.proj
 	cd ..\..
 
 
-x86_R_St\groestlcoin-qt.exe : src\groestlcoin.cpp src\qt\res_bitcoin.cpp
+x86_R_St\groestlcoin.dll : src\groestlcoin.cpp src\qt\res_bitcoin.cpp
 	""$(MSB)"" groestlcoin.sln /p:Configuration=R_St,Platform=x86 /v:n
 
-x64_R_St\groestlcoin-qt.exe : src\groestlcoin.cpp src\qt\res_bitcoin.cpp
+x64_R_St\groestlcoin.dll : src\groestlcoin.cpp src\qt\res_bitcoin.cpp
 	""$(MSB)"" groestlcoin.sln /p:Configuration=R_St,Platform=x64 /v:n
 
 
-groestlcoin_x86.msi : groestlcoin.wxs x86_R_St\groestlcoin-qt.exe
+groestlcoin_x86.msi : groestlcoin.wxs x86_R_St\groestlcoin.dll
 	candle.exe -o groestlcoin-x86.wixobj groestlcoin.wxs
 	$(WIX_LINK)  -out $@ groestlcoin-x86.wixobj
 
-groestlcoin_x64.msi : groestlcoin.wxs x64_R_St\groestlcoin-qt.exe
+groestlcoin_x64.msi : groestlcoin.wxs x64_R_St\groestlcoin.dll
 	candle.exe -arch x64 -o groestlcoin-x64.wixobj groestlcoin.wxs
 	$(WIX_LINK) -out $@ groestlcoin-x64.wixobj
