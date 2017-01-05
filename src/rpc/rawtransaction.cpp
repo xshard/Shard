@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2009-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -82,16 +82,13 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, UniValue& entry)
             o.push_back(Pair("hex", HexStr(txin.scriptSig.begin(), txin.scriptSig.end())));
             in.push_back(Pair("scriptSig", o));
         }
-        if (!tx.wit.IsNull()) {
-            if (!tx.wit.vtxinwit[i].IsNull()) {
+        if (tx.HasWitness()) {
                 UniValue txinwitness(UniValue::VARR);
-                for (unsigned int j = 0; j < tx.wit.vtxinwit[i].scriptWitness.stack.size(); j++) {
-                    std::vector<unsigned char> item = tx.wit.vtxinwit[i].scriptWitness.stack[j];
+                for (unsigned int j = 0; j < tx.vin[i].scriptWitness.stack.size(); j++) {
+                    std::vector<unsigned char> item = tx.vin[i].scriptWitness.stack[j];
                     txinwitness.push_back(HexStr(item.begin(), item.end()));
                 }
                 in.push_back(Pair("txinwitness", txinwitness));
-            }
-
         }
         in.push_back(Pair("sequence", (int64_t)txin.nSequence));
         vin.push_back(in);
@@ -218,19 +215,19 @@ UniValue getrawtransaction(const JSONRPCRequest& request)
         }
     }
 
-    CTransaction tx;
+    CTransactionRef tx;
     uint256 hashBlock;
     if (!GetTransaction(hash, tx, Params().GetConsensus(), hashBlock, true))
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "No information available about transaction");
 
-    string strHex = EncodeHexTx(tx);
+    string strHex = EncodeHexTx(*tx, RPCSerializationFlags());
 
     if (!fVerbose)
         return strHex;
 
     UniValue result(UniValue::VOBJ);
     result.push_back(Pair("hex", strHex));
-    TxToJSON(tx, hashBlock, result);
+    TxToJSON(*tx, hashBlock, result);
     return result;
 }
 
@@ -289,7 +286,7 @@ UniValue gettxoutproof(const JSONRPCRequest& request)
 
     if (pblockindex == NULL)
     {
-        CTransaction tx;
+        CTransactionRef tx;
         if (!GetTransaction(oneTxid, tx, Params().GetConsensus(), hashBlock, false) || hashBlock.IsNull())
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Transaction not yet in block");
         if (!mapBlockIndex.count(hashBlock))
@@ -380,7 +377,7 @@ UniValue createrawtransaction(const JSONRPCRequest& request)
             "\nResult:\n"
             "\"transaction\"            (string) hex string of the transaction\n"
 
-            "\nExamples\n"
+            "\nExamples:\n"
             + HelpExampleCli("createrawtransaction", "\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"{\\\"address\\\":0.01}\"")
             + HelpExampleCli("createrawtransaction", "\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"{\\\"data\\\":\\\"00010203\\\"}\"")
             + HelpExampleRpc("createrawtransaction", "\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\", \"{\\\"address\\\":0.01}\"")
@@ -519,13 +516,13 @@ UniValue decoderawtransaction(const JSONRPCRequest& request)
     LOCK(cs_main);
     RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR));
 
-    CTransaction tx;
+    CMutableTransaction mtx;
 
-    if (!DecodeHexTx(tx, request.params[0].get_str(), true))
+    if (!DecodeHexTx(mtx, request.params[0].get_str(), true))
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
 
     UniValue result(UniValue::VOBJ);
-    TxToJSON(tx, uint256(), result);
+    TxToJSON(CTransaction(std::move(mtx)), uint256(), result);
 
     return result;
 }
@@ -839,7 +836,7 @@ UniValue signrawtransaction(const JSONRPCRequest& request)
         UpdateTransaction(mergedTx, i, sigdata);
 
         ScriptError serror = SCRIPT_ERR_OK;
-        if (!VerifyScript(txin.scriptSig, prevPubKey, mergedTx.wit.vtxinwit.size() > i ? &mergedTx.wit.vtxinwit[i].scriptWitness : NULL, STANDARD_SCRIPT_VERIFY_FLAGS, TransactionSignatureChecker(&txConst, i, amount), &serror)) {
+        if (!VerifyScript(txin.scriptSig, prevPubKey, &txin.scriptWitness, STANDARD_SCRIPT_VERIFY_FLAGS, TransactionSignatureChecker(&txConst, i, amount), &serror)) {
             TxInErrorToJSON(txin, vErrors, ScriptErrorString(serror));
         }
     }
@@ -882,10 +879,11 @@ UniValue sendrawtransaction(const JSONRPCRequest& request)
     RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR)(UniValue::VBOOL));
 
     // parse hex string from parameter
-    CTransaction tx;
-    if (!DecodeHexTx(tx, request.params[0].get_str()))
+    CMutableTransaction mtx;
+    if (!DecodeHexTx(mtx, request.params[0].get_str()))
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
-    uint256 hashTx = tx.GetHash();
+    CTransactionRef tx(MakeTransactionRef(std::move(mtx)));
+    const uint256& hashTx = tx->GetHash();
 
     bool fLimitFree = false;
     CAmount nMaxRawTxFee = maxTxFee;
@@ -900,7 +898,7 @@ UniValue sendrawtransaction(const JSONRPCRequest& request)
         // push to local node and sync with wallets
         CValidationState state;
         bool fMissingInputs;
-        if (!AcceptToMemoryPool(mempool, state, tx, fLimitFree, &fMissingInputs, false, nMaxRawTxFee)) {
+        if (!AcceptToMemoryPool(mempool, state, std::move(tx), fLimitFree, &fMissingInputs, false, nMaxRawTxFee)) {
             if (state.IsInvalid()) {
                 throw JSONRPCError(RPC_TRANSACTION_REJECTED, strprintf("%i: %s", state.GetRejectCode(), state.GetRejectReason()));
             } else {

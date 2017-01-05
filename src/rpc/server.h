@@ -1,5 +1,5 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2009-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,6 +18,8 @@
 #include <boost/function.hpp>
 
 #include <univalue.h>
+
+static const unsigned int DEFAULT_RPC_SERIALIZE_VERSION = 1;
 
 class CRPCCommand;
 
@@ -197,5 +199,8 @@ void InterruptRPC();
 void StopRPC();
 std::string JSONRPCExecBatch(const UniValue& vReq);
 void RPCNotifyBlockChange(bool ibd, const CBlockIndex *);
+
+// Retrieves any serialization flags requested in command line argument
+int RPCSerializationFlags();
 
 #endif // BITCOIN_RPCSERVER_H

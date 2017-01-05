@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2015 The Bitcoin Core developers
+// Copyright (c) 2009-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -84,12 +84,12 @@ BlockAssembler::BlockAssembler(const CChainParams& _chainparams)
     nBlockMaxWeight = DEFAULT_BLOCK_MAX_WEIGHT;
     nBlockMaxSize = DEFAULT_BLOCK_MAX_SIZE;
     bool fWeightSet = false;
-    if (mapArgs.count("-blockmaxweight")) {
+    if (IsArgSet("-blockmaxweight")) {
         nBlockMaxWeight = GetArg("-blockmaxweight", DEFAULT_BLOCK_MAX_WEIGHT);
         nBlockMaxSize = MAX_BLOCK_SERIALIZED_SIZE;
         fWeightSet = true;
     }
-    if (mapArgs.count("-blockmaxsize")) {
+    if (IsArgSet("-blockmaxsize")) {
         nBlockMaxSize = GetArg("-blockmaxsize", DEFAULT_BLOCK_MAX_SIZE);
         if (!fWeightSet) {
             nBlockMaxWeight = nBlockMaxSize * WITNESS_SCALE_FACTOR;
@@ -245,7 +245,7 @@ bool BlockAssembler::TestPackageTransactions(const CTxMemPool::setEntries& packa
     BOOST_FOREACH (const CTxMemPool::txiter it, package) {
         if (!IsFinalTx(it->GetTx(), nHeight, nLockTimeCutoff))
             return false;
-        if (!fIncludeWitness && !it->GetTx().wit.IsNull())
+        if (!fIncludeWitness && it->GetTx().HasWitness())
             return false;
         if (fNeedSizeAccounting) {
             uint64_t nTxSize = ::GetSerializeSize(it->GetTx(), SER_NETWORK, PROTOCOL_VERSION);
@@ -510,84 +510,84 @@ void BlockAssembler::addPackageTxs()
 
 void BlockAssembler::addPriorityTxs()
 {
-	// How much of the block should be dedicated to high-priority transactions,
-	// included regardless of the fees they pay
-	unsigned int nBlockPrioritySize = GetArg("-blockprioritysize", DEFAULT_BLOCK_PRIORITY_SIZE);
-	nBlockPrioritySize = std::min(nBlockMaxSize, nBlockPrioritySize);
+    // How much of the block should be dedicated to high-priority transactions,
+    // included regardless of the fees they pay
+    unsigned int nBlockPrioritySize = GetArg("-blockprioritysize", DEFAULT_BLOCK_PRIORITY_SIZE);
+    nBlockPrioritySize = std::min(nBlockMaxSize, nBlockPrioritySize);
 
-	if (nBlockPrioritySize == 0) {
-		return;
-	}
+    if (nBlockPrioritySize == 0) {
+        return;
+    }
 
-	bool fSizeAccounting = fNeedSizeAccounting;
-	fNeedSizeAccounting = true;
+    bool fSizeAccounting = fNeedSizeAccounting;
+    fNeedSizeAccounting = true;
 
-	// This vector will be sorted into a priority queue:
-	vector<TxCoinAgePriority> vecPriority;
-	TxCoinAgePriorityCompare pricomparer;
-	std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash> waitPriMap;
-	typedef std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash>::iterator waitPriIter;
-	double actualPriority = -1;
+    // This vector will be sorted into a priority queue:
+    vector<TxCoinAgePriority> vecPriority;
+    TxCoinAgePriorityCompare pricomparer;
+    std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash> waitPriMap;
+    typedef std::map<CTxMemPool::txiter, double, CTxMemPool::CompareIteratorByHash>::iterator waitPriIter;
+    double actualPriority = -1;
 
-	vecPriority.reserve(mempool.mapTx.size());
-	for (CTxMemPool::indexed_transaction_set::iterator mi = mempool.mapTx.begin();
-		mi != mempool.mapTx.end(); ++mi)
-	{
-		double dPriority = mi->GetPriority(nHeight);
-		CAmount dummy;
-		mempool.ApplyDeltas(mi->GetTx().GetHash(), dPriority, dummy);
-		vecPriority.push_back(TxCoinAgePriority(dPriority, mi));
-	}
-	std::make_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
+    vecPriority.reserve(mempool.mapTx.size());
+    for (CTxMemPool::indexed_transaction_set::iterator mi = mempool.mapTx.begin();
+         mi != mempool.mapTx.end(); ++mi)
+    {
+        double dPriority = mi->GetPriority(nHeight);
+        CAmount dummy;
+        mempool.ApplyDeltas(mi->GetTx().GetHash(), dPriority, dummy);
+        vecPriority.push_back(TxCoinAgePriority(dPriority, mi));
+    }
+    std::make_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
 
-	CTxMemPool::txiter iter;
-	while (!vecPriority.empty() && !blockFinished) { // add a tx from priority queue to fill the blockprioritysize
-		iter = vecPriority.front().second;
-		actualPriority = vecPriority.front().first;
-		std::pop_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
-		vecPriority.pop_back();
+    CTxMemPool::txiter iter;
+    while (!vecPriority.empty() && !blockFinished) { // add a tx from priority queue to fill the blockprioritysize
+        iter = vecPriority.front().second;
+        actualPriority = vecPriority.front().first;
+        std::pop_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
+        vecPriority.pop_back();
 
-		// If tx already in block, skip
-		if (inBlock.count(iter)) {
-			assert(false); // shouldn't happen for priority txs
-			continue;
-		}
+        // If tx already in block, skip
+        if (inBlock.count(iter)) {
+            assert(false); // shouldn't happen for priority txs
+            continue;
+        }
 
-		// cannot accept witness transactions into a non-witness block
-		if (!fIncludeWitness && !iter->GetTx().wit.IsNull())
-			continue;
+        // cannot accept witness transactions into a non-witness block
+        if (!fIncludeWitness && iter->GetTx().HasWitness())
+            continue;
 
-		// If tx is dependent on other mempool txs which haven't yet been included
-		// then put it in the waitSet
-		if (isStillDependent(iter)) {
-			waitPriMap.insert(std::make_pair(iter, actualPriority));
-			continue;
-		}
+        // If tx is dependent on other mempool txs which haven't yet been included
+        // then put it in the waitSet
+        if (isStillDependent(iter)) {
+            waitPriMap.insert(std::make_pair(iter, actualPriority));
+            continue;
+        }
 
-		// If this tx fits in the block add it, otherwise keep looping
-		if (TestForBlock(iter)) {
-			AddToBlock(iter);
+        // If this tx fits in the block add it, otherwise keep looping
+        if (TestForBlock(iter)) {
+            AddToBlock(iter);
 
-			// If now that this txs is added we've surpassed our desired priority size
-			// or have dropped below the AllowFreeThreshold, then we're done adding priority txs
-			if (nBlockSize >= nBlockPrioritySize || !AllowFree(actualPriority)) {
-				break;
-			}
+            // If now that this txs is added we've surpassed our desired priority size
+            // or have dropped below the AllowFreeThreshold, then we're done adding priority txs
+            if (nBlockSize >= nBlockPrioritySize || !AllowFree(actualPriority)) {
+                break;
+            }
 
-			// This tx was successfully added, so
-			// add transactions that depend on this one to the priority queue to try again
-			BOOST_FOREACH(CTxMemPool::txiter child, mempool.GetMemPoolChildren(iter))
-			{
-				waitPriIter wpiter = waitPriMap.find(child);
-				if (wpiter != waitPriMap.end()) {
-					vecPriority.push_back(TxCoinAgePriority(wpiter->second, child));
-					std::push_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
-					waitPriMap.erase(wpiter);
-				}
-			}
-		}
-	}
-	fNeedSizeAccounting = fSizeAccounting;
+            // This tx was successfully added, so
+            // add transactions that depend on this one to the priority queue to try again
+            BOOST_FOREACH(CTxMemPool::txiter child, mempool.GetMemPoolChildren(iter))
+            {
+                waitPriIter wpiter = waitPriMap.find(child);
+                if (wpiter != waitPriMap.end()) {
+                    vecPriority.push_back(TxCoinAgePriority(wpiter->second,child));
+                    std::push_heap(vecPriority.begin(), vecPriority.end(), pricomparer);
+                    waitPriMap.erase(wpiter);
+                }
+            }
+        }
+    }
+    fNeedSizeAccounting = fSizeAccounting;
 }
 
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce)

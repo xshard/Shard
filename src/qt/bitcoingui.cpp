@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2011-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,7 +46,6 @@
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QMimeData>
-#include <QProgressBar>
 #include <QProgressDialog>
 #include <QSettings>
 #include <QShortcut>
@@ -251,6 +250,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *_platformStyle, const NetworkStyle *
     if(enableWallet) {
         connect(walletFrame, SIGNAL(requestedSyncWarningInfo()), this, SLOT(showModalOverlay()));
         connect(labelBlocksIcon, SIGNAL(clicked(QPoint)), this, SLOT(showModalOverlay()));
+        connect(progressBar, SIGNAL(clicked(QPoint)), this, SLOT(showModalOverlay()));
     }
 #endif
 }
@@ -1138,8 +1138,8 @@ void BitcoinGUI::setTrayIconVisible(bool fHideTrayIcon)
 
 void BitcoinGUI::showModalOverlay()
 {
-    if (modalOverlay)
-        modalOverlay->showHide(false, true);
+    if (modalOverlay && (progressBar->isVisible() || modalOverlay->isLayerVisible()))
+        modalOverlay->toggleVisibility();
 }
 
 static bool ThreadSafeMessageBox(BitcoinGUI *gui, const std::string& message, const std::string& caption, unsigned int style)

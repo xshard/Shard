@@ -707,6 +707,12 @@
     <ClCompile Include="net_processing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="warnings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="threadinterrupt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

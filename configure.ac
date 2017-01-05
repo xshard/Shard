@@ -415,6 +415,8 @@ if test x$use_lcov = xyes; then
     AC_MSG_ERROR("lcov testing requested but genhtml not found")
   fi
   LCOV="$LCOV --gcov-tool=$GCOV"
+  AX_CHECK_LINK_FLAG([[--coverage]], [LDFLAGS="$LDFLAGS --coverage"],
+    [AC_MSG_ERROR("lcov testing requested but --coverage linker flag does not work")])
   AX_CHECK_COMPILE_FLAG([--coverage],[CXXFLAGS="$CXXFLAGS --coverage"],
     [AC_MSG_ERROR("lcov testing requested but --coverage flag does not work")])
 fi
@@ -833,6 +835,13 @@ else
   fi
 fi
 
+save_CXXFLAGS="${CXXFLAGS}"
+CXXFLAGS="${CXXFLAGS} ${CRYPTO_CFLAGS} ${SSL_CFLAGS}"
+AC_CHECK_DECLS([EVP_MD_CTX_new],,,[AC_INCLUDES_DEFAULT
+#include <openssl/x509_vfy.h>
+])
+CXXFLAGS="${save_CXXFLAGS}"
+
 dnl univalue check
 
 need_bundled_univalue=yes
@@ -1078,7 +1087,6 @@ AC_SUBST(ZMQ_LIBS)
 AC_SUBST(PROTOBUF_LIBS)
 AC_SUBST(QR_LIBS)
 AC_CONFIG_FILES([Makefile src/Makefile doc/man/Makefile share/setup.nsi share/qt/Info.plist src/test/buildenv.py])
-AC_CONFIG_FILES([qa/pull-tester/run-groestlcoind-for-test.sh],[chmod +x qa/pull-tester/run-groestlcoind-for-test.sh])
 AC_CONFIG_FILES([qa/pull-tester/tests_config.py],[chmod +x qa/pull-tester/tests_config.py])
 AC_CONFIG_FILES([contrib/devtools/split-debug.sh],[chmod +x contrib/devtools/split-debug.sh])
 AC_CONFIG_LINKS([qa/pull-tester/rpc-tests.py:qa/pull-tester/rpc-tests.py])

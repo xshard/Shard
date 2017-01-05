@@ -61,6 +61,7 @@ EXTRA_LIBRARIES += \
 lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
 
 bin_PROGRAMS =
+noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
@@ -99,6 +100,7 @@ BITCOIN_CORE_H = \
   consensus/consensus.h \
   core_io.h \
   core_memusage.h \
+  cuckoocache.h \
   httprpc.h \
   httpserver.h \
   indirectmap.h \
@@ -136,9 +138,11 @@ BITCOIN_CORE_H = \
   support/allocators/secure.h \
   support/allocators/zeroafterfree.h \
   support/cleanse.h \
+  support/events.h \
   support/lockedpool.h \
   sync.h \
   threadsafety.h \
+  threadinterrupt.h \
   timedata.h \
   torcontrol.h \
   txdb.h \
@@ -157,6 +161,7 @@ BITCOIN_CORE_H = \
   wallet/rpcwallet.h \
   wallet/wallet.h \
   wallet/walletdb.h \
+  warnings.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h\
   zmq/zmqnotificationinterface.h \
@@ -312,6 +317,7 @@ libgroestlcoin_common_a_SOURCES = \
   scheduler.cpp \
   script/sign.cpp \
   script/standard.cpp \
+  warnings.cpp \
   $(BITCOIN_CORE_H)
 
 # util: shared between all executables.
@@ -330,6 +336,7 @@ libgroestlcoin_util_a_SOURCES = \
   rpc/protocol.cpp \
   support/cleanse.cpp \
   sync.cpp \
+  threadinterrupt.cpp \
   util.cpp \
   utilmoneystr.cpp \
   utilstrencodings.cpp \
