@@ -11,7 +11,7 @@
 #define CLIENT_VERSION_REVISION 0
 #define CLIENT_VERSION_BUILD 0
 
-#define BUILD_DESC "v2.13.0"
+#define BUILD_DESC "v2.13.3"
 
 #define COPYRIGHT_HOLDERS "The %s developers"
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
@@ -51,4 +51,3 @@
 #define ENABLE_WALLET
 #define USE_QRCODE
 #define USE_UPNP 1
-
