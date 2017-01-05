@@ -27,7 +27,6 @@
 
 Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 
-#if 1
 #	pragma comment(lib, "Qt5Core")
 #	pragma comment(lib, "Qt5Network")
 #	pragma comment(lib, "Qt5Gui")
@@ -39,19 +38,6 @@ Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 #	pragma comment(lib, "qwindows")
 #	pragma comment(lib, "Qt5PlatformSupport")
 
-#else
-
-#	pragma comment(lib, "Qt5Cored")			//!!!T
-#	pragma comment(lib, "Qt5Networkd")
-#	pragma comment(lib, "Qt5Guid")
-#	pragma comment(lib, "Qt5Widgetsd")
-#	pragma comment(lib, "qtharfbuzzngd")
-#	pragma comment(lib, "qtmaind")
-#	pragma comment(lib, "qtpcred")
-#	pragma comment(lib, "qwindowsd")
-#	pragma comment(lib, "Qt5PlatformSupportd")
-
-#endif
 
 #ifndef _WINDLL
 #	pragma comment(lib, "groestlcoin")
