@@ -922,6 +922,9 @@
     <ClInclude Include="bignum.h">
       <Filter>Header Files\grs</Filter>
     </ClInclude>
+    <ClInclude Include="cuckoocache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="el\bignum\x86x64\bignum-x86x64.asm">
