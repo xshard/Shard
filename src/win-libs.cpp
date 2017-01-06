@@ -17,6 +17,8 @@
 #	pragma comment(lib, "miniupnpc")
 #endif
 
+#pragma comment(lib, "groestlcoin-common")
+
 #ifdef USE_QT
 #	pragma comment(lib, "imm32")
 #	pragma comment(lib, "winmm")
@@ -37,11 +39,6 @@ Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 #	pragma comment(lib, "qtpcre")
 #	pragma comment(lib, "qwindows")
 #	pragma comment(lib, "Qt5PlatformSupport")
-
-
-#ifndef _WINDLL
-#	pragma comment(lib, "groestlcoin")
-#endif
 
 
 

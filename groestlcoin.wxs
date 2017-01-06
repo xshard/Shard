@@ -41,11 +41,13 @@
 <?if $(sys.BUILDARCH) = x64 ?>
 		<Directory Id='ProgramFiles64Folder' Name='PFiles'>
 			<Directory Id='INSTALLDIR' Name='Groestlcoin'>
+	   			<Directory Id='DAEMON' Name='daemon' />
 			</Directory>
 		</Directory>
 <?else ?>
 		<Directory Id='ProgramFilesFolder' Name='PFiles'>
 			<Directory Id='INSTALLDIR' Name='Groestlcoin'>
+	   			<Directory Id='DAEMON' Name='daemon' />
 			</Directory>
 		</Directory>
 <?endif ?>
@@ -58,10 +60,6 @@
 
 	<Media Id="1" Cabinet="groestlcoin.cab" EmbedCab="yes"/>
 
-	<Component Id='CMP_Grs' Guid='30b21315-0e58-4af8-8f14-166645ecfad6' Directory='INSTALLDIR' >
-		<File  Source="$(var.OUTDIR)\groestlcoin.dll"  KeyPath='yes'       />
-	</Component>
-
 	<Component Id='CMP_GrsQt' Guid='a677466c-3dbe-476f-a225-eb19da78004d' Directory='INSTALLDIR' >
 		<File  Id="groestlcoin_qt.exe" Source="$(var.OUTDIR)\groestlcoin-qt.exe"    KeyPath='yes'       >
 <!--            <Shortcut Id="startmenuGroestlcoin"     Directory="ProgramMenuFolder"   Name="Groestlcoin Core" Icon="Groestlcoin.ico" IconIndex="0" Advertise="yes" /> -->
@@ -69,7 +67,7 @@
 		</File>
 	</Component>
 
-	<Component Id='CMP_GrsDaemon' Guid='32b21315-0f58-4af8-8f14-156645ecfad6' Directory='INSTALLDIR' >
+	<Component Id='CMP_GrsDaemon' Guid='32b21315-0f58-4af8-8f14-156645ecfad6' Directory='DAEMON' >
 		<File  Source="$(var.OUTDIR)\groestlcoind.exe"  KeyPath='yes'       />
 		<File  Source="$(var.OUTDIR)\groestlcoin-cli.exe"           />
 	</Component>
@@ -104,7 +102,6 @@
 	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
 	<Feature Id='Complete' Level='1' Title='Groestlcoin Core'>
-		<ComponentRef Id='CMP_Grs'					/>
 		<ComponentRef Id='CMP_GrsQt'				/>
 		<ComponentRef Id='CMP_GrsDaemon'			/>
 		<ComponentRef Id='CMP_ApplicationShortcut'	/>
