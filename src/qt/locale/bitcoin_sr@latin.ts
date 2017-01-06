@@ -73,7 +73,7 @@
     </message>
 </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>BitcoinGUI</name>
     <message>
         <source>Error</source>
         <translation>Greska</translation>

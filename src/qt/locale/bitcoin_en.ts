@@ -297,9 +297,9 @@
     </message>
 </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>BitcoinGUI</name>
     <message>
-        <location filename="../groestlcoingui.cpp" line="+356"/>
+        <location filename="../bitcoingui.cpp" line="+356"/>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;message...</translation>
     </message>
