@@ -252,7 +252,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n aktiv forbindelse til Groestlcoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Bitcoin-nettverket</numerusform></translation>
+        <translation><numerusform>%n aktiv forbindelse til Groestlcoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Groestlcoin-nettverket</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>

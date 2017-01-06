@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n ligação ativa à rede Groestlcoin</numerusform><numerusform>%n ligações ativas à rede Bitcoin</numerusform></translation>
+        <translation><numerusform>%n ligação ativa à rede Groestlcoin</numerusform><numerusform>%n ligações ativas à rede Groestlcoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>

@@ -240,7 +240,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n aktivna povezava v omrežje Groestlcoin</numerusform><numerusform>%n aktivni povezavi v omrežje Bitcoin</numerusform><numerusform>%n aktivne povezave v omrežje Bitcoin</numerusform><numerusform>%n aktivnih povezav v omrežje Bitcoin</numerusform></translation>
+        <translation><numerusform>%n aktivna povezava v omrežje Groestlcoin</numerusform><numerusform>%n aktivni povezavi v omrežje Groestlcoin</numerusform><numerusform>%n aktivne povezave v omrežje Groestlcoin</numerusform><numerusform>%n aktivnih povezav v omrežje Groestlcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>

@@ -260,7 +260,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n connexion active avec le réseau Groestlcoin</numerusform><numerusform>%n connexions actives avec le réseau Bitcoin</numerusform></translation>
+        <translation><numerusform>%n connexion active avec le réseau Groestlcoin</numerusform><numerusform>%n connexions actives avec le réseau Groestlcoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -1591,7 +1591,7 @@
     </message>
     <message>
         <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
-        <translation>Un message qui était joint à l'URI Groestlcoin et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau Bitcoin.</translation>
+        <translation>Un message qui était joint à l'URI Groestlcoin et qui sera stocké avec la transaction pour référence. Note : ce message ne sera pas envoyé par le réseau Groestlcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
