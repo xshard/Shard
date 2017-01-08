@@ -139,7 +139,7 @@
     </message>
     <message>
         <source>Send coins to a Groestlcoin address</source>
-        <translation>Испрати биткоини на Биткоин адреса</translation>
+        <translation>Испрати грёстлкоини на Биткоин адреса</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
