@@ -2115,7 +2115,7 @@
     </message>
     <message>
         <source>The Groestlcoin address to send the payment to</source>
-        <translation>Bitcoinová adresa příjemce</translation>
+        <translation>Groestlcoinová adresa příjemce</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2208,7 +2208,7 @@
     </message>
     <message>
         <source>The Groestlcoin address to sign the message with</source>
-        <translation>Bitcoinová adresa, kterou se zpráva podepíše</translation>
+        <translation>Groestlcoinová adresa, kterou se zpráva podepíše</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2264,7 +2264,7 @@
     </message>
     <message>
         <source>The Groestlcoin address the message was signed with</source>
-        <translation>Bitcoinová adresa, kterou je zpráva podepsána</translation>
+        <translation>Groestlcoinová adresa, kterou je zpráva podepsána</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>

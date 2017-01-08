@@ -323,7 +323,7 @@
     </message>
     <message>
         <source>Send coins to a Groestlcoin address</source>
-        <translation>Bitcoins an eine Groestlcoin-Adresse überweisen</translation>
+        <translation>Groestlcoins an eine Groestlcoin-Adresse überweisen</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -1904,7 +1904,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Bitcoins überweisen</translation>
+        <translation>Groestlcoins überweisen</translation>
     </message>
     <message>
         <source>Coin Control Features</source>

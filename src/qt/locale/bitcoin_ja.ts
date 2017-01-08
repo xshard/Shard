@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>支払いを要求する (QRコードとbitcoin:ではじまるURIを生成する)</translation>
+        <translation>支払いを要求する (QRコードとgroestlcoin:ではじまるURIを生成する)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
