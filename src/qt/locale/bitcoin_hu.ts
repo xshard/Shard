@@ -1571,7 +1571,7 @@
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Nincs elég bitcoinod.</translation>
+        <translation>Nincs elég groestlcoinod.</translation>
     </message>
     <message>
         <source>Loading block index...</source>

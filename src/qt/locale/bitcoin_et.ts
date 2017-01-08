@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR GROESTLCOINS&lt;/b&gt;!</source>
-        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA BITCOINID&lt;/b&gt;!</translation>
+        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA GROESTLCOINID&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -287,7 +287,7 @@
     </message>
     <message>
         <source>Send coins to a Groestlcoin address</source>
-        <translation>Saada münte Bitcoini aadressile</translation>
+        <translation>Saada münte Groestlcoini aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -339,11 +339,11 @@
     </message>
     <message>
         <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Bitcoini aadressiga</translation>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Groestlcoini aadressiga</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Bitcoini aadressiga</translation>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Groestlcoini aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -363,11 +363,11 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja bitcoini: URId)</translation>
+        <translation>Loo maksepäring (genereerib QR koodid ja groestlcoini: URId)</translation>
     </message>
     <message>
         <source>Open a groestlcoin: URI or payment request</source>
-        <translation>Ava bitcoini: URI või maksepäring</translation>
+        <translation>Ava groestlcoini: URI või maksepäring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -375,7 +375,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n aktiivne ühendus Bitcoini võrku</numerusform><numerusform>%n aktiivset ühendust Bitcoini võrku</numerusform></translation>
+        <translation><numerusform>%n aktiivne ühendus Groestlcoini võrku</numerusform><numerusform>%n aktiivset ühendust Groestlcoini võrku</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -1488,7 +1488,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Groestlcoin address</source>
-        <translation>Allkirjasta sõnum Bitcoini aadressi sulle kuulumise tõestamiseks</translation>
+        <translation>Allkirjasta sõnum Groestlcoini aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1512,7 +1512,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Bitcoini aadressiga.</translation>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Groestlcoini aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>

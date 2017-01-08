@@ -1336,7 +1336,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send Bitcoins</translation>
+        <translation>Send Groestlcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1551,7 +1551,7 @@
     </message>
     <message>
         <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
-        <translation>En melding som var tilknyttet bitcoinen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Groestlcoin-nettverket.</translation>
+        <translation>En melding som var tilknyttet groestlcoinen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Groestlcoin-nettverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
