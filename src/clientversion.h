@@ -23,7 +23,6 @@
 #define CLIENT_VERSION_REVISION 3
 #define CLIENT_VERSION_BUILD 0
 
-#define BUILD_DESC "v2.13.3"
 
 //! Set to true for release, false for prerelease or test build
 #define CLIENT_VERSION_IS_RELEASE true
@@ -37,6 +36,8 @@
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers" //!!!P
 
 #endif //HAVE_CONFIG_H
+
+#define BUILD_DESC "v2.13.3"
 
 /**
  * Converts the parameter X to a string after macro replacement on X has been performed.
