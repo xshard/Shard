@@ -437,6 +437,10 @@
     <ClInclude Include="coins.h" />
     <ClInclude Include="compat\sanity.h" />
     <ClInclude Include="compressor.h" />
+    <ClInclude Include="consensus\consensus.h" />
+    <ClInclude Include="consensus\merkle.h" />
+    <ClInclude Include="consensus\params.h" />
+    <ClInclude Include="consensus\validation.h" />
     <ClInclude Include="core_io.h" />
     <ClInclude Include="crypto\hmac_sha512.h" />
     <ClInclude Include="crypto\ripemd160.h" />

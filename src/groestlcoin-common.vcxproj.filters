@@ -75,6 +75,9 @@
     <Filter Include="Source Files\consesnsus">
       <UniqueIdentifier>{e3eba9e5-3dfe-4c83-8d8c-bbbe120020c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\consensus">
+      <UniqueIdentifier>{12e57f3a-1b84-47a0-be0a-572c087a99eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="amount.cpp">
@@ -579,6 +582,18 @@
     </ClInclude>
     <ClInclude Include="bignum.h">
       <Filter>Header Files\grs</Filter>
+    </ClInclude>
+    <ClInclude Include="consensus\consensus.h">
+      <Filter>Header Files\consensus</Filter>
+    </ClInclude>
+    <ClInclude Include="consensus\merkle.h">
+      <Filter>Header Files\consensus</Filter>
+    </ClInclude>
+    <ClInclude Include="consensus\params.h">
+      <Filter>Header Files\consensus</Filter>
+    </ClInclude>
+    <ClInclude Include="consensus\validation.h">
+      <Filter>Header Files\consensus</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

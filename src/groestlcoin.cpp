@@ -350,6 +350,11 @@ public:
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
+		// Deployment of BIP65
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1484956800; // Jan 21, 2017
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1498003200; // Jun 21, 2017
+
 		/**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -536,6 +541,9 @@ public:
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 0;
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 999999999999ULL;
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 1;
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 0;
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 999999999999ULL;
 
 		pchMessageStart[0] = 0xfa;
         pchMessageStart[1] = 0xbf;
