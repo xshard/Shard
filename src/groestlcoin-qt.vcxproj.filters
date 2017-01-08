@@ -28,6 +28,9 @@
     <Filter Include="Source Files\qrencode">
       <UniqueIdentifier>{b2cfd5dc-e24d-44ef-8989-54047ffe32b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\qt-locale">
+      <UniqueIdentifier>{26db04b6-8b64-44c1-afc3-d6c48a870e5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win-libs.cpp">
@@ -498,5 +501,277 @@
     <Image Include="qt\res\icons\groestlcoin.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="qt\locale\bitcoin_ach.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_af.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_af_ZA.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ar.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_be_BY.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_bg.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_bg_BG.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ca.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ca%40valencia.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ca_ES.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cmn.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cs.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cs_CZ.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cy.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_da.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_de.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_el.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_el_GR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_en.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_en_GB.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_eo.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_AR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_CL.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_CO.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_DO.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_ES.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_MX.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_UY.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_VE.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_et.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_eu_ES.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fa.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fa_IR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fi.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fr_CA.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fr_FR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_gl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_gu_IN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_he.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_hi_IN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_hr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_hu.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_id_ID.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_it.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_it_IT.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ja.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ka.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_kk_KZ.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ko_KR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ku_IQ.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ky.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_la.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_lt.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_lv_LV.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_mk_MK.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_mn.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ms_MY.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_nb.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ne.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_nl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pam.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pt_BR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pt_PT.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ro.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ro_RO.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ru.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ru_RU.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sah.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sk.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sl_SI.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sq.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sr%40latin.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sv.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ta.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_th_TH.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_tr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_tr_TR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_uk.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ur_PK.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_uz%40Cyrl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_vi.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_vi_VN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh_CN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh_HK.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh_TW.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
   </ItemGroup>
 </Project>
