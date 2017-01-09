@@ -608,7 +608,7 @@ void SendCoinsDialog::updateGlobalFeeVariables()
         CoinControlDialog::coinControl->nMinimumTotalFee = 0;
 
         // show the estimated reuquired time for confirmation
-        ui->confirmationTargetLabel->setText(GUIUtil::formatDurationStr(nConfirmTarget*600)+" / "+tr("%n block(s)", "", nConfirmTarget));
+        ui->confirmationTargetLabel->setText(GUIUtil::formatDurationStr(nConfirmTarget*60)+" / "+tr("%n block(s)", "", nConfirmTarget));
     }
     else
     {
