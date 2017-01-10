@@ -1,8 +1,12 @@
 Groestlcoin integration/staging tree
 =================================
-Forked from Bitcoin reference wallet 0.11.99
+Forked from Bitcoin reference wallet 0.8.6
 
-Groestlcoin QT Wallet
+Updated to Bitcoin reference wallet 0.11.0 on August 2015
+
+Updated to Bitcoin reference wallet 0.13.3 on January 2017
+
+Groestlcoin Core Wallet
 
 http://www.groestlcoin.org
 
@@ -10,9 +14,9 @@ The algorithm was written as a candidate for sha3
 
 https://bitcointalk.org/index.php?topic=525926.0
 
-Copyright (c) 2009-2016 The Bitcoin Core Developers
+Copyright (c) 2009-2017 The Bitcoin Core Developers
 
-Copyright (c) 2014-2016 The Groestlcoin Core Developers
+Copyright (c) 2014-2017 The Groestlcoin Core Developers
 
 What is Groestlcoin?
 -----------------
