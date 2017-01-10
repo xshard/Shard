@@ -1031,7 +1031,7 @@
                    <item>
                     <widget class="QLabel" name="labelSmartFee3">
                      <property name="text">
-                      <string>Confirmation time target:</string>
+                      <string>Confirmation time:</string>
                      </property>
                      <property name="margin">
                       <number>2</number>
