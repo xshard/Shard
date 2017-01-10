@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Groestlcoin</source>
-        <translation>غرسلكوي</translation>
+        <translation>غرسلكوين</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -235,7 +235,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>أطلب دفعات (يولد كودات الرمز المربع وبيت كوين: العناوين المعطاة)</translation>
+        <translation>أطلب دفعات (يولد كودات الرمز المربع وغرسلكوين: العناوين المعطاة)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -306,18 +306,13 @@
         <translation>اللحاق بالركب ...</translation>
     </message>
     <message>
-        <source>Date: %1
-</source>
-        <translation>التاريخ %1
-
-
-</translation>
+        <source>Date: %1</source>
+        <translation>التاريخ %1</translation>
     </message>
     <message>
         <source>Label: %1
 </source>
-        <translation>علامه: %1
-</translation>
+        <translation>علامه: %1</translation>
     </message>
     <message>
         <source>Sent transaction</source>
@@ -1015,7 +1010,7 @@
     </message>
     <message>
         <source>The Groestlcoin address to send the payment to</source>
-        <translation>عنوان الغرسلكوي المرسل اليه الدفع</translation>
+        <translation>عنوان الغرسلكوين المرسل اليه الدفع</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1084,7 +1079,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Groestlcoin address</source>
-        <translation>وقع الرسالة لتثبت انك تمتلك عنوان الغرسلكوي هذا</translation>
+        <translation>وقع الرسالة لتثبت انك تمتلك عنوان الغرسلكوين هذا</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1157,7 +1152,7 @@
     </message>
     <message>
         <source>Groestlcoin Core</source>
-        <translation>الغرسلكوين كوين</translation>
+        <translation>جوهر الغرسلكوين</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
