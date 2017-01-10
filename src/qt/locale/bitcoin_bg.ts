@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>Send coins to a Groestlcoin address</source>
-        <translation>Изпращане към Биткоин адрес</translation>
+        <translation>Изпращане към Грoстлкоин адрес</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Groestlcoin</source>
-        <translation>Биткоин</translation>
+        <translation>Грoстлкоин</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -219,11 +219,11 @@
     </message>
     <message>
         <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
-        <translation>Пишете съобщения със своя Биткойн адрес за да докажете,че е ваш.</translation>
+        <translation>Пишете съобщения със своя Грoстлкоин адрес за да докажете,че е ваш.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
-        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените Биткойн адреси.</translation>
+        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените Грoстлкоин адреси.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -243,7 +243,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>Изискване на плащания(генерира QR кодове и биткойн: URIs)</translation>
+        <translation>Изискване на плащания(генерира QR кодове и грoстлкоин: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Open a groestlcoin: URI or payment request</source>
-        <translation>Отворете биткойн: URI  или заявка за плащане</translation>
+        <translation>Отворете грoстлкоин: URI  или заявка за плащане</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -263,7 +263,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n активна връзка към Биткойн мрежата</numerusform><numerusform>%n активни връзки към Биткойн мрежата</numerusform></translation>
+        <translation><numerusform>%n активна връзка към Грoстлкоин мрежата</numerusform><numerusform>%n активни връзки към Грoстлкоин мрежата</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -331,7 +331,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Groestlcoin command-line options</source>
-        <translation>Покажи %1 помощно съобщение за да получиш лист с възможни Биткойн команди</translation>
+        <translation>Покажи %1 помощно съобщение за да получиш лист с възможни Грoстлкоин команди</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -690,7 +690,7 @@
     </message>
     <message>
         <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
-        <translation>Свързване с Биткойн мрежата чрез SOCKS5  прокси.</translation>
+        <translation>Свързване с Грoстлкоин мрежата чрез SOCKS5  прокси.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -785,7 +785,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Текущата информация на екрана може да не е актуална. Вашият портфейл ще се синхронизира автоматично с мрежата на Биткоин, щом поне една връзката с нея се установи; този процес все още не е приключил.</translation>
+        <translation>Текущата информация на екрана може да не е актуална. Вашият портфейл ще се синхронизира автоматично с мрежата на Грoстлкоин, щом поне една връзката с нея се установи; този процес все още не е приключил.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -854,7 +854,7 @@
     </message>
     <message>
         <source>Enter a Groestlcoin address (e.g. %1)</source>
-        <translation>Въведете Биткойн адрес (например: %1)</translation>
+        <translation>Въведете Грoстлкоин адрес (например: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1384,7 +1384,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
-        <translation>Проверете съобщение, за да сте сигурни че е подписано с определен Биткоин адрес</translation>
+        <translation>Проверете съобщение, за да сте сигурни че е подписано с определен Грoстлкоин адрес</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1457,7 +1457,7 @@
     </message>
     <message>
         <source>Groestlcoin Core</source>
-        <translation>Биткойн ядро</translation>
+        <translation>Грoстлкоин ядро</translation>
     </message>
     <message>
         <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
