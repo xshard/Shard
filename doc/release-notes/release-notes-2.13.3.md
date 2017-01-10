@@ -51,9 +51,8 @@ Test for LowS signatures before relaying
 -----------------------------------------
 
 Make the node require the canonical 'low-s' encoding for ECDSA signatures when
-relaying or mining.  This removes a nuisance malleability vector.
-
-Consensus behavior is unchanged.
+relaying or mining.  This removes a nuisance malleability vector. Consensus behavior 
+is unchanged.
 
 If widely deployed this change would eliminate the last remaining known vector
 for nuisance malleability on SIGHASH_ALL P2PKH transactions. On the down-side
@@ -71,54 +70,6 @@ This does not replace the need for BIP62 or similar, as miners can
 still cooperate to break transactions.  Nor does it replace the
 need for wallet software to handle malleability sanely[1]. This
 only eliminates the cheap and irritating DOS attack.
-
-BIP113 mempool-only locktime enforcement using GetMedianTimePast()
-----------------------------------------------------------------
-
-Groestlcoin transactions currently may specify a locktime indicating when
-they may be added to a valid block.  Current consensus rules require
-that blocks have a block header time greater than the locktime specified
-in any transaction in that block.
-
-Miners get to choose what time they use for their header time, with the
-consensus rule being that no node will accept a block whose time is more
-than two hours in the future.  This creates a incentive for miners to
-set their header times to future values in order to include locktimed
-transactions which weren't supposed to be included for up to two more
-hours.
-
-The consensus rules also specify that valid blocks may have a header
-time greater than that of the median of the 11 previous blocks.  This
-GetMedianTimePast() time has a key feature we generally associate with
-time: it can't go backwards.
-
-[BIP113][] specifies a soft fork that weakens this perverse incentive 
-for individual miners to use a future time by requiring that valid 
-blocks have a computed GetMedianTimePast() greater than the locktime 
-specified in any transaction in that block.
-
-Mempool inclusion rules currently require transactions to be valid for
-immediate inclusion in a block in order to be accepted into the mempool.
-This release begins applying the BIP113 rule to received transactions,
-so transaction whose time is greater than the GetMedianTimePast() will
-no longer be accepted into the mempool.
-
-**Implication for miners:** you will begin rejecting transactions that
-would not be valid under BIP113, which will prevent you from producing
-invalid blocks if/when BIP113 is enforced on the network. Any
-transactions which are valid under the current rules but not yet valid
-under the BIP113 rules will either be mined by other miners or delayed
-until they are valid under BIP113. Note, however, that time-based
-locktime transactions are more or less unseen on the network currently.
-
-**Implication for users:** GetMedianTimePast() always trails behind the
-current time, so a transaction locktime set to the present time will be
-rejected by nodes running this release until the median time moves
-forward. To compensate, subtract one hour (3,600 seconds) from your
-locktimes to allow those transactions to be included in mempools at
-approximately the expected time.
-
-[BIP113]: https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki
 
 Windows bug fix for corrupted UTXO database on unclean shutdowns
 ----------------------------------------------------------------
