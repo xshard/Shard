@@ -354,6 +354,9 @@
     <ClCompile Include="qt\moc_bantablemodel.cpp">
       <Filter>Source Files\qt\moc</Filter>
     </ClCompile>
+    <ClCompile Include="qt\bitcoinstrings.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qt\networkstyle.h">

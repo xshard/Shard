@@ -317,6 +317,7 @@
     <ClCompile Include="qt\bitcoinaddressvalidator.cpp" />
     <ClCompile Include="qt\bitcoinamountfield.cpp" />
     <ClCompile Include="qt\bitcoingui.cpp" />
+    <ClCompile Include="qt\bitcoinstrings.cpp" />
     <ClCompile Include="qt\bitcoinunits.cpp" />
     <ClCompile Include="qt\clientmodel.cpp" />
     <ClCompile Include="qt\coincontroldialog.cpp" />
