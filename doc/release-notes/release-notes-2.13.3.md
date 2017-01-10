@@ -110,7 +110,7 @@ Moreover, any SPV peer is disconnected when they request a filtered block.
 
 This option can be specified in MiB per day and is turned off by default
 (`-maxuploadtarget=0`).
-The recommended minimum is 144 * MAX_BLOCK_SIZE (currently 144MB) per day.
+The recommended minimum is 144 * MAX_BLOCK_SIZE (currently 1MB) per day.
 
 Whitelisted peers will never be disconnected, although their traffic counts for
 calculating the target.
@@ -735,7 +735,7 @@ Low-level P2P changes
 ----------------------
 
 - The optional new p2p message "feefilter" is implemented and the protocol
-  version is bumped to 70013. Upon receiving a feefilter message from a peer,
+  version is bumped to 70015. Upon receiving a feefilter message from a peer,
   a node will not send invs for any transactions which do not meet the filter
   feerate. [BIP 133](https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki)
 
