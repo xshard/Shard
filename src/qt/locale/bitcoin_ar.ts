@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Send coins to a Groestlcoin address</source>
-        <translation>ارسل عملات الى عنوان غرسلكوينن</translation>
+        <translation>ارسل عملات الى عنوان غرسلكوين</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -183,7 +183,7 @@
     </message>
     <message>
         <source>Groestlcoin</source>
-        <translation>بت كوين</translation>
+        <translation>غرسلكوي</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1015,7 +1015,7 @@
     </message>
     <message>
         <source>The Groestlcoin address to send the payment to</source>
-        <translation>عنوان البت كوين المرسل اليه الدفع</translation>
+        <translation>عنوان الغرسلكوي المرسل اليه الدفع</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1084,7 +1084,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Groestlcoin address</source>
-        <translation>وقع الرسالة لتثبت انك تمتلك عنوان البت كوين هذا</translation>
+        <translation>وقع الرسالة لتثبت انك تمتلك عنوان الغرسلكوي هذا</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1157,7 +1157,7 @@
     </message>
     <message>
         <source>Groestlcoin Core</source>
-        <translation>جوهر البيت كوين</translation>
+        <translation>الغرسلكوين كوين</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
