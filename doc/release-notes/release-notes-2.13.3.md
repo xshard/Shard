@@ -28,16 +28,6 @@ report issues about Windows XP to the issue tracker.
 
 From 2.13.3 onwards OS X 10.7 is no longer supported. 2.13.3 now requires 10.8+, and will communicate that to 10.7 users, rather than crashing unexpectedly.
 
-Downgrade warning
------------------
-Because release 2.13.3 and later will obfuscate the chainstate on every
-fresh sync or reindex, the chainstate is not backwards-compatible with
-pre-2.13.3 versions of Groestlcoin Core or other software.
-
-If you want to downgrade after you have done a reindex with 2.13.3 or later,
-you will need to reindex when you first start Groestlcoin Core version 2.11.0 or
-earlier.
-
 Notable changes
 ===============
 
@@ -81,55 +71,6 @@ This does not replace the need for BIP62 or similar, as miners can
 still cooperate to break transactions.  Nor does it replace the
 need for wallet software to handle malleability sanely[1]. This
 only eliminates the cheap and irritating DOS attack.
-
-BIP65 soft fork to enforce OP_CHECKLOCKTIMEVERIFY opcode
---------------------------------------------------------
-
-This release includes several changes related to the [BIP65][] soft fork
-which redefines the existing OP_NOP2 opcode as OP_CHECKLOCKTIMEVERIFY
-(CLTV) so that a transaction output can be made unspendable until a
-specified point in the future.
-
-1. This release will only relay and mine transactions spending a CLTV
-   output if they comply with the BIP65 rules as provided in code.
-
-2. This release will produce version 4 blocks by default. Please see the
-   *notice to miners* below.
-
-3. Once 951 out of a sequence of 1,001 blocks on the local node's best block
-   chain contain version 4 (or higher) blocks, this release will no
-   longer accept new version 3 blocks and it will only accept version 4
-   blocks if they comply with the BIP65 rules for CLTV.
-
-For more information about the soft-forking change, please see
-<https://github.com/bitcoin/bitcoin/pull/6351>
-
-Graphs showing the progress towards block version 4 adoption may be
-found at the URLs below:
-
-- Block versions over the last 50,000 blocks as progress towards BIP65
-  consensus enforcement: <http://bitcoin.sipa.be/ver-50k.png>
-
-- Block versions over the last 2,000 blocks showing the days to the
-  earliest possible BIP65 consensus-enforced block: <http://bitcoin.sipa.be/ver-2k.png>
-
-**Notice to miners:** Bitcoin Core’s block templates are now for
-version 4 blocks only, and any mining software relying on its
-getblocktemplate must be updated in parallel to use libblkmaker either
-version 0.4.3 or any version from 0.5.2 onward.
-
-- If you are solo mining, this will affect you the moment you upgrade
-  Bitcoin Core, which must be done prior to BIP65 achieving its 951/1001
-  status.
-
-- If you are mining with the stratum mining protocol: this does not
-  affect you.
-
-- If you are mining with the getblocktemplate protocol to a pool: this
-  will affect you at the pool operator’s discretion, which must be no
-  later than BIP65 achieving its 951/1001 status.
-
-[BIP65]: https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki
 
 BIP113 mempool-only locktime enforcement using GetMedianTimePast()
 ----------------------------------------------------------------
@@ -532,7 +473,7 @@ caching. A sample config for apache2 could look like:
     SSLCertificateFile /etc/apache2/ssl/server.crt
     SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
-    <Location /bitcoinrpc>
+    <Location /groestlcoinrpc>
         ProxyPass http://127.0.0.1:1331/
         ProxyPassReverse http://127.0.0.1:1331/
         # optional enable digest auth
@@ -569,22 +510,29 @@ a new RPC call (`clearbanned`) can be used to manually clear the list.  The new
 First version bits BIP9 softfork deployment
 -------------------------------------------
 
-This release includes a soft fork deployment to enforce [BIP68][],
-[BIP112][] and [BIP113][] using the [BIP9][] deployment mechanism.
+This release includes a soft fork deployment to enforce BIP65, BIP68,
+BIP112, BIP113, BIP141, BIP143 and BIP147 using the BIP9 deployment mechanism.
 
 The deployment sets the block version number to 0x20000023 between
-midnight 21th Jan 2017 and midnight 21th June May 2017 to signal readiness for 
+midnight 21th Jan 2017 and midnight 21th June 2017 to signal readiness for 
 deployment. The version number consists of 0x20000000 to indicate version
-bits together with setting bit 0 to indicate support for this combined
-deployment, shown as "csv" in the `getblockchaininfo` RPC call.
-
-For more information about the soft forking change, please see
-<https://github.com/bitcoin/bitcoin/pull/7648>
+bits together with setting bit 0, bit 1 and bit 5 to indicate support for this combined
+deployment, shown as "csv", "segwit" and "bip65" in the `getblockchaininfo` RPC call.
 
 [BIP9]: https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki
+[BIP65]: https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki
 [BIP68]: https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki
 [BIP112]: https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki
 [BIP113]: https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki
+[BIP141]: https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki
+[BIP143]: https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki
+[BIP147]: https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki
+
+BIP65 soft fork to enforce OP_CHECKLOCKTIMEVERIFY opcode
+--------------------------------------------------------
+This release includes several changes related to the [BIP65][] soft fork
+which redefines the existing OP_NOP2 opcode as OP_CHECKLOCKTIMEVERIFY(CLTV) 
+so that a transaction output can be made unspendable until aspecified point in the future.
 
 BIP68 soft fork to enforce sequence locks for relative locktime
 ---------------------------------------------------------------
@@ -594,9 +542,6 @@ the sequence number field to enable a signed transaction input to remain
 invalid for a defined period of time after confirmation of its corresponding
 outpoint.
 
-For more information about the implementation, see
-<https://github.com/bitcoin/bitcoin/pull/7184>
-
 BIP112 soft fork to enforce OP_CHECKSEQUENCEVERIFY
 --------------------------------------------------
 
@@ -604,9 +549,6 @@ BIP112 soft fork to enforce OP_CHECKSEQUENCEVERIFY
 for a new opcode in the Groestlcoin scripting system that in combination with
 [BIP68][] allows execution pathways of a script to be restricted based
 on the age of the output being spent.
-
-For more information about the implementation, see
-<https://github.com/bitcoin/bitcoin/pull/7524>
 
 BIP113 locktime enforcement soft fork
 -------------------------------------
@@ -657,9 +599,6 @@ rejected by nodes running this release until the median time moves
 forward. To compensate, subtract one hour (3,600 seconds) from your
 locktimes to allow those transactions to be included in mempools at
 approximately the expected time.
-
-For more information about the implementation, see
-<https://github.com/bitcoin/bitcoin/pull/6566>
 
 Miscellaneous
 -------------
@@ -1024,20 +963,6 @@ covered by the txid. This provides several immediate benefits:
   improve the privacy and efficiency of scripts with two or more conditions.
   Other Bitcoin community members are studying several other improvements
   that can be made using script versioning.
-
-Activation for the segwit soft fork is being managed using BIP9
-versionbits.  Segwit's version bit is bit 1, and nodes will begin
-tracking which blocks signal support for segwit at the beginning of the
-first retarget period after segwit's start date of 21 Jan 2012.  If
-95% of blocks within a 2,016-block retarget period 
-signal support for segwit, the soft fork will be locked in.  After
-another 2,016 blocks, segwit will activate.
-
-[BIP141]: https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki
-[BIP143]: https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki
-[BIP144]: https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki
-[BIP145]: https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki
-[versionbits FAQ]: https://bitcoincore.org/en/2016/06/08/version-bits-miners-faq/
 
 Change to wallet handling of mempool rejection
 -----------------------------------------------
