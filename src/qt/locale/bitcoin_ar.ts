@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Send coins to a Groestlcoin address</source>
-        <translation>ارسل عملات الى عنوان بيتكوين</translation>
+        <translation>ارسل عملات الى عنوان غرسلكوينن</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
