@@ -13,44 +13,44 @@
 %endif
 %endif
 
-Name:		bitcoin
-Version:	0.12.0
-Release:	2%{?dist}
-Summary:	Peer to Peer Cryptographic Currency
+Name:       bitcoin
+Version:    0.12.0
+Release:    2%{?dist}
+Summary:    Peer to Peer Cryptographic Currency
 
-Group:		Applications/System
-License:	MIT
-URL:		https://bitcoin.org/
-Source0:	https://bitcoin.org/bin/bitcoin-core-%{version}/bitcoin-%{version}.tar.gz
-Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
+Group:      Applications/System
+License:    MIT
+URL:        https://bitcoin.org/
+Source0:    https://bitcoin.org/bin/bitcoin-core-%{version}/bitcoin-%{version}.tar.gz
+Source1:    http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
-Source10:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/debian/examples/bitcoin.conf
+Source10:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/debian/examples/bitcoin.conf
 
 #man pages
-Source20:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/doc/man/bitcoind.1
-Source21:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/doc/man/bitcoin-cli.1
-Source22:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/doc/man/bitcoin-qt.1
+Source20:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/doc/man/bitcoind.1
+Source21:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/doc/man/bitcoin-cli.1
+Source22:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/doc/man/bitcoin-qt.1
 
 #selinux
-Source30:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/rpm/bitcoin.te
+Source30:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/rpm/bitcoin.te
 # Source31 - what about bitcoin-tx and bench_bitcoin ???
-Source31:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/rpm/bitcoin.fc
-Source32:	https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/rpm/bitcoin.if
+Source31:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/rpm/bitcoin.fc
+Source32:   https://raw.githubusercontent.com/bitcoin/bitcoin/v%{version}/contrib/rpm/bitcoin.if
 
-Source100:	https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg
+Source100:  https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg
 
 %if 0%{?_use_libressl:1}
-BuildRequires:	libressl-devel
+BuildRequires:  libressl-devel
 %else
-BuildRequires:	openssl-devel
+BuildRequires:  openssl-devel
 %endif
-BuildRequires:	boost-devel
-BuildRequires:	miniupnpc-devel
-BuildRequires:	autoconf automake libtool
-BuildRequires:	libevent-devel
+BuildRequires:  boost-devel
+BuildRequires:  miniupnpc-devel
+BuildRequires:  autoconf automake libtool
+BuildRequires:  libevent-devel
 
 
-Patch0:		bitcoin-0.12.0-libressl.patch
+Patch0:     bitcoin-0.12.0-libressl.patch
 
 
 %description
@@ -60,23 +60,23 @@ issuing of bitcoins is carried out collectively by the network.
 
 %if %{_buildqt}
 %package core
-Summary:	Peer to Peer Cryptographic Currency
-Group:		Applications/System
-Obsoletes:	%{name} < %{version}-%{release}
-Provides:	%{name} = %{version}-%{release}
+Summary:    Peer to Peer Cryptographic Currency
+Group:      Applications/System
+Obsoletes:  %{name} < %{version}-%{release}
+Provides:   %{name} = %{version}-%{release}
 %if 0%{?_use_qt4}
-BuildRequires:	qt-devel
+BuildRequires:  qt-devel
 %else
-BuildRequires:	qt5-qtbase-devel
+BuildRequires:  qt5-qtbase-devel
 # for /usr/bin/lrelease-qt5
-BuildRequires:	qt5-linguist
+BuildRequires:  qt5-linguist
 %endif
-BuildRequires:	protobuf-devel
-BuildRequires:	qrencode-devel
-BuildRequires:	%{_bindir}/desktop-file-validate
+BuildRequires:  protobuf-devel
+BuildRequires:  qrencode-devel
+BuildRequires:  %{_bindir}/desktop-file-validate
 # for icon generation from SVG
-BuildRequires:	%{_bindir}/inkscape
-BuildRequires:	%{_bindir}/convert
+BuildRequires:  %{_bindir}/inkscape
+BuildRequires:  %{_bindir}/convert
 
 %description core
 Bitcoin is a digital cryptographic currency that uses peer-to-peer technology to
@@ -89,8 +89,8 @@ to run a Bitcoin wallet, this is probably the package you want.
 
 
 %package libs
-Summary:	Bitcoin shared libraries
-Group:		System Environment/Libraries
+Summary:    Bitcoin shared libraries
+Group:      System Environment/Libraries
 
 %description libs
 This package provides the bitcoinconsensus shared libraries. These libraries
@@ -100,9 +100,9 @@ functionality.
 Unless you know need this package, you probably do not.
 
 %package devel
-Summary:	Development files for bitcoin
-Group:		Development/Libraries
-Requires:	%{name}-libs = %{version}-%{release}
+Summary:    Development files for bitcoin
+Group:      Development/Libraries
+Requires:   %{name}-libs = %{version}-%{release}
 
 %description devel
 This package contains the header files and static library for the
@@ -112,16 +112,16 @@ that wants to link against that library, then you need this package installed.
 Most people do not need this package installed.
 
 %package server
-Summary:	The bitcoin daemon
-Group:		System Environment/Daemons
-Requires:	bitcoin-utils = %{version}-%{release}
-Requires:	selinux-policy policycoreutils-python
-Requires(pre):	shadow-utils
-Requires(post):	%{_sbindir}/semodule %{_sbindir}/restorecon %{_sbindir}/fixfiles %{_sbindir}/sestatus
-Requires(postun):	%{_sbindir}/semodule %{_sbindir}/restorecon %{_sbindir}/fixfiles %{_sbindir}/sestatus
-BuildRequires:	systemd
-BuildRequires:	checkpolicy
-BuildRequires:	%{_datadir}/selinux/devel/Makefile
+Summary:    The bitcoin daemon
+Group:      System Environment/Daemons
+Requires:   bitcoin-utils = %{version}-%{release}
+Requires:   selinux-policy policycoreutils-python
+Requires(pre):  shadow-utils
+Requires(post): %{_sbindir}/semodule %{_sbindir}/restorecon %{_sbindir}/fixfiles %{_sbindir}/sestatus
+Requires(postun):   %{_sbindir}/semodule %{_sbindir}/restorecon %{_sbindir}/fixfiles %{_sbindir}/sestatus
+BuildRequires:  systemd
+BuildRequires:  checkpolicy
+BuildRequires:  %{_datadir}/selinux/devel/Makefile
 
 %description server
 This package provides a stand-alone bitcoin-core daemon. For most users, this
@@ -134,8 +134,8 @@ If you use the graphical bitcoin-core client then you almost certainly do not
 need this package.
 
 %package utils
-Summary:	Bitcoin utilities
-Group:		Applications/System
+Summary:    Bitcoin utilities
+Group:      Applications/System
 
 %description utils
 This package provides several command line utilities for interacting with a
@@ -171,9 +171,9 @@ make %{?_smp_mflags}
 
 pushd SELinux
 for selinuxvariant in %{selinux_variants}; do
-	make NAME=${selinuxvariant} -f %{_datadir}/selinux/devel/Makefile
-	mv bitcoin.pp bitcoin.pp.${selinuxvariant}
-	make NAME=${selinuxvariant} -f %{_datadir}/selinux/devel/Makefile clean
+    make NAME=${selinuxvariant} -f %{_datadir}/selinux/devel/Makefile
+    mv bitcoin.pp bitcoin.pp.${selinuxvariant}
+    make NAME=${selinuxvariant} -f %{_datadir}/selinux/devel/Makefile clean
 done
 popd
 
@@ -237,8 +237,8 @@ mkdir -p %{buildroot}%{_localstatedir}/lib/bitcoin
 
 #SELinux
 for selinuxvariant in %{selinux_variants}; do
-	install -d %{buildroot}%{_datadir}/selinux/${selinuxvariant}
-	install -p -m 644 SELinux/bitcoin.pp.${selinuxvariant} %{buildroot}%{_datadir}/selinux/${selinuxvariant}/bitcoin.pp
+    install -d %{buildroot}%{_datadir}/selinux/${selinuxvariant}
+    install -p -m 644 SELinux/bitcoin.pp.${selinuxvariant} %{buildroot}%{_datadir}/selinux/${selinuxvariant}/bitcoin.pp
 done
 
 %if %{_buildqt}
@@ -323,8 +323,8 @@ qa/pull-tester/rpc-tests.py -extended
 %pre server
 getent group bitcoin >/dev/null || groupadd -r bitcoin
 getent passwd bitcoin >/dev/null ||
-	useradd -r -g bitcoin -d /var/lib/bitcoin -s /sbin/nologin \
-	-c "Bitcoin wallet server" bitcoin
+    useradd -r -g bitcoin -d /var/lib/bitcoin -s /sbin/nologin \
+    -c "Bitcoin wallet server" bitcoin
 exit 0
 
 %post server
@@ -332,12 +332,12 @@ exit 0
 # SELinux
 if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
 for selinuxvariant in %{selinux_variants}; do
-	%{_sbindir}/semodule -s ${selinuxvariant} -i %{_datadir}/selinux/${selinuxvariant}/bitcoin.pp &> /dev/null || :
+    %{_sbindir}/semodule -s ${selinuxvariant} -i %{_datadir}/selinux/${selinuxvariant}/bitcoin.pp &> /dev/null || :
 done
-%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 8332
-%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 8333
-%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 18332
-%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 18333
+%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 1441
+%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 1331
+%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 17766
+%{_sbindir}/semanage port -a -t bitcoin_port_t -p tcp 17777
 %{_sbindir}/fixfiles -R bitcoin-server restore &> /dev/null || :
 %{_sbindir}/restorecon -R %{_localstatedir}/lib/bitcoin || :
 fi
@@ -352,18 +352,18 @@ fi
 %systemd_postun bitcoin.service
 # SELinux
 if [ $1 -eq 0 ]; then
-	if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
-	%{_sbindir}/semanage port -d -p tcp 8332
-	%{_sbindir}/semanage port -d -p tcp 8333
-	%{_sbindir}/semanage port -d -p tcp 18332
-	%{_sbindir}/semanage port -d -p tcp 18333
-	for selinuxvariant in %{selinux_variants}; do
-		%{_sbindir}/semodule -s ${selinuxvariant} -r bitcoin &> /dev/null || :
-	done
-	%{_sbindir}/fixfiles -R bitcoin-server restore &> /dev/null || :
-	[ -d %{_localstatedir}/lib/bitcoin ] && \
-		%{_sbindir}/restorecon -R %{_localstatedir}/lib/bitcoin &> /dev/null || :
-	fi
+    if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
+    %{_sbindir}/semanage port -d -p tcp 1441
+    %{_sbindir}/semanage port -d -p tcp 1331
+    %{_sbindir}/semanage port -d -p tcp 17766
+    %{_sbindir}/semanage port -d -p tcp 17777
+    for selinuxvariant in %{selinux_variants}; do
+        %{_sbindir}/semodule -s ${selinuxvariant} -r bitcoin &> /dev/null || :
+    done
+    %{_sbindir}/fixfiles -R bitcoin-server restore &> /dev/null || :
+    [ -d %{_localstatedir}/lib/bitcoin ] && \
+        %{_sbindir}/restorecon -R %{_localstatedir}/lib/bitcoin &> /dev/null || :
+    fi
 fi
 
 %clean
