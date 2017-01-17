@@ -61,7 +61,7 @@ Before running, it's recommended you create an RPC configuration file.
 
     chmod 600 "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
 
-The first time you run bitcoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run groestlcoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
     tail -f $HOME/Library/Application\ Support/Groestlcoin/debug.log
@@ -72,7 +72,7 @@ bundle is packaged and signed to create the .dmg disk image that is distributed.
 Other commands:
 -------
 
-    ./src/groestlcoind -daemon # Starts the bitcoin daemon.
+    ./src/groestlcoind -daemon # Starts the groestlcoin daemon.
     ./src/groestlcoin-cli --help # Outputs a list of command-line options.
     ./src/groestlcoin-cli help # Outputs a list of RPC commands when the daemon is running.
 

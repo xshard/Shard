@@ -276,7 +276,7 @@ Setup and Build Example: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone https://github.com/bitcoin/bitcoin.git
+    git clone https://github.com/groestlcoin/groestlcoin.git
     cd bitcoin/
     ./autogen.sh
     ./configure --disable-wallet --without-gui --without-miniupnpc
@@ -332,7 +332,7 @@ For the wallet (optional):
 This will give a warning "configure: WARNING: Found Berkeley DB other
 than 4.8; wallets opened by this build will not be portable!", but as FreeBSD never
 had a binary release, this may not matter. If backwards compatibility
-with 4.8-built Bitcoin Core is needed follow the steps under "Berkeley DB" above.
+with 4.8-built Groestlcoin Core is needed follow the steps under "Berkeley DB" above.
 
 Then build using:
 
