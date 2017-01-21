@@ -2893,9 +2893,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
         return state.Invalid(false, REJECT_INVALID, "time-too-old", "block's timestamp is too early");
 
 	//GRS
-	int32_t nVersion = block.nVersion;
-	if (nVersion == 112)
-		nVersion = 1;
+    int32_t nVersion = block.nVersion;
+    if (nVersion == 112)
+        nVersion = 1;
 
     // Check timestamp
     if (block.GetBlockTime() > nAdjustedTime + 2 * 60 * 60)
