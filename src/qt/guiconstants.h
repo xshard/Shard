@@ -49,7 +49,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 36
 
 #define QAPP_ORG_NAME "Shard"
-#define QAPP_ORG_DOMAIN "shard.org"
+#define QAPP_ORG_DOMAIN "xshard.org"
 #define QAPP_APP_NAME_DEFAULT "Shard-Qt"
 #define QAPP_APP_NAME_TESTNET "Shard-Qt-testnet"
 

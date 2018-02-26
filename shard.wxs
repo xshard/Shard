@@ -25,9 +25,9 @@
 
 	<Property Id="ARPPRODUCTICON" Value="Shard.ico" />
 	<Property Id='DiskPrompt' Value="Shard Core" />
-	<Property Id="ARPHELPLINK" Value="http://www.shard.org/downloads/" />
-	<Property Id="ARPURLINFOABOUT" Value="http://www.shard.org/downloads/" />
-	<Property Id="ARPURLUPDATEINFO" Value="http://www.shard.org/downloads/" />
+	<Property Id="ARPHELPLINK" Value="http://www.xshard.org/downloads/" />
+	<Property Id="ARPURLINFOABOUT" Value="http://www.xshard.org/downloads/" />
+	<Property Id="ARPURLUPDATEINFO" Value="http://www.xshard.org/downloads/" />
 	<Property Id="LAUNCHPRODUCT">0</Property>
 	<Property Id="ARPNOREPAIR" Value="1" />
 <!--    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />-->
@@ -60,7 +60,7 @@
 
 	<Media Id="1" Cabinet="shard.cab" EmbedCab="yes"/>
 
-	<Component Id='CMP_GrsQt' Guid='a677466c-3dbe-476f-a225-eb19da78004d' Directory='INSTALLDIR' >
+	<Component Id='CMP_XsdQt' Guid='a677466c-3dbe-476f-a225-eb19da78004d' Directory='INSTALLDIR' >
 		<File  Id="shard_qt.exe" Source="$(var.OUTDIR)\shard-qt.exe"    KeyPath='yes'       >
 <!--            <Shortcut Id="startmenuShard"     Directory="ProgramMenuFolder"   Name="Shard Core" Icon="Shard.ico" IconIndex="0" Advertise="yes" /> -->
 			<Shortcut Id="desktopShard"   Directory="DesktopFolder"       Name="Shard Core" Icon="Shard.ico" IconIndex="0" Advertise="yes" />
@@ -68,7 +68,7 @@
 		<Shortcut Id='UninstallProductFromInstallDir'     Name='Uninstall Shard Core' Description='Uninstalls Shard Core' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
 	</Component>
 
-	<Component Id='CMP_GrsDaemon' Guid='32b21315-0f58-4af8-8f14-156645ecfad6' Directory='DAEMON' >
+	<Component Id='CMP_XsdDaemon' Guid='32b21315-0f58-4af8-8f14-156645ecfad6' Directory='DAEMON' >
 		<File  Source="$(var.OUTDIR)\shardd.exe"  KeyPath='yes'       />
 		<File  Source="$(var.OUTDIR)\shard-cli.exe"           />
 	</Component>
@@ -103,8 +103,8 @@
 	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
 	<Feature Id='Complete' Level='1' Title='Shard Core'>
-		<ComponentRef Id='CMP_GrsQt'				/>
-		<ComponentRef Id='CMP_GrsDaemon'			/>
+		<ComponentRef Id='CMP_XsdQt'				/>
+		<ComponentRef Id='CMP_XsdDaemon'			/>
 		<ComponentRef Id='CMP_ApplicationShortcut'	/>
 	</Feature>
 

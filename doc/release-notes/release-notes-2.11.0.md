@@ -1,13 +1,13 @@
 Shard Core version 2.11.0 is now available from:
 
-  <https://shard.org/downloads/>
+  <https://xshard.org/downloads/>
 
 This is a new major version release, bringing both new features and
 bug fixes.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/shard/shard/issues>
+  <https://github.com/joenilan/shard/issues>
 
 Upgrading and downgrading
 =========================
@@ -419,7 +419,7 @@ critical to Shard's consensus available to other applications, e.g.
 alternative node implementations.
 
 This library is called `libshardconsensus.so` (or, `.dll` for Windows).
-Its interface is defined in the C header [shardconsensus.h](https://github.com/Shard/shard/blob/master/src/script/shardconsensus.h).
+Its interface is defined in the C header [shardconsensus.h](https://github.com/joenilan/shard/blob/master/src/script/shardconsensus.h).
 
 In its initial version the API includes two functions:
 

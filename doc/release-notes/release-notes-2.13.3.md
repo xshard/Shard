@@ -1,13 +1,13 @@
 Shard Core version 2.13.3 is now available from:
 
-  <https://shard.org/downloads/>
+  <https://xshard.org/downloads/>
 
 This is a new major version release, including new features, various bugfixes and
 performance improvements, as well as updated translations. It is recommended to upgrade to this version as soon as possible.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/shard/shard/issues>
+  <https://github.com/joenilan/shard/issues>
 
 Compatibility
 ==============

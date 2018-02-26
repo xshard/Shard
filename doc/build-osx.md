@@ -29,7 +29,7 @@ Build Shard Core
 
 1. Clone the shard source code and cd into `shard`
 
-        git clone https://github.com/Shard/shard.git
+        git clone https://github.com/joenilan/shard.git
         cd shard
 
 2.  Build shard-core:

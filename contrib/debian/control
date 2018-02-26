@@ -23,9 +23,9 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python
 Standards-Version: 3.9.2
-Homepage: http://www.shard.org/
-Vcs-Git: git://github.com/shard/shard.git
-Vcs-Browser: http://github.com/shard/shard
+Homepage: http://www.xshard.org/
+Vcs-Git: git://github.com/joenilan/shard/shard.git
+Vcs-Browser: http://github.com/joenilan/shard/shard
 
 Package: shardd
 Architecture: any

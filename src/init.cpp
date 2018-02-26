@@ -500,8 +500,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/Shard/shard>";
-    const std::string URL_WEBSITE = "<https://shard.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/joenilan/shard/shard>";
+    const std::string URL_WEBSITE = "<https://xshard.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +

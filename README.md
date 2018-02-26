@@ -8,11 +8,11 @@ Updated to Bitcoin reference wallet 0.13.3 on January 2017
 
 Shard Core Wallet
 
-http://www.comingsoon.org
+http://www.xshard.org
 
 The algorithm was written as a candidate for sha3
 
-https://bitcointalk.org/index.php?topic=525926.0
+https://bitcointalk.org/index.php?topic=
 
 Copyright (c) 2009-2017 The Bitcoin Core Developers
 
@@ -28,7 +28,7 @@ out collectively by the network. Shard Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Shard Core software, see http://www.shard.org/download.
+the Shard Core software, see http://www.xshard.org/download.
 
 License
 -------
@@ -54,7 +54,7 @@ match the project's coding conventions (see [doc/coding.md](doc/coding.md)) or a
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/shard/shard/tags) are created
+completely stable. [Tags](https://github.com/joenilan/shard/tags) are created
 regularly to indicate new official, stable release versions of Shard.
 
 Testing

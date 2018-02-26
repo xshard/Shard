@@ -399,11 +399,11 @@ public:
 		assert(consensus.hashGenesisBlock == uint256S("0x90aac702d3c49da1683ad70dd6179171b8140958e29320a6fc05cb3e0e6b59f9"));
 		assert(genesis.hashMerkleRoot == uint256S("0x4a9e16591b47700a2cfdaa157305f05ee24c5c3ee6edfa5503fdc0d2384e0107"));
 
-        vSeeds.push_back(CDNSSeedData("69.164.213.228", "69.164.213.228"));
-		vSeeds.push_back(CDNSSeedData("45.56.103.114", "45.56.103.114"));
-		/* vSeeds.push_back(CDNSSeedData("electrum2.shard.org", "electrum2.shard.org"));
-		vSeeds.push_back(CDNSSeedData("jswallet.shard.org", "jswallet.shard.org"));
-		vSeeds.push_back(CDNSSeedData("groestlsight.shard.org", "groestlsight.shard.org")); */
+        vSeeds.push_back(CDNSSeedData("node2.xshard.org", "node2.xshard.org"));
+		vSeeds.push_back(CDNSSeedData("node2.xshard.org", "node2.xshard.org"));
+		/* vSeeds.push_back(CDNSSeedData("electrum2.xshard.org", "electrum2.xshard.org"));
+		vSeeds.push_back(CDNSSeedData("jswallet.xshard.org", "jswallet.xshard.org"));
+		vSeeds.push_back(CDNSSeedData("groestlsight.xshard.org", "groestlsight.xshard.org")); */
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);

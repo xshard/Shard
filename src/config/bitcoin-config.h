@@ -316,7 +316,7 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "https://github.com/Shard/shard/issues"
+#define PACKAGE_BUGREPORT "https://github.com/joenilan/shard/issues"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "Shard Core"
@@ -328,7 +328,7 @@
 #define PACKAGE_TARNAME "shard"
 
 /* Define to the home page for this package. */
-#define PACKAGE_URL "www.shard.org"
+#define PACKAGE_URL "www.xshard.org"
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "2.13.3"
