@@ -13,7 +13,7 @@
 #include "amount.h"
 #include "chain.h"
 #include "chainparams.h"
-#include "checkpoints.h"
+//#include "checkpoints.h"
 #include "compat/sanity.h"
 #include "consensus/validation.h"
 #include "httpserver.h"

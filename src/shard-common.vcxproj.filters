@@ -415,9 +415,9 @@
     <ClInclude Include="random.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="checkpoints.h">
+<!--    <ClInclude Include="checkpoints.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </ClInclude> -->
     <ClInclude Include="shard.h">
       <Filter>Header Files\xsd</Filter>
     </ClInclude>

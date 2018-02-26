@@ -8,7 +8,7 @@
 
 #include "arith_uint256.h"
 #include "chainparams.h"
-#include "checkpoints.h"
+//#include "checkpoints.h"
 #include "checkqueue.h"
 #include "consensus/consensus.h"
 #include "consensus/merkle.h"

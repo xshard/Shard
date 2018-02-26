@@ -665,7 +665,7 @@
     <ClInclude Include="chain.h" />
     <ClInclude Include="chainparams.h" />
     <ClInclude Include="chainparamsbase.h" />
-    <ClInclude Include="checkpoints.h" />
+<!--    <ClInclude Include="checkpoints.h" /> -->
     <ClInclude Include="clientversion.h" />
     <ClInclude Include="coins.h" />
     <ClInclude Include="compat\sanity.h" />
