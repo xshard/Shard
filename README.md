@@ -8,7 +8,7 @@ Updated to Bitcoin reference wallet 0.13.3 on January 2017
 
 Shard Core Wallet
 
-http://www.shard.org
+http://www.comingsoon.org
 
 The algorithm was written as a candidate for sha3
 
