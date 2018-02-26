@@ -363,9 +363,9 @@ public:
          * a large 32-bit integer with any alignment.
          */
         pchMessageStart[0] = 0xf9;
-        pchMessageStart[1] = 0xbe;
-        pchMessageStart[2] = 0xb4;
-        pchMessageStart[3] = 0xd4;
+        pchMessageStart[1] = 0xbf;
+        pchMessageStart[2] = 0xb3;
+        pchMessageStart[3] = 0xd5;
 
 		nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
@@ -469,10 +469,10 @@ public:
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
 		consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        pchMessageStart[0] = 0x0b;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x09;
-        pchMessageStart[3] = 0x07;
+        pchMessageStart[0] = 0x0a;
+        pchMessageStart[1] = 0x12;
+        pchMessageStart[2] = 0x08;
+        pchMessageStart[3] = 0x06;
 
         nDefaultPort = 17777;
         nPruneAfterHeight = 1000000;
@@ -551,10 +551,10 @@ public:
 		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 0;
 		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 999999999999ULL;
 
-		pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
-        pchMessageStart[2] = 0xb5;
-        pchMessageStart[3] = 0xda;
+		pchMessageStart[0] = 0xfb;
+        pchMessageStart[1] = 0xbe;
+        pchMessageStart[2] = 0xb6;
+        pchMessageStart[3] = 0xdb;
         nDefaultPort = 18444;
 
         nPruneAfterHeight = 1000;
