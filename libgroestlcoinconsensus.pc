@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Groestlcoin Core consensus library
+Description: Library for the Groestlcoin consensus protocol.
+Version: 2.13.3
+Libs: -L${libdir} -lgroestlcoinconsensus
+Cflags: -I${includedir}
+Requires.private: libcrypto
