@@ -90,8 +90,8 @@
         <translation>&amp;செய்தியை சரிசெய்...</translation>
     </message>
     <message>
-        <source>Groestlcoin</source>
-        <translation>Groestlcoin</translation>
+        <source>Shard</source>
+        <translation>Shard</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -712,10 +712,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>shard-core</name>
     <message>
-        <source>Groestlcoin Core</source>
-        <translation>Groestlcoin மையம்</translation>
+        <source>Shard Core</source>
+        <translation>Shard மையம்</translation>
     </message>
     <message>
         <source>(default: %u)</source>

@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. groestlcoin_test
+	$(MAKE) -C .. shard_test
 clean:
-	$(MAKE) -C .. groestlcoin_test_clean
+	$(MAKE) -C .. shard_test_clean
 check:
-	$(MAKE) -C .. groestlcoin_test_check
+	$(MAKE) -C .. shard_test_check

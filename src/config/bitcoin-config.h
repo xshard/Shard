@@ -27,10 +27,10 @@
 #define COPYRIGHT_HOLDERS "The %s developers"
 
 /* Copyright holder(s) */
-#define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
+#define COPYRIGHT_HOLDERS_FINAL "The Shard Core developers"
 
 /* Replacement for %s in copyright holders string */
-#define COPYRIGHT_HOLDERS_SUBSTITUTION "Groestlcoin Core"
+#define COPYRIGHT_HOLDERS_SUBSTITUTION "Shard Core"
 
 /* Copyright year */
 #define COPYRIGHT_YEAR 2017
@@ -316,19 +316,19 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "https://github.com/GroestlCoin/groestlcoin/issues"
+#define PACKAGE_BUGREPORT "https://github.com/GroestlCoin/shard/issues"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "Groestlcoin Core"
+#define PACKAGE_NAME "Shard Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Groestlcoin Core 2.13.3"
+#define PACKAGE_STRING "Shard Core 2.13.3"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "groestlcoin"
+#define PACKAGE_TARNAME "shard"
 
 /* Define to the home page for this package. */
-#define PACKAGE_URL "www.groestlcoin.org"
+#define PACKAGE_URL "www.shard.org"
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "2.13.3"

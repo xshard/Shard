@@ -154,8 +154,8 @@
         <translation>Se reindexează blocurile pe disc...</translation>
     </message>
     <message>
-        <source>Send coins to a Groestlcoin address</source>
-        <translation>Trimite monede către o adresă Groestlcoin</translation>
+        <source>Send coins to a Shard address</source>
+        <translation>Trimite monede către o adresă Shard</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -178,8 +178,8 @@
         <translation>&amp;Verifică mesaj...</translation>
     </message>
     <message>
-        <source>Groestlcoin</source>
-        <translation>Groestlcoin</translation>
+        <source>Shard</source>
+        <translation>Shard</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -206,12 +206,12 @@
         <translation>Criptează cheile private ale portofelului dvs.</translation>
     </message>
     <message>
-        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
-        <translation>Semnaţi mesaje cu adresa dvs. Groestlcoin pentru a dovedi că vă aparţin</translation>
+        <source>Sign messages with your Shard addresses to prove you own them</source>
+        <translation>Semnaţi mesaje cu adresa dvs. Shard pentru a dovedi că vă aparţin</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
-        <translation>Verificaţi mesaje pentru a vă asigura că au fost semnate cu adresa Groestlcoin specificată</translation>
+        <source>Verify messages to ensure they were signed with specified Shard addresses</source>
+        <translation>Verificaţi mesaje pentru a vă asigura că au fost semnate cu adresa Shard specificată</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -230,8 +230,8 @@
         <translation>Bara de unelte</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>Cereţi plăţi (generează coduri QR şi groestlcoin-uri: URls)</translation>
+        <source>Request payments (generates QR codes and shard: URIs)</source>
+        <translation>Cereţi plăţi (generează coduri QR şi shard-uri: URls)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -242,16 +242,16 @@
         <translation>Arată lista de adrese pentru primire şi etichetele</translation>
     </message>
     <message>
-        <source>Open a groestlcoin: URI or payment request</source>
-        <translation>Deschidere groestlcoin: o adresa URI sau o cerere de plată</translation>
+        <source>Open a shard: URI or payment request</source>
+        <translation>Deschidere shard: o adresa URI sau o cerere de plată</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Opţiuni linie de &amp;comandă</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n conexiune activă către reţeaua Groestlcoin</numerusform><numerusform>%n conexiuni active către reţeaua Groestlcoin</numerusform><numerusform>%n de conexiuni active către reţeaua Groestlcoin</numerusform></translation>
+        <source>%n active connection(s) to Shard network</source>
+        <translation><numerusform>%n conexiune activă către reţeaua Shard</numerusform><numerusform>%n conexiuni active către reţeaua Shard</numerusform><numerusform>%n de conexiuni active către reţeaua Shard</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -673,16 +673,16 @@
         <translation>Cheltuire rest neconfirmat</translation>
     </message>
     <message>
-        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Deschide automat în router portul aferent clientului Groestlcoin. Funcţionează doar dacă routerul duportă UPnP şi e activat.</translation>
+        <source>Automatically open the Shard client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Deschide automat în router portul aferent clientului Shard. Funcţionează doar dacă routerul duportă UPnP şi e activat.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Mapare port folosind &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Groestlcoin network through a SOCKS5 proxy.</source>
-        <translation>Conectare la reţeaua Groestlcoin printr-un proxy SOCKS.</translation>
+        <source>Connect to the Shard network through a SOCKS5 proxy.</source>
+        <translation>Conectare la reţeaua Shard printr-un proxy SOCKS.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -742,7 +742,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Alegeţi subdiviziunea folosită la afişarea interfeţei şi la trimiterea de groestlcoin.</translation>
+        <translation>Alegeţi subdiviziunea folosită la afişarea interfeţei şi la trimiterea de shard.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -782,7 +782,7 @@
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
-        <translation>Adresa groestlcoin pe care aţi specificat-o nu este validă.</translation>
+        <translation>Adresa shard pe care aţi specificat-o nu este validă.</translation>
     </message>
 </context>
 <context>
@@ -792,8 +792,8 @@
         <translation>Form</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informaţiile afişate pot fi neactualizate. Portofelul dvs. se sincronizează automat cu reţeaua Groestlcoin după ce o conexiune este stabilită, dar acest proces nu a fost finalizat încă.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Shard network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informaţiile afişate pot fi neactualizate. Portofelul dvs. se sincronizează automat cu reţeaua Shard după ce o conexiune este stabilită, dar acest proces nu a fost finalizat încă.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -885,8 +885,8 @@
         <translation>Cantitate</translation>
     </message>
     <message>
-        <source>Enter a Groestlcoin address (e.g. %1)</source>
-        <translation>Introduceţi o adresă Groestlcoin (de exemplu %1)</translation>
+        <source>Enter a Shard address (e.g. %1)</source>
+        <translation>Introduceţi o adresă Shard (de exemplu %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1178,8 +1178,8 @@
         <translation>R&amp;efoloseşte o adresă de primire (nu este recomandat)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Groestlcoin network.</source>
-        <translation>Un mesaj opţional de ataşat la cererea de plată, care va fi afişat cînd cererea este deschisă. Notă: Acest mesaj nu va fi trimis cu plata către reţeaua Groestlcoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Shard network.</source>
+        <translation>Un mesaj opţional de ataşat la cererea de plată, care va fi afişat cînd cererea este deschisă. Notă: Acest mesaj nu va fi trimis cu plata către reţeaua Shard.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1402,8 +1402,8 @@
         <translation>Aceasta este o tranzacţie normală.</translation>
     </message>
     <message>
-        <source>The Groestlcoin address to send the payment to</source>
-        <translation>Adresa groestlcoin către care se face plata</translation>
+        <source>The Shard address to send the payment to</source>
+        <translation>Adresa shard către care se face plata</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1430,8 +1430,8 @@
         <translation>Introduceţi eticheta pentru ca această adresa să fie introdusă în lista de adrese folosite</translation>
     </message>
     <message>
-        <source>A message that was attached to the groestlcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Groestlcoin network.</source>
-        <translation>un mesaj a fost ataşat la groestlcoin: URI care va fi stocat cu tranzacţia pentru referinţa dvs. Notă: Acest mesaj nu va fi trimis către reţeaua groestlcoin.</translation>
+        <source>A message that was attached to the shard: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Shard network.</source>
+        <translation>un mesaj a fost ataşat la shard: URI care va fi stocat cu tranzacţia pentru referinţa dvs. Notă: Acest mesaj nu va fi trimis către reţeaua shard.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1467,7 +1467,7 @@
         <translation>&amp;Semnează mesaj</translation>
     </message>
     <message>
-        <source>The Groestlcoin address to sign the message with</source>
+        <source>The Shard address to sign the message with</source>
         <translation>Adresa cu care semnaţi mesajul</translation>
     </message>
     <message>
@@ -1499,8 +1499,8 @@
         <translation>Copiază semnatura curentă în clipboard-ul sistemului</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Groestlcoin address</source>
-        <translation>Semnează mesajul pentru a dovedi ca deţineţi acestă adresă Groestlcoin</translation>
+        <source>Sign the message to prove you own this Shard address</source>
+        <translation>Semnează mesajul pentru a dovedi ca deţineţi acestă adresă Shard</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1519,12 +1519,12 @@
         <translation>&amp;Verifică mesaj</translation>
     </message>
     <message>
-        <source>The Groestlcoin address the message was signed with</source>
-        <translation>Introduceţi o adresă Groestlcoin</translation>
+        <source>The Shard address the message was signed with</source>
+        <translation>Introduceţi o adresă Shard</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
-        <translation>Verificaţi mesajul pentru a vă asigura că a fost semnat cu adresa Groestlcoin specificată</translation>
+        <source>Verify the message to ensure it was signed with the specified Shard address</source>
+        <translation>Verificaţi mesajul pentru a vă asigura că a fost semnat cu adresa Shard specificată</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1582,7 +1582,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>shard-core</name>
     <message>
         <source>Options:</source>
         <translation>Opţiuni:</translation>
@@ -1612,8 +1612,8 @@
         <translation>Acceptă conexiuni din afară (implicit: 1 dacă nu se foloseşte -proxy sau -connect)</translation>
     </message>
     <message>
-        <source>Groestlcoin Core</source>
-        <translation>Nucleul Groestlcoin</translation>
+        <source>Shard Core</source>
+        <translation>Nucleul Shard</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

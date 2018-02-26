@@ -193,7 +193,7 @@ void Shutdown()
     /// for example if the data directory was found to be locked.
     /// Be sure that anything that writes files or flushes caches only does this if the respective
     /// module was initialized.
-    RenameThread("groestlcoin-shutoff");
+    RenameThread("shard-shutoff");
     mempool.AddTransactionsUpdated(1);
 
     StopHTTPRPC();
@@ -500,8 +500,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/Groestlcoin/groestlcoin>";
-    const std::string URL_WEBSITE = "<https://groestlcoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/Shard/shard>";
+    const std::string URL_WEBSITE = "<https://shard.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -605,7 +605,7 @@ void CleanupBlockRevFiles()
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
     const CChainParams& chainparams = Params();
-    RenameThread("groestlcoin-loadblk");
+    RenameThread("shard-loadblk");
 
     {
     CImportingNow imp;
@@ -792,7 +792,7 @@ void InitLogging()
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("Groestlcoin version %s\n", FormatFullVersion());
+    LogPrintf("Shard version %s\n", FormatFullVersion());
 }
 
 namespace { // Variables internal to initialization process only
@@ -1085,7 +1085,7 @@ bool AppInitSanityChecks()
     ECC_Start();
     globalVerifyHandle.reset(new ECCVerifyHandle());
 
-#ifndef _MSC_VER	//GRS
+#ifndef _MSC_VER	//XSD
     // Sanity check
     if (!InitSanityCheck())
         return InitError(strprintf(_("Initialization sanity check failed. %s is shutting down."), _(PACKAGE_NAME)));

@@ -154,8 +154,8 @@
         <translation>正在為磁碟區塊重建索引...</translation>
     </message>
     <message>
-        <source>Send coins to a Groestlcoin address</source>
-        <translation>付款至一個 Groestlcoin 位址</translation>
+        <source>Send coins to a Shard address</source>
+        <translation>付款至一個 Shard 位址</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -178,8 +178,8 @@
         <translation>驗證訊息... &amp;V</translation>
     </message>
     <message>
-        <source>Groestlcoin</source>
-        <translation>Groestlcoin</translation>
+        <source>Shard</source>
+        <translation>Shard</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -296,6 +296,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>shard-core</name>
     </context>
 </TS>

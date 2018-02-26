@@ -16,7 +16,7 @@
 #include "rpc/server.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
-#include "script/groestlcoinconsensus.h"
+#include "script/shardconsensus.h"
 #endif
 
 #include <fstream>

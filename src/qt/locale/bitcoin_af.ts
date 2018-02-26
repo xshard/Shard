@@ -158,8 +158,8 @@
         <translation>Besig met herindeksering van blokke op hardeskyf...</translation>
     </message>
     <message>
-        <source>Send coins to a Groestlcoin address</source>
-        <translation>Stuur munte na 'n Groestlcoin adres</translation>
+        <source>Send coins to a Shard address</source>
+        <translation>Stuur munte na 'n Shard adres</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -170,8 +170,8 @@
         <translation>Verander die wagwoord wat ek vir kodifikasie van my beursie gebruik</translation>
     </message>
     <message>
-        <source>Groestlcoin</source>
-        <translation>Groestlcoin</translation>
+        <source>Shard</source>
+        <translation>Shard</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Kodifiseer die private sleutes wat aan jou beursie gekoppel is.</translation>
     </message>
     <message>
-        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
-        <translation>Onderteken boodskappe met u Groestlcoin adresse om u eienaarskap te bewys</translation>
+        <source>Sign messages with your Shard addresses to prove you own them</source>
+        <translation>Onderteken boodskappe met u Shard adresse om u eienaarskap te bewys</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
-        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde Groestlcoin adresse</translation>
+        <source>Verify messages to ensure they were signed with specified Shard addresses</source>
+        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde Shard adresse</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -210,8 +210,8 @@
         <translation>Orebalk</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>Versoek betalings (genereer QR-kodes en groestlcoin: URI's)</translation>
+        <source>Request payments (generates QR codes and shard: URIs)</source>
+        <translation>Versoek betalings (genereer QR-kodes en shard: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -222,8 +222,8 @@
         <translation>Vertoon die lys van gebruikte ontvangers-adresse en etikette</translation>
     </message>
     <message>
-        <source>Open a groestlcoin: URI or payment request</source>
-        <translation>Skep 'n groestlcoin: URI of betalingsversoek</translation>
+        <source>Open a shard: URI or payment request</source>
+        <translation>Skep 'n shard: URI of betalingsversoek</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -708,10 +708,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>shard-core</name>
     <message>
-        <source>Groestlcoin Core</source>
-        <translation>Groestlcoin Kern</translation>
+        <source>Shard Core</source>
+        <translation>Shard Kern</translation>
     </message>
     <message>
         <source>Information</source>

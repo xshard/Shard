@@ -1,4 +1,4 @@
-Source: groestlcoin
+Source: shard
 Section: utils
 Priority: optional
 Maintainer: Jonas Smedegaard <dr@jones.dk>
@@ -23,11 +23,11 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python
 Standards-Version: 3.9.2
-Homepage: http://www.groestlcoin.org/
-Vcs-Git: git://github.com/groestlcoin/groestlcoin.git
-Vcs-Browser: http://github.com/groestlcoin/groestlcoin
+Homepage: http://www.shard.org/
+Vcs-Git: git://github.com/shard/shard.git
+Vcs-Browser: http://github.com/shard/shard
 
-Package: groestlcoind
+Package: shardd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -37,10 +37,10 @@ Description: peer-to-peer network based digital currency - daemon
  and issuing money are carried out collectively by the network. Bitcoin Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, groestlcoind, and the CLI tool
- groestlcoin-cli to interact with the daemon.
+ This package provides the daemon, shardd, and the CLI tool
+ shard-cli to interact with the daemon.
 
-Package: groestlcoin-qt
+Package: shard-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI

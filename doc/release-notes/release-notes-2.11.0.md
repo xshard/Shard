@@ -1,13 +1,13 @@
-Groestlcoin Core version 2.11.0 is now available from:
+Shard Core version 2.11.0 is now available from:
 
-  <https://groestlcoin.org/downloads/>
+  <https://shard.org/downloads/>
 
 This is a new major version release, bringing both new features and
 bug fixes.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/groestlcoin/groestlcoin/issues>
+  <https://github.com/shard/shard/issues>
 
 Upgrading and downgrading
 =========================
@@ -17,15 +17,15 @@ How to Upgrade
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over /Applications/Groestlcoin-Qt (on Mac) or
-groestlcoind/groestlcoin-qt (on Linux).
+installer (on Windows) or just copy over /Applications/Shard-Qt (on Mac) or
+shardd/shard-qt (on Linux).
 
 Downgrade warning
 ------------------
 
 Because release 2.11.0 and later makes use of headers-first synchronization and
 parallel block download (see further), the block files and databases are not
-backwards-compatible with older versions of Groestlcoin Core or other software:
+backwards-compatible with older versions of Shard Core or other software:
 
 * Blocks will be stored on disk out of order (in the order they are
 received, really), which makes it incompatible with some tools or
@@ -49,11 +49,11 @@ Block file pruning
 
 This release supports running a fully validating node without maintaining a copy 
 of the raw block and undo data on disk. To recap, there are four types of data 
-related to the blockchain in the groestlcoin system: the raw blocks as received over 
+related to the blockchain in the shard system: the raw blocks as received over 
 the network (blk???.dat), the undo data (rev???.dat), the block index and the 
 UTXO set (both LevelDB databases). The databases are built from the raw data.
 
-Block pruning allows Groestlcoin Core to delete the raw block and undo data once 
+Block pruning allows Shard Core to delete the raw block and undo data once 
 it's been validated and used to build the databases. At that point, the raw data 
 is used only to relay blocks to other nodes, to handle reorganizations, to look 
 up old transactions (if -txindex is enabled or via the RPC/REST interfaces), or 
@@ -62,7 +62,7 @@ all blocks in the blockchain.
 
 The user specifies how much space to allot for block & undo files. The minimum 
 allowed is 55MB. Note that this is in addition to whatever is required for the 
-block index and UTXO databases. The minimum was chosen so that Groestlcoin Core will 
+block index and UTXO databases. The minimum was chosen so that Shard Core will 
 be able to maintain at least 2880 blocks on disk (two days worth of blocks at 1 
 minute per block). In rare instances it is possible that the amount of space 
 used will exceed the pruning target in order to keep the required last 288 
@@ -139,11 +139,11 @@ for a higher target number of blocks. It is not uncommon for there to be no
 fee or priority high enough to be reliably (85%) included in the next block and
 for this reason, the default for `-txconfirmtarget=n` has changed from 1 to 2.
 
-Rebranding to Groestlcoin Core
+Rebranding to Shard Core
 ---------------------------
 
-To reduce confusion between Groestlcoin-the-network and Groestlcoin-the-software we
-have renamed the reference client to Groestlcoin Core.
+To reduce confusion between Shard-the-network and Shard-the-software we
+have renamed the reference client to Shard Core.
 
 
 OP_RETURN and data in the block chain
@@ -152,7 +152,7 @@ On OP_RETURN:  This change is not an endorsement of storing data in the
 blockchain.  The OP_RETURN change creates a provably-prunable output,
 to avoid data storage schemes -- some of which were already deployed --
 that were storing arbitrary data such as images as forever-unspendable
-TX outputs, bloating Groestlcoin's UTXO database.
+TX outputs, bloating Shard's UTXO database.
 
 Storing arbitrary data in the blockchain is still a bad idea; it is less
 costly and far more efficient to store non-currency data elsewhere.
@@ -163,20 +163,20 @@ Autotools build system
 For 2.11.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
-Using the standard "./autogen.sh; ./configure; make" to build Groestlcoin-Qt and
-groestlcoind makes it easier for experienced open source developers to contribute 
+Using the standard "./autogen.sh; ./configure; make" to build Shard-Qt and
+shardd makes it easier for experienced open source developers to contribute 
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
 
-Groestlcoin-cli
+Shard-cli
 -------------
 
-Another change in the 2.11.0 release is moving away from the groestlcoind executable
+Another change in the 2.11.0 release is moving away from the shardd executable
 functioning both as a server and as a RPC client. The RPC client functionality
-("tell the running groestlcoin daemon to do THIS") was split into a separate
-executable, 'groestlcoin-cli'. The RPC client code will eventually be removed from
-groestlcoind, but will be kept for backwards compatibility for a release or two.
+("tell the running shard daemon to do THIS") was split into a separate
+executable, 'shard-cli'. The RPC client code will eventually be removed from
+shardd, but will be kept for backwards compatibility for a release or two.
 
 `walletpassphrase` RPC
 -----------------------
@@ -221,7 +221,7 @@ Transaction Fees
 
 This release drops the default fee required to relay transactions across the
 network and for miners to consider the transaction in their blocks to
-0.01mGRS per kilobyte.
+0.01mXSD per kilobyte.
 
 Note that getting a transaction relayed across the network does NOT guarantee
 that the transaction will be accepted by a miner; by default, miners fill
@@ -234,14 +234,14 @@ the mintxfee setting to determine which low-priority transactions should
 be considered for inclusion in blocks.
 
 The wallet code still uses a default fee for low-priority transactions of
-0.1mGRS per kilobyte. During periods of heavy transaction volume, even this
+0.1mXSD per kilobyte. During periods of heavy transaction volume, even this
 fee may not be enough to get transactions confirmed quickly; the mintxfee
 option may be used to override the default.
 
 Faster synchronization
 ----------------------
 
-Groestlcoin Core now uses 'headers-first synchronization'. This means that we first
+Shard Core now uses 'headers-first synchronization'. This means that we first
 ask peers for block headers and validate those. In a second stage, when the headers 
 have been discovered, we download the blocks. However, as we already know about the 
 whole chain in advance, the blocks can be downloaded in parallel from all available peers.
@@ -362,7 +362,7 @@ improved by making the signatures constant time and deterministic.
 
 This change is a result of switching signing to use libsecp256k1
 instead of OpenSSL. Libsecp256k1 is a cryptographic library
-optimized for the curve Groestlcoin uses which was created by Bitcoin
+optimized for the curve Shard uses which was created by Bitcoin
 Core developer Pieter Wuille.
 
 There exist attacks[1] against most ECC implementations where an
@@ -377,7 +377,7 @@ long time, but this functionality has still not made its
 way into a released version of OpenSSL. Libsecp256k1 achieves
 significantly stronger protection: As far as we're aware this is
 the only deployed implementation of constant time signing for
-the curve Groestlcoin uses and we have reason to believe that
+the curve Shard uses and we have reason to believe that
 libsecp256k1 is better tested and more thoroughly reviewed
 than the implementation in OpenSSL.
 
@@ -412,20 +412,20 @@ addresses need to added to the wallet before the payment, though.
 Consensus library
 -----------------
 
-Starting from 2.11.0, the Groestlcoin Core distribution includes a consensus library.
+Starting from 2.11.0, the Shard Core distribution includes a consensus library.
 
 The purpose of this library is to make the verification functionality that is
-critical to Groestlcoin's consensus available to other applications, e.g. 
+critical to Shard's consensus available to other applications, e.g. 
 alternative node implementations.
 
-This library is called `libgroestlcoinconsensus.so` (or, `.dll` for Windows).
-Its interface is defined in the C header [groestlcoinconsensus.h](https://github.com/GroestlCoin/groestlcoin/blob/master/src/script/groestlcoinconsensus.h).
+This library is called `libshardconsensus.so` (or, `.dll` for Windows).
+Its interface is defined in the C header [shardconsensus.h](https://github.com/GroestlCoin/shard/blob/master/src/script/shardconsensus.h).
 
 In its initial version the API includes two functions:
 
-- `groestlcoinconsensus_verify_script` verifies a script. It returns whether the indicated input of the provided serialized transaction 
+- `shardconsensus_verify_script` verifies a script. It returns whether the indicated input of the provided serialized transaction 
 correctly spends the passed scriptPubKey under additional constraints indicated by flags
-- `groestlcoinconsensus_version` returns the API version, currently at an experimental `0`
+- `shardconsensus_version` returns the API version, currently at an experimental `0`
 
 The functionality is planned to be extended to e.g. UTXO management in upcoming releases, but the interface
 for existing methods should remain stable.
@@ -436,25 +436,25 @@ Standard script rules relaxed for P2SH addresses
 The IsStandard() rules have been almost completely removed for P2SH
 redemption scripts, allowing applications to make use of any valid
 script type, such as "n-of-m OR y", hash-locked oracle addresses, etc.
-While the Groestlcoin protocol has always supported these types of script,
+While the Shard protocol has always supported these types of script,
 actually using them on mainnet has been previously inconvenient as
-standard Groestlcoin Core nodes wouldn't relay them to miners, nor would
+standard Shard Core nodes wouldn't relay them to miners, nor would
 most miners include them in blocks they mined.
 
-groestlcoin-tx
+shard-tx
 ----------
 
-It has been observed that many of the RPC functions offered by groestlcoind are
-"pure functions", and operate independently of the groestlcoind wallet. This
+It has been observed that many of the RPC functions offered by shardd are
+"pure functions", and operate independently of the shardd wallet. This
 included many of the RPC "raw transaction" API functions, such as
 createrawtransaction.
 
-groestlcoin-tx is a newly introduced command line utility designed to enable easy
-manipulation of groestlcoin transactions. A summary of its operation may be
-obtained via "groestlcoin-tx --help" Transactions may be created or signed in a
+shard-tx is a newly introduced command line utility designed to enable easy
+manipulation of shard transactions. A summary of its operation may be
+obtained via "shard-tx --help" Transactions may be created or signed in a
 manner similar to the RPC raw tx API. Transactions may be updated, deleting
 inputs or outputs, or appending new inputs and outputs. Custom scripts may be
-easily composed using a simple text notation, borrowed from the groestlcoin test
+easily composed using a simple text notation, borrowed from the shard test
 suite.
 
 This tool may be used for experimenting with new transaction types, signing
@@ -462,16 +462,16 @@ multi-party transactions, and many other uses. Long term, the goal is to
 deprecate and remove "pure function" RPC API calls, as those do not require a
 server round-trip to execute.
 
-Other utilities "groestlcoin-key" and "groestlcoin-script" have been proposed, making
+Other utilities "shard-key" and "shard-script" have been proposed, making
 key and script operations easily accessible via command line.
 
 Mining and relay policy enhancements
 ------------------------------------
 
-Groestlcoin Core's block templates are now for version 3 blocks only, and any mining
+Shard Core's block templates are now for version 3 blocks only, and any mining
 software relying on its `getblocktemplate` must be updated in parallel to use
 libblkmaker either version 0.4.2 or any version from 0.5.1 onward.
-If you are solo mining, this will affect you the moment you upgrade Groestlcoin
+If you are solo mining, this will affect you the moment you upgrade Shard
 Core, which must be done prior to BIP66 achieving its 951/1001 status.
 If you are mining with the stratum mining protocol: this does not affect you.
 If you are mining with the getblocktemplate protocol to a pool: this will affect
@@ -481,10 +481,10 @@ achieving its 951/1001 status.
 The `prioritisetransaction` RPC method has been added to enable miners to
 manipulate the priority of transactions on an individual basis.
 
-Groestlcoin Core now supports BIP 22 long polling, so mining software can be
+Shard Core now supports BIP 22 long polling, so mining software can be
 notified immediately of new templates rather than having to poll periodically.
 
-Support for BIP 23 block proposals is now available in groestlcoin Core's
+Support for BIP 23 block proposals is now available in shard Core's
 `getblocktemplate` method. This enables miners to check the basic validity of
 their next block before expending work on it, reducing risks of accidental
 hardforks or mining invalid blocks.
@@ -502,9 +502,9 @@ AllowFreeThreshold(), in which case they are relayed subject to the rate limiter
 BIP 66: strict DER encoding for signatures
 ------------------------------------------
 
-Groestlcoin Core 2.11.0 implements BIP 66, which introduces block version 3, and a new
+Shard Core 2.11.0 implements BIP 66, which introduces block version 3, and a new
 consensus rule, which prohibits non-DER signatures. Such transactions have been
-non-standard since Groestlcoin v2.1.0.6 (released in June 2014), but were
+non-standard since Shard v2.1.0.6 (released in June 2014), but were
 technically still permitted inside blocks.
 
 This change breaks the dependency on OpenSSL's signature parsing, and is

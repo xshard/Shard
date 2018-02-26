@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
-// Copyright (c) 2014-2016 The Groestlcoin developers
+// Copyright (c) 2014-2016 The Shard developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -50,7 +50,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Groestlcoin cannot be compiled without assertions."
+# error "Shard cannot be compiled without assertions."
 #endif
 
 /**
@@ -1105,7 +1105,7 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
     return true;
 }
 
-/*!!!GRS
+/*!!!XSD
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
@@ -1623,7 +1623,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("groestlcoin-scriptch");
+    RenameThread("shard-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -1756,7 +1756,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     unsigned int flags = fStrictPayToScriptHash ? SCRIPT_VERIFY_P2SH : SCRIPT_VERIFY_NONE;
 
-	//GRS
+	//XSD
 	int32_t nVersion = block.nVersion;
 	if (nVersion == 112)
 		nVersion = 1;
@@ -2884,7 +2884,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 {
     const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
     // Check proof of work
- 	//GRS, GetNextWorkRequired() is non-deterministic for nHeight<100000
+ 	//XSD, GetNextWorkRequired() is non-deterministic for nHeight<100000
     if (pindexPrev->nHeight >= (100000 - 1) && block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work");
 
@@ -2892,7 +2892,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
         return state.Invalid(false, REJECT_INVALID, "time-too-old", "block's timestamp is too early");
 
-	//GRS
+	//XSD
     int32_t nVersion = block.nVersion;
     if (nVersion == 112)
         nVersion = 1;
@@ -2933,7 +2933,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, const Co
         }
     }
 
-	//GRS
+	//XSD
 	int32_t nVersion = block.nVersion;
 	if (nVersion == 112)
 		nVersion = 1;

@@ -17,9 +17,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(GRS);
-    unitlist.append(mGRS);
-    unitlist.append(uGRS);
+    unitlist.append(XSD);
+    unitlist.append(mXSD);
+    unitlist.append(uXSD);
     return unitlist;
 }
 
@@ -27,9 +27,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case GRS:
-    case mGRS:
-    case uGRS:
+    case XSD:
+    case mXSD:
+    case uXSD:
         return true;
     default:
         return false;
@@ -40,9 +40,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case GRS: return QString("GRS");
-    case mGRS: return QString("mGRS");
-    case uGRS: return QString::fromUtf8("μGRS");
+    case XSD: return QString("XSD");
+    case mXSD: return QString("mXSD");
+    case uXSD: return QString::fromUtf8("μXSD");
     default: return QString("???");
     }
 }
@@ -51,9 +51,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case GRS: return QString("Groestlcoins");
-    case mGRS: return QString("Milli-Groestlcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uGRS: return QString("Micro-Groestlcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case XSD: return QString("Shards");
+    case mXSD: return QString("Milli-Shards (1 / 1" THIN_SP_UTF8 "000)");
+    case uXSD: return QString("Micro-Shards (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -62,9 +62,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case GRS:  return 100000000;
-    case mGRS: return 100000;
-    case uGRS: return 100;
+    case XSD:  return 100000000;
+    case mXSD: return 100000;
+    case uXSD: return 100;
     default:   return 100000000;
     }
 }
@@ -73,9 +73,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case GRS: return 8;
-    case mGRS: return 5;
-    case uGRS: return 2;
+    case XSD: return 8;
+    case mXSD: return 5;
+    case uXSD: return 2;
     default: return 0;
     }
 }

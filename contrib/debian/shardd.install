@@ -1,0 +1,2 @@
+usr/local/bin/shardd usr/bin
+usr/local/bin/shard-cli usr/bin

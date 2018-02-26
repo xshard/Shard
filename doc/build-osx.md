@@ -24,17 +24,17 @@ In case you want to build the disk image with `make deploy` (.dmg / optional), y
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-Build Groestlcoin Core
+Build Shard Core
 ------------------------
 
-1. Clone the groestlcoin source code and cd into `groestlcoin`
+1. Clone the shard source code and cd into `shard`
 
-        git clone https://github.com/Groestlcoin/groestlcoin.git
-        cd groestlcoin
+        git clone https://github.com/Shard/shard.git
+        cd shard
 
-2.  Build groestlcoin-core:
+2.  Build shard-core:
 
-    Configure and build the headless groestlcoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless shard binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -53,39 +53,39 @@ Build Groestlcoin Core
 Running
 -------
 
-Groestlcoin Core is now available at `./src/groestlcoind`
+Shard Core is now available at `./src/shardd`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=bitcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
+    echo -e "rpcuser=bitcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Shard/shard.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Shard/shard.conf"
 
-The first time you run groestlcoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run shardd, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
-    tail -f $HOME/Library/Application\ Support/Groestlcoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Shard/debug.log
 
-Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Groestlcoin-Qt.app
+Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Shard-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Other commands:
 -------
 
-    ./src/groestlcoind -daemon # Starts the groestlcoin daemon.
-    ./src/groestlcoin-cli --help # Outputs a list of command-line options.
-    ./src/groestlcoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/shardd -daemon # Starts the shard daemon.
+    ./src/shard-cli --help # Outputs a list of command-line options.
+    ./src/shard-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for groestlcoin development.
+You can use Qt Creator as an IDE, for shard development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "groestlcoin-qt" as project name, enter src/qt as location
+4. Enter "shard-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

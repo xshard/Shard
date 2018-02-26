@@ -62,12 +62,12 @@
         <translation>Vastuvõtvad aadressid</translation>
     </message>
     <message>
-        <source>These are your Groestlcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Need on sinu Groestlcoin aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
+        <source>These are your Shard addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Need on sinu Shard aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
     </message>
     <message>
-        <source>These are your Groestlcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Need on sinu Groestlcoin aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
+        <source>These are your Shard addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Need on sinu Shard aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -286,8 +286,8 @@
         <translation>Kettal olevate blokkide re-indekseerimine...</translation>
     </message>
     <message>
-        <source>Send coins to a Groestlcoin address</source>
-        <translation>Saada münte Groestlcoini aadressile</translation>
+        <source>Send coins to a Shard address</source>
+        <translation>Saada münte Shardi aadressile</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -310,8 +310,8 @@
         <translation>&amp;Kontrolli sõnumit...</translation>
     </message>
     <message>
-        <source>Groestlcoin</source>
-        <translation>Groestlcoin</translation>
+        <source>Shard</source>
+        <translation>Shard</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -338,12 +338,12 @@
         <translation>Krüpteeri oma rahakoti privaatvõtmed</translation>
     </message>
     <message>
-        <source>Sign messages with your Groestlcoin addresses to prove you own them</source>
-        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Groestlcoini aadressiga</translation>
+        <source>Sign messages with your Shard addresses to prove you own them</source>
+        <translation>Omandi tõestamiseks allkirjasta sõnumid oma Shardi aadressiga</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Groestlcoin addresses</source>
-        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Groestlcoini aadressiga</translation>
+        <source>Verify messages to ensure they were signed with specified Shard addresses</source>
+        <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Shardi aadressiga</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -362,20 +362,20 @@
         <translation>Vahelehe tööriistariba</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and groestlcoin: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja groestlcoini: URId)</translation>
+        <source>Request payments (generates QR codes and shard: URIs)</source>
+        <translation>Loo maksepäring (genereerib QR koodid ja shardi: URId)</translation>
     </message>
     <message>
-        <source>Open a groestlcoin: URI or payment request</source>
-        <translation>Ava groestlcoini: URI või maksepäring</translation>
+        <source>Open a shard: URI or payment request</source>
+        <translation>Ava shardi: URI või maksepäring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Käsurea valikud</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Groestlcoin network</source>
-        <translation><numerusform>%n aktiivne ühendus Groestlcoini võrku</numerusform><numerusform>%n aktiivset ühendust Groestlcoini võrku</numerusform></translation>
+        <source>%n active connection(s) to Shard network</source>
+        <translation><numerusform>%n aktiivne ühendus Shardi võrku</numerusform><numerusform>%n aktiivset ühendust Shardi võrku</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -710,8 +710,8 @@
         <translation>Muuda saatvat aadressi</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Groestlcoin address.</source>
-        <translation>Sisestatud aadress "%1" ei ole korrektne Groestlcoin aadress.</translation>
+        <source>The entered address "%1" is not a valid Shard address.</source>
+        <translation>Sisestatud aadress "%1" ei ole korrektne Shard aadress.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -825,7 +825,7 @@
         <translation>Ekspert</translation>
     </message>
     <message>
-        <source>Automatically open the Groestlcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Shard client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Bitcoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
     </message>
     <message>
@@ -908,7 +908,7 @@
         <translation>Vorm</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Groestlcoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Shard network after a connection is established, but this process has not completed yet.</source>
         <translation>Kuvatav info ei pruugi olla ajakohane. Ühenduse loomisel süngitakse sinu rahakott automaatselt Bitconi võrgustikuga, kuid see toiming on hetkel lõpetamata.</translation>
     </message>
     <message>
@@ -1375,8 +1375,8 @@
         <translation>Maksepäring aegunud.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Groestlcoin address</source>
-        <translation>Hoiatus: Ebakorrektne Groestlcoin aadress</translation>
+        <source>Warning: Invalid Shard address</source>
+        <translation>Hoiatus: Ebakorrektne Shard aadress</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1455,8 +1455,8 @@
         <translation>&amp;Allkirjastamise teade</translation>
     </message>
     <message>
-        <source>The Groestlcoin address to sign the message with</source>
-        <translation>Groestlcoin aadress millega sõnum allkirjastada</translation>
+        <source>The Shard address to sign the message with</source>
+        <translation>Shard aadress millega sõnum allkirjastada</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1487,8 +1487,8 @@
         <translation>Kopeeri praegune signatuur vahemällu</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Groestlcoin address</source>
-        <translation>Allkirjasta sõnum Groestlcoini aadressi sulle kuulumise tõestamiseks</translation>
+        <source>Sign the message to prove you own this Shard address</source>
+        <translation>Allkirjasta sõnum Shardi aadressi sulle kuulumise tõestamiseks</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1507,12 +1507,12 @@
         <translation>&amp;Kinnita Sõnum</translation>
     </message>
     <message>
-        <source>The Groestlcoin address the message was signed with</source>
-        <translation>Groestlcoin aadress millega sõnum on allkirjastatud</translation>
+        <source>The Shard address the message was signed with</source>
+        <translation>Shard aadress millega sõnum on allkirjastatud</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Groestlcoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Groestlcoini aadressiga.</translation>
+        <source>Verify the message to ensure it was signed with the specified Shard address</source>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Shardi aadressiga.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1770,7 +1770,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>shard-core</name>
     <message>
         <source>Options:</source>
         <translation>Valikud:</translation>
@@ -1800,7 +1800,7 @@
         <translation>Luba välisühendusi (vaikeväärtus: 1 kui puudub -proxy või -connect)</translation>
     </message>
     <message>
-        <source>Groestlcoin Core</source>
+        <source>Shard Core</source>
         <translation>Bitcoini tuumik</translation>
     </message>
     <message>

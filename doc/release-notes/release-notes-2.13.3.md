@@ -1,20 +1,20 @@
-Groestlcoin Core version 2.13.3 is now available from:
+Shard Core version 2.13.3 is now available from:
 
-  <https://groestlcoin.org/downloads/>
+  <https://shard.org/downloads/>
 
 This is a new major version release, including new features, various bugfixes and
 performance improvements, as well as updated translations. It is recommended to upgrade to this version as soon as possible.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/groestlcoin/groestlcoin/issues>
+  <https://github.com/shard/shard/issues>
 
 Compatibility
 ==============
 
 Microsoft ended support for Windows XP on [April 8th, 2014](https://www.microsoft.com/en-us/WindowsForBusiness/end-of-xp-support),
 an OS initially released in 2001. This means that not even critical security
-updates will be released anymore. Without security updates, using a Groestlcoin
+updates will be released anymore. Without security updates, using a Shard
 wallet on a XP machine is irresponsible at least.
 
 We do not have time nor resources to provide support for an OS that is
@@ -59,7 +59,7 @@ for nuisance malleability on SIGHASH_ALL P2PKH transactions. On the down-side
 it will block most transactions made by sufficiently out of date software.
 
 Unlike the other avenues to change txids on transactions this
-one was randomly violated by all deployed groestlcoin software prior to
+one was randomly violated by all deployed shard software prior to
 its discovery. So, while other malleability vectors where made
 non-standard as soon as they were discovered, this one has remained
 permitted. Even BIP62 did not propose applying this rule to
@@ -75,7 +75,7 @@ Windows bug fix for corrupted UTXO database on unclean shutdowns
 ----------------------------------------------------------------
 
 Several Windows users reported that they often need to reindex the
-entire blockchain after an unclean shutdown of Groestlcoin Core on Windows
+entire blockchain after an unclean shutdown of Shard Core on Windows
 (or an unclean shutdown of Windows itself). Although unclean shutdowns
 remain unsafe, this release no longer relies on memory-mapped files for
 the UTXO database, which significantly reduced the frequency of unclean
@@ -84,7 +84,7 @@ shutdowns leading to required reindexes during testing.
 Signature validation using libsecp256k1
 ---------------------------------------
 
-ECDSA signatures inside Groestlcoin transactions now use validation using
+ECDSA signatures inside Shard transactions now use validation using
 [libsecp256k1](https://github.com/bitcoin-core/secp256k1) instead of OpenSSL.
 
 Depending on the platform, this means a significant speedup for raw signature
@@ -131,13 +131,13 @@ can often prevent an extra roundtrip before the actual block is downloaded.
 Memory pool limiting
 --------------------
 
-Previous versions of Groestlcoin Core had their mempool limited by checking
+Previous versions of Shard Core had their mempool limited by checking
 a transaction's fees against the node's minimum relay fee. There was no
 upper bound on the size of the mempool and attackers could send a large
 number of transactions paying just slighly more than the default minimum
 relay fee to crash nodes with relatively low RAM. 
 
-Groestlcoin Core 2.13.3 will have a strict maximum size on the mempool. The
+Shard Core 2.13.3 will have a strict maximum size on the mempool. The
 default value is 300 MB and can be configured with the `-maxmempool`
 parameter. Whenever a transaction would cause the mempool to exceed
 its maximum size, the transaction that (along with in-mempool descendants) has
@@ -146,7 +146,7 @@ minimum relay feerate will be increased to match this feerate plus the initial
 minimum relay feerate. The initial minimum relay feerate is set to
 1000 satoshis per kB.
 
-Groestlcoin Core 2.13.3 also introduces new default policy limits on the length and
+Shard Core 2.13.3 also introduces new default policy limits on the length and
 size of unconfirmed transaction chains that are allowed in the mempool
 (generally limiting the length of unconfirmed chains to 25 transactions, with a
 total size of 101 KB).  These limits can be overriden using command line
@@ -156,7 +156,7 @@ Opt-in Replace-by-fee transactions
 ----------------------------------
 
 It is now possible to replace transactions in the transaction memory pool of
-Groestlcoin Core 2.13.3 nodes. Groestlcoin Core will only allow replacement of
+Shard Core 2.13.3 nodes. Shard Core will only allow replacement of
 transactions which have any of their inputs' `nSequence` number set to less
 than `0xffffffff - 1`.  Moreover, a replacement transaction may only be
 accepted when it pays sufficient fee, as described in [BIP 125]
@@ -178,7 +178,7 @@ updated RPC calls `gettransaction` and `listtransactions`, which now have an
 additional field in the output indicating if a transaction is replaceable under
 BIP125 ("bip125-replaceable").
 
-Note that the wallet in Groestlcoin Core 2.13.3 does not yet have support for
+Note that the wallet in Shard Core 2.13.3 does not yet have support for
 creating transactions that would be replaceable under BIP 125.
 
 RPC: Random-cookie RPC authentication
@@ -194,7 +194,7 @@ overridden with the option `-rpccookiefile`.
 This is similar to Tor's CookieAuthentication: see
 https://www.torproject.org/docs/tor-manual.html.en
 
-This allows running groestlcoind without having to do any manual configuration.
+This allows running shardd without having to do any manual configuration.
 
 Relay: Any sequence of pushdatas in OP_RETURN outputs now allowed
 -----------------------------------------------------------------
@@ -217,14 +217,14 @@ returned (previously all relevant hashes were returned).
 Relay and Mining: Priority transactions
 ---------------------------------------
 
-Groestlcoin Core has a heuristic 'priority' based on coin value and age. This
+Shard Core has a heuristic 'priority' based on coin value and age. This
 calculation is used for relaying of transactions which do not pay the
 minimum relay fee, and can be used as an alternative way of sorting
-transactions for mined blocks. Groestlcoin Core will relay transactions with
+transactions for mined blocks. Shard Core will relay transactions with
 insufficient fees depending on the setting of `-limitfreerelay=<r>` (default:
 `r=15` kB per minute) and `-blockprioritysize=<s>`.
 
-In Groestlcoin Core 2.13.3, when mempool limit has been reached a higher minimum
+In Shard Core 2.13.3, when mempool limit has been reached a higher minimum
 relay fee takes effect to limit memory usage. Transactions which do not meet
 this higher effective minimum relay fee will not be relayed or mined even if
 they rank highly according to the priority heuristic.
@@ -244,15 +244,15 @@ Automatically use Tor hidden services
 
 Starting with Tor version 0.2.7.1 it is possible, through Tor's control socket
 API, to create and destroy 'ephemeral' hidden services programmatically.
-Groestlcoin Core has been updated to make use of this.
+Shard Core has been updated to make use of this.
 
 This means that if Tor is running (and proper authorization is available),
-Groestlcoin Core automatically creates a hidden service to listen on, without
-manual configuration. Groestlcoin Core will also use Tor automatically to connect
+Shard Core automatically creates a hidden service to listen on, without
+manual configuration. Shard Core will also use Tor automatically to connect
 to other .onion nodes if the control socket can be successfully opened. This
 will positively affect the number of available .onion nodes and their usage.
 
-This new feature is enabled by default if Groestlcoin Core is listening, and
+This new feature is enabled by default if Shard Core is listening, and
 a connection to Tor can be made. It can be configured with the `-listenonion`,
 `-torcontrol` and `-torpassword` settings. To show verbose debugging
 information, pass `-debug=tor`.
@@ -260,7 +260,7 @@ information, pass `-debug=tor`.
 Notifications through ZMQ
 -------------------------
 
-Groestlcoind can now (optionally) asynchronously notify clients through a
+Shardd can now (optionally) asynchronously notify clients through a
 ZMQ-based PUB socket of the arrival of new transactions and blocks.
 This feature requires installation of the ZMQ C API library 4.x and
 configuring its use through the command line or configuration file.
@@ -273,8 +273,8 @@ Various improvements have been made to how the wallet calculates
 transaction fees.
 
 Users can decide to pay a predefined fee rate by setting `-paytxfee=<n>`
-(or `settxfee <n>` rpc during runtime). A value of `n=0` signals Groestlcoin
-Core to use floating fees. By default, Groestlcoin Core will use floating
+(or `settxfee <n>` rpc during runtime). A value of `n=0` signals Shard
+Core to use floating fees. By default, Shard Core will use floating
 fees.
 
 Based on past transaction data, floating fees approximate the fees
@@ -283,11 +283,11 @@ with `-txconfirmtarget=<m>` (default: `2`).
 
 Sometimes, it is not possible to give good estimates, or an estimate
 at all. Therefore, a fallback value can be set with `-fallbackfee=<f>`
-(default: `0.0002` GRS/kB).
+(default: `0.0002` XSD/kB).
 
-At all times, Groestlcoin Core will cap fees at `-maxtxfee=<x>` (default:
-0.10) GRS.
-Furthermore, Groestlcoin Core will never create transactions paying less than
+At all times, Shard Core will cap fees at `-maxtxfee=<x>` (default:
+0.10) XSD.
+Furthermore, Shard Core will never create transactions paying less than
 the current minimum relay fee.
 Finally, a user can set the minimum fee rate for all transactions with
 `-mintxfee=<i>`, which defaults to 1000 satoshis per kB.
@@ -330,7 +330,7 @@ However, rescans as well as the RPCs `importwallet`, `importaddress`,
 `importprivkey` are disabled.
 
 To enable block pruning set `prune=<N>` on the command line or in
-`groestlcoin.conf`, where `N` is the number of MiB to allot for
+`shard.conf`, where `N` is the number of MiB to allot for
 raw block & undo data.
 
 A value of 0 disables pruning. The minimal value above 0 is 550. Your
@@ -384,7 +384,7 @@ and are affected by this change:
 - RPC `decodescript`
 - REST `/rest/tx/` (JSON format)
 - REST `/rest/block/` (JSON format when including extended tx details)
-- `groestlcoin-tx -json`
+- `shard-tx -json`
 
 Note that the output of the RPC `decodescript` did not change because it is
 configured specifically to process scriptPubKey and not scriptSig scripts.
@@ -424,16 +424,16 @@ caching. A sample config for apache2 could look like:
     SSLCertificateFile /etc/apache2/ssl/server.crt
     SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
-    <Location /groestlcoinrpc>
+    <Location /shardrpc>
         ProxyPass http://127.0.0.1:1331/
         ProxyPassReverse http://127.0.0.1:1331/
         # optional enable digest auth
         # AuthType Digest
         # ...
 
-        # optional bypass groestlcoind rpc basic auth
+        # optional bypass shardd rpc basic auth
         # RequestHeader set Authorization "Basic <hash>"
-        # get the <hash> from the shell with: base64 <<< groestlcoinrpc:<password>
+        # get the <hash> from the shell with: base64 <<< shardrpc:<password>
     </Location>
 
     # Or, balance the load:
@@ -454,7 +454,7 @@ Other P2P Changes
 -----------------
 
 The list of banned peers is now stored on disk rather than in memory.
-Restarting groestlcoind will no longer clear out the list of banned peers; instead
+Restarting shardd will no longer clear out the list of banned peers; instead
 a new RPC call (`clearbanned`) can be used to manually clear the list.  The new
 `setban` RPC call can also be used to manually ban or unban a peer.
 
@@ -497,18 +497,18 @@ BIP112 soft fork to enforce OP_CHECKSEQUENCEVERIFY
 --------------------------------------------------
 
 [BIP112][] redefines the existing OP_NOP3 as OP_CHECKSEQUENCEVERIFY (CSV)
-for a new opcode in the Groestlcoin scripting system that in combination with
+for a new opcode in the Shard scripting system that in combination with
 [BIP68][] allows execution pathways of a script to be restricted based
 on the age of the output being spent.
 
 BIP113 locktime enforcement soft fork
 -------------------------------------
 
-Groestlcoin Core 2.13.3 introduces mempool-only locktime
+Shard Core 2.13.3 introduces mempool-only locktime
 enforcement using GetMedianTimePast(). This release seeks to
 consensus enforce the rule.
 
-Groestlcoin transactions currently may specify a locktime indicating when
+Shard transactions currently may specify a locktime indicating when
 they may be added to a valid block.  Current consensus rules require
 that blocks have a block header time greater than the locktime specified
 in any transaction in that block.
@@ -573,14 +573,14 @@ Note that the database cache setting has the most performance impact
 during initial sync of a node, and when catching up after downtime.
 
 
-groestlcoin-cli: arguments privacy
+shard-cli: arguments privacy
 ------------------------------
 
 The RPC command line client gained a new argument, `-stdin`
 to read extra arguments from standard input, one per line until EOF/Ctrl-D.
 For example:
 
-    $ src/groestlcoin-cli -stdin walletpassphrase
+    $ src/shard-cli -stdin walletpassphrase
     mysecretcode
     120
     ..... press Ctrl-D here to end input
@@ -593,7 +593,7 @@ table by any user on the system.
 C++11 and Python 3
 ------------------
 
-Various code modernizations have been done. The Groestlcoin Core code base has
+Various code modernizations have been done. The Shard Core code base has
 started using C++11. This means that a C++11-capable compiler is now needed for
 building. Effectively this means GCC 4.7 or higher, or Clang 3.3 or higher.
 
@@ -643,7 +643,7 @@ You can't disable HD key generation once you have created a HD wallet.
 
 There is no distinction between internal (change) and external keys.
 
-HD wallets are incompatible with older versions of Groestlcoin Core.
+HD wallets are incompatible with older versions of Shard Core.
 
 [Pull request](https://github.com/bitcoin/bitcoin/pull/8035/files), [BIP 32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 
@@ -694,7 +694,7 @@ files on disk. These two have now been split up, so that all blocks are known
 before validation starts. This was necessary to make certain optimizations that
 are available during normal synchronizations also available during reindexing.
 
-The two phases are distinct in the Groestlcoin-Qt GUI. During the first one,
+The two phases are distinct in the Shard-Qt GUI. During the first one,
 "Reindexing blocks on disk" is shown. During the second (slower) one,
 "Processing blocks on disk" is shown.
 
@@ -793,7 +793,7 @@ Low-level RPC changes
     - RPC `decodescript`
     - REST `/rest/tx/` (JSON format)
     - REST `/rest/block/` (JSON format when including extended tx details)
-    - `groestlcoin-tx -json`
+    - `shard-tx -json`
 
 - The sorting of the output of the `getrawmempool` output has changed.
 
@@ -826,9 +826,9 @@ covered by the txid. This provides several immediate benefits:
   identifier (txid) of transactions without referencing the witness, which can
   sometimes be changed by third-parties (such as miners) or by co-signers in a
   multisig spend. This solves all known cases of unwanted transaction
-  malleability, which is a problem that makes programming Groestlcoin wallet
+  malleability, which is a problem that makes programming Shard wallet
   software more difficult and which seriously complicates the design of smart
-  contracts for Groestlcoin.
+  contracts for Shard.
 
 - **Capacity increase:** Segwit transactions contain new fields that are not
   part of the data currently used to calculate the size of a block, which
@@ -842,7 +842,7 @@ covered by the txid. This provides several immediate benefits:
   following section for details).
 
 - **Weighting data based on how it affects node performance:** Some parts of
-  each Groestlcoin block need to be stored by nodes in order to validate future
+  each Shard block need to be stored by nodes in order to validate future
   blocks; other parts of a block can be immediately forgotten (pruned) or used
   only for helping other nodes sync their copy of the block chain.  One large
   part of the immediately prunable data are transaction signatures (witnesses),
@@ -860,7 +860,7 @@ covered by the txid. This provides several immediate benefits:
   generator needs to download, and allows the signature generator to operate
   more quickly.  This is made possible by having the generator sign the amount
   of bitcoins they think they are spending, and by having full nodes refuse to
-  accept those signatures unless the amount of groestlcoins being spent is exactly
+  accept those signatures unless the amount of shards being spent is exactly
   the same as was signed.  For non-segwit transactions, wallets instead had to
   download the complete previous transactions being spent for every payment
   they made, which could be a slow operation on hardware wallets and in other
@@ -875,7 +875,7 @@ covered by the txid. This provides several immediate benefits:
   different signature method that doesn't suffer from this problem and doesn't
   have any unwanted side-effects.
 
-- **Increased security for multisig:** Groestlcoin addresses (both P2PKH addresses
+- **Increased security for multisig:** Shard addresses (both P2PKH addresses
   that start with a 'F' and P2SH addresses that start with a '3') use a hash
   function known as RIPEMD-160.  For P2PKH addresses, this provides about 160
   bits of security---which is beyond what cryptographers believe can be broken
@@ -885,7 +885,7 @@ covered by the txid. This provides several immediate benefits:
   Segwit allows advanced transactions to use the Groestl hash function instead,
   which provides about 128 bits of security  (that is 281 trillion times as
   much security as 80 bits and is equivalent to the maximum bits of security
-  believed to be provided by Groestlcoin's choice of parameters for its Elliptic
+  believed to be provided by Shard's choice of parameters for its Elliptic
   Curve Digital Security Algorithm [ECDSA].)
 
 - **More efficient almost-full-node security** Satoshi Nakamoto's original
@@ -893,7 +893,7 @@ covered by the txid. This provides several immediate benefits:
   skip downloading and validating some data from historic blocks that are
   protected by large amounts of proof of work.  Unfortunately, Nakamoto's
   method can't guarantee that a newly-started node using this method will
-  produce an accurate copy of Groestlcoin's current ledger (called the UTXO set),
+  produce an accurate copy of Shard's current ledger (called the UTXO set),
   making the node vulnerable to falling out of consensus with other nodes.
   Although the problems with Nakamoto's method can't be fixed in a soft fork,
   Segwit accomplishes something similar to his original proposal: it makes it
@@ -901,11 +901,11 @@ covered by the txid. This provides several immediate benefits:
   (specifically, the segregated witnesses) while still ensuring that the node
   can build an accurate copy of the UTXO set for the block chain with the most
   proof of work.  Segwit enables this capability at the consensus layer, but
-  note that Groestlcoin Core does not provide an option to use this capability as
+  note that Shard Core does not provide an option to use this capability as
   of this 2.13.3 release.
 
 - **Script versioning:** Segwit makes it easy for future soft forks to allow
-  Groestlcoin users to individually opt-in to almost any change in the Groestlcoin
+  Shard users to individually opt-in to almost any change in the Shard
   Script language when those users receive new transactions.  Features
   currently being researched by Bitcoin Core contributors that may use this
   capability include support for Schnorr signatures, which can improve the

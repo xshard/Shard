@@ -1,0 +1,6 @@
+usr/local/bin/shard-qt usr/bin
+share/pixmaps/shard32.xpm usr/share/pixmaps
+share/pixmaps/shard16.xpm usr/share/pixmaps
+share/pixmaps/shard128.png usr/share/pixmaps
+debian/shard-qt.desktop usr/share/applications
+debian/shard-qt.protocol usr/share/kde4/services/

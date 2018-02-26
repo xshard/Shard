@@ -49,7 +49,7 @@ const uint32_t BIP32_HARDENED_KEY_LIMIT = 0x80000000;
  * Fees smaller than this (in satoshi) are considered zero fee (for transaction creation)
  * Override with -mintxfee
  */
-CFeeRate CWallet::minTxFee = CFeeRate(10000);	//GRS
+CFeeRate CWallet::minTxFee = CFeeRate(10000);	//XSD
 /**
  * If fee estimation does not have enough data to provide estimates, use this fee instead.
  * Has no effect if not using fee estimation

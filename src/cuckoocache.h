@@ -13,11 +13,11 @@
 #include <memory>
 #include <vector>
 
-//GRS
+//XSD
 #ifdef _MSC_VER
-#	define GRS_TEMPLATE_OPERATOR_PREFIX
+#	define XSD_TEMPLATE_OPERATOR_PREFIX
 #else
-#	define GRS_TEMPLATE_OPERATOR_PREFIX template
+#	define XSD_TEMPLATE_OPERATOR_PREFIX template
 #endif
 
 /** namespace CuckooCache provides high performance cache primitives
@@ -223,14 +223,14 @@ private:
      */
     inline std::array<uint32_t, 8> compute_hashes(const Element& e) const
     {
-        return {{hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<0>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<1>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<2>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<3>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<4>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<5>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<6>(e) & hash_mask,
-                 hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<7>(e) & hash_mask}};
+        return {{hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<0>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<1>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<2>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<3>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<4>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<5>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<6>(e) & hash_mask,
+                 hash_function.XSD_TEMPLATE_OPERATOR_PREFIX operator()<7>(e) & hash_mask}};
     }
 
     /* end

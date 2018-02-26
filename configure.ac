@@ -7,17 +7,17 @@ define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2017)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Groestlcoin Core]])
-AC_INIT([Groestlcoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/GroestlCoin/groestlcoin/issues],[groestlcoin],[www.groestlcoin.org])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Shard Core]])
+AC_INIT([Shard Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/GroestlCoin/shard/issues],[shard],[www.shard.org])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=groestlcoind
-BITCOIN_GUI_NAME=groestlcoin-qt
-BITCOIN_CLI_NAME=groestlcoin-cli
-BITCOIN_TX_NAME=groestlcoin-tx
+BITCOIN_DAEMON_NAME=shardd
+BITCOIN_GUI_NAME=shard-qt
+BITCOIN_CLI_NAME=shard-cli
+BITCOIN_TX_NAME=shard-tx
 
 AC_CANONICAL_HOST
 
@@ -224,7 +224,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build groestlcoin-cli groestlcoin-tx (default=yes)])],
+  [build shard-cli shard-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -236,9 +236,9 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build groestlcoind daemon (default=yes)])],
-  [build_groestlcoind=$withval],
-  [build_groestlcoind=yes])
+  [build shardd daemon (default=yes)])],
+  [build_shardd=$withval],
+  [build_shardd=yes])
 
 use_pkgconfig=yes
 case $host in
@@ -590,7 +590,7 @@ BITCOIN_QT_INIT
 dnl sets $bitcoin_enable_qt, $bitcoin_enable_qt_test, $bitcoin_enable_qt_dbus
 BITCOIN_QT_CONFIGURE([$use_pkgconfig], [qt5])
 
-if test x$build_bitcoin_utils$build_groestlcoind$bitcoin_enable_qt$use_tests$use_bench = xnonononono; then
+if test x$build_bitcoin_utils$build_shardd$bitcoin_enable_qt$use_tests$use_bench = xnonononono; then
     use_boost=no
 else
     use_boost=yes
@@ -892,11 +892,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build groestlcoind])
-AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_groestlcoind = xyes])
-AC_MSG_RESULT($build_groestlcoind)
+AC_MSG_CHECKING([whether to build shardd])
+AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_shardd = xyes])
+AC_MSG_RESULT($build_shardd)
 
-AC_MSG_CHECKING([whether to build utils (groestlcoin-cli groestlcoin-tx)])
+AC_MSG_CHECKING([whether to build utils (shard-cli shard-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -904,7 +904,7 @@ AC_MSG_CHECKING([whether to build libraries])
 AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_bitcoin_libs = xyes])
 if test x$build_bitcoin_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libgroestlcoinconsensus.pc:libgroestlcoinconsensus.pc.in])
+  AC_CONFIG_FILES([libshardconsensus.pc:libshardconsensus.pc.in])
 fi
 AC_MSG_RESULT($build_bitcoin_libs)
 
@@ -997,7 +997,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_groestlcoin-qt])
+  AC_MSG_CHECKING([whether to build test_shard-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1008,7 +1008,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_groestlcoin])
+AC_MSG_CHECKING([whether to build test_shard])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"
@@ -1024,7 +1024,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test x$build_bitcoin_utils$build_bitcoin_libs$build_groestlcoind$bitcoin_enable_qt$use_bench$use_tests = xnononononono; then
+if test x$build_bitcoin_utils$build_bitcoin_libs$build_shardd$bitcoin_enable_qt$use_bench$use_tests = xnononononono; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --with-utils --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
 fi
 

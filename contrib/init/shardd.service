@@ -1,0 +1,22 @@
+[Unit]
+Description=Shard's distributed currency daemon
+After=network.target
+
+[Service]
+User=shard
+Group=shard
+
+Type=forking
+PIDFile=/var/lib/shardd/shardd.pid
+ExecStart=/usr/bin/shardd -daemon -pid=/var/lib/shardd/shardd.pid \
+-conf=/etc/shard/shard.conf -datadir=/var/lib/shardd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

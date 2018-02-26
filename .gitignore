@@ -1,12 +1,12 @@
 *.tar.gz
 
 *.exe
-src/groestlcoin
-src/groestlcoind
-src/groestlcoin-cli
-src/groestlcoin-tx
-src/test/test_groestlcoin
-src/qt/test/test_groestlcoin-qt
+src/shard
+src/shardd
+src/shard-cli
+src/shard-tx
+src/test/test_shard
+src/qt/test/test_shard-qt
 
 # autoreconf
 Makefile.in
@@ -29,8 +29,8 @@ config.log
 config.status
 configure
 libtool
-src/config/groestlcoin-config.h
-src/config/groestlcoin-config.h.in
+src/config/shard-config.h
+src/config/shard-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -57,7 +57,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.groestlcoin
+.shard
 *.a
 *.pb.cc
 *.pb.h
@@ -76,12 +76,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-groestlcoin-qt
-Groestlcoin-Qt.app
+shard-qt
+Shard-Qt.app
 
 # Unit-tests
 Makefile.test
-groestlcoin-qt_test
+shard-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -117,7 +117,7 @@ src/qt/res_bitcoin.cpp
 src/qt/res_bitcoin_locale.cpp
 src/*.aps
 
-my-groestlcoin.sln
+my-shard.sln
 .vs
 *.cmd
 *.msi

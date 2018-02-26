@@ -7,7 +7,7 @@
 
 #if defined(HAVE_CONFIG_H)
 #	ifdef _WIN32
-#		include "grs-config.h"
+#		include "xsd-config.h"
 #	else
 #		include "config/bitcoin-config.h"
 #	endif
@@ -33,7 +33,7 @@
  */
 #define COPYRIGHT_YEAR 2017
 
-#define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers" //!!!P
+#define COPYRIGHT_HOLDERS_FINAL "The Shard Core developers" //!!!P
 
 #endif //HAVE_CONFIG_H
 
@@ -50,7 +50,7 @@
 #define COPYRIGHT_STR "2014-" STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
 
 /**
- * groestlcoind-res.rc includes this file, but it cannot cope with real c++ code.
+ * shardd-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */

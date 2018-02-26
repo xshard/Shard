@@ -13,7 +13,7 @@
 
 uint256 CBlockHeader::GetHash() const
 {
-	XCoin::CGroestlHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);	//GRS
+	XCoin::CGroestlHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);	//XSD
 	ss << *this;
 	return ss.GetHash();
 }

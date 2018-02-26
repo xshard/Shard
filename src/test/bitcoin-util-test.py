@@ -11,7 +11,7 @@ import buildenv
 import argparse
 import logging
 
-help_text="""Test framework for groestlcoin utils.
+help_text="""Test framework for shard utils.
 
 Runs automatically during `make check`.
 

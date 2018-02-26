@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Shard Core consensus library
+Description: Library for the Shard consensus protocol.
+Version: 2.13.3
+Libs: -L${libdir} -lshardconsensus
+Cflags: -I${includedir}
+Requires.private: libcrypto

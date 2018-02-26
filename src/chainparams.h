@@ -33,7 +33,7 @@ struct CCheckpointData {
     double fTransactionsPerDay;
 };
 
-typedef std::vector<std::vector<unsigned char> > CAlertKeys;	//GRS
+typedef std::vector<std::vector<unsigned char> > CAlertKeys;	//XSD
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the

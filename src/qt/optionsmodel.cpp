@@ -70,12 +70,12 @@ void OptionsModel::Init(bool resetSettings)
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::GRS);
+        settings.setValue("nDisplayUnit", BitcoinUnits::XSD);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
-        settings.setValue("strThirdPartyTxUrls", "https://chainz.cryptoid.info/grs/tx.dws?%s");
-    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "https://chainz.cryptoid.info/grs/tx.dws?%s").toString();
+        settings.setValue("strThirdPartyTxUrls", "https://chainz.cryptoid.info/xsd/tx.dws?%s");
+    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "https://chainz.cryptoid.info/xsd/tx.dws?%s").toString();
 
     if (!settings.contains("fCoinControlFeatures"))
         settings.setValue("fCoinControlFeatures", false);

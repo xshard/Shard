@@ -99,8 +99,8 @@ namespace boost {
 
 using namespace std;
 
-const char * const BITCOIN_CONF_FILENAME = "groestlcoin.conf";
-const char * const BITCOIN_PID_FILENAME = "groestlcoin.pid";
+const char * const BITCOIN_CONF_FILENAME = "shard.conf";
+const char * const BITCOIN_PID_FILENAME = "shard.pid";
 
 CCriticalSection cs_args;
 map<string, string> mapArgs;
@@ -146,7 +146,7 @@ public:
         // that the config appears to have been loaded and there are no modules/engines available.
         OPENSSL_no_config();
 
-#if defined(WIN32) && !UCFG_GRS_FAST
+#if defined(WIN32) && !UCFG_XSD_FAST
         // Seed OpenSSL PRNG with current contents of the screen
         RAND_screen();
 #endif
@@ -457,7 +457,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "groestlcoin";
+    const char* pszModule = "shard";
 #endif
     if (pex)
         return strprintf(
@@ -483,7 +483,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Groestlcoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Shard";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -493,10 +493,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Groestlcoin";
+    return pathRet / "Library/Application Support/Shard";
 #else
     // Unix
-    return pathRet / ".groestlcoin";
+    return pathRet / ".shard";
 #endif
 #endif
 }
@@ -556,7 +556,7 @@ void ReadConfigFile(const std::string& confPath)
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good())
-        return; // No groestlcoin.conf file is OK
+        return; // No shard.conf file is OK
 
     {
         LOCK(cs_args);
@@ -565,7 +565,7 @@ void ReadConfigFile(const std::string& confPath)
 
         for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
         {
-            // Don't overwrite existing settings so command line settings override groestlcoin.conf
+            // Don't overwrite existing settings so command line settings override shard.conf
             string strKey = string("-") + it->string_key;
             string strValue = it->value[0];
             InterpretNegativeSetting(strKey, strValue);
@@ -827,7 +827,7 @@ int GetNumCores()
 
 std::string CopyrightHolders(const std::string& strPrefix)
 {
-	std::string prefix2014 = strPrefix;					//GRS
+	std::string prefix2014 = strPrefix;					//XSD
 	size_t index2009 = strPrefix.find("2009");
 	if (index2009 != string::npos)
 		prefix2014.replace(index2009, 4, "2014");

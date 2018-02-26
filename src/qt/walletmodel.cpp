@@ -235,7 +235,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             total += subtotal;
         }
         else
-        {   // User-entered Groestlcoin address / amount:
+        {   // User-entered Shard address / amount:
             if(!validateAddress(rcp.address))
             {
                 return InvalidAddress;

@@ -1,4 +1,4 @@
-#include "grs-config.h"
+#include "xsd-config.h"
 
 #include <assert.h>
 #include <stdint.h>

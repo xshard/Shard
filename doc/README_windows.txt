@@ -1,4 +1,4 @@
-Groestlcoin Core 2.13.3
+Shard Core 2.13.3
 =====================
 
 Intro

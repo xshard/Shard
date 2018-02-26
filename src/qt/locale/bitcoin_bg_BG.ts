@@ -260,9 +260,9 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>shard-core</name>
     <message>
-        <source>Groestlcoin Core</source>
+        <source>Shard Core</source>
         <translation>Биткойн ядро</translation>
     </message>
     </context>

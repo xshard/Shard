@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Bitcoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#groestlcoin@freenode.net
-Source: https://github.com/groestlcoin/groestlcoin
+ irc://#shard@freenode.net
+Source: https://github.com/shard/shard
 
 Files: *
 Copyright: 2009-2016, Bitcoin Core Developers
 License: Expat
-Comment: The Bitcoin Core Developers encompasses the current developers listed on groestlcoin.org,
+Comment: The Bitcoin Core Developers encompasses the current developers listed on shard.org,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -52,7 +52,7 @@ Files: src/qt/res/icons/connect*.png
 Copyright: Marco Falke
            Luke Dashjr
 License: Expat
-Comment: Site: https://groestlcointalk.org/index.php?topic=15276.0
+Comment: Site: https://shardtalk.org/index.php?topic=15276.0
 
 Files: src/qt/res/icons/configure.png, src/qt/res/icons/quit.png,
       src/qt/res/icons/editcopy.png, src/qt/res/icons/editpaste.png,
@@ -62,10 +62,10 @@ Copyright: http://www.everaldo.com
 License: LGPL
 Comment: Icon Pack: Crystal SVG
 
-Files: src/qt/res/icons/groestlcoin.png, src/qt/res/icons/toolbar.png
+Files: src/qt/res/icons/shard.png, src/qt/res/icons/toolbar.png
 Copyright: Bitboy (optimized for 16x16 by Wladimir van der Laan)
 License: PUB-DOM
-Comment: Site: https://groestlcointalk.org/?topic=1756.0
+Comment: Site: https://shardtalk.org/?topic=1756.0
 
 Files:  scripts/img/reload.xcf, src/qt/res/movies/*.png
 Copyright: Everaldo (Everaldo Coelho)
@@ -76,7 +76,7 @@ Comment: Icon Pack: Kids
 Files: src/qt/res/images/splash2.jpg
 License: PUB-DOM
 Copyright: Crobbo (forum)
-Comment: Site: https://groestlcointalk.org/index.php?topic=32273.0
+Comment: Site: https://shardtalk.org/index.php?topic=32273.0
 
 
 License: Expat

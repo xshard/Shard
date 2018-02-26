@@ -17,7 +17,7 @@ const struct BIP9DeploymentInfo VersionBitsDeploymentInfo[Consensus::MAX_VERSION
     },
     {
         /*.name =*/ "segwit",
-        /*.gbt_force =*/ true,	//GRS
+        /*.gbt_force =*/ true,	//XSD
     },
 	{
 		/*.name =*/ "BIP65",

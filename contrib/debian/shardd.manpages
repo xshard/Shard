@@ -1,0 +1,3 @@
+debian/manpages/shardd.1
+debian/manpages/shard.conf.5
+debian/manpages/shard-cli.1

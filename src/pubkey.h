@@ -147,7 +147,7 @@ public:
     //! Get the 256-bit hash of this public key.
     uint256 GetHash() const
     {
-		return XCoin::HashGroestl(XCoin::ConstBuf(vch, vch+size()));	//GRS
+		return XCoin::HashGroestl(XCoin::ConstBuf(vch, vch+size()));	//XSD
 //        return Hash(vch, vch + size());
     }
 

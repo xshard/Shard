@@ -1,0 +1,33 @@
+# /etc/conf.d/shardd: config file for /etc/init.d/shardd
+
+# Config file location
+#GROESTLCOIND_CONFIGFILE="/etc/shard/shard.conf"
+
+# What directory to write pidfile to?  (created and owned by $GROESTLCOIND_USER)
+#GROESTLCOIND_PIDDIR="/var/run/shardd"
+
+# What filename to give the pidfile
+#GROESTLCOIND_PIDFILE="${GROESTLCOIND_PIDDIR}/shardd.pid"
+
+# Where to write shardd data (be mindful that the blockchain is large)
+#GROESTLCOIND_DATADIR="/var/lib/shardd"
+
+# User and group to own shardd process
+#GROESTLCOIND_USER="shard"
+#GROESTLCOIND_GROUP="shard"
+
+# Path to shardd executable
+#GROESTLCOIND_BIN="/usr/bin/shardd"
+
+# Nice value to run shardd under
+#GROESTLCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+GROESTLCOIND_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for shardd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+GROESTLCOIND_SIGTERM_TIMEOUT=60

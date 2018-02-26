@@ -1,9 +1,9 @@
 .PHONY: FORCE
 all: FORCE
-	$(MAKE) -C .. groestlcoin_qt test_groestlcoin_qt
+	$(MAKE) -C .. shard_qt test_shard_qt
 clean: FORCE
-	$(MAKE) -C .. groestlcoin_qt_clean test_groestlcoin_qt_clean
+	$(MAKE) -C .. shard_qt_clean test_shard_qt_clean
 check: FORCE
-	$(MAKE) -C .. test_groestlcoin_qt_check
-groestlcoin-qt groestlcoin-qt.exe: FORCE
-	 $(MAKE) -C .. groestlcoin_qt
+	$(MAKE) -C .. test_shard_qt_check
+shard-qt shard-qt.exe: FORCE
+	 $(MAKE) -C .. shard_qt

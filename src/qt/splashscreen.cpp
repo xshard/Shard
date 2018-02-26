@@ -74,11 +74,11 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 
     const QSize requiredSize(1024,1024);
     QPixmap icon(networkStyle->getAppIcon().pixmap(requiredSize));
-	//GRS  pixPaint.drawPixmap(rectIcon, icon);
+	//XSD  pixPaint.drawPixmap(rectIcon, icon);
 
 	// load the bitmap for writing some text over it
 	QRect rectSplash = pixPaint.viewport();
-	QPixmap pixmapSplash(GetBoolArg("-testnet", false) ? ":/images/splash_testnet" : ":/images/splash");	//GRS
+	QPixmap pixmapSplash(GetBoolArg("-testnet", false) ? ":/images/splash_testnet" : ":/images/splash");	//XSD
 	pixPaint.drawPixmap(rectSplash, pixmapSplash);
 
 

@@ -133,7 +133,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Groestlcoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Shard address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -152,7 +152,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("groestlcoin"))
+    if(!uri.isValid() || uri.scheme() != QString("shard"))
         return false;
 
     SendCoinsRecipient rv;
@@ -192,7 +192,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::GRS, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::XSD, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -216,9 +216,9 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("groestlcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("shard://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "groestlcoin:");
+        uri.replace(0, 10, "shard:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -226,12 +226,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("groestlcoin:%1").arg(info.address);
+    QString ret = QString("shard:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::GRS, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::XSD, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -605,10 +605,10 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Shard.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Groestlcoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Shard (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Shard (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -705,8 +705,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "groestlcoin.desktop";
-    return GetAutostartDir() / strprintf("groestlcoin-%s.lnk", chain);
+        return GetAutostartDir() / "shard.desktop";
+    return GetAutostartDir() / strprintf("shard-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
