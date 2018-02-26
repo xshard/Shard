@@ -306,7 +306,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 *   vMerkleTree: 4a5e1e
 */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
-	const char* pszTimestamp = "Pressure must be put on Vladimir Putin over Crimea";
+	const char* pszTimestamp = "Trump Jr: 'I love' Indian media, but US media? Not so much";
 	const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
 	return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -394,14 +394,14 @@ public:
 		*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
-		assert(consensus.hashGenesisBlock == uint256S("0x00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023"));
-		assert(genesis.hashMerkleRoot == uint256S("0x3ce968df58f9c8a752306c4b7264afab93149dbc578bd08a42c446caaa6628bb"));
+		assert(consensus.hashGenesisBlock == uint256S(""));
+		assert(genesis.hashMerkleRoot == uint256S("0x"));
 
-        vSeeds.push_back(CDNSSeedData("shard.org", "shard.org"));
-		vSeeds.push_back(CDNSSeedData("electrum1.shard.org", "electrum1.shard.org"));
-		vSeeds.push_back(CDNSSeedData("electrum2.shard.org", "electrum2.shard.org"));
+        vSeeds.push_back(CDNSSeedData("69.164.213.228", "69.164.213.228"));
+		vSeeds.push_back(CDNSSeedData("45.56.103.114", "45.56.103.114"));
+		/* vSeeds.push_back(CDNSSeedData("electrum2.shard.org", "electrum2.shard.org"));
 		vSeeds.push_back(CDNSSeedData("jswallet.shard.org", "jswallet.shard.org"));
-		vSeeds.push_back(CDNSSeedData("groestlsight.shard.org", "groestlsight.shard.org"));
+		vSeeds.push_back(CDNSSeedData("groestlsight.shard.org", "groestlsight.shard.org")); */
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -415,7 +415,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-
+/*
 #ifdef _MSC_VER //!!!
 		checkpointData = CCheckpointData {
 #else
@@ -432,6 +432,7 @@ public:
 			100.0     // * estimated number of transactions per day after checkpoint
 		};
     }
+    */
 };
 static CMainParams mainParams;
 
@@ -485,12 +486,12 @@ public:
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
 		genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36"));
+        assert(consensus.hashGenesisBlock == uint256S(""));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-		vSeeds.push_back(CDNSSeedData("testnet1.shard.org", "testnet1.shard.org"));
-		vSeeds.push_back(CDNSSeedData("testnet2.shard.org", "testnet2.shard.org"));
+		vSeeds.push_back(CDNSSeedData("69.164.213.228", "69.164.213.228"));
+		vSeeds.push_back(CDNSSeedData("45.56.103.114", "45.56.103.114"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -505,7 +506,7 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
 
-
+/*
 #ifdef _MSC_VER
 		checkpointData = CCheckpointData{
 #else
@@ -518,7 +519,7 @@ public:
 			10
 		};
 
-    }
+    }*/
 };
 static CTestNetParams testNetParams;
 
