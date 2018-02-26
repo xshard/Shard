@@ -431,8 +431,8 @@ public:
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			100.0     // * estimated number of transactions per day after checkpoint
 		};
-    }
-    */
+    */}
+    
 };
 static CMainParams mainParams;
 
@@ -518,8 +518,8 @@ public:
 			0,
 			10
 		};
-
-    }*/
+*/
+    }
 };
 static CTestNetParams testNetParams;
 
