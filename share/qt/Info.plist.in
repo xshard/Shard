@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>GroestlCoin-Qt</string>
+  <string>Shard-Qt</string>
   
   <key>CFBundleName</key>
-  <string>GroestlCoin-Qt</string>
+  <string>Shard-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.shard.GroestlCoin-Qt</string>
+  <string>org.shard.Shard-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.shard.GroestlCoinPayment</string>
+      <string>org.shard.ShardPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>shard</string>
@@ -60,7 +60,7 @@
       <key>UTTypeIdentifier</key>
       <string>org.shard.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>GroestlCoin payment request</string>
+      <string>Shard payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

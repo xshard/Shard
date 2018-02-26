@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=shardd
-# you can override the lockfile via GROESTLCOIND_LOCKFILE in /etc/sysconfig/shardd
-lockfile=${GROESTLCOIND_LOCKFILE-/var/lock/subsys/shardd}
+# you can override the lockfile via SHARDD_LOCKFILE in /etc/sysconfig/shardd
+lockfile=${SHARDD_LOCKFILE-/var/lock/subsys/shardd}
 
-# shardd defaults to /usr/bin/shardd, override with GROESTLCOIND_BIN
-shardd=${GROESTLCOIND_BIN-/usr/bin/shardd}
+# shardd defaults to /usr/bin/shardd, override with SHARDD_BIN
+shardd=${SHARDD_BIN-/usr/bin/shardd}
 
-# shardd opts default to -disablewallet, override with GROESTLCOIND_OPTS
-shardd_opts=${GROESTLCOIND_OPTS--disablewallet}
+# shardd opts default to -disablewallet, override with SHARDD_OPTS
+shardd_opts=${SHARDD_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "

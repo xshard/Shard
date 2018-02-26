@@ -17,10 +17,10 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libshardconsensus.pc
 endif
 
-GROESTLCOIND_BIN=$(top_builddir)/src/$(BITCOIN_DAEMON_NAME)$(EXEEXT)
-GROESTLCOIN_QT_BIN=$(top_builddir)/src/qt/$(BITCOIN_GUI_NAME)$(EXEEXT)
-GROESTLCOIN_CLI_BIN=$(top_builddir)/src/$(BITCOIN_CLI_NAME)$(EXEEXT)
-GROESTLCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
+SHARDD_BIN=$(top_builddir)/src/$(BITCOIN_DAEMON_NAME)$(EXEEXT)
+SHARD_QT_BIN=$(top_builddir)/src/qt/$(BITCOIN_GUI_NAME)$(EXEEXT)
+SHARD_CLI_BIN=$(top_builddir)/src/$(BITCOIN_CLI_NAME)$(EXEEXT)
+SHARD_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
 
 empty :=
 space := $(empty) $(empty)
@@ -67,11 +67,11 @@ COVERAGE_INFO = baseline_filtered_combined.info baseline.info \
 dist-hook:
 	-$(GIT) archive --format=tar HEAD -- src/clientversion.cpp | $(AMTAR) -C $(top_distdir) -xf -
 
-$(GROESTLCOIN_WIN_INSTALLER): all-recursive
+$(SHARD_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(GROESTLCOIND_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(GROESTLCOIN_QT_BIN) $(top_builddir)/release
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(GROESTLCOIN_CLI_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(SHARDD_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(SHARD_QT_BIN) $(top_builddir)/release
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(SHARD_CLI_BIN) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) -V2 $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 	@echo built $@
@@ -95,7 +95,7 @@ $(OSX_APP)/Contents/Resources/shard.icns: $(OSX_INSTALLER_ICONS)
 	$(MKDIR_P) $(@D)
 	$(INSTALL_DATA) $< $@
 
-$(OSX_APP)/Contents/MacOS/Shard-Qt: $(GROESTLCOIN_QT_BIN)
+$(OSX_APP)/Contents/MacOS/Shard-Qt: $(SHARD_QT_BIN)
 	$(MKDIR_P) $(@D)
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $< $@
 
@@ -156,16 +156,16 @@ appbundle: $(OSX_APP_BUILT)
 deploy: $(OSX_DMG)
 endif
 if TARGET_WINDOWS
-deploy: $(GROESTLCOIN_WIN_INSTALLER)
+deploy: $(SHARD_WIN_INSTALLER)
 endif
 
-$(GROESTLCOIN_QT_BIN): FORCE
+$(SHARD_QT_BIN): FORCE
 	$(MAKE) -C src qt/$(@F)
 
-$(GROESTLCOIND_BIN): FORCE
+$(SHARDD_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
-$(GROESTLCOIN_CLI_BIN): FORCE
+$(SHARD_CLI_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
 if USE_LCOV
@@ -225,7 +225,7 @@ dist_noinst_SCRIPTS = autogen.sh
 
 EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/rpc-tests.py qa/rpc-tests $(DIST_CONTRIB) $(DIST_DOCS) $(WINDOWS_PACKAGING) $(OSX_PACKAGING) $(BIN_CHECKS)
 
-CLEANFILES = $(OSX_DMG) $(GROESTLCOIN_WIN_INSTALLER)
+CLEANFILES = $(OSX_DMG) $(SHARD_WIN_INSTALLER)
 
 # This file is problematic for out-of-tree builds if it exists.
 DISTCLEANFILES = qa/pull-tester/tests_config.pyc

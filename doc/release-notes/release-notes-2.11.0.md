@@ -419,7 +419,7 @@ critical to Shard's consensus available to other applications, e.g.
 alternative node implementations.
 
 This library is called `libshardconsensus.so` (or, `.dll` for Windows).
-Its interface is defined in the C header [shardconsensus.h](https://github.com/GroestlCoin/shard/blob/master/src/script/shardconsensus.h).
+Its interface is defined in the C header [shardconsensus.h](https://github.com/Shard/shard/blob/master/src/script/shardconsensus.h).
 
 In its initial version the API includes two functions:
 

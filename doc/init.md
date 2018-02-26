@@ -104,7 +104,7 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 Copy shardd.init to /etc/init.d/shardd. Test by running `service shardd start`.
 
 Using this script, you can adjust the path and flags to the bitcoind program by
-setting the GROESTLCOIND and FLAGS environment variables in the file
+setting the SHARDD and FLAGS environment variables in the file
 /etc/sysconfig/bitcoind. You can also use the DAEMONOPTS environment variable here.
 
 4e) Mac OS X

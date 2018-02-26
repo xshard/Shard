@@ -162,7 +162,7 @@ UniValue getaccountaddress(const JSONRPCRequest& request)
     if (request.fHelp || request.params.size() != 1)
         throw runtime_error(
             "getaccountaddress \"account\"\n"
-            "\nDEPRECATED. Returns the current GroestlCoin address for receiving payments to this account.\n"
+            "\nDEPRECATED. Returns the current Shard address for receiving payments to this account.\n"
             "\nArguments:\n"
             "1. \"account\"       (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
             "\nResult:\n"
@@ -194,7 +194,7 @@ UniValue getrawchangeaddress(const JSONRPCRequest& request)
     if (request.fHelp || request.params.size() > 1)
         throw runtime_error(
             "getrawchangeaddress\n"
-            "\nReturns a new GroestlCoin address, for receiving change.\n"
+            "\nReturns a new Shard address, for receiving change.\n"
             "This is for use with raw transactions, NOT normal use.\n"
             "\nResult:\n"
             "\"address\"    (string) The address\n"
@@ -242,7 +242,7 @@ UniValue setaccount(const JSONRPCRequest& request)
 
     CBitcoinAddress address(request.params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid GroestlCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Shard address");
 
     string strAccount;
     if (request.params.size() > 1)
@@ -289,7 +289,7 @@ UniValue getaccount(const JSONRPCRequest& request)
 
     CBitcoinAddress address(request.params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid GroestlCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Shard address");
 
     string strAccount;
     map<CTxDestination, CAddressBookData>::iterator mi = pwalletMain->mapAddressBook.find(address.Get());
@@ -350,7 +350,7 @@ static void SendMoney(const CTxDestination &address, CAmount nValue, bool fSubtr
     if (pwalletMain->GetBroadcastTransactions() && !g_connman)
         throw JSONRPCError(RPC_CLIENT_P2P_DISABLED, "Error: Peer-to-peer functionality missing or disabled");
 
-    // Parse GroestlCoin address
+    // Parse Shard address
     CScript scriptPubKey = GetScriptForDestination(address);
 
     // Create and send the transaction
@@ -406,7 +406,7 @@ UniValue sendtoaddress(const JSONRPCRequest& request)
 
     CBitcoinAddress address(request.params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid GroestlCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Shard address");
 
     // Amount
     CAmount nAmount = AmountFromValue(request.params[1]);
@@ -493,7 +493,7 @@ UniValue signmessage(const JSONRPCRequest& request)
             "\nSign a message with the private key of an address"
             + HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
-            "1. \"shardaddress\"  (string, required) The GroestlCoin address to use for the private key.\n"
+            "1. \"shardaddress\"  (string, required) The Shard address to use for the private key.\n"
             "2. \"message\"         (string, required) The message to create a signature of.\n"
             "\nResult:\n"
             "\"signature\"          (string) The signature of the message encoded in base 64\n"
@@ -548,7 +548,7 @@ UniValue getreceivedbyaddress(const JSONRPCRequest& request)
             "getreceivedbyaddress \"shardaddress\" ( minconf )\n"
             "\nReturns the total amount received by the given shardaddress in transactions with at least minconf confirmations.\n"
             "\nArguments:\n"
-            "1. \"shardaddress\"  (string, required) The GroestlCoin address for transactions.\n"
+            "1. \"shardaddress\"  (string, required) The Shard address for transactions.\n"
             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
             "amount   (numeric) The total amount in " + CURRENCY_UNIT + " received at this address.\n"
@@ -565,10 +565,10 @@ UniValue getreceivedbyaddress(const JSONRPCRequest& request)
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
-    // GroestlCoin address
+    // Shard address
     CBitcoinAddress address = CBitcoinAddress(request.params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid GroestlCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Shard address");
     CScript scriptPubKey = GetScriptForDestination(address.Get());
     if (!IsMine(*pwalletMain, scriptPubKey))
         return ValueFromAmount(0);
@@ -799,7 +799,7 @@ UniValue sendfrom(const JSONRPCRequest& request)
     if (request.fHelp || request.params.size() < 3 || request.params.size() > 6)
         throw runtime_error(
             "sendfrom \"fromaccount\" \"toshardaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
-            "\nDEPRECATED (use sendtoaddress). Sent an amount from an account to a GroestlCoin address."
+            "\nDEPRECATED (use sendtoaddress). Sent an amount from an account to a Shard address."
             + HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
             "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
@@ -827,7 +827,7 @@ UniValue sendfrom(const JSONRPCRequest& request)
     string strAccount = AccountFromValue(request.params[0]);
     CBitcoinAddress address(request.params[1].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid GroestlCoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Shard address");
     CAmount nAmount = AmountFromValue(request.params[2]);
     if (nAmount <= 0)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount for send");
@@ -869,7 +869,7 @@ UniValue sendmany(const JSONRPCRequest& request)
             "1. \"fromaccount\"         (string, required) DEPRECATED. The account to send the funds from. Should be \"\" for the default account\n"
             "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
             "    {\n"
-            "      \"address\":amount   (numeric or string) The GroestlCoin address is the key, the numeric amount (can be string) in " + CURRENCY_UNIT + " is the value\n"
+            "      \"address\":amount   (numeric or string) The Shard address is the key, the numeric amount (can be string) in " + CURRENCY_UNIT + " is the value\n"
             "      ,...\n"
             "    }\n"
             "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
@@ -925,7 +925,7 @@ UniValue sendmany(const JSONRPCRequest& request)
     {
         CBitcoinAddress address(name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid GroestlCoin address: ")+name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Shard address: ")+name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+name_);
@@ -984,14 +984,14 @@ UniValue addmultisigaddress(const JSONRPCRequest& request)
     {
         string msg = "addmultisigaddress nrequired [\"key\",...] ( \"account\" )\n"
             "\nAdd a nrequired-to-sign multisignature address to the wallet.\n"
-            "Each key is a GroestlCoin address or hex-encoded public key.\n"
+            "Each key is a Shard address or hex-encoded public key.\n"
             "If 'account' is specified (DEPRECATED), assign address to that account.\n"
 
             "\nArguments:\n"
             "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-            "2. \"keysobject\"   (string, required) A json array of GroestlCoin addresses or hex-encoded public keys\n"
+            "2. \"keysobject\"   (string, required) A json array of Shard addresses or hex-encoded public keys\n"
             "     [\n"
-            "       \"address\"  (string) GroestlCoin address or hex-encoded public key\n"
+            "       \"address\"  (string) Shard address or hex-encoded public key\n"
             "       ...,\n"
             "     ]\n"
             "3. \"account\"      (string, optional) DEPRECATED. An account to assign the addresses to.\n"
@@ -2359,9 +2359,9 @@ UniValue listunspent(const JSONRPCRequest& request)
             "\nArguments:\n"
             "1. minconf          (numeric, optional, default=1) The minimum confirmations to filter\n"
             "2. maxconf          (numeric, optional, default=9999999) The maximum confirmations to filter\n"
-            "3. \"addresses\"    (string) A json array of GroestlCoin addresses to filter\n"
+            "3. \"addresses\"    (string) A json array of Shard addresses to filter\n"
             "    [\n"
-            "      \"address\"   (string) GroestlCoin address\n"
+            "      \"address\"   (string) Shard address\n"
             "      ,...\n"
             "    ]\n"
             "\nResult\n"
@@ -2404,7 +2404,7 @@ UniValue listunspent(const JSONRPCRequest& request)
             const UniValue& input = inputs[idx];
             CBitcoinAddress address(input.get_str());
             if (!address.IsValid())
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid GroestlCoin address: ")+input.get_str());
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Shard address: ")+input.get_str());
             if (setAddress.count(address))
                 throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+input.get_str());
            setAddress.insert(address);

@@ -10,4 +10,4 @@ CURDIR=$(cd $(dirname "$0"); pwd)
 # Grab the value of $REAL_BITCOINCLI which may be shard-cli.exe.
 . "${CURDIR}/tests-config.sh"
 
-"${REAL_GROESTLCOINCLI}" "$@" | sed 's/\r//'
+"${REAL_SHARDCLI}" "$@" | sed 's/\r//'

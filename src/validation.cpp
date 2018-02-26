@@ -89,7 +89,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "GroestlCoin Signed Message:\n";
+const string strMessageMagic = "Shard Signed Message:\n";
 
 // Internal stuff
 namespace {

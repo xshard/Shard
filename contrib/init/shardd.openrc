@@ -3,40 +3,40 @@
 # backward compatibility for existing gentoo layout 
 #
 if [ -d "/var/lib/shard/.shard" ]; then
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/shard/.shard"
+	SHARDD_DEFAULT_DATADIR="/var/lib/shard/.shard"
 else
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/shardd"
+	SHARDD_DEFAULT_DATADIR="/var/lib/shardd"
 fi
 
-GROESTLCOIND_CONFIGFILE=${GROESTLCOIND_CONFIGFILE:-/etc/shard/shard.conf}
-GROESTLCOIND_PIDDIR=${GROESTLCOIND_PIDDIR:-/var/run/shardd}
-GROESTLCOIND_PIDFILE=${GROESTLCOIND_PIDFILE:-${GROESTLCOIND_PIDDIR}/shardd.pid}
-GROESTLCOIND_DATADIR=${GROESTLCOIND_DATADIR:-${GROESTLCOIND_DEFAULT_DATADIR}}
-GROESTLCOIND_USER=${GROESTLCOIND_USER:-${GROESTLCOIN_USER:-shard}}
-GROESTLCOIND_GROUP=${GROESTLCOIND_GROUP:-shard}
-GROESTLCOIND_BIN=${GROESTLCOIND_BIN:-/usr/bin/shardd}
-GROESTLCOIND_NICE=${GROESTLCOIND_NICE:-${NICELEVEL:-0}}
-GROESTLCOIND_OPTS="${GROESTLCOIND_OPTS:-${GROESTLCOIN_OPTS}}"
+SHARDD_CONFIGFILE=${SHARDD_CONFIGFILE:-/etc/shard/shard.conf}
+SHARDD_PIDDIR=${SHARDD_PIDDIR:-/var/run/shardd}
+SHARDD_PIDFILE=${SHARDD_PIDFILE:-${SHARDD_PIDDIR}/shardd.pid}
+SHARDD_DATADIR=${SHARDD_DATADIR:-${SHARDD_DEFAULT_DATADIR}}
+SHARDD_USER=${SHARDD_USER:-${SHARD_USER:-shard}}
+SHARDD_GROUP=${SHARDD_GROUP:-shard}
+SHARDD_BIN=${SHARDD_BIN:-/usr/bin/shardd}
+SHARDD_NICE=${SHARDD_NICE:-${NICELEVEL:-0}}
+SHARDD_OPTS="${SHARDD_OPTS:-${SHARD_OPTS}}"
 
-name="GroestlCoin Core Daemon"
-description="GroestlCoin cryptocurrency P2P network daemon"
+name="Shard Core Daemon"
+description="Shard cryptocurrency P2P network daemon"
 
 command="/usr/bin/shardd"
-command_args="-pid=\"${GROESTLCOIND_PIDFILE}\" \
-		-conf=\"${GROESTLCOIND_CONFIGFILE}\" \
-		-datadir=\"${GROESTLCOIND_DATADIR}\" \
+command_args="-pid=\"${SHARDD_PIDFILE}\" \
+		-conf=\"${SHARDD_CONFIGFILE}\" \
+		-datadir=\"${SHARDD_DATADIR}\" \
 		-daemon \
-		${GROESTLCOIND_OPTS}"
+		${SHARDD_OPTS}"
 
-required_files="${GROESTLCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${GROESTLCOIND_USER} \
-			-N ${GROESTLCOIND_NICE} -w 2000"
-pidfile="${GROESTLCOIND_PIDFILE}"
+required_files="${SHARDD_CONFIGFILE}"
+start_stop_daemon_args="-u ${SHARDD_USER} \
+			-N ${SHARDD_NICE} -w 2000"
+pidfile="${SHARDD_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${GROESTLCOIND_SIGTERM_TIMEOUT}"
+retry="${SHARDD_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,29 +50,29 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP}" \
-	"${GROESTLCOIND_DATADIR}"
+	--owner "${SHARDD_USER}:${SHARDD_GROUP}" \
+	"${SHARDD_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP}" \
-	"${GROESTLCOIND_PIDDIR}"
+	--owner "${SHARDD_USER}:${SHARDD_GROUP}" \
+	"${SHARDD_PIDDIR}"
 
 	checkpath -f \
-	-o ${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP} \
+	-o ${SHARDD_USER}:${SHARDD_GROUP} \
 	-m 0660 \
-	${GROESTLCOIND_CONFIGFILE}
+	${SHARDD_CONFIGFILE}
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${GROESTLCOIND_CONFIGFILE}" ; then
+	if ! grep -qs '^rpcpassword=' "${SHARDD_CONFIGFILE}" ; then
 		eerror ""
 		eerror "ERROR: You must set a secure rpcpassword to run shardd."
-		eerror "The setting must appear in ${GROESTLCOIND_CONFIGFILE}"
+		eerror "The setting must appear in ${SHARDD_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."
@@ -84,7 +84,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"GroestlCoin Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Shard Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1
