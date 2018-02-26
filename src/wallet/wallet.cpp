@@ -6,7 +6,7 @@
 #include "wallet/wallet.h"
 
 #include "base58.h"
-//#include "checkpoints.h"
+#include "checkpoints.h"
 #include "chain.h"
 #include "wallet/coincontrol.h"
 #include "consensus/consensus.h"

@@ -417,7 +417,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-/*
+
 #ifdef _MSC_VER //!!!
 		checkpointData = CCheckpointData {
 #else
@@ -433,7 +433,7 @@ public:
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			100.0     // * estimated number of transactions per day after checkpoint
 		};
-    */}
+    }
     
 };
 static CMainParams mainParams;
@@ -509,7 +509,7 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
 
-/*
+
 #ifdef _MSC_VER
 		checkpointData = CCheckpointData{
 #else
@@ -521,7 +521,7 @@ public:
 			0,
 			10
 		};
-*/
+
     }
 };
 static CTestNetParams testNetParams;
