@@ -396,8 +396,8 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
             /*printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
             printf("%s\n", genesis.hashMerkleRoot.ToString().c_str()); */
-		assert(consensus.hashGenesisBlock == uint256S("90aac702d3c49da1683ad70dd6179171b8140958e29320a6fc05cb3e0e6b59f9"));
-		assert(genesis.hashMerkleRoot == uint256S("4a9e16591b47700a2cfdaa157305f05ee24c5c3ee6edfa5503fdc0d2384e0107"));
+		assert(consensus.hashGenesisBlock == uint256S("0x90aac702d3c49da1683ad70dd6179171b8140958e29320a6fc05cb3e0e6b59f9"));
+		assert(genesis.hashMerkleRoot == uint256S("0x4a9e16591b47700a2cfdaa157305f05ee24c5c3ee6edfa5503fdc0d2384e0107"));
 
         vSeeds.push_back(CDNSSeedData("69.164.213.228", "69.164.213.228"));
 		vSeeds.push_back(CDNSSeedData("45.56.103.114", "45.56.103.114"));
@@ -489,7 +489,7 @@ public:
 		genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
             /*printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());*/
-        assert(consensus.hashGenesisBlock == uint256S("454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
