@@ -485,7 +485,7 @@ public:
 		genesis = CreateGenesisBlock(1519715344, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
             printf("Testnet Genesis: %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0x08d61d2269032ae690ff96703e3fa7c2270f3c2a8503e4639237143cdc6474a0"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -512,7 +512,7 @@ public:
 		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
-			(0, uint256S("0x")),
+			(0, uint256S("0x08d61d2269032ae690ff96703e3fa7c2270f3c2a8503e4639237143cdc6474a0")),
 			1519715344,
 			0,
 			10
