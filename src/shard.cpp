@@ -484,8 +484,8 @@ public:
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
 		genesis = CreateGenesisBlock(1519722675, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-            printf("Testnet: %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
+            /*printf("Testnet: %s\n", consensus.hashGenesisBlock.ToString().c_str());*/
+        assert(consensus.hashGenesisBlock == uint256S("0x7a88ae20a74c53d9e448cb5d4c76bb3c7c8bd6202c499a87c2820bff9bed0dd6"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -512,7 +512,7 @@ public:
 		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
-			(1519722675, uint256S("0x")),
+			(1519722675, uint256S("0x7a88ae20a74c53d9e448cb5d4c76bb3c7c8bd6202c499a87c2820bff9bed0dd6")),
 			0,
 			0,
 			0
