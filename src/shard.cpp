@@ -371,7 +371,7 @@ public:
         nPruneAfterHeight = 10000000;
 
 
-		genesis = CreateGenesisBlock(1395342829, 220035, 0x1e0fffff, 112, 0);
+		genesis = CreateGenesisBlock(1519715344, 220035, 0x1e0fffff, 112, 0);
 
         /**
          * Build the genesis block. Note that the output of its generation
@@ -394,10 +394,10 @@ public:
 		*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
-            /*printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
-            printf("%s\n", genesis.hashMerkleRoot.ToString().c_str()); */
-		assert(consensus.hashGenesisBlock == uint256S("0x90aac702d3c49da1683ad70dd6179171b8140958e29320a6fc05cb3e0e6b59f9"));
-		assert(genesis.hashMerkleRoot == uint256S("0x4a9e16591b47700a2cfdaa157305f05ee24c5c3ee6edfa5503fdc0d2384e0107"));
+            printf("Genesis: %s\n", consensus.hashGenesisBlock.ToString().c_str());
+            printf("Merkle: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		assert(consensus.hashGenesisBlock == uint256S("0x"));
+		assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         vSeeds.push_back(CDNSSeedData("node1.xshard.org", "node1.xshard.org"));
 		vSeeds.push_back(CDNSSeedData("node2.xshard.org", "node2.xshard.org"));
@@ -424,8 +424,8 @@ public:
         checkpointData = (CCheckpointData){
 #endif
             boost::assign::map_list_of
-            (0, uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f")),
-            1519695711,
+            (0, uint256S("0x")),
+            1519715344,
             0,
             10
         };
@@ -484,8 +484,8 @@ public:
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
 		genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-            /*printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());*/
-        assert(consensus.hashGenesisBlock == uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f"));
+            printf("Testnet Genesis: %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -512,8 +512,8 @@ public:
 		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
-			(0, uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f")),
-			1519695711,
+			(0, uint256S("0x")),
+			1519715344,
 			0,
 			10
 		};
