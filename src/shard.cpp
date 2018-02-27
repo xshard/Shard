@@ -418,23 +418,19 @@ public:
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
 
-#ifdef _MSC_VER //!!!
-		checkpointData = CCheckpointData {
+#ifdef _MSC_VER
+        checkpointData = CCheckpointData{
 #else
-		checkpointData = (CCheckpointData){
+        checkpointData = (CCheckpointData){
 #endif
-			boost::assign::map_list_of
-			(28888, uint256S("0x00000000000228ce19f55cf0c45e04c7aa5a6a873ed23902b3654c3c49884502"))
-			(58888, uint256S("0x0000000000dd85f4d5471febeb174a3f3f1598ab0af6616e9f266b56272274ef"))
-			(111111, uint256S("0x00000000013de206275ee83f93bee57622335e422acbf126a37020484c6e113c"))
-			(669286, uint256S("0x000000001727e1d13ca7272dee43996efdfc6b3b57a6d2b0c48257ef52f40bcb")),
-			1436539093, // * UNIX timestamp of last checkpoint block
-			0,   // * total number of transactions between genesis and last checkpoint
-						//   (the tx=... number in the SetBestChain debug.log lines)
-			100.0     // * estimated number of transactions per day after checkpoint
-		};
+            boost::assign::map_list_of
+            (0, uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f")),
+            1519695711,
+            0,
+            10
+        };
+
     }
-    
 };
 static CMainParams mainParams;
 
@@ -516,8 +512,8 @@ public:
 		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
-			(0, uint256S("000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")),
-			1440000002,
+			(0, uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f")),
+			1519695711,
 			0,
 			10
 		};
