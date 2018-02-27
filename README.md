@@ -12,8 +12,6 @@ http://www.xshard.org
 
 The algorithm was written as a candidate for sha3
 
-https://bitcointalk.org/index.php?topic=
-
 Copyright (c) 2009-2017 The Bitcoin Core Developers
 
 Copyright (c) 2014-2017 The Shard Core Developers
