@@ -396,8 +396,8 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
             printf("Genesis: %s\n", consensus.hashGenesisBlock.ToString().c_str());
             printf("Merkle: %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		assert(consensus.hashGenesisBlock == uint256S("0x"));
-		assert(genesis.hashMerkleRoot == uint256S("0x"));
+		assert(consensus.hashGenesisBlock == uint256S("0x971c5d9587329e757990d714e84770ce4fd34b3947b542cdf23f9457d1ec8d13"));
+		assert(genesis.hashMerkleRoot == uint256S("0x4a9e16591b47700a2cfdaa157305f05ee24c5c3ee6edfa5503fdc0d2384e0107"));
 
         vSeeds.push_back(CDNSSeedData("node1.xshard.org", "node1.xshard.org"));
 		vSeeds.push_back(CDNSSeedData("node2.xshard.org", "node2.xshard.org"));
@@ -424,7 +424,7 @@ public:
         checkpointData = (CCheckpointData){
 #endif
             boost::assign::map_list_of
-            (0, uint256S("0x")),
+            (0, uint256S("0x971c5d9587329e757990d714e84770ce4fd34b3947b542cdf23f9457d1ec8d13")),
             1519715344,
             0,
             10
