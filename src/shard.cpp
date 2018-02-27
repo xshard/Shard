@@ -306,7 +306,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 *   vMerkleTree: 4a5e1e
 */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
-	const char* pszTimestamp = "Campaigning for Egypt's presidential vote underway";
+	const char* pszTimestamp = "Sheriff says he got 23 calls about shooter's family, but records show more";
 	const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
 	return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -394,10 +394,10 @@ public:
 		*/
 
         consensus.hashGenesisBlock = genesis.GetHash();
-            /*printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
-            printf("%s\n", genesis.hashMerkleRoot.ToString().c_str()); */
-		assert(consensus.hashGenesisBlock == uint256S("0x90aac702d3c49da1683ad70dd6179171b8140958e29320a6fc05cb3e0e6b59f9"));
-		assert(genesis.hashMerkleRoot == uint256S("0x4a9e16591b47700a2cfdaa157305f05ee24c5c3ee6edfa5503fdc0d2384e0107"));
+            printf("Genesis: %s\n", consensus.hashGenesisBlock.ToString().c_str());
+            printf("Merkle: %s\n", genesis.hashMerkleRoot.ToString().c_str()); 
+		assert(consensus.hashGenesisBlock == uint256S("0x"));
+		assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         vSeeds.push_back(CDNSSeedData("node1.xshard.org", "node1.xshard.org"));
 		vSeeds.push_back(CDNSSeedData("node2.xshard.org", "node2.xshard.org"));
@@ -424,7 +424,7 @@ public:
         checkpointData = (CCheckpointData){
 #endif
             boost::assign::map_list_of
-            (1519722675, uint256S("0x90aac702d3c49da1683ad70dd6179171b8140958e29320a6fc05cb3e0e6b59f9")),
+            (1519722675, uint256S("0x")),
             0,
             0,
             0
@@ -485,7 +485,7 @@ public:
 		genesis = CreateGenesisBlock(1519722675, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
             /*printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());*/
-        assert(consensus.hashGenesisBlock == uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -512,7 +512,7 @@ public:
 		checkpointData = (CCheckpointData){
 #endif
 			boost::assign::map_list_of
-			(1519722675, uint256S("0x454eade1c21d1f5bb15184549fae6e4e8b2ea87bdad6dd0703cb6343e588059f")),
+			(1519722675, uint256S("0x")),
 			0,
 			0,
 			0
