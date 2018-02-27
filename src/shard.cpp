@@ -482,7 +482,7 @@ public:
 		*/
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-		genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
+		genesis = CreateGenesisBlock(1519715344, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
             printf("Testnet Genesis: %s\n", consensus.hashGenesisBlock.ToString().c_str());
         assert(consensus.hashGenesisBlock == uint256S("0x"));
