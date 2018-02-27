@@ -36,7 +36,7 @@
 #define COPYRIGHT_YEAR 2017
 
 /* Define to 1 to enable wallet functions */
-#define ENABLE_WALLET 1
+/* #undef ENABLE_WALLET */
 
 /* Define to 1 to enable ZMQ functions */
 #define ENABLE_ZMQ 1
